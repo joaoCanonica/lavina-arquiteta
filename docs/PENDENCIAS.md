@@ -15,3 +15,15 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **pnpm 12 e idade mínima de versão.** O pnpm 12 recusa por padrão versões publicadas há pouco;
   o `pnpm-workspace.yaml` lista as exceções que ele próprio gravou (astro 7.4.2 e pacotes
   `@astrojs/*`, publicados nesta semana).
+
+## Sessão 1 — Mídia
+
+- **Pares Projeto × Executado do consultório invertidos no prompt.** O prompt indicava 588442716 → 627064897 e 598761174 → 625681099; pelo ângulo real (conferido em sobreposição) os pares são 588442716 → 625681099 e 598761174 → 627064897. Registrado em `docs/dados/pares.json`.
+- **Par Antes × Depois principal da cozinha trocado.** 730173676 tem o selo queimado no centro; o recorte não salva o par. Usado 730561497 → 729424348 (mesma janela e canto). Pedir a foto sem selo.
+- **Termo vetado em vídeo:** a legenda queimada de `apresentacao-principal.mp4` diz "o melhor". A trava atual é do HTML; decidir na sessão 9 se o vídeo entra assim.
+- **Monograma em marca d'água** em `mudanca-cozinha.mp4` e `novo-modelo.mp4`: confirmar se é a marca atual.
+- **Autoria das fotos de obra:** "a confirmar" no manifesto (consultório, banheiro, cozinha).
+- **Projetos que só existem em vídeo** (living/jantar paramétrico, quarto e closet, cozinha farmhouse) ganharam ids provisórios no manifesto (`living-jantar-parametrico`, `quarto-closet`, `cozinha-farmhouse`) e não têm créditos de projeto próprios além de "Lavina | Coletivo de Arquitetura"; confirmar cidade/ano/créditos (sessão 2).
+- **Lista completa do que pedir ao João:** `docs/MIDIA_CATALOGO.md`, seção final.
+- **Verticais não corrigidas** em 627064897, 627098371, 641767635, 729424348, 730513804 e 641226479: a estimativa automática pedia cortar 20–50% da foto. Corrigidas (35%) só 625681099, 627664561 e 728943785. Para as demais, marcar linhas verticais à mão numa sessão L, se o João quiser.
+- **Quadros quase repetidos:** `quadro-mostrando-quarto-01/02` e `quadro-novo-modelo-03/04` são muito parecidos; escolher um de cada na sessão 6.

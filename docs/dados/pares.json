@@ -1,0 +1,506 @@
+{
+  "versao": 1,
+  "metodo": "Pontos de referência marcados à mão (em % da largura/altura de cada original) sobre folhas com grade; o alinhamento resolve escala + translação por mínimos quadrados (sem rotação, sem perspectiva) e recorta o maior retângulo comum na proporção que perde menos área (4:5 ou 3:2). Gerado por scripts/alinhar-pares.mjs; exportado por scripts/prepare-media.mjs.",
+  "pares": [
+    {
+      "id": "consultorio-projeto-executado-mesa",
+      "tipo": "projeto-executado",
+      "projeto": "consultorio-jonny-arruda",
+      "aceito": true,
+      "semelhanca": "alta",
+      "nota": "Mesmo canto: armário superior curvo, pia com dispenser, estantes iluminadas e mesa oval vista da esquerda. O prompt indicava 588442716 → 627064897; pelo ângulo real o par é 588442716 → 625681099.",
+      "a": {
+        "numero": "588442716",
+        "pontos": [
+          [
+            10.4,
+            56
+          ],
+          [
+            22.3,
+            56
+          ],
+          [
+            32.3,
+            59
+          ],
+          [
+            32.3,
+            37.4
+          ]
+        ]
+      },
+      "b": {
+        "numero": "625681099",
+        "pontos": [
+          [
+            13.9,
+            55
+          ],
+          [
+            32,
+            55
+          ],
+          [
+            43.1,
+            58.3
+          ],
+          [
+            43.1,
+            39.3
+          ]
+        ]
+      },
+      "proporcao": "4:5",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 1.3474,
+        "translacaoPx": [
+          4,
+          159
+        ],
+        "residuoPx": 16,
+        "residuoPct": 0.9,
+        "areaMantidaA": 0.64,
+        "areaMantidaB": 0.72
+      },
+      "recorte": {
+        "a": {
+          "x": 72,
+          "y": 0,
+          "largura": 922,
+          "altura": 1152
+        },
+        "b": {
+          "x": 101,
+          "y": 159,
+          "largura": 1242,
+          "altura": 1552
+        },
+        "larguraExportacao": 922
+      }
+    },
+    {
+      "id": "consultorio-projeto-executado-estantes",
+      "tipo": "projeto-executado",
+      "projeto": "consultorio-jonny-arruda",
+      "aceito": true,
+      "semelhanca": "média",
+      "nota": "Mesmas estantes, janela com persiana e mesa; a foto foi feita mais perto e mais à direita. O prompt indicava 598761174 → 625681099; pelo ângulo real o par é 598761174 → 627064897.",
+      "a": {
+        "numero": "598761174",
+        "pontos": [
+          [
+            59.7,
+            59
+          ],
+          [
+            45,
+            59
+          ],
+          [
+            77.5,
+            22
+          ],
+          [
+            59.7,
+            21
+          ]
+        ]
+      },
+      "b": {
+        "numero": "627064897",
+        "pontos": [
+          [
+            42.2,
+            55
+          ],
+          [
+            15,
+            55
+          ],
+          [
+            75.2,
+            19
+          ],
+          [
+            42.2,
+            18
+          ]
+        ]
+      },
+      "proporcao": "4:5",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 1.8259,
+        "translacaoPx": [
+          -962,
+          -54
+        ],
+        "residuoPx": 6,
+        "residuoPct": 0.3,
+        "areaMantidaA": 0.53,
+        "areaMantidaB": 0.95
+      },
+      "recorte": {
+        "a": {
+          "x": 530,
+          "y": 29,
+          "largura": 781,
+          "altura": 977
+        },
+        "b": {
+          "x": 7,
+          "y": 0,
+          "largura": 1427,
+          "altura": 1783
+        },
+        "larguraExportacao": 781
+      }
+    },
+    {
+      "id": "cozinha-projeto-executado-fornos",
+      "tipo": "projeto-executado",
+      "projeto": "cozinha-jc",
+      "aceito": true,
+      "semelhanca": "média",
+      "nota": "Render frontal × foto em diagonal: mesma janela, pia, cooktop, torre de fornos e refrigerador. Alinhado pela torre de fornos; a diagonal da foto não é corrigida (não se inventa perspectiva). Os outros 4 renders olham de ângulos sem foto correspondente.",
+      "a": {
+        "numero": "713283758",
+        "pontos": [
+          [
+            58.7,
+            33.3
+          ],
+          [
+            58.7,
+            64.6
+          ],
+          [
+            72.5,
+            29.5
+          ],
+          [
+            8.5,
+            40
+          ]
+        ]
+      },
+      "b": {
+        "numero": "729424348",
+        "pontos": [
+          [
+            57.7,
+            33.9
+          ],
+          [
+            57.7,
+            57.6
+          ],
+          [
+            75.2,
+            31
+          ],
+          [
+            6.7,
+            41.4
+          ]
+        ]
+      },
+      "proporcao": "3:2",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 2.3975,
+        "translacaoPx": [
+          -170,
+          747
+        ],
+        "residuoPx": 139,
+        "residuoPct": 3.4,
+        "areaMantidaA": 0.84,
+        "areaMantidaB": 0.5
+      },
+      "recorte": {
+        "a": {
+          "x": 71,
+          "y": 30,
+          "largura": 1261,
+          "altura": 841
+        },
+        "b": {
+          "x": 0,
+          "y": 819,
+          "largura": 3024,
+          "altura": 2016
+        },
+        "larguraExportacao": 1261
+      }
+    },
+    {
+      "id": "cozinha-antes-depois",
+      "tipo": "antes-depois",
+      "projeto": "cozinha-jc",
+      "aceito": true,
+      "semelhanca": "alta",
+      "nota": "Mesma janela e mesmo canto, câmera quase no mesmo ponto. Substitui o par 730561497 → 730173676: no 730173676 o selo queimado cobre o centro e o recorte que o elimina sobra uma faixa de 33% da largura, sem a pia nem a janela.",
+      "a": {
+        "numero": "730561497",
+        "pontos": [
+          [
+            35,
+            29
+          ],
+          [
+            35,
+            47
+          ],
+          [
+            36.5,
+            52.5
+          ]
+        ]
+      },
+      "b": {
+        "numero": "729424348",
+        "pontos": [
+          [
+            28.6,
+            26.5
+          ],
+          [
+            28.6,
+            46
+          ],
+          [
+            30,
+            50
+          ]
+        ]
+      },
+      "proporcao": "4:5",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 1.0204,
+        "translacaoPx": [
+          -216,
+          -116
+        ],
+        "residuoPx": 27,
+        "residuoPct": 0.7,
+        "areaMantidaA": 0.81,
+        "areaMantidaB": 0.84
+      },
+      "recorte": {
+        "a": {
+          "x": 212,
+          "y": 314,
+          "largura": 2812,
+          "altura": 3515
+        },
+        "b": {
+          "x": 0,
+          "y": 205,
+          "largura": 2869,
+          "altura": 3587
+        },
+        "larguraExportacao": 2812
+      }
+    },
+    {
+      "id": "consultorio-antes-depois-pia",
+      "tipo": "antes-depois",
+      "projeto": "consultorio-jonny-arruda",
+      "aceito": true,
+      "semelhanca": "média",
+      "nota": "Mesma parede da pia com o dispenser à esquerda e o canto à direita. A foto antiga é grande-angular (paredes fogem mais). Na sobreposição, pia e dispenser coincidem; o canto do fundo desvia ~3% da largura.",
+      "a": {
+        "numero": "626043387",
+        "pontos": [
+          [
+            24,
+            54
+          ],
+          [
+            37,
+            57
+          ],
+          [
+            56,
+            59.5
+          ]
+        ]
+      },
+      "b": {
+        "numero": "625681099",
+        "pontos": [
+          [
+            8.7,
+            47
+          ],
+          [
+            21.5,
+            51
+          ],
+          [
+            43.1,
+            58.3
+          ]
+        ]
+      },
+      "proporcao": "4:5",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 1.3489,
+        "translacaoPx": [
+          -279,
+          -220
+        ],
+        "residuoPx": 44,
+        "residuoPct": 2.4,
+        "areaMantidaA": 0.66,
+        "areaMantidaB": 0.83
+      },
+      "recorte": {
+        "a": {
+          "x": 207,
+          "y": 234,
+          "largura": 993,
+          "altura": 1241
+        },
+        "b": {
+          "x": 0,
+          "y": 95,
+          "largura": 1339,
+          "altura": 1674
+        },
+        "larguraExportacao": 993
+      }
+    },
+    {
+      "id": "cozinha-antes-depois-alternativo",
+      "tipo": "antes-depois",
+      "projeto": "cozinha-jc",
+      "aceito": true,
+      "semelhanca": "média-alta",
+      "nota": "Alternativa ao par principal: mesma janela, câmera mais à esquerda (o canto se desloca ~18% da largura).",
+      "a": {
+        "numero": "729583033",
+        "pontos": [
+          [
+            47,
+            26
+          ],
+          [
+            47,
+            47
+          ],
+          [
+            49,
+            53.5
+          ]
+        ]
+      },
+      "b": {
+        "numero": "729424348",
+        "pontos": [
+          [
+            28.6,
+            26.5
+          ],
+          [
+            28.6,
+            46
+          ],
+          [
+            30,
+            50
+          ]
+        ]
+      },
+      "proporcao": "4:5",
+      "alinhamento": {
+        "modelo": "escala + translação (sem rotação, sem perspectiva)",
+        "escalaBsobreA": 0.8721,
+        "translacaoPx": [
+          -378,
+          164
+        ],
+        "residuoPx": 29,
+        "residuoPct": 0.7,
+        "areaMantidaA": 0.69,
+        "areaMantidaB": 0.52
+      },
+      "recorte": {
+        "a": {
+          "x": 434,
+          "y": 396,
+          "largura": 2590,
+          "altura": 3238
+        },
+        "b": {
+          "x": 0,
+          "y": 509,
+          "largura": 2259,
+          "altura": 2824
+        },
+        "larguraExportacao": 2259
+      }
+    },
+    {
+      "id": "cozinha-antes-depois-selo",
+      "tipo": "antes-depois",
+      "projeto": "cozinha-jc",
+      "aceito": false,
+      "semelhanca": "alta (enquadramento)",
+      "nota": "Rejeitado: o selo \"ANTES & DEPOIS\" do 730173676 cobre o centro (x 29–67%, y 31–65%). Recortar o selo deixa só a faixa direita (cooktop). Substituído por 730561497 → 729424348.",
+      "a": {
+        "numero": "730561497"
+      },
+      "b": {
+        "numero": "730173676"
+      }
+    },
+    {
+      "id": "consultorio-antes-depois-exame",
+      "tipo": "antes-depois",
+      "projeto": "consultorio-jonny-arruda",
+      "aceito": false,
+      "semelhanca": "média-baixa",
+      "nota": "Mesma sala de exame (cadeira à direita, móvel na parede do fundo), mas a câmera mudou de lugar e de distância; não há quinas comuns confiáveis. Usar lado a lado, sem comparador.",
+      "a": {
+        "numero": "625109164"
+      },
+      "b": {
+        "numero": "627098371"
+      }
+    },
+    {
+      "id": "consultorio-antes-depois-escritorio",
+      "tipo": "antes-depois",
+      "projeto": "consultorio-jonny-arruda",
+      "aceito": false,
+      "semelhanca": "baixa",
+      "nota": "Mesmo canto com janela, mas o antes olha para a parede lateral e o depois para o fundo (o canto se desloca ~34% da largura). Usar lado a lado.",
+      "a": {
+        "numero": "625638741"
+      },
+      "b": {
+        "numero": "627064897"
+      }
+    },
+    {
+      "id": "cozinha-antes-depois-copa",
+      "tipo": "antes-depois",
+      "projeto": "cozinha-jc",
+      "aceito": false,
+      "semelhanca": "baixa",
+      "nota": "Provavelmente a mesma copa (mesa, parede do fundo), mas portas e distância diferentes impedem confirmar o ângulo.",
+      "a": {
+        "numero": "729476203"
+      },
+      "b": {
+        "numero": "730513804"
+      }
+    }
+  ]
+}
