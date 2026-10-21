@@ -1,0 +1,160 @@
+---
+// 8. Onde atuamos (grafite). Gesto: as 4 cidades em tipografia grande sobre uma linha de
+// luz que as liga (horizontal no desktop, vertical no celular). Sem mapa de terceiros.
+// Textos: COPY_DECK §7; cidades: config/atuacao.ts.
+import { config } from '../../config/index.ts';
+import Fresta from '../fresta/Fresta.astro';
+
+const cidades = config.atuacao.cidades.map((c) => ({
+  nome: c.nome.valor,
+  sede: c.papel === 'sede',
+}));
+---
+
+<section class="atuacao" data-theme="dark" data-tone="escuro" aria-labelledby="atuacao-titulo">
+  <header class="atuacao__topo">
+    <p class="t-rotulo t-secundario">Onde atuamos</p>
+    <h2 id="atuacao-titulo" class="atuacao__texto">
+      Escritório em Lages, com projetos e obras acompanhadas também no Litoral Catarinense e na
+      Serra.
+    </h2>
+  </header>
+
+  <div class="atuacao__mapa" data-fresta-gatilho>
+    <div class="atuacao__linha" aria-hidden="true"><Fresta /></div>
+    <ol class="atuacao__cidades">
+      {
+        cidades.map((c) => (
+          <li class:list={['cidade', { 'cidade--sede': c.sede }]}>
+            <span class="cidade__marca" aria-hidden="true" />
+            <span class="cidade__nome">{c.nome}</span>
+            <span class="cidade__uf">SC{c.sede ? ' · sede' : ''}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <blockquote class="atuacao__prova">
+    <p>
+      “[…] atende em Lages/SC, mas que também faz projetos e acompanhamento de obra em outras
+      cidades.”
+    </p>
+    <footer>— Isabel S., no Google</footer>
+  </blockquote>
+</section>
+
+<style>
+  .atuacao {
+    display: grid;
+    gap: var(--e-8);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .atuacao__texto {
+    font-size: var(--t-subtitulo);
+    font-weight: 300;
+    line-height: 1.3;
+    max-width: 30ch;
+  }
+
+  /* Celular: linha vertical à esquerda, cidades empilhadas. */
+  .atuacao__mapa {
+    position: relative;
+    padding-left: var(--e-6);
+  }
+  .atuacao__linha {
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: var(--linha-fresta);
+    background: linear-gradient(180deg, var(--luz), var(--cor-fresta-nucleo) 50%, transparent);
+    box-shadow: var(--sombra-fresta);
+  }
+  /* No celular a linha é vertical e estática; a fresta que acende fica para o desktop. */
+  .atuacao__linha :global(.fresta) {
+    display: none;
+  }
+  .atuacao__cidades {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-6);
+  }
+  .cidade {
+    position: relative;
+    display: grid;
+    gap: var(--e-1);
+  }
+  .cidade__marca {
+    position: absolute;
+    left: calc(-1 * var(--e-6) - 3px);
+    top: 0.9em;
+    width: 7px;
+    height: 7px;
+    background: var(--luz);
+    box-shadow: var(--sombra-fresta);
+  }
+  .cidade__nome {
+    font-size: clamp(2rem, 1.2rem + 3.6vw, 4.5rem);
+    font-weight: var(--peso-display);
+    line-height: 1.05;
+  }
+  .cidade__uf {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .atuacao__prova p {
+    font-family: var(--fonte-citacao);
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--t-corpo-grande);
+    max-width: 34rem;
+  }
+  .atuacao__prova footer {
+    margin-top: var(--e-3);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+
+  /* Desktop: a linha horizontal liga as quatro cidades. */
+  @media (min-width: 64rem) {
+    .atuacao__mapa {
+      padding: var(--e-6) 0 0;
+      overflow: hidden;
+    }
+    .atuacao__linha {
+      left: 0;
+      right: 0;
+      top: var(--e-6);
+      bottom: auto;
+      width: auto;
+      height: var(--linha-fresta);
+    }
+    .atuacao__linha {
+      background: none;
+      box-shadow: none;
+    }
+    .atuacao__linha :global(.fresta) {
+      display: block;
+    }
+    .atuacao__cidades {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--e-5);
+      padding-top: var(--e-6);
+    }
+    .cidade__marca {
+      left: 0;
+      top: calc(-1 * var(--e-6) - 3px);
+    }
+    .cidade__nome {
+      font-size: clamp(2.25rem, 0.8rem + 2.6vw, 4rem);
+    }
+  }
+</style>

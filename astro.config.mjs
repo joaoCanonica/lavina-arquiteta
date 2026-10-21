@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
-  build: { format: 'directory' },
+  // CSS embutido no HTML: sem requisições bloqueando a renderização (LCP mobile).
+  build: { format: 'directory', inlineStylesheets: 'always' },
   devToolbar: { enabled: false },
 });

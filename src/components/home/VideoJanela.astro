@@ -1,0 +1,161 @@
+---
+// Janela vertical de vídeo (720×1280, legenda queimada preservada: sem recorte).
+// Só carrega no clique (pôster AVIF antes). Com som; controles nativos.
+// API para outros componentes: dispatch de 'video-janela:ir' com { tempo } no elemento.
+import Rotulo from '../ui/Rotulo.astro';
+import { video } from './midia.ts';
+
+interface Props {
+  id: string; // id do vídeo no manifesto (ex.: video-falando-sobre-primeiro-contato)
+  titulo: string; // nome acessível do vídeo
+  class?: string;
+}
+const { id, titulo, class: classe } = Astro.props;
+const v = video(id);
+const f720 = v.fontes.find((f) => f.largura === 720) ?? v.fontes[0];
+const f540 = v.fontes.find((f) => f.largura === 540) ?? v.fontes[0];
+---
+
+<figure class:list={['janela', classe]} data-midia data-janela>
+  <div class="janela__quadro">
+    <button
+      type="button"
+      class="janela__tocar"
+      data-janela-tocar
+      data-webm-720={f720?.webm}
+      data-mp4-720={f720?.mp4}
+      data-webm-540={f540?.webm}
+      data-mp4-540={f540?.mp4}
+      data-poster={v.poster}
+      aria-label={`Tocar o vídeo: ${titulo} (com som)`}
+    >
+      <img
+        src={v.poster}
+        alt=""
+        width="720"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+        data-natureza="video"
+      />
+      <span class="janela__play" aria-hidden="true"><span class="janela__triangulo"></span></span>
+    </button>
+  </div>
+  <figcaption class="janela__legenda">
+    <Rotulo natureza="video" />
+    <slot />
+  </figcaption>
+</figure>
+
+<script>
+  // Troca o pôster pelo <video> no clique (ou no pedido de outro componente) e toca com som.
+  const montar = (janela: HTMLElement, tempo?: number): HTMLVideoElement | null => {
+    let v = janela.querySelector('video');
+    if (!v) {
+      const b = janela.querySelector<HTMLButtonElement>('[data-janela-tocar]');
+      if (!b) return null;
+      const larga = b.getBoundingClientRect().width * devicePixelRatio > 560;
+      v = document.createElement('video');
+      v.controls = true;
+      v.playsInline = true;
+      v.preload = 'auto';
+      v.poster = b.dataset['poster'] ?? '';
+      v.width = 720;
+      v.height = 1280;
+      v.setAttribute('data-natureza', 'video');
+      v.setAttribute(
+        'aria-label',
+        b.getAttribute('aria-label')?.replace('Tocar o vídeo: ', '') ?? 'Vídeo',
+      );
+      for (const tipo of ['webm', 'mp4'] as const) {
+        const s = document.createElement('source');
+        s.src = b.getAttribute(`data-${tipo}-${larga ? 720 : 540}`) ?? '';
+        s.type = `video/${tipo}`;
+        v.append(s);
+      }
+      b.replaceWith(v);
+      v.focus();
+    }
+    if (tempo !== undefined) v.currentTime = tempo;
+    void v.play().catch(() => {
+      /* bloqueio de autoplay: os controles ficam disponíveis */
+    });
+    return v;
+  };
+  document.querySelectorAll<HTMLElement>('[data-janela]').forEach((janela) => {
+    janela.querySelector('[data-janela-tocar]')?.addEventListener('click', () => {
+      const v = montar(janela);
+      if (v)
+        janela.dispatchEvent(new CustomEvent('video-janela:pronto', { detail: v, bubbles: true }));
+    });
+    janela.addEventListener('video-janela:ir', (e) => {
+      const tempo = (e as CustomEvent<{ tempo: number }>).detail.tempo;
+      const v = montar(janela, tempo);
+      if (v)
+        janela.dispatchEvent(new CustomEvent('video-janela:pronto', { detail: v, bubbles: true }));
+    });
+  });
+</script>
+
+<style>
+  .janela {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .janela__quadro {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    background: var(--grafite);
+    overflow: hidden;
+  }
+  .janela__quadro :global(video),
+  .janela__tocar,
+  .janela__tocar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* nunca recorta a legenda queimada */
+  }
+  .janela__tocar {
+    position: relative;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .janela__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4rem;
+    height: 4rem;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    border-top: var(--linha-fresta) solid var(--luz);
+    border-bottom: var(--linha-fresta) solid var(--luz);
+    box-shadow:
+      0 -6px 12px -8px var(--luz-brilho),
+      0 6px 12px -8px var(--luz-brilho);
+    background: rgb(28 26 24 / 0.45);
+    transition: width var(--dur-media) var(--ease-saida);
+  }
+  .janela__tocar:hover .janela__play,
+  .janela__tocar:focus-visible .janela__play {
+    width: 5.5rem;
+  }
+  .janela__triangulo {
+    width: 0;
+    height: 0;
+    border-left: 0.85rem solid var(--osso);
+    border-top: 0.55rem solid transparent;
+    border-bottom: 0.55rem solid transparent;
+    margin-left: 0.2rem;
+  }
+  .janela__legenda {
+    display: grid;
+    gap: var(--e-2);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+</style>

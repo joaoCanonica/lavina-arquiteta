@@ -33,7 +33,9 @@
     "marca": "node scripts/marca.mjs",
     "medir-animacoes": "node scripts/medir-animacoes.mjs",
     "test:entrada": "node --test scripts/test-entrada.mjs",
-    "capturar:entrada": "node scripts/capturar-entrada.mjs"
+    "capturar:entrada": "node scripts/capturar-entrada.mjs",
+    "test:home": "node --test scripts/test-home.mjs",
+    "capturar:secoes": "node scripts/capturar-secoes.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

@@ -1,0 +1,105 @@
+---
+// 1. Manifesto (osso). Gesto: frase-display grande, resto do manifesto em texto pequeno,
+// janela vertical estreita do vídeo ao lado. Textos: COPY_DECK §2.
+import VideoJanela from './VideoJanela.astro';
+---
+
+<section class="manifesto" data-theme="light" data-tone="claro" aria-labelledby="manifesto-titulo">
+  <p class="t-rotulo t-secundario manifesto__rotulo">Manifesto</p>
+  <h2 id="manifesto-titulo" class="manifesto__frase" data-fonte-post="DNVwPbWxkqZ">
+    Antes de falar de plantas, medidas e orçamentos… a gente fala sobre você.
+  </h2>
+  <div class="manifesto__resto">
+    <p data-fonte-post="DLGhb8zMT8m">
+      Acreditamos que o bom arquiteto é aquele que escuta. Que respeita o estilo, os desejos e a
+      história de quem vai viver ali.
+    </p>
+    <p data-fonte-post="DZn_e-qOnLN">
+      Não existe acaso em um projeto bem executado. Cada escolha tem um motivo. Cada detalhe tem uma
+      função.
+    </p>
+    <blockquote class="manifesto__citacao" data-fonte-post="DXzMwBRFUox">
+      <p>“Hoje eu não projeto mais pra impressionar, eu projeto pra viver.”</p>
+      <footer>— Amanda Lavina</footer>
+    </blockquote>
+  </div>
+  <div class="manifesto__video">
+    <VideoJanela
+      id="video-falando-sobre-primeiro-contato"
+      titulo="Amanda fala sobre a primeira reunião"
+    >
+      <span>Etapa 01 · Reunião inicial, para entender cada necessidade.</span>
+    </VideoJanela>
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .manifesto__frase {
+    font-size: clamp(2.25rem, 1.2rem + 4.6vw, 6.25rem);
+    font-weight: var(--peso-display);
+    line-height: 1.02;
+    letter-spacing: var(--espaco-display);
+    max-width: 16ch;
+  }
+  .manifesto__resto {
+    display: grid;
+    gap: var(--e-4);
+    max-width: 30rem;
+    font-size: var(--t-corpo);
+    color: var(--cor-texto-2);
+  }
+  .manifesto__citacao {
+    margin-top: var(--e-4);
+    padding-top: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+    color: var(--cor-texto);
+  }
+  .manifesto__citacao p {
+    font-family: var(--fonte-citacao);
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--t-subtitulo);
+    line-height: 1.3;
+  }
+  .manifesto__citacao footer {
+    margin-top: var(--e-3);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .manifesto__video {
+    width: min(100%, 17rem);
+  }
+
+  /* Desktop: frase à esquerda, janela estreita à direita, texto pequeno sob a frase. */
+  @media (min-width: 64rem) {
+    .manifesto {
+      grid-template-columns: minmax(0, 1fr) 18rem;
+      grid-template-rows: auto auto 1fr;
+      column-gap: var(--e-9);
+      row-gap: var(--e-6);
+    }
+    .manifesto__rotulo,
+    .manifesto__frase,
+    .manifesto__resto {
+      grid-column: 1;
+    }
+    .manifesto__video {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      align-self: start;
+      width: 100%;
+      margin-top: var(--e-8);
+    }
+    .manifesto__resto {
+      margin-left: auto;
+      margin-right: var(--e-6);
+    }
+  }
+</style>

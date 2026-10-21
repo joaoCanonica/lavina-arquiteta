@@ -72,7 +72,8 @@ const nat = natureza ?? img.natureza ?? 'executado';
 </picture>
 
 <style>
-  .imagem img {
+  /* Especificidade zero: quem usa a <Imagem> define altura e recorte. */
+  :where(.imagem) :global(img) {
     width: 100%;
     height: auto;
     background-size: cover;

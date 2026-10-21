@@ -76,3 +76,37 @@ Orçamento (CLAUDE.md §3):
 
 - **INP:** a home ainda não tem interações além de links e do menu. Medir na sessão 9, com o site completo.
 - **Rede real:** os números acima são de laboratório (simulação). Medir com dados de campo depois do deploy.
+
+## Home completa (sessão 6A: entrada + abertura + 10 seções)
+
+Lighthouse mobile, mediana de 3 execuções (`pnpm audit-lighthouse /`):
+
+| métrica | sessão 4 (só abertura) | sessão 6A (home completa) | meta |
+| --- | --- | --- | --- |
+| Performance | 100 | **100** | ≥ 95 |
+| Acessibilidade | 100 | **100** | 100 |
+| Boas práticas | 100 | **100** | ≥ 95 |
+| SEO | 54 | 54 | ≥ 95 (noindex do preview + meta description: sessões 5/8) |
+| FCP | 0,91 s | **0,91 s** | — |
+| LCP | 1,36 s | **1,65 s** (1,58–1,81) | < 2,0 s |
+| CLS | 0 | **0** | ≈ 0 |
+| TBT | 0 ms | 0 ms | — |
+| Peso transferido na carga | 66 KB | 264 KB (miniaturas lazy perto da dobra) | — |
+
+- **O que mudou e por quê:** com as 10 seções, o CSS da home passou a 48 KB em dois arquivos que bloqueavam a renderização. Na primeira medição, o LCP foi a 1,74 s, com uma execução em 2,56 s. **Correção:** `build.inlineStylesheets: 'always'` (`astro.config.mjs`). Ela embute o CSS no HTML e elimina as requisições bloqueantes; o FCP voltou a 0,91 s.
+- **O que ainda pesa no LCP:** o HTML da home (141 KB, 28 KB gzip: CSS embutido, LQIPs e o logo inline) e as miniaturas lazy logo abaixo da dobra.
+- **Próximos ganhos possíveis** (sessão 9):
+  - LQIP só nas imagens acima da dobra;
+  - `content-visibility: auto` nas seções de baixo, depois de medir o CLS;
+  - logo da entrada sem o subtítulo em curvas.
+- **Vídeos:** nenhum carrega antes do clique (testado). O loop da abertura continua fora.
+
+### JS por página (gzip, tudo inline; nenhum script externo)
+
+| página | JS |
+| --- | --- |
+| home | 2,6 KB (tema, entrada, Fresta, cabeçalho, comparadores, vídeo, capítulos, lista de projetos, orçamento) |
+| `/_sistema` | 0,9 KB |
+| `/_pendencias` | 0,7 KB |
+
+Orçamento: 40 KB por página.

@@ -1,0 +1,290 @@
+---
+// 10. Orçamento (grafite). Gesto: duas escolhas (tipo e cidade) que montam a mensagem
+// do WhatsApp em tempo real; endereço e horário em tipografia de placa. Sem iframe de mapa.
+// Textos: COPY_DECK §8. Dados: config/contato.ts.
+import { config } from '../../config/index.ts';
+import { linkWhatsapp } from '../../config/contato.ts';
+
+const c = config.contato;
+const e = c.endereco.valor;
+const TIPOS = ['Residencial', 'Comercial e saúde', 'Reforma', 'Só interiores'];
+const CIDADES = ['Lages', 'Litoral', 'Outra'];
+const BASE = 'Olá! Gostaria de conversar sobre um projeto.';
+const mensagem = (tipo = '___', cidade = '___') =>
+  `${BASE}\nTipo de projeto: ${tipo}\nCidade: ${cidade}`;
+const DIAS = {
+  seg: 'Segunda',
+  ter: 'terça',
+  qua: 'quarta',
+  qui: 'quinta',
+  sex: 'sexta',
+  sab: 'sábado',
+  dom: 'domingo',
+} as const;
+const aberto = c.horarios.valor.find((h) => 'abre' in h);
+const horario =
+  aberto && 'abre' in aberto
+    ? `${DIAS[aberto.dias[0] ?? 'seg']} a ${DIAS[aberto.dias.at(-1) ?? 'sex']}, ${aberto.abre.replace(':00', 'h')} às ${aberto.fecha.replace(':00', 'h')}`
+    : '';
+---
+
+<section
+  class="orcamento"
+  data-theme="dark"
+  data-tone="escuro"
+  aria-labelledby="orcamento-titulo"
+  data-orcamento
+>
+  <div class="orcamento__chamado">
+    <p class="t-rotulo t-secundario">Orçamento</p>
+    <h2 id="orcamento-titulo" class="orcamento__titulo" data-fonte-post="DNVwPbWxkqZ">
+      Vamos começar pelo que é mais importante: você.
+    </h2>
+    <p class="orcamento__texto" data-fonte-post="DNVwPbWxkqZ">
+      Conte que tipo de projeto você tem em mente e em que cidade. A primeira conversa é sobre você:
+      sua rotina, o que te encanta, o que você não gosta. Plantas, medidas e orçamento vêm depois.
+    </p>
+  </div>
+
+  <form
+    class="orcamento__form"
+    data-orcamento-form
+    action={linkWhatsapp(c.whatsapp.valor)}
+    method="get"
+    target="_blank"
+  >
+    <fieldset class="escolha">
+      <legend class="escolha__titulo">Tipo de projeto</legend>
+      <div class="escolha__opcoes">
+        {
+          TIPOS.map((t) => (
+            <label class="opcao">
+              <input type="radio" name="tipo" value={t} />
+              <span>{t}</span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+    <fieldset class="escolha">
+      <legend class="escolha__titulo">Cidade</legend>
+      <div class="escolha__opcoes">
+        {
+          CIDADES.map((t) => (
+            <label class="opcao">
+              <input type="radio" name="cidade" value={t} />
+              <span>{t}</span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+    <input type="hidden" name="text" value={mensagem()} data-orcamento-texto />
+    <button type="submit" class="orcamento__enviar">
+      Solicitar orçamento pelo WhatsApp<span class="so-leitor"> (abre em nova aba)</span>
+    </button>
+    <p class="orcamento__previa t-pequeno" aria-live="polite" data-orcamento-previa>
+      {
+        mensagem()
+          .split('\n')
+          .map((l) => <span>{l}</span>)
+      }
+    </p>
+  </form>
+
+  <address class="orcamento__endereco">
+    <span>{e.logradouro}</span>
+    <span>{e.bairro} · {e.cidade}/{e.uf}</span>
+    <span>CEP {e.cep}</span>
+    <span class="orcamento__horario">{horario}</span>
+    <a href={c.mapsUrl.valor} target="_blank" rel="noopener noreferrer" class="orcamento__mapa">
+      Ver no mapa<span class="so-leitor"> (Google Maps, abre em nova aba)</span>
+    </a>
+  </address>
+</section>
+
+<script>
+  // Monta a mensagem a partir das escolhas (sem dado sensível; a pessoa completa no WhatsApp).
+  const form = document.querySelector<HTMLFormElement>('[data-orcamento-form]');
+  const texto = form?.querySelector<HTMLInputElement>('[data-orcamento-texto]');
+  const previa = form?.querySelector<HTMLElement>('[data-orcamento-previa]');
+  const montar = () => {
+    if (!form || !texto) return;
+    const d = new FormData(form);
+    const tipo = (d.get('tipo') as string | null) ?? '___';
+    const cidade = (d.get('cidade') as string | null) ?? '___';
+    texto.value = `Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: ${tipo}\nCidade: ${cidade}`;
+    if (previa)
+      previa.replaceChildren(
+        ...texto.value
+          .split('\n')
+          .map((l) => Object.assign(document.createElement('span'), { textContent: l })),
+      );
+  };
+  form?.addEventListener('change', montar);
+</script>
+
+<style>
+  .orcamento {
+    display: grid;
+    gap: var(--e-8);
+    padding: var(--e-9) var(--margem) var(--e-10);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .orcamento__chamado {
+    display: grid;
+    gap: var(--e-5);
+  }
+  .orcamento__titulo {
+    font-size: clamp(2.25rem, 1.1rem + 5vw, 6.5rem);
+    font-weight: var(--peso-display);
+    line-height: 1;
+    letter-spacing: var(--espaco-display);
+    max-width: 14ch;
+  }
+  .orcamento__texto {
+    max-width: 30rem;
+    color: var(--cor-texto-2);
+  }
+
+  .orcamento__form {
+    display: grid;
+    gap: var(--e-6);
+  }
+  .escolha {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    gap: var(--e-3);
+  }
+  .escolha__titulo {
+    padding: 0;
+    margin-bottom: var(--e-3);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .escolha__opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-2) var(--e-6);
+  }
+  /* Opção = texto + linha de base que acende quando escolhida (sem pílula, sem caixa). */
+  .opcao {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+  }
+  .opcao input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .opcao span {
+    padding-bottom: 0.2em;
+    border-bottom: var(--linha) solid var(--cor-linha-forte);
+    transition:
+      border-color var(--dur-curta) linear,
+      box-shadow var(--dur-media) var(--ease-saida);
+  }
+  .opcao input:checked + span {
+    border-bottom-color: var(--luz);
+    box-shadow: 0 6px 10px -8px var(--luz-brilho);
+  }
+  .opcao input:focus-visible + span {
+    outline: 2px solid var(--cor-foco);
+    outline-offset: 4px;
+  }
+
+  .orcamento__enviar {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--cor-texto);
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .orcamento__enviar::before {
+    content: '';
+    width: 2.5rem;
+    height: var(--linha-fresta);
+    background: var(--luz);
+    box-shadow: var(--sombra-fresta);
+    transition: width var(--dur-media) var(--ease-saida);
+  }
+  .orcamento__enviar:hover::before,
+  .orcamento__enviar:focus-visible::before {
+    width: 4rem;
+  }
+  .orcamento__previa {
+    display: grid;
+    gap: 0.15em;
+    padding-left: var(--e-4);
+    border-left: var(--linha) solid var(--cor-linha);
+    color: var(--cor-texto-2);
+  }
+
+  .orcamento__endereco {
+    display: grid;
+    gap: var(--e-1);
+    font-style: normal;
+    font-size: var(--t-corpo);
+    color: var(--cor-texto-2);
+  }
+  .orcamento__endereco span:first-child {
+    color: var(--cor-texto);
+  }
+  .orcamento__horario {
+    margin-top: var(--e-3);
+  }
+  .orcamento__mapa {
+    justify-self: start;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--cor-texto);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 64rem) {
+    .orcamento {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-areas:
+        'chamado form'
+        'endereco form';
+      column-gap: var(--e-9);
+      align-items: start;
+    }
+    .orcamento__chamado {
+      grid-area: chamado;
+    }
+    .orcamento__form {
+      grid-area: form;
+      padding-top: var(--e-7);
+    }
+    .orcamento__endereco {
+      grid-area: endereco;
+    }
+  }
+</style>
