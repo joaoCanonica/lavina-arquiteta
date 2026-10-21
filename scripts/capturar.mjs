@@ -1,8 +1,8 @@
 // Capturas de tela: sobe o preview e fotografa as rotas em 390 e 1440 px,
 // claro e escuro (data-theme no <html>), com e sem prefers-reduced-motion.
 // Uso: pnpm capturar [rota ...]   (padrão: /)
-/* global document */
-import { spawn } from 'node:child_process';
+/* global document, innerHeight, scrollTo */
+import { spawn, spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -75,16 +75,34 @@ try {
             colorScheme: tema === 'escuro' ? 'dark' : 'light',
             reducedMotion: movimento === 'reduzido' ? 'reduce' : 'no-preference',
           });
+          // Tema escolhido = o que o script inline do <head> lê (localStorage).
           await contexto.addInitScript(
             (t) => {
-              document.documentElement.dataset.theme = t;
+              try {
+                localStorage.setItem('lavina-tema', t);
+              } catch {
+                /* sem armazenamento */
+              }
             },
             tema === 'escuro' ? 'dark' : 'light',
           );
           const pagina = await contexto.newPage();
           await pagina.goto(BASE + rota, { waitUntil: 'networkidle' });
-          // Deixa as entradas (a fresta) terminarem antes da foto.
-          await pagina.waitForTimeout(movimento === 'reduzido' ? 200 : 2500);
+          // Rola a página inteira para as frestas acenderem (eventos de entrada na tela).
+          await pagina.evaluate(async () => {
+            const passo = Math.round(innerHeight * 0.6);
+            for (let y = 0; y < document.body.scrollHeight; y += passo) {
+              scrollTo(0, y);
+              await new Promise((r) => setTimeout(r, 120));
+            }
+            scrollTo(0, 0);
+            // Força o carregamento das imagens lazy e espera a decodificação.
+            const imgs = [...document.images];
+            imgs.forEach((i) => (i.loading = 'eager'));
+            await Promise.all(imgs.map((i) => i.decode().catch(() => null)));
+          });
+          // Deixa as animações terminarem antes da foto.
+          await pagina.waitForTimeout(movimento === 'reduzido' ? 300 : 3200);
           const arquivo = path.join(
             destino,
             `${nomeRota(rota)}--${largura}--${tema}--${movimento}.png`,
@@ -103,6 +121,8 @@ try {
   codigo = 1;
 } finally {
   await navegador?.close();
+  // O Astro 7 deixa o preview como daemon: encerra explicitamente.
+  spawnSync('pnpm', ['exec', 'astro', 'preview', 'stop'], { stdio: 'ignore' });
   try {
     process.kill(-preview.pid);
   } catch {

@@ -1,0 +1,72 @@
+---
+// A Fresta: linha horizontal fina de luz que ACENDE do centro para as bordas (~600 ms).
+// Uso isolado: <Fresta gatilho /> acende ao entrar na tela. Dentro de outro componente,
+// acende quando um ancestral [data-fresta-gatilho] recebe .esta-aceso.
+interface Props {
+  gatilho?: boolean;
+  /** atraso em ms após o gatilho */
+  atraso?: number;
+  class?: string;
+}
+const { gatilho = false, atraso = 0, class: classe } = Astro.props;
+---
+
+<span
+  class:list={['fresta', classe]}
+  aria-hidden="true"
+  data-fresta-gatilho={gatilho ? '' : undefined}
+  style={atraso ? `--fresta-atraso:${atraso}ms` : undefined}><span class="fresta__luz"></span></span
+>
+
+<style>
+  .fresta {
+    --fresta-atraso: 0ms;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: var(--linha-fresta);
+    pointer-events: none;
+  }
+
+  .fresta__luz {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--cor-fresta) 12%,
+      var(--cor-fresta-nucleo) 50%,
+      var(--cor-fresta) 88%,
+      transparent 100%
+    );
+    box-shadow: var(--sombra-fresta);
+    border-radius: 1px;
+    transform-origin: 50% 50%;
+  }
+
+  /* Estado apagado só quando há JS e movimento permitido. */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(:root.js) .fresta__luz {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    :global(:root.js) :global(.esta-aceso) .fresta__luz,
+    :global(:root.js) .fresta:global(.esta-aceso) .fresta__luz {
+      animation: fresta-acende var(--dur-fresta) var(--ease-saida) var(--fresta-atraso) forwards;
+    }
+  }
+
+  @keyframes fresta-acende {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+</style>

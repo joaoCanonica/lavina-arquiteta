@@ -1,0 +1,74 @@
+---
+// Envolve imagem ou vídeo: ao entrar na tela (uma vez), a fresta acende no meio da
+// mídia e a mídia abre verticalmente a partir dela (clip-path inset 50% 0 → 0).
+// Sem JS ou com prefers-reduced-motion: mídia visível direto.
+import Fresta from './Fresta.astro';
+
+interface Props {
+  class?: string;
+  /** atraso em ms depois de entrar na tela */
+  atraso?: number;
+}
+const { class: classe, atraso = 0 } = Astro.props;
+---
+
+<div
+  class:list={['revela', classe]}
+  data-fresta-gatilho
+  data-revela
+  style={atraso ? `--revela-atraso:${atraso}ms` : undefined}
+>
+  <div class="revela__midia"><slot /></div>
+  <Fresta class="revela__fresta" atraso={atraso} />
+</div>
+
+<style>
+  .revela {
+    --revela-atraso: 0ms;
+    position: relative;
+  }
+  .revela__midia {
+    position: relative;
+  }
+  .revela :global(.revela__fresta) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: calc(var(--linha-fresta) / -2);
+    z-index: 1;
+    /* Sem JS ou com movimento reduzido, a mídia já está aberta: a fresta não aparece. */
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(:root.js) .revela__midia {
+      clip-path: inset(50% 0 50% 0);
+    }
+    :global(:root.js) .revela :global(.revela__fresta) {
+      display: block;
+    }
+    :global(:root.js) .revela:global(.esta-aceso) .revela__midia {
+      animation: revela-abre var(--dur-revela) var(--ease-suave) calc(var(--revela-atraso) + 420ms)
+        forwards;
+    }
+    :global(:root.js) .revela:global(.esta-aceso) :global(.revela__fresta) {
+      animation: revela-fresta-some 700ms var(--ease-suave) calc(var(--revela-atraso) + 1200ms)
+        forwards;
+    }
+  }
+
+  @keyframes revela-abre {
+    from {
+      clip-path: inset(50% 0 50% 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes revela-fresta-some {
+    to {
+      opacity: 0;
+    }
+  }
+</style>

@@ -1,19 +1,13 @@
 ---
-// Rota /_pendencias: painel interno de pendências. Só existe no preview
-// (getStaticPaths vazio em produção). Arquivos com "_" seriam ignorados pelo
-// roteador do Astro, por isso o nome vem do parâmetro.
+// Painel interno de pendências (rota /_pendencias, só no preview).
 import { getCollection } from 'astro:content';
-import manifesto from '../../media.manifest.json';
-import pares from '../../docs/dados/pares.json';
-import Provisorio from '../components/Provisorio.astro';
-import { config } from '../config/index.ts';
-import { ehPreview } from '../config/modo.ts';
-import { projetosVisiveis, verificar } from '../config/travas.ts';
-import Base from '../layouts/Base.astro';
-
-export function getStaticPaths() {
-  return ehPreview ? [{ params: { pendencias: '_pendencias' } }] : [];
-}
+import manifesto from '../../../media.manifest.json';
+import pares from '../../../docs/dados/pares.json';
+import Provisorio from '../Provisorio.astro';
+import { config } from '../../config/index.ts';
+import { ehPreview } from '../../config/modo.ts';
+import { projetosVisiveis, verificar } from '../../config/travas.ts';
+import Base from '../../layouts/Base.astro';
 
 const projetos = (await getCollection('projetos')).map((e) => e.data);
 const preview = verificar({ config, projetos, manifesto, pares, modo: 'preview' });
@@ -31,7 +25,7 @@ const grupos = [
 ] as const;
 ---
 
-<Base titulo="Pendências" pendencias={preview.pendencias.length}>
+<Base titulo="Pendências" pendencias={preview.pendencias.length} interna>
   <main class="painel">
     <h1>Pendências</h1>
     <p>
@@ -151,7 +145,7 @@ const grupos = [
     font:
       400 0.9375rem/1.5 system-ui,
       sans-serif;
-    color: #1c1a18;
+    color: var(--cor-texto);
   }
   table {
     width: 100%;
@@ -163,7 +157,7 @@ const grupos = [
     text-align: left;
     vertical-align: top;
     padding: 0.5rem;
-    border-bottom: 1px solid #e6ded2;
+    border-bottom: var(--linha) solid var(--cor-linha);
   }
   section {
     margin-top: 2rem;
@@ -174,6 +168,6 @@ const grupos = [
   }
   code {
     font-size: 0.75rem;
-    color: #8a6a4f;
+    color: var(--cor-texto-2);
   }
 </style>

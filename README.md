@@ -22,6 +22,9 @@ Site estático em Astro (TypeScript strict, sem framework de UI). Contexto e reg
 | `pnpm validate-config [--producao]`  | config e travas; atualiza `docs/PENDENCIAS.md`          |
 | `pnpm audit-compliance [--producao]` | termos vetados e rótulo de natureza no `dist/`          |
 | `pnpm test:config`                   | testes das travas e da rota `/_pendencias`              |
+| `pnpm audit-contraste`               | contraste AA dos dois temas → `docs/CONTRASTE.md`       |
+| `pnpm marca`                         | otimiza o logo e gera favicon/ícones                    |
+| `pnpm medir-animacoes`               | quadros e fps das animações (após o build)              |
 | `pnpm build:producao`                | build com `LAVINA_MODO=producao` (travas ligadas)       |
 
 ## Pastas

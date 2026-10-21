@@ -29,7 +29,9 @@
     "media:stills": "node scripts/extract-stills.mjs",
     "media:catalogo": "node scripts/gerar-catalogo.mjs",
     "test:config": "node --test scripts/test-config.mjs",
-    "build:producao": "LAVINA_MODO=producao pnpm validate-config && LAVINA_MODO=producao pnpm build && LAVINA_MODO=producao pnpm audit-compliance"
+    "build:producao": "LAVINA_MODO=producao pnpm validate-config && LAVINA_MODO=producao pnpm build && LAVINA_MODO=producao pnpm audit-compliance",
+    "marca": "node scripts/marca.mjs",
+    "medir-animacoes": "node scripts/medir-animacoes.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"
@@ -37,6 +39,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@eslint/js": "10.0.1",
+    "@types/node": "24.19.2",
     "ajv": "8.20.0",
     "eslint": "10.13.0",
     "eslint-plugin-astro": "1.1.1",
@@ -46,6 +49,7 @@
     "prettier": "3.9.10",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.35.5",
+    "svgo": "4.1.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.0"
   }

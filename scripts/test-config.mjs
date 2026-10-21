@@ -148,3 +148,17 @@ test('avaliações: nota do Google vira aviso após 90 dias', async () => {
     /conferida há 104 dias/,
   );
 });
+
+test('tema sem flash: script inline no <head> antes de qualquer CSS; _sistema com padrão escuro', () => {
+  const b = astroBuild('preview');
+  assert.equal(b.status, 0, b.stderr || b.stdout);
+  for (const arq of ['dist/index.html', 'dist/_sistema/index.html']) {
+    const html = readFileSync(arq, 'utf8');
+    const head = html.slice(0, html.indexOf('</head>'));
+    const iScript = head.indexOf('lavina-tema');
+    const iCss = head.search(/<link rel="stylesheet"|<style/);
+    assert.ok(iScript > 0, `${arq}: script de tema ausente no <head>`);
+    assert.ok(iCss === -1 || iScript < iCss, `${arq}: script de tema depois do CSS`);
+  }
+  assert.match(readFileSync('dist/_sistema/index.html', 'utf8'), /data-tema-padrao="dark"/);
+});

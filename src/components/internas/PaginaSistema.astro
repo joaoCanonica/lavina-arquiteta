@@ -1,0 +1,410 @@
+---
+// /_sistema: vitrine interna do design system "A Fresta" (noindex). Sem copy final.
+import DivisorFresta from '../fresta/DivisorFresta.astro';
+import Fresta from '../fresta/Fresta.astro';
+import LinkProjeto from '../fresta/LinkProjeto.astro';
+import RevelaPorFresta from '../fresta/RevelaPorFresta.astro';
+import Logo from '../marca/Logo.astro';
+import AlternarTema from '../ui/AlternarTema.astro';
+import Botao from '../ui/Botao.astro';
+import Comparador from '../ui/Comparador.astro';
+import Credito from '../ui/Credito.astro';
+import Imagem from '../ui/Imagem.astro';
+import Legenda from '../ui/Legenda.astro';
+import Rotulo from '../ui/Rotulo.astro';
+import Base from '../../layouts/Base.astro';
+
+const cores = [
+  ['Grafite', '--grafite', '#1C1A18', 'escuro principal, "obra à noite"'],
+  ['Osso', '--osso', '#F4F1EC', 'claro principal; cor do logo'],
+  ['Travertino', '--travertino', '#E6DED2', 'superfície clara secundária'],
+  ['Greige', '--greige', '#A79C8F', 'texto secundário no escuro; linhas'],
+  ['Greige profundo', '--greige-profundo', '#675E55', 'texto secundário no claro (AA)'],
+  ['Freijó', '--freijo', '#8A6A4F', 'acento raro, madeira (UI)'],
+  ['Freijó claro', '--freijo-claro', '#B8916E', 'acento de texto no escuro (AA)'],
+  ['Luz', '--luz', '#F7D9A8', 'SÓ luz: fresta, foco, brilho'],
+] as const;
+
+const escala = [
+  ['t-display', 'Display · Urbanist 200', 'Presença'],
+  ['t-titulo', 'Título · Urbanist 250', 'Do primeiro encontro à entrega'],
+  ['t-subtitulo', 'Subtítulo · Urbanist 300', 'Projeto fiel à execução'],
+  ['t-citacao', 'Citação · Spectral Italic 300', '“Projetar pra viver, não pra impressionar.”'],
+  [
+    't-corpo-grande',
+    'Corpo grande · Urbanist 400',
+    'Antes de falar de plantas, medidas e orçamentos, a gente fala sobre você.',
+  ],
+  [
+    '',
+    'Corpo · Urbanist 400',
+    'Reunião inicial, estudo do espaço, conceito, projeto técnico e acompanhamento próximo da execução.',
+  ],
+  ['t-pequeno t-secundario', 'Pequeno · secundário', 'Legenda, ficha técnica, notas.'],
+  ['t-rotulo', 'Rótulo · versalete espaçado', 'Coletivo de arquitetura'],
+] as const;
+---
+
+<Base titulo="Sistema" temaPadrao="dark" interna>
+  <header class="topo">
+    <a href="/" class="topo__marca" aria-label="Início"><Logo variante="lavina" decorativo /></a>
+    <p class="t-rotulo t-secundario">Sistema · A Fresta</p>
+    <AlternarTema />
+  </header>
+
+  <main>
+    <section class="bloco bloco--logo" aria-labelledby="s-logo">
+      <p class="t-rotulo t-secundario" id="s-logo">01 · Logo desenhando como luz</p>
+      <div class="logo-palco" data-repetivel>
+        <Logo desenhar atraso={300} class="logo-palco__svg" />
+      </div>
+      <div class="linha-acoes">
+        <Botao variante="secundario" tipo="button" class="js-repetir-logo">Desenhar de novo</Botao>
+      </div>
+      <div class="variantes">
+        <figure>
+          <Logo variante="completa" decorativo /><figcaption class="t-pequeno t-secundario">
+            Completa
+          </figcaption>
+        </figure>
+        <figure>
+          <Logo variante="monograma" decorativo /><figcaption class="t-pequeno t-secundario">
+            Monograma
+          </figcaption>
+        </figure>
+        <figure class="variantes__lavina">
+          <Logo variante="lavina" decorativo /><figcaption class="t-pequeno t-secundario">
+            Só "LAVINA"
+          </figcaption>
+        </figure>
+      </div>
+      <p class="t-pequeno t-secundario nota">
+        Reconstrução vetorial do logo a partir do vídeo; validar com a cliente (docs/MARCA.md).
+      </p>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-fresta">
+      <p class="t-rotulo t-secundario" id="s-fresta">02 · A Fresta acende</p>
+      <div class="fresta-palco" data-fresta-gatilho data-alvo-fresta>
+        <Fresta />
+      </div>
+      <div class="linha-acoes">
+        <Botao variante="secundario" tipo="button" class="js-repetir-fresta">Acender de novo</Botao>
+      </div>
+    </section>
+
+    <section class="bloco bloco--revela" aria-labelledby="s-revela">
+      <p class="t-rotulo t-secundario" id="s-revela">
+        03 · Revelação pela fresta (uma vez, ao entrar na tela)
+      </p>
+      <figure class="figura" data-midia>
+        <RevelaPorFresta>
+          <Imagem
+            id="cozinha-jc-depois-03"
+            alt="Cozinha J|C executada: ilha de pedra com banquetas e cristaleira iluminada ao fundo"
+            sizes="(min-width: 64rem) 50vw, 100vw"
+          />
+        </RevelaPorFresta>
+        <figcaption class="figura__legenda">
+          <Rotulo natureza="depois" />
+          <Legenda n={1} total={9}>Cozinha J|C · ilha e cristaleira</Legenda>
+        </figcaption>
+      </figure>
+      <Credito
+        class="figura__credito"
+        itens={[
+          { funcao: 'Projeto', nome: 'Lavina | Coletivo de Arquitetura' },
+          { funcao: 'Imagens 3D', nome: 'Renata Nürnberg' },
+          { funcao: 'Fotografia', nome: null },
+        ]}
+      />
+    </section>
+
+    <DivisorFresta />
+
+    <section class="bloco" aria-labelledby="s-cores">
+      <p class="t-rotulo t-secundario" id="s-cores">04 · Cores (tokens)</p>
+      <ul class="cores">
+        {
+          cores.map(([nome, v, hex, uso]) => (
+            <li class="cor">
+              <span class="cor__amostra" style={`background:var(${v})`} />
+              <span class="cor__nome">{nome}</span>
+              <code class="t-pequeno t-secundario">
+                {hex} · {v}
+              </code>
+              <span class="t-pequeno t-secundario">{uso}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-tipo">
+      <p class="t-rotulo t-secundario" id="s-tipo">05 · Tipografia</p>
+      <ol class="escala">
+        {
+          escala.map(([classe, nome, exemplo]) => (
+            <li class="escala__item">
+              <span class="t-pequeno t-secundario escala__nome">{nome}</span>
+              <span class={classe}>{exemplo}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-rotulos">
+      <p class="t-rotulo t-secundario" id="s-rotulos">06 · Rótulos de natureza</p>
+      <div class="rotulos">
+        <Rotulo natureza="executado" />
+        <Rotulo natureza="render" />
+        <Rotulo natureza="antes" />
+        <Rotulo natureza="depois" />
+        <Rotulo natureza="video" />
+      </div>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-acoes">
+      <p class="t-rotulo t-secundario" id="s-acoes">07 · Botões, links e foco</p>
+      <div class="linha-acoes">
+        <Botao href="#s-acoes">Solicite seu orçamento</Botao>
+        <Botao href="#s-acoes" variante="secundario">Ver no Instagram</Botao>
+      </div>
+      <p class="t-corpo-grande texto-link">
+        Um <a href="#s-acoes">link no texto corrido</a> segue a cor do texto, com sublinhado fino. Use
+        Tab para ver o anel de foco.
+      </p>
+      <ol class="lista-projetos">
+        <li>
+          <LinkProjeto href="#s-acoes"><span class="t-subtitulo">Cozinha J|C</span></LinkProjeto>
+        </li>
+        <li>
+          <LinkProjeto href="#s-acoes"
+            ><span class="t-subtitulo">Consultório Jonny Arruda</span></LinkProjeto
+          >
+        </li>
+        <li>
+          <LinkProjeto href="#s-acoes"><span class="t-subtitulo">Clínica Cordis</span></LinkProjeto>
+        </li>
+      </ol>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-comparador">
+      <p class="t-rotulo t-secundario" id="s-comparador">
+        08 · Comparador (estrutura; comportamento na sessão 6B)
+      </p>
+      <div class="comparador-demo">
+        <Comparador
+          par="cozinha-antes-depois"
+          tipo="antes-depois"
+          altA="Cozinha J|C antes da reforma: armários antigos e bancada de granito"
+          altB="Cozinha J|C depois: marcenaria clara, torre de fornos e ilha de pedra"
+        />
+      </div>
+    </section>
+
+    <section class="bloco" aria-labelledby="s-mov">
+      <p class="t-rotulo t-secundario" id="s-mov">09 · Movimento, espaço e forma</p>
+      <dl class="tokens">
+        <div>
+          <dt>Curvas</dt><dd><code>--ease-saida</code> cubic-bezier(.16, 1, .3, 1), sem bounce</dd>
+        </div>
+        <div>
+          <dt>Durações</dt><dd>180 · 420 · 600 (fresta) · 1200 (revelação) · 2600 ms (logo)</dd>
+        </div>
+        <div>
+          <dt>Espaço</dt><dd>4 → 16 rem, fluido nos grandes; gutter de 16 px no celular</dd>
+        </div>
+        <div><dt>Forma</dt><dd>raio 0 (cantos retos); linhas de 1 px; fresta de 1,5 px</dd></div>
+        <div>
+          <dt>Movimento reduzido</dt><dd>desliga tudo: logo pronto, fresta acesa, mídia visível</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Só para a vitrine: repetir as animações.
+  document.querySelector('.js-repetir-logo')?.addEventListener('click', () => {
+    const svg = document.querySelector('.logo-palco__svg');
+    if (svg) svg.replaceWith(svg.cloneNode(true));
+  });
+  document.querySelector('.js-repetir-fresta')?.addEventListener('click', () => {
+    const alvo = document.querySelector('[data-alvo-fresta]');
+    if (!alvo) return;
+    alvo.classList.remove('esta-aceso');
+    void (alvo as HTMLElement).offsetWidth;
+    alvo.classList.add('esta-aceso');
+  });
+</script>
+
+<style>
+  .topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--e-5);
+    padding: var(--e-5) var(--margem);
+    border-bottom: var(--linha) solid var(--cor-linha);
+  }
+  .topo__marca {
+    width: 7.5rem;
+    color: var(--cor-texto);
+  }
+  .topo > p {
+    display: none;
+  }
+  @media (min-width: 48rem) {
+    .topo > p {
+      display: block;
+    }
+  }
+
+  .bloco {
+    padding: var(--e-8) var(--margem);
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    display: grid;
+    gap: var(--e-6);
+  }
+
+  .logo-palco {
+    width: min(100%, 26rem);
+    margin-inline: auto;
+    padding-block: var(--e-7);
+    color: var(--cor-texto);
+  }
+  .linha-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-6);
+    align-items: center;
+  }
+  .bloco--logo .linha-acoes {
+    justify-content: center;
+  }
+  .variantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: var(--e-7);
+    align-items: end;
+    padding-top: var(--e-6);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .variantes figure {
+    display: grid;
+    gap: var(--e-3);
+    max-width: 12rem;
+    color: var(--cor-texto);
+  }
+  .variantes__lavina {
+    max-width: 16rem !important;
+  }
+  .nota {
+    text-align: center;
+  }
+
+  .fresta-palco {
+    padding-block: var(--e-9);
+  }
+
+  /* Assimetria: foto grande à esquerda, ficha estreita à direita. */
+  .bloco--revela {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 64rem) {
+    .bloco--revela {
+      grid-template-columns: 7fr 3fr;
+      align-items: end;
+      column-gap: var(--e-8);
+    }
+    .bloco--revela > p {
+      grid-column: 1 / -1;
+    }
+  }
+  .figura__legenda {
+    display: grid;
+    gap: var(--e-2);
+    padding-top: var(--e-4);
+  }
+
+  .cores {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--e-6) var(--e-5);
+  }
+  .cor {
+    display: grid;
+    gap: var(--e-1);
+  }
+  .cor__amostra {
+    display: block;
+    aspect-ratio: 3 / 2;
+    border-bottom: var(--linha) solid var(--cor-linha);
+  }
+  .cor__nome {
+    padding-top: var(--e-2);
+  }
+
+  .escala {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-6);
+  }
+  .escala__item {
+    display: grid;
+    gap: var(--e-2);
+    padding-top: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+    overflow-wrap: anywhere;
+  }
+
+  .rotulos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-5) var(--e-7);
+  }
+
+  .texto-link {
+    max-width: var(--largura-texto);
+  }
+  .lista-projetos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-3);
+    max-width: 40rem;
+  }
+
+  .comparador-demo {
+    max-width: 40rem;
+  }
+
+  .tokens {
+    margin: 0;
+    display: grid;
+    gap: var(--e-2);
+    max-width: 48rem;
+  }
+  .tokens div {
+    display: grid;
+    grid-template-columns: minmax(8rem, 30%) 1fr;
+    gap: var(--e-4);
+    padding-block: var(--e-3);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .tokens dt {
+    color: var(--cor-texto-2);
+  }
+  .tokens dd {
+    margin: 0;
+  }
+</style>

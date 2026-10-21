@@ -1,0 +1,42 @@
+---
+// Legenda editorial: número da série (01 / 09) + texto curto.
+interface Props {
+  n?: number;
+  total?: number;
+  class?: string;
+}
+const { n, total, class: classe } = Astro.props;
+const dois = (x: number) => String(x).padStart(2, '0');
+---
+
+<p class:list={['legenda', classe]}>
+  {
+    n !== undefined && (
+      <span class="legenda__n" aria-label={total ? `${n} de ${total}` : String(n)}>
+        {dois(n)}
+        {total !== undefined && <span class="legenda__total"> / {dois(total)}</span>}
+      </span>
+    )
+  }
+  <span class="legenda__texto"><slot /></span>
+</p>
+
+<style>
+  .legenda {
+    display: flex;
+    gap: var(--e-4);
+    align-items: baseline;
+    font-size: var(--t-pequeno);
+    line-height: 1.5;
+    color: var(--cor-texto-2);
+  }
+  .legenda__n {
+    flex: none;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+    color: var(--cor-texto);
+  }
+  .legenda__total {
+    color: var(--cor-texto-2);
+  }
+</style>

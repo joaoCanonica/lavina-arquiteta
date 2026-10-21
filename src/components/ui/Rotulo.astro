@@ -1,0 +1,47 @@
+---
+// Rótulo de natureza da mídia (obrigatório em toda imagem/vídeo de projeto).
+// O texto vem de media.manifest.json (rotulos) e é conferido por audit-compliance.
+import manifesto from '../../../media.manifest.json';
+
+export type Natureza = 'executado' | 'render' | 'antes' | 'depois' | 'video';
+
+interface Props {
+  natureza: Natureza;
+  class?: string;
+}
+const { natureza, class: classe } = Astro.props;
+const texto = manifesto.rotulos[natureza];
+---
+
+<span
+  class:list={['rotulo', `rotulo--${natureza}`, classe]}
+  data-rotulo-natureza
+  data-natureza={natureza}
+>
+  {texto}
+</span>
+
+<style>
+  .rotulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: var(--cor-texto-2);
+  }
+  /* Marca discreta: um traço curto, não um ícone. */
+  .rotulo::before {
+    content: '';
+    width: 1.25rem;
+    height: var(--linha);
+    background: currentColor;
+    opacity: 0.6;
+  }
+  .rotulo--render::before {
+    background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 5px);
+  }
+</style>

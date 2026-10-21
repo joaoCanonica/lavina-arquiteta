@@ -2,8 +2,8 @@
 
 Gerado por `pnpm audit-compliance` (modo preview) sobre `dist/`. Não edite à mão.
 
-- Páginas lidas: 2
-- Mídias de projeto conferidas: 0
+- Páginas lidas: 3
+- Mídias de projeto conferidas: 3
 - Termos vetados encontrados: 0
 - Mídias sem rótulo de natureza: 0
 - Resultado: **ok**

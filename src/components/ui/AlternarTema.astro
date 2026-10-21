@@ -1,0 +1,64 @@
+---
+// Alterna claro/escuro e guarda a escolha (localStorage em try/catch).
+---
+
+<button type="button" class="alternar-tema" data-alternar-tema aria-pressed="false">
+  <span class="alternar-tema__texto">Tema escuro</span>
+</button>
+
+<script>
+  const CHAVE = 'lavina-tema';
+  const raiz = document.documentElement;
+  const atualizar = (b: HTMLButtonElement) => {
+    const escuro = raiz.dataset['theme'] === 'dark';
+    b.setAttribute('aria-pressed', String(escuro));
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-alternar-tema]').forEach((b) => {
+    atualizar(b);
+    b.addEventListener('click', () => {
+      const novo = raiz.dataset['theme'] === 'dark' ? 'light' : 'dark';
+      raiz.dataset['theme'] = novo;
+      try {
+        localStorage.setItem(CHAVE, novo);
+      } catch {
+        /* armazenamento indisponível: vale só nesta página */
+      }
+      document.querySelectorAll<HTMLButtonElement>('[data-alternar-tema]').forEach(atualizar);
+    });
+  });
+</script>
+
+<style>
+  .alternar-tema {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-3);
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--cor-texto-2);
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .alternar-tema::before {
+    content: '';
+    width: 1.75rem;
+    height: var(--linha-fresta);
+    background: var(--cor-linha-forte);
+    transition:
+      background var(--dur-media) var(--ease-saida),
+      box-shadow var(--dur-media) var(--ease-saida);
+  }
+  .alternar-tema[aria-pressed='true']::before {
+    background: var(--cor-fresta);
+    box-shadow: var(--sombra-fresta);
+  }
+  .alternar-tema:hover {
+    color: var(--cor-texto);
+  }
+</style>

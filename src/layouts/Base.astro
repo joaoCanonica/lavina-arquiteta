@@ -1,27 +1,77 @@
 ---
-// Layout mínimo: noindex no preview (e enquanto não houver domínio), faixa "em revisão".
+// Layout base: tokens e fontes, tema sem flash, noindex no preview (e enquanto não
+// houver domínio), faixa "em revisão", script da Fresta.
 import PreviewBanner from '../components/PreviewBanner.astro';
 import { config } from '../config/index.ts';
 import { ehPreview } from '../config/modo.ts';
+import '../styles/base.css';
 
 interface Props {
   titulo?: string;
   pendencias?: number;
+  /** "dark" = padrão de impacto (home); "light" = padrão de leitura (segue o sistema). */
+  temaPadrao?: 'dark' | 'light';
+  grao?: boolean;
+  /** força noindex (páginas internas) */
+  interna?: boolean;
 }
-const { titulo, pendencias } = Astro.props;
-const semIndice = ehPreview || config.seo.dominio.estado !== 'confirmado';
+const { titulo, pendencias, temaPadrao = 'light', grao = false, interna = false } = Astro.props;
+const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirmado';
 const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.marca.nome.valor;
 ---
 
-<html lang={config.seo.idioma}>
+<html lang={config.seo.idioma} data-tema-padrao={temaPadrao} data-grao={grao ? '' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {semIndice && <meta name="robots" content="noindex, nofollow" />}
     <title>{tituloFinal}</title>
+    <!-- Tema sem flash: escolha salva > padrão da página ("dark" na home) > sistema. -->
+    <script is:inline>
+      (() => {
+        const d = document.documentElement;
+        let s = null;
+        try {
+          s = localStorage.getItem('lavina-tema');
+        } catch {
+          /* armazenamento bloqueado: segue o padrão */
+        }
+        const t =
+          s === 'dark' || s === 'light'
+            ? s
+            : d.getAttribute('data-tema-padrao') === 'dark' ||
+                matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        d.setAttribute('data-theme', t);
+        d.classList.add('js');
+        // Segurança: se o script da Fresta não rodar, nada fica escondido.
+        addEventListener('load', () =>
+          setTimeout(() => {
+            if (!window.__frestaOk) d.classList.remove('js');
+          }, 1500),
+        );
+      })();
+    </script>
+    <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1C1A18" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="preload"
+      href="/fonts/urbanist-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <PreviewBanner {...pendencias !== undefined ? { pendencias } : {}} />
     <slot />
+    <script>
+      import '../scripts/fresta.ts';
+    </script>
   </body>
 </html>

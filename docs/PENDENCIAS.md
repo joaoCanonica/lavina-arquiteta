@@ -35,6 +35,12 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Projetos só em vídeo** (living e jantar, quarto e closet, cozinha farmhouse): cidade, ano e créditos de execução desconhecidos (ficam null e não aparecem). Autoria do projeto registrada como "Lavina | Coletivo de Arquitetura" (vídeos publicados por @lavina.co.arq).
 - **Créditos "marcado no post"** (banheiro e Cozinha J|C): a função de cada fornecedor não está escrita no post; não foi inferida.
 
+## Sessão 3 — Marca e design system
+
+- **Logo reconstruído**: validar com a Amanda (traços e subtítulo em Comfortaa Light); trocar pelo arquivo original se existir. Ver `docs/MARCA.md`.
+- **Grão** disponível e desligado por padrão; decidir na home (sessão 6A).
+- **Comparador**: estrutura e acessibilidade prontas; comportamento (arrastar, sincronizar com o range) na sessão 6B.
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)

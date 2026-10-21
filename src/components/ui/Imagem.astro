@@ -1,0 +1,81 @@
+---
+// <picture> AVIF/WebP com srcset a partir de public/media/midia.json (gerado por
+// media:prepare). Sempre com data-natureza (o rótulo visível fica no <figure> pai).
+import { existsSync, readFileSync } from 'node:fs';
+
+type Fonte = { largura: number; avif: string; webp: string };
+type Entrada = {
+  largura: number;
+  altura: number;
+  fontes: Fonte[];
+  lqip: string;
+  natureza?: string;
+};
+type Indice = {
+  imagens: Record<string, Entrada>;
+  quadros: Record<string, Entrada>;
+  pares: Record<string, { a: Entrada; b: Entrada }>;
+};
+
+interface Props {
+  /** id do manifesto (imagem ou quadro), ou "par:<id>:a|b" */
+  id: string;
+  alt: string;
+  sizes?: string;
+  carregar?: 'lazy' | 'eager';
+  prioridade?: boolean;
+  natureza?: string;
+  class?: string;
+}
+const {
+  id,
+  alt,
+  sizes = '100vw',
+  carregar = 'lazy',
+  prioridade = false,
+  natureza,
+  class: classe,
+} = Astro.props;
+
+const ARQ = 'public/media/midia.json';
+if (!existsSync(ARQ)) throw new Error('public/media/midia.json ausente: rode pnpm media:prepare');
+const indice = JSON.parse(readFileSync(ARQ, 'utf8')) as Indice;
+
+let img: Entrada | undefined;
+if (id.startsWith('par:')) {
+  const [, par, lado] = id.split(':');
+  img = par && (lado === 'a' || lado === 'b') ? indice.pares[par]?.[lado] : undefined;
+} else {
+  img = indice.imagens[id] ?? indice.quadros[id];
+}
+if (!img) throw new Error(`mídia "${id}" não existe em midia.json`);
+
+const srcset = (k: 'avif' | 'webp') => img.fontes.map((f) => `${f[k]} ${f.largura}w`).join(', ');
+const padrao = img.fontes.find((f) => f.largura >= 800) ?? img.fontes.at(-1);
+const nat = natureza ?? img.natureza ?? 'executado';
+---
+
+<picture class:list={['imagem', classe]}>
+  <source type="image/avif" srcset={srcset('avif')} sizes={sizes} />
+  <source type="image/webp" srcset={srcset('webp')} sizes={sizes} />
+  <img
+    src={padrao?.webp}
+    width={img.largura}
+    height={img.altura}
+    alt={alt}
+    loading={prioridade ? 'eager' : carregar}
+    decoding="async"
+    fetchpriority={prioridade ? 'high' : undefined}
+    data-natureza={nat}
+    style={`background-image:url(${img.lqip})`}
+  />
+</picture>
+
+<style>
+  .imagem img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-color: var(--cor-superficie);
+  }
+</style>

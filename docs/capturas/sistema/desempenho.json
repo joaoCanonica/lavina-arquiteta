@@ -1,0 +1,52 @@
+[
+  {
+    "nome": "logo desenhando (redesenhar)",
+    "quadros": 195,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 12,
+    "layoutMs": 0.84,
+    "paintMs": 59.83
+  },
+  {
+    "nome": "fresta acendendo (divisor)",
+    "quadros": 73,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 9,
+    "layoutMs": 0.56,
+    "paintMs": 38.52
+  },
+  {
+    "nome": "revelação da foto",
+    "quadros": 130,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.8,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 10,
+    "layoutMs": 0.66,
+    "paintMs": 53.99
+  },
+  {
+    "nome": "rolagem completa sem grão",
+    "quadros": 207,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.8,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 10,
+    "layoutMs": 1.13,
+    "paintMs": 35.61
+  },
+  {
+    "nome": "rolagem completa com grão",
+    "quadros": 207,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 11,
+    "layoutMs": 0.96,
+    "paintMs": 38.66
+  }
+]

@@ -111,7 +111,8 @@ for (const arquivo of htmls(DIST)) {
       continue;
     }
     const caixa = el.closest('[data-midia]') ?? el.closest('figure');
-    const rotulo = caixa?.querySelector('[data-rotulo-natureza]');
+    const rotulos = caixa?.querySelectorAll('[data-rotulo-natureza]') ?? [];
+    const rotulo = rotulos.find((r) => r.getAttribute('data-natureza') === natureza) ?? rotulos[0];
     const texto = rotulo?.textContent.trim() ?? '';
     if (!rotulo || !visivel(rotulo) || !texto) {
       achados.midia.push({
