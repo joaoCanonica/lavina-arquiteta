@@ -1,0 +1,37 @@
+{
+  "slug": "suite-fl",
+  "titulo": "Suíte F|L",
+  "codigo": "F|L",
+  "tipo": "residencial",
+  "cidade": "Lages",
+  "cidadeFonte": "docs/dados/midia-legendas.json (Lages/SC) e investigação §6",
+  "ano": null,
+  "natureza": "render",
+  "destaque": 1,
+  "autoriaProjeto": "Renata Nürnberg para Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    }
+  ],
+  "creditosExecucao": [],
+  "legendaLiteral": [
+    {
+      "post": "DaLTDbClllI",
+      "texto": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq"
+    }
+  ],
+  "textoSite": "",
+  "midia": [
+    "suite-fl-render-01",
+    "suite-fl-render-02",
+    "suite-fl-render-03",
+    "suite-fl-render-04",
+    "suite-fl-render-05"
+  ],
+  "pares": [],
+  "videos": [],
+  "instagram": ["https://www.instagram.com/p/DaLTDbClllI/"],
+  "proximosProjetos": ["cozinha-jc", "consultorio-jonny-arruda"]
+}

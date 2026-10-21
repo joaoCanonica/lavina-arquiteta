@@ -121,6 +121,14 @@ function parsePost(texto) {
   return { codigo: m[1], data: m[2] ?? null, url: `https://www.instagram.com/p/${m[1]}/` };
 }
 
+// Vídeo → projeto (os três últimos só existem em vídeo).
+const PROJETO_DO_VIDEO = {
+  'mudanca-cozinha.mp4': 'cozinha-jc',
+  'apresentacao-principal.mp4': 'living-jantar-painel',
+  'mostrando-quarto.mp4': 'quarto-closet',
+  'novo-modelo.mp4': 'cozinha-farmhouse',
+};
+
 const registros = [];
 const contadores = {};
 const slug = (base) => {
@@ -210,7 +218,7 @@ for (const v of fonte.videos) {
     id: `video-${v.arquivo.replace(/\.mp4$/, '')}`,
     arquivo: v.arquivo,
     tipo: 'video',
-    projeto: v.arquivo === 'mudanca-cozinha.mp4' ? 'cozinha-jc' : null,
+    projeto: PROJETO_DO_VIDEO[v.arquivo] ?? null,
     natureza: 'video',
     rotulo: ROTULO.video,
     autoriaImagem: 'Vídeo publicado por @lavina.co.arq; autoria da gravação a confirmar',

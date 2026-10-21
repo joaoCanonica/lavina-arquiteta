@@ -1,0 +1,38 @@
+{
+  "slug": "clinica-cordis",
+  "titulo": "Clínica Cordis",
+  "codigo": null,
+  "tipo": "saude-comercial",
+  "cidade": "Lages",
+  "cidadeFonte": "marcação do post da recepção Dejm1uIFtwG",
+  "ano": null,
+  "natureza": "render",
+  "destaque": 6,
+  "autoriaProjeto": "Renata Nürnberg para Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    }
+  ],
+  "creditosExecucao": [],
+  "legendaLiteral": [
+    {
+      "post": "DdY8lWNlqx7",
+      "texto": "Clínica Cordis 🫀\n\nConsultório de cardiologia desenvolvido a partir da integração entre funcionalidade, conforto e identidade visual.\n\nA marcenaria organiza o armazenamento e o apoio ao atendimento, enquanto a bancada de trabalho favorece uma rotina mais prática e fluida. O elemento do coração integrado ao painel reforça a especialidade de forma sutil e autoral.\n\nUm projeto em que cada elemento foi pensado para contribuir tanto para a estética quanto para o uso cotidiano do espaço.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq"
+    },
+    {
+      "post": "Dejm1uIFtwG",
+      "texto": "Clínica Cordis 🫀\n\nA mesma proposta, interpretada de duas formas.\nO off-white valoriza a leveza e a continuidade das superfícies, enquanto a madeira acrescenta profundidade e uma sensação mais acolhedora ao espaço.\n\nAs curvas da recepção, os detalhes iluminados e a escolha dos materiais constroem uma identidade contemporânea para a Cordis Cardiologia, pensada para receber com cuidado desde o primeiro contato.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq"
+    }
+  ],
+  "textoSite": "",
+  "midia": ["clinica-cordis-render-01", "clinica-cordis-render-02", "clinica-cordis-render-03"],
+  "pares": [],
+  "videos": [],
+  "instagram": [
+    "https://www.instagram.com/p/DdY8lWNlqx7/",
+    "https://www.instagram.com/p/Dejm1uIFtwG/"
+  ],
+  "proximosProjetos": ["cozinha-farmhouse", "banheiro-tons-claros"]
+}

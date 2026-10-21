@@ -1,0 +1,84 @@
+{
+  "slug": "consultorio-jonny-arruda",
+  "titulo": "Consultório Jonny Arruda",
+  "codigo": null,
+  "tipo": "saude-comercial",
+  "cidade": "Lages",
+  "cidadeFonte": "marcação do post do render DSGdwDDj4Kv",
+  "ano": null,
+  "natureza": "misto",
+  "destaque": 8,
+  "autoriaProjeto": "Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    },
+    {
+      "tipo": "foto",
+      "autor": null
+    }
+  ],
+  "creditosExecucao": [
+    {
+      "funcao": "Marcenaria",
+      "nome": "Lazzari Móveis"
+    },
+    {
+      "funcao": "Pedras",
+      "nome": "Álamo Marmoraria"
+    },
+    {
+      "funcao": "Cortinas",
+      "nome": "Maitê Decorações"
+    },
+    {
+      "funcao": "Iluminação",
+      "nome": "AF Eletricidade"
+    },
+    {
+      "funcao": "Decoração",
+      "nome": "Espaço Decora by Rita Assunção"
+    }
+  ],
+  "legendaLiteral": [
+    {
+      "post": "DTqJY19jgis",
+      "texto": "Neste consultório ginecológico obstétrico de alto risco, cada detalhe foi desenhado para gerar conforto, confiança e tranquilidade. Um espaço técnico, mas profundamente humano.\n\nMarcenaria @lazzari.moveis\nPedras @alamo_marmoraria_\nCortinas @maitedecoracoes\nIluminação @afeletricidade_\nDecor @espacodecorabyritaassuncao"
+    },
+    {
+      "post": "DUUHxO4DhqK",
+      "texto": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico."
+    },
+    {
+      "post": "DSGdwDDj4Kv",
+      "texto": "Consultório Jonny Arruda | Clínica de obstetrícia\n\nAmbiente pensado para transformar consultas em momentos de cuidado. Um consultório que transmite tranquilidade, segurança e delicadeza desde o primeiro olhar.\n\nProjeto elaborado para - @lavina.co.arq\nImagem foto realista - @arq_renatanurnberg"
+    }
+  ],
+  "textoSite": "",
+  "midia": [
+    "consultorio-jonny-arruda-render-01",
+    "consultorio-jonny-arruda-render-02",
+    "consultorio-jonny-arruda-antes-01",
+    "consultorio-jonny-arruda-antes-02",
+    "consultorio-jonny-arruda-antes-03",
+    "consultorio-jonny-arruda-antes-04",
+    "consultorio-jonny-arruda-depois-01",
+    "consultorio-jonny-arruda-depois-02",
+    "consultorio-jonny-arruda-depois-03",
+    "consultorio-jonny-arruda-depois-04",
+    "consultorio-jonny-arruda-depois-05"
+  ],
+  "pares": [
+    "consultorio-projeto-executado-mesa",
+    "consultorio-projeto-executado-estantes",
+    "consultorio-antes-depois-pia"
+  ],
+  "videos": [],
+  "instagram": [
+    "https://www.instagram.com/p/DTqJY19jgis/",
+    "https://www.instagram.com/p/DUUHxO4DhqK/",
+    "https://www.instagram.com/p/DSGdwDDj4Kv/"
+  ],
+  "proximosProjetos": ["living-jantar-painel", "clinica-cordis"]
+}

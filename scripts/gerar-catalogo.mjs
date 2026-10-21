@@ -110,7 +110,7 @@ for (const r of manifesto.registros) {
 }
 const tituloProjeto = Object.fromEntries(fonte.projetos.map((p) => [p.id, p.titulo]));
 Object.assign(tituloProjeto, {
-  'living-jantar-parametrico': 'Living e jantar com painel paramétrico (só em vídeo)',
+  'living-jantar-painel': 'Living e jantar com painel paramétrico (só em vídeo)',
   'quarto-closet': 'Quarto e closet reformados (só em vídeo)',
   'cozinha-farmhouse': 'Cozinha farmhouse (só em vídeo)',
   videos: 'Vídeos',

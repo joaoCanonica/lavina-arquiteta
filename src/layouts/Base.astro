@@ -1,0 +1,27 @@
+---
+// Layout mínimo: noindex no preview (e enquanto não houver domínio), faixa "em revisão".
+import PreviewBanner from '../components/PreviewBanner.astro';
+import { config } from '../config/index.ts';
+import { ehPreview } from '../config/modo.ts';
+
+interface Props {
+  titulo?: string;
+  pendencias?: number;
+}
+const { titulo, pendencias } = Astro.props;
+const semIndice = ehPreview || config.seo.dominio.estado !== 'confirmado';
+const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.marca.nome.valor;
+---
+
+<html lang={config.seo.idioma}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {semIndice && <meta name="robots" content="noindex, nofollow" />}
+    <title>{tituloFinal}</title>
+  </head>
+  <body>
+    <PreviewBanner {...pendencias !== undefined ? { pendencias } : {}} />
+    <slot />
+  </body>
+</html>

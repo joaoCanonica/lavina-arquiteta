@@ -1,0 +1,179 @@
+---
+// Rota /_pendencias: painel interno de pendências. Só existe no preview
+// (getStaticPaths vazio em produção). Arquivos com "_" seriam ignorados pelo
+// roteador do Astro, por isso o nome vem do parâmetro.
+import { getCollection } from 'astro:content';
+import manifesto from '../../media.manifest.json';
+import pares from '../../docs/dados/pares.json';
+import Provisorio from '../components/Provisorio.astro';
+import { config } from '../config/index.ts';
+import { ehPreview } from '../config/modo.ts';
+import { projetosVisiveis, verificar } from '../config/travas.ts';
+import Base from '../layouts/Base.astro';
+
+export function getStaticPaths() {
+  return ehPreview ? [{ params: { pendencias: '_pendencias' } }] : [];
+}
+
+const projetos = (await getCollection('projetos')).map((e) => e.data);
+const preview = verificar({ config, projetos, manifesto, pares, modo: 'preview' });
+const producao = verificar({ config, projetos, manifesto, pares, modo: 'producao' });
+const visiveis = projetosVisiveis(projetos, 'preview');
+const rotuloNatureza = {
+  executado: 'Obra executada',
+  render: 'Imagem 3D do projeto',
+  misto: 'Imagem 3D e obra',
+};
+const grupos = [
+  ['bloqueante', 'Bloqueantes'],
+  ['aviso', 'Avisos da config'],
+  ['projeto', 'Projetos'],
+] as const;
+---
+
+<Base titulo="Pendências" pendencias={preview.pendencias.length}>
+  <main class="painel">
+    <h1>Pendências</h1>
+    <p>
+      Modo atual: <strong>{ehPreview ? 'preview' : 'produção'}</strong>. Simulação de produção:{' '}
+      <strong data-producao={producao.ok ? 'liberada' : 'travada'}>
+        {producao.ok ? 'liberada' : `travada (${producao.falhas.length})`}
+      </strong>
+      · {preview.pendencias.length} pendências · {projetos.length} projetos.
+    </p>
+
+    {
+      producao.falhas.length > 0 && (
+        <section>
+          <h2>Travas de produção</h2>
+          <ul>
+            {producao.falhas.map((f) => (
+              <li>
+                <code>{f.codigo}</code> {f.detalhe}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section>
+      <h2>Projetos ({visiveis.length})</h2>
+      <table>
+        <thead>
+          <tr
+            ><th>Projeto</th><th>Natureza</th><th>Cidade</th><th>Autoria</th><th>Mídia</th><th
+              >Texto</th
+            ></tr
+          >
+        </thead>
+        <tbody>
+          {
+            visiveis.map((p) => (
+              <tr data-projeto={p.slug} data-provisorio={p.provisorio ? 'sim' : 'nao'}>
+                <td>
+                  <Provisorio ativo={p.provisorio} motivo="texto ou autoria das imagens pendentes">
+                    {p.titulo}
+                  </Provisorio>
+                </td>
+                <td>{rotuloNatureza[p.natureza]}</td>
+                <td>{p.cidade ?? '—'}</td>
+                <td>
+                  {p.autoriaProjeto}
+                  {p.autoriaImagens.map((a) => (
+                    <div>
+                      {a.tipo}:{' '}
+                      {a.autor ?? (
+                        <Provisorio ativo motivo="autoria a confirmar">
+                          a confirmar
+                        </Provisorio>
+                      )}
+                    </div>
+                  ))}
+                </td>
+                <td>
+                  {p.midia.length} img · {p.pares.length} pares · {p.videos.length} vídeos
+                </td>
+                <td>
+                  {p.textoSite.trim() ? (
+                    'ok'
+                  ) : (
+                    <Provisorio ativo motivo="sessão 5">
+                      vazio
+                    </Provisorio>
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    {
+      grupos.map(([estado, titulo]) => {
+        const itens = preview.pendencias.filter((x) => x.estado === estado);
+        return (
+          itens.length > 0 && (
+            <section>
+              <h2>
+                {titulo} ({itens.length})
+              </h2>
+              <ul>
+                {itens.map((x) => (
+                  <li>
+                    <Provisorio ativo motivo={x.motivo}>
+                      {x.rotulo}
+                    </Provisorio>{' '}
+                    — {x.motivo} <code>{x.onde}</code>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        );
+      })
+    }
+
+    <section>
+      <h2>Exemplo de campo pendente</h2>
+      <p>E-mail: <Provisorio campo={config.contato.email} /></p>
+      <p>CAU de Amanda: <Provisorio campo={config.pessoas[0].cau} /></p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .painel {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    font:
+      400 0.9375rem/1.5 system-ui,
+      sans-serif;
+    color: #1c1a18;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e6ded2;
+  }
+  section {
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+  li {
+    margin: 0.4rem 0;
+  }
+  code {
+    font-size: 0.75rem;
+    color: #8a6a4f;
+  }
+</style>

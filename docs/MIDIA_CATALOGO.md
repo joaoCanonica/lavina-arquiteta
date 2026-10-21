@@ -121,28 +121,11 @@ Gerado por `pnpm media:catalogo` a partir de `media.manifest.json`, `docs/dados/
 | `quadro-um-dia-no-escritorio-05` | um-dia-no-escritorio.mp4#t=41.16 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 41.16s | 720px · 39 KB |
 | `quadro-um-dia-no-escritorio-06` | um-dia-no-escritorio.mp4#t=50.2 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 50.2s | 720px · 27 KB |
 
-### Vídeos
-
-| id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `video-apresentacao-principal` | apresentacao-principal.mp4 | Vídeo | Vídeo principal da home (seção de apresentação; clique para tocar), e projeto "Living e ja | — | — | 21460 KB | ver vídeos |
-| `video-falando-sobre-primeiro-contato` | falando-sobre-primeiro-contato.mp4 | Vídeo | Etapa 1 da trilha "Do projeto à obra" (escuta / briefing) e bloco antes do CTA de orçament | — | — | 3218 KB | ver vídeos |
-| `video-mostrando-quarto` | mostrando-quarto.mp4 | Vídeo | Projeto "Quarto e closet reformados" na galeria; frase-chave para a seção de reforma. | — | — | 4836 KB | ver vídeos |
-| `video-novo-modelo` | novo-modelo.mp4 | Vídeo | Prova do pilar "o projeto parte da identidade do cliente" (não é um estilo único do escrit | — | — | 5087 KB | ver vídeos |
-| `video-um-dia-no-escritorio` | um-dia-no-escritorio.mp4 | Vídeo | Seção "Do projeto à obra" / "Presença em cada etapa" (o vídeo mais estratégico do site). | — | — | 10702 KB | ver vídeos |
-
-### Marca, documentação e "não usar"
-
-| id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `marca-logo` | lavina-logo.svg | Marca | marca do site (cabeçalho, entrada, favicon) | — | — | 38 KB | — |
-| `doc-logo-comparacao` | lavina-logo-comparacao.jpg | Documentação interna (não publicar) | só documentação; não vai ao site | — | — | 91 KB | — |
-| `nao-usar-logo-antigo` | Captura de tela de 2026-10-21 11-58-49.png | Não usar (não publicar) | não usar | logo antigo: não publicar | — | 227 KB | — |
-
 ### Living e jantar com painel paramétrico (só em vídeo)
 
 | id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| `video-apresentacao-principal` | apresentacao-principal.mp4 | Vídeo | Vídeo principal da home (seção de apresentação; clique para tocar), e projeto "Living e ja | — | — | 21460 KB | ver vídeos |
 | `quadro-apresentacao-principal-01` | apresentacao-principal.mp4#t=20 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 20s | 720px · 23 KB |
 | `quadro-apresentacao-principal-02` | apresentacao-principal.mp4#t=37 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 37s | 720px · 23 KB |
 | `quadro-apresentacao-principal-03` | apresentacao-principal.mp4#t=49.25 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 49.25s | 720px · 13 KB |
@@ -150,10 +133,18 @@ Gerado por `pnpm media:catalogo` a partir de `media.manifest.json`, `docs/dados/
 | `quadro-apresentacao-principal-05` | apresentacao-principal.mp4#t=72.75 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 72.75s | 720px · 19 KB |
 | `quadro-apresentacao-principal-06` | apresentacao-principal.mp4#t=96.75 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 96.75s | 720px · 26 KB |
 
+### Vídeos
+
+| id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `video-falando-sobre-primeiro-contato` | falando-sobre-primeiro-contato.mp4 | Vídeo | Etapa 1 da trilha "Do projeto à obra" (escuta / briefing) e bloco antes do CTA de orçament | — | — | 3218 KB | ver vídeos |
+| `video-um-dia-no-escritorio` | um-dia-no-escritorio.mp4 | Vídeo | Seção "Do projeto à obra" / "Presença em cada etapa" (o vídeo mais estratégico do site). | — | — | 10702 KB | ver vídeos |
+
 ### Quarto e closet reformados (só em vídeo)
 
 | id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| `video-mostrando-quarto` | mostrando-quarto.mp4 | Vídeo | Projeto "Quarto e closet reformados" na galeria; frase-chave para a seção de reforma. | — | — | 4836 KB | ver vídeos |
 | `quadro-mostrando-quarto-01` | mostrando-quarto.mp4#t=9 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 9s | 720px · 28 KB |
 | `quadro-mostrando-quarto-02` | mostrando-quarto.mp4#t=11 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 11s | 720px · 32 KB |
 | `quadro-mostrando-quarto-03` | mostrando-quarto.mp4#t=15 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 15s | 720px · 22 KB |
@@ -165,12 +156,21 @@ Gerado por `pnpm media:catalogo` a partir de `media.manifest.json`, `docs/dados/
 
 | id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| `video-novo-modelo` | novo-modelo.mp4 | Vídeo | Prova do pilar "o projeto parte da identidade do cliente" (não é um estilo único do escrit | — | — | 5087 KB | ver vídeos |
 | `quadro-novo-modelo-01` | novo-modelo.mp4#t=10 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 10s | 720px · 37 KB |
 | `quadro-novo-modelo-02` | novo-modelo.mp4#t=17.25 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 17.25s | 720px · 24 KB |
 | `quadro-novo-modelo-03` | novo-modelo.mp4#t=19.5 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 19.5s | 720px · 24 KB |
 | `quadro-novo-modelo-04` | novo-modelo.mp4#t=22 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 22s | 720px · 21 KB |
 | `quadro-novo-modelo-05` | novo-modelo.mp4#t=24.25 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 24.25s | 720px · 26 KB |
 | `quadro-novo-modelo-06` | novo-modelo.mp4#t=26 | Obra executada (quadro de vídeo) | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 26s | 720px · 25 KB |
+
+### Marca, documentação e "não usar"
+
+| id | arquivo | natureza | uso | problemas | edições | original | derivado (maior) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `marca-logo` | lavina-logo.svg | Marca | marca do site (cabeçalho, entrada, favicon) | — | — | 38 KB | — |
+| `doc-logo-comparacao` | lavina-logo-comparacao.jpg | Documentação interna (não publicar) | só documentação; não vai ao site | — | — | 91 KB | — |
+| `nao-usar-logo-antigo` | Captura de tela de 2026-10-21 11-58-49.png | Não usar (não publicar) | não usar | logo antigo: não publicar | — | 227 KB | — |
 
 ## Pares
 
@@ -258,5 +258,5 @@ Método: Quadro mais nítido (variância do laplaciano, passo de 0,25 s) dentro 
 4. **Autoria das fotos de obra** (consultório, banheiro, cozinha): quem fotografou? Hoje o crédito diz "autoria a confirmar".
 5. **Quem é a arquiteta** de `mostrando-quarto.mp4` e `mudanca-cozinha.mp4` (Renata ou Lara?).
 6. **Vídeos sem a legenda queimada** de `apresentacao-principal.mp4` (a legenda aparece em todos os quadros; os quadros do site foram recortados acima dela). Na legenda queimada aparece "o melhor" (termo vetado no HTML; vai para a conferência da sessão 9).
-7. **Monograma em marca d'água** em `mudanca-cozinha.mp4` e `novo-modelo.mp4`: confirmar se é marca atual ou antiga (os quadros e o loop foram recortados acima dele; os vídeos inteiros o mantêm, sem corte de conteúdo).
+7. **Arquivo original da marca atual** (o monograma da marca d'água e do cartão final dos vídeos): o SVG do site foi reconstruído do vídeo.
 8. **Retratos da Renata e da Lara sem o texto queimado** (`outra-arquiteta.jpg`, `outra-arquiteta1.jpg`).

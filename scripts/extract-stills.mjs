@@ -17,7 +17,7 @@ const PASSO = 0.25;
 const VIDEOS = [
   {
     video: 'apresentacao-principal.mp4',
-    projeto: 'living-jantar-parametrico',
+    projeto: 'living-jantar-painel',
     natureza: 'executado',
     recorte: { x: 0, y: 0, largura: 1, altura: 0.6 },
     motivoRecorte: 'exclui a faixa de legenda queimada (y ≈ 62–67%)',

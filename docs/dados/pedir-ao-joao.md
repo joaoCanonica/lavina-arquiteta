@@ -4,5 +4,5 @@
 4. **Autoria das fotos de obra** (consultório, banheiro, cozinha): quem fotografou? Hoje o crédito diz "autoria a confirmar".
 5. **Quem é a arquiteta** de `mostrando-quarto.mp4` e `mudanca-cozinha.mp4` (Renata ou Lara?).
 6. **Vídeos sem a legenda queimada** de `apresentacao-principal.mp4` (a legenda aparece em todos os quadros; os quadros do site foram recortados acima dela). Na legenda queimada aparece "o melhor" (termo vetado no HTML; vai para a conferência da sessão 9).
-7. **Monograma em marca d'água** em `mudanca-cozinha.mp4` e `novo-modelo.mp4`: confirmar se é marca atual ou antiga (os quadros e o loop foram recortados acima dele; os vídeos inteiros o mantêm, sem corte de conteúdo).
+7. **Arquivo original da marca atual** (o monograma da marca d'água e do cartão final dos vídeos): o SVG do site foi reconstruído do vídeo.
 8. **Retratos da Renata e da Lara sem o texto queimado** (`outra-arquiteta.jpg`, `outra-arquiteta1.jpg`).
