@@ -41,6 +41,13 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Grão** disponível e desligado por padrão; decidir na home (sessão 6A).
 - **Comparador**: estrutura e acessibilidade prontas; comportamento (arrastar, sincronizar com o range) na sessão 6B.
 
+## Sessão 4 — Entrada e abertura
+
+- **Copy provisória da abertura**: tese literal da bio ("Arquitetura com presença em cada etapa."); subtítulo "Interiores, iluminação e acompanhamento de obra. Lages e Litoral Catarinense." (cidades da config). Revisar na sessão 5.
+- **Mensagem do WhatsApp** neutra ("Tipo de projeto: ___ · Cidade: ___"), sem dado sensível; revisar na sessão 7 (LGPD).
+- **Links do menu** (/projetos/, /processo/, /coletivo/, /contato/) apontam para páginas das sessões 6B e 6C.
+- **SEO 54 no Lighthouse** por noindex (preview) e falta de meta description: resolve nas sessões 5/8 e com o domínio.
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)

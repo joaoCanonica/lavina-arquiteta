@@ -1,0 +1,57 @@
+{
+  "rota": "/",
+  "vezes": 3,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 54,
+  "fcpMs": 908,
+  "lcpMs": 1358,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 908,
+  "bytesTotaisKB": 66,
+  "lcpElemento": "figure.abertura__foto > div.abertura__quadro > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 910.4765,
+      "lcp": 1360.4765,
+      "tbt": 0,
+      "cls": 0,
+      "si": 910.4765,
+      "bytesTotais": 67214,
+      "falhasA11y": []
+    },
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 903.8829000000001,
+      "lcp": 1353.8829,
+      "tbt": 0,
+      "cls": 0,
+      "si": 903.8829000000001,
+      "bytesTotais": 67214,
+      "falhasA11y": []
+    },
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 908.181,
+      "lcp": 1358.181,
+      "tbt": 0,
+      "cls": 0,
+      "si": 908.181,
+      "bytesTotais": 67214,
+      "falhasA11y": []
+    }
+  ]
+}

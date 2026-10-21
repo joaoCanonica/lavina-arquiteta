@@ -1,8 +1,42 @@
 ---
-// Página temporária. Substituída na sessão 6A.
+// Home (sessão 4: só entrada + abertura; as demais seções entram na 6A).
+import Abertura, { FOTO_ABERTURA, TAMANHOS_ABERTURA } from '../components/abertura/Abertura.astro';
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import EntradaHead from '../components/entrada/EntradaHead.astro';
 import Base from '../layouts/Base.astro';
+import { readFileSync } from 'node:fs';
+
+// Preload do LCP (a foto da abertura) com o mesmo srcset/sizes da <picture>.
+const indice = JSON.parse(readFileSync('public/media/midia.json', 'utf8')) as {
+  imagens: Record<string, { fontes: { largura: number; avif: string }[] }>;
+};
+const foto = indice.imagens[FOTO_ABERTURA];
+const srcsetAvif = foto?.fontes.map((f) => `${f.avif} ${f.largura}w`).join(', ');
 ---
 
-<Base>
-  <h1>Lavina</h1>
+<Base temaPadrao="dark">
+  <Fragment slot="head">
+    <EntradaHead />
+    {
+      srcsetAvif && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcsetAvif}
+          imagesizes={TAMANHOS_ABERTURA}
+          fetchpriority="high"
+        />
+      )
+    }
+  </Fragment>
+  <Entrada />
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <Abertura />
+  </main>
+  <script>
+    import '../scripts/entrada.ts';
+  </script>
 </Base>

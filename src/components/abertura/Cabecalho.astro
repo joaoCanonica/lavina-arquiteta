@@ -1,0 +1,294 @@
+---
+// Cabeçalho: logo (monograma + LAVINA), menu e WhatsApp. Lê o tom da seção que está
+// por baixo ([data-tone="escuro|claro"]) e ajusta as cores. Menu mobile = <dialog>
+// modal (foco preso e Esc nativos).
+import { config } from '../../config/index.ts';
+import { linkWhatsapp } from '../../config/contato.ts';
+import Logo from '../marca/Logo.astro';
+
+interface Props {
+  /** tom inicial (o da primeira seção) */
+  tom?: 'escuro' | 'claro';
+}
+const { tom = 'escuro' } = Astro.props;
+
+const itens = [
+  { href: '/projetos/', texto: 'Projetos' },
+  { href: '/processo/', texto: 'Processo' },
+  { href: '/coletivo/', texto: 'Coletivo' },
+  { href: '/contato/', texto: 'Contato' },
+];
+const whatsapp = linkWhatsapp(
+  config.contato.whatsapp.valor,
+  'Olá! Gostaria de solicitar um orçamento. Tipo de projeto: ___ · Cidade: ___',
+);
+---
+
+<header class="cabecalho" data-cabecalho data-tone={tom}>
+  <a
+    href="/"
+    class="cabecalho__marca"
+    aria-label="Lavina — coletivo de arquitetura, início"
+    data-cabecalho-logo
+  >
+    <span class="cabecalho__monograma"><Logo variante="monograma" decorativo /></span>
+    <span class="cabecalho__lavina"><Logo variante="lavina" decorativo /></span>
+  </a>
+
+  <nav class="cabecalho__nav" aria-label="Principal">
+    <ul>
+      {
+        itens.map((i) => (
+          <li>
+            <a href={i.href}>{i.texto}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <a class="cabecalho__whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">
+    WhatsApp<span class="so-leitor"> (abre em nova aba)</span>
+  </a>
+
+  <button
+    type="button"
+    class="cabecalho__abrir"
+    data-menu-abrir
+    aria-haspopup="dialog"
+    aria-controls="menu-principal"
+  >
+    <span class="cabecalho__abrir-linhas" aria-hidden="true"></span>
+    Menu
+  </button>
+
+  <dialog class="menu" id="menu-principal" aria-label="Menu" data-menu>
+    <div class="menu__topo">
+      <span class="menu__marca"><Logo variante="lavina" decorativo /></span>
+      <button type="button" class="menu__fechar" data-menu-fechar>Fechar</button>
+    </div>
+    <nav aria-label="Principal (menu)">
+      <ol class="menu__lista">
+        {
+          itens.map((i, n) => (
+            <li>
+              <a href={i.href} data-menu-link>
+                <span class="menu__n" aria-hidden="true">
+                  {String(n + 1).padStart(2, '0')}
+                </span>
+                {i.texto}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <a class="menu__whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">
+      Solicitar orçamento pelo WhatsApp<span class="so-leitor"> (abre em nova aba)</span>
+    </a>
+  </dialog>
+</header>
+
+<script>
+  const cab = document.querySelector<HTMLElement>('[data-cabecalho]');
+  const menu = document.querySelector<HTMLDialogElement>('[data-menu]');
+  const abrir = document.querySelector<HTMLButtonElement>('[data-menu-abrir]');
+
+  abrir?.addEventListener('click', () => menu?.showModal());
+  document.querySelector('[data-menu-fechar]')?.addEventListener('click', () => menu?.close());
+  menu
+    ?.querySelectorAll('[data-menu-link]')
+    .forEach((a) => a.addEventListener('click', () => menu.close()));
+  menu?.addEventListener('close', () => abrir?.focus());
+
+  // Tom: a seção sob o cabeçalho define as cores (IntersectionObserver numa faixa de 1 px no topo).
+  if (cab && 'IntersectionObserver' in window) {
+    const altura = cab.offsetHeight;
+    const io = new IntersectionObserver(
+      (entradas) => {
+        for (const e of entradas) {
+          if (e.isIntersecting)
+            cab.dataset['tone'] = (e.target as HTMLElement).dataset['tone'] ?? 'escuro';
+        }
+      },
+      {
+        rootMargin: `-${Math.round(altura / 2)}px 0px -${innerHeight - Math.round(altura / 2) - 1}px 0px`,
+      },
+    );
+    document.querySelectorAll('[data-tone]:not([data-cabecalho])').forEach((s) => io.observe(s));
+  }
+</script>
+
+<style>
+  .cabecalho {
+    --cab-texto: var(--osso);
+    --cab-texto-2: var(--greige);
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: var(--e-6);
+    padding: var(--e-4) var(--margem);
+    color: var(--cab-texto);
+    transition: color var(--dur-media) var(--ease-suave);
+  }
+  .cabecalho[data-tone='claro'] {
+    --cab-texto: var(--grafite);
+    --cab-texto-2: var(--greige-profundo);
+  }
+
+  .cabecalho__marca {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: inherit;
+    margin-right: auto;
+    min-height: 44px;
+  }
+  .cabecalho__monograma {
+    width: 1.35rem;
+  }
+  .cabecalho__lavina {
+    width: 5.25rem;
+  }
+
+  .cabecalho__nav ul {
+    display: flex;
+    gap: var(--e-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cabecalho__nav a,
+  .cabecalho__whatsapp,
+  .cabecalho__abrir {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .cabecalho__nav a {
+    color: var(--cab-texto-2);
+    transition: color var(--dur-curta) linear;
+  }
+  .cabecalho__nav a:hover {
+    color: var(--cab-texto);
+  }
+  /* WhatsApp: texto + linha de luz curta (sem pílula). */
+  .cabecalho__whatsapp {
+    gap: var(--e-3);
+  }
+  .cabecalho__whatsapp::before {
+    content: '';
+    width: 1.5rem;
+    height: var(--linha-fresta);
+    background: var(--luz);
+    box-shadow: var(--sombra-fresta);
+  }
+  .cabecalho__abrir {
+    display: none;
+    gap: var(--e-3);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cabecalho__abrir-linhas {
+    width: 1.25rem;
+    height: 5px;
+    border-block: var(--linha) solid currentColor;
+  }
+
+  @media (max-width: 52rem) {
+    .cabecalho__nav,
+    .cabecalho__whatsapp {
+      display: none;
+    }
+    .cabecalho__abrir {
+      display: inline-flex;
+    }
+  }
+
+  /* Menu mobile: tela cheia, grafite. */
+  .menu {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: var(--e-4) var(--margem) var(--e-7);
+    border: 0;
+    background: var(--grafite);
+    color: var(--osso);
+    flex-direction: column;
+    gap: var(--e-8);
+  }
+  .menu[open] {
+    display: flex;
+  }
+  .menu::backdrop {
+    background: var(--grafite);
+  }
+  .menu__topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 44px;
+  }
+  .menu__marca {
+    width: 5.25rem;
+  }
+  .menu__fechar {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .menu__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-4);
+  }
+  .menu__lista a {
+    display: flex;
+    align-items: baseline;
+    gap: var(--e-4);
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+    line-height: 1.1;
+  }
+  .menu__n {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--greige);
+  }
+  .menu__whatsapp {
+    margin-top: auto;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+  .menu :focus-visible {
+    outline-color: var(--luz);
+  }
+</style>

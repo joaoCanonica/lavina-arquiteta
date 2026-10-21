@@ -103,29 +103,48 @@ await sequencia('[data-revela]', [0, 250, 600, 900, 1300, 2000], 'fresta-revelan
 });
 
 // 2. Desempenho
-async function medir(nome, acao, { grao = false } = {}) {
+async function medir(nome, acao, { grao = false, url = BASE, desdeOInicio = false } = {}) {
   const { ctx, pagina } = await novaPagina();
   const cdp = await ctx.newCDPSession(pagina);
-  await pagina.goto(BASE, { waitUntil: 'networkidle' });
-  if (grao) await pagina.evaluate(() => document.documentElement.setAttribute('data-grao', ''));
-  await pagina.waitForTimeout(500);
+  if (desdeOInicio) {
+    // Mede desde a navegação (entrada da home): rAF registrado por script de inicialização.
+    await ctx.addInitScript(() => {
+      window.__quadros = [];
+      let ant = performance.now();
+      const passo = (t) => {
+        window.__quadros.push(t - ant);
+        ant = t;
+        if (window.__quadros.length < 400) requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+    });
+  }
   const eventos = [];
   cdp.on('Tracing.dataCollected', (e) => eventos.push(...e.value));
   const fim = new Promise((r) => cdp.once('Tracing.tracingComplete', r));
-  await cdp.send('Tracing.start', {
-    categories: 'devtools.timeline,disabled-by-default-devtools.timeline',
-    transferMode: 'ReportEvents',
-  });
-  await pagina.evaluate(() => {
-    window.__quadros = [];
-    let ant = performance.now();
-    const passo = (t) => {
-      window.__quadros.push(t - ant);
-      ant = t;
-      if (window.__quadros.length < 400) requestAnimationFrame(passo);
-    };
-    requestAnimationFrame(passo);
-  });
+  const iniciarTrace = () =>
+    cdp.send('Tracing.start', {
+      categories: 'devtools.timeline,disabled-by-default-devtools.timeline',
+      transferMode: 'ReportEvents',
+    });
+  if (desdeOInicio) await iniciarTrace();
+  await pagina.goto(url, { waitUntil: desdeOInicio ? 'commit' : 'networkidle' });
+  if (grao) await pagina.evaluate(() => document.documentElement.setAttribute('data-grao', ''));
+  if (!desdeOInicio) {
+    await pagina.waitForTimeout(500);
+    await iniciarTrace();
+  }
+  if (!desdeOInicio)
+    await pagina.evaluate(() => {
+      window.__quadros = [];
+      let ant = performance.now();
+      const passo = (t) => {
+        window.__quadros.push(t - ant);
+        ant = t;
+        if (window.__quadros.length < 400) requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+    });
   await acao(pagina);
   const deltas = await pagina.evaluate(() => window.__quadros.slice(2));
   await cdp.send('Tracing.end');
@@ -148,6 +167,12 @@ async function medir(nome, acao, { grao = false } = {}) {
 }
 
 const resultados = [];
+resultados.push(
+  await medir('entrada da home (0–3,5 s, desde a navegação)', (p) => p.waitForTimeout(3500), {
+    url: BASE.replace('_sistema/', ''),
+    desdeOInicio: true,
+  }),
+);
 resultados.push(
   await medir('logo desenhando (redesenhar)', async (p) => {
     await p.click('.js-repetir-logo');

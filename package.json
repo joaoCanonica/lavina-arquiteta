@@ -31,7 +31,9 @@
     "test:config": "node --test scripts/test-config.mjs",
     "build:producao": "LAVINA_MODO=producao pnpm validate-config && LAVINA_MODO=producao pnpm build && LAVINA_MODO=producao pnpm audit-compliance",
     "marca": "node scripts/marca.mjs",
-    "medir-animacoes": "node scripts/medir-animacoes.mjs"
+    "medir-animacoes": "node scripts/medir-animacoes.mjs",
+    "test:entrada": "node --test scripts/test-entrada.mjs",
+    "capturar:entrada": "node scripts/capturar-entrada.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"
@@ -44,6 +46,7 @@
     "eslint": "10.13.0",
     "eslint-plugin-astro": "1.1.1",
     "globals": "17.13.0",
+    "lighthouse": "13.5.0",
     "node-html-parser": "9.0.4",
     "playwright-core": "1.64.1",
     "prettier": "3.9.10",

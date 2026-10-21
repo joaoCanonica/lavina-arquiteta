@@ -1,0 +1,21 @@
+---
+// Script inline do <head> (antes da 1ª pintura): decide se a entrada roda.
+// Roda só na 1ª visita da sessão, com JS e sem prefers-reduced-motion.
+// Rede de segurança: 5 s depois, a entrada some de qualquer jeito.
+---
+
+<script is:inline>
+  (() => {
+    const d = document.documentElement;
+    try {
+      if (sessionStorage.getItem('lavina-entrada')) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      sessionStorage.setItem('lavina-entrada', '1');
+    } catch {
+      return; // sem armazenamento: sem entrada (abertura direta)
+    }
+    d.classList.add('entrada-ativa');
+    window.__entradaInicio = performance.now();
+    setTimeout(() => d.classList.remove('entrada-ativa', 'entrada-voa', 'entrada-pulada'), 5000);
+  })();
+</script>

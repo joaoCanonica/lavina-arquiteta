@@ -1,0 +1,191 @@
+---
+// Entrada da home: o logo se desenha como luz, uma fresta acende na altura dele e a
+// tela se abre a partir dela; o logo encolhe e vira o do cabeçalho. Total ≈ 3,3 s.
+// Só na 1ª visita da sessão, com JS e movimento permitido (classe html.entrada-ativa,
+// definida pelo script inline <EntradaHead/> antes da primeira pintura).
+// A abertura está no DOM e acessível desde o início; esta camada é decorativa.
+import Fresta from '../fresta/Fresta.astro';
+import Logo from '../marca/Logo.astro';
+---
+
+<div class="entrada" data-entrada aria-hidden="true">
+  <div class="entrada__painel entrada__painel--topo"></div>
+  <div class="entrada__painel entrada__painel--base"></div>
+  <div class="entrada__palco">
+    <div class="entrada__logo" data-entrada-logo>
+      <Logo desenhar velocidade={1.45} atraso={120} decorativo class="entrada__svg" />
+    </div>
+  </div>
+  <div class="entrada__fresta"><Fresta /></div>
+</div>
+<button type="button" class="entrada__pular" data-entrada-pular
+  >Pular<span class="so-leitor"> a animação de entrada</span></button
+>
+
+<style>
+  /* Fora da entrada ativa, nada disso existe visualmente. */
+  .entrada,
+  .entrada__pular {
+    display: none;
+  }
+
+  :global(html.entrada-ativa) .entrada {
+    --y-fresta: 50%;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: block;
+    cursor: pointer;
+  }
+  :global(html.entrada-ativa) .entrada__pular {
+    position: fixed;
+    z-index: 1001;
+    top: var(--e-4);
+    right: var(--margem);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-3);
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 var(--e-2);
+    border: 0;
+    background: none;
+    color: var(--greige);
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  :global(html.entrada-ativa) .entrada__pular:hover,
+  :global(html.entrada-ativa) .entrada__pular:focus-visible {
+    color: var(--osso);
+  }
+
+  /* Dois painéis grafite que se abrem a partir da fresta. */
+  .entrada__painel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: var(--grafite);
+    will-change: transform;
+  }
+  .entrada__painel--topo {
+    top: 0;
+    height: var(--y-fresta);
+  }
+  .entrada__painel--base {
+    top: var(--y-fresta);
+    bottom: 0;
+  }
+
+  .entrada__palco {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .entrada__logo {
+    width: min(62vw, 20rem);
+    color: var(--osso);
+    transform-origin: 0 0;
+    will-change: transform, opacity;
+  }
+  .entrada__logo :global(.entrada__svg) {
+    filter: drop-shadow(0 0 10px rgb(247 217 168 / 0.22));
+  }
+
+  .entrada__fresta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--y-fresta);
+    margin-top: calc(var(--linha-fresta) / -2);
+    pointer-events: none;
+  }
+
+  /* ---------- Linha do tempo (ms): logo 0–1900 · fresta 1850–2450 · abre 2450–3200 ---------- */
+  :global(html.entrada-ativa) .entrada__fresta :global(.fresta__luz) {
+    transform: scaleX(0);
+    opacity: 0;
+    animation:
+      entrada-fresta-acende 600ms var(--ease-saida) 1850ms forwards,
+      entrada-some 450ms var(--ease-suave) 2950ms forwards;
+  }
+  :global(html.entrada-ativa) .entrada__painel--topo {
+    animation: entrada-abre-topo 750ms var(--ease-entrada-saida) 2450ms forwards;
+  }
+  :global(html.entrada-ativa) .entrada__painel--base {
+    animation: entrada-abre-base 750ms var(--ease-entrada-saida) 2450ms forwards;
+  }
+  /* O logo vai para o cabeçalho (destino calculado pelo JS em --dx, --dy, --escala). */
+  :global(html.entrada-ativa.entrada-voa) .entrada__logo {
+    animation: entrada-logo-voa 750ms var(--ease-entrada-saida) 2450ms forwards;
+  }
+  :global(html.entrada-ativa:not(.entrada-voa)) .entrada__logo {
+    animation: entrada-some 500ms var(--ease-suave) 2450ms forwards;
+  }
+
+  /* Pular: fade curto e fim. */
+  :global(html.entrada-ativa.entrada-pulada) .entrada {
+    animation: entrada-some 220ms linear forwards !important;
+  }
+  :global(html.entrada-ativa.entrada-pulada) .entrada * {
+    animation-play-state: paused !important;
+  }
+
+  @keyframes entrada-fresta-acende {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+  @keyframes entrada-abre-topo {
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  @keyframes entrada-abre-base {
+    to {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes entrada-logo-voa {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--dx), var(--dy)) scale(var(--escala));
+      opacity: 0;
+    }
+  }
+  @keyframes entrada-some {
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Durante a entrada, o logo do cabeçalho espera o logo que voa. */
+  :global(html.entrada-ativa) :global([data-cabecalho-logo]) {
+    opacity: 0;
+    animation: entrada-aparece 450ms var(--ease-suave) 2900ms forwards;
+  }
+  @keyframes entrada-aparece {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

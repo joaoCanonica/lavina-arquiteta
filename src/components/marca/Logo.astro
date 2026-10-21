@@ -9,6 +9,8 @@ interface Props {
   desenhar?: boolean;
   /** atraso inicial do desenho, em ms */
   atraso?: number;
+  /** fator de velocidade do desenho (1 = padrão; 1,4 = 40% mais rápido) */
+  velocidade?: number;
   titulo?: string;
   decorativo?: boolean;
   class?: string;
@@ -18,6 +20,7 @@ const {
   variante = 'completa',
   desenhar = false,
   atraso = 0,
+  velocidade = 1,
   titulo = 'Lavina — coletivo de arquitetura',
   decorativo = false,
   class: classe,
@@ -40,8 +43,8 @@ const VIEWBOX = {
 let n = 0;
 const tempos = (bloco: string, ini: number, dur: number, passo: number) =>
   bloco.replace(/pathLength="1"/g, () => {
-    const t = ini + passo * n++;
-    return `pathLength="1" style="--atraso:${atraso + t}ms;--dur:${dur}ms"`;
+    const t = (ini + passo * n++) / velocidade;
+    return `pathLength="1" style="--atraso:${Math.round(atraso + t)}ms;--dur:${Math.round(dur / velocidade)}ms"`;
   });
 
 let corpo = '';
@@ -56,7 +59,10 @@ if (variante === 'completa' || variante === 'lavina') {
 }
 if (variante === 'completa') {
   corpo += desenhar
-    ? subtitulo.replace('<path', `<path style="--atraso:${atraso + 2050}ms;--dur:700ms"`)
+    ? subtitulo.replace(
+        '<path',
+        `<path style="--atraso:${Math.round(atraso + 2050 / velocidade)}ms;--dur:${Math.round(700 / velocidade)}ms"`,
+      )
     : subtitulo;
 }
 ---

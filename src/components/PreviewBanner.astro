@@ -21,9 +21,12 @@ const { pendencias } = Astro.props;
 }
 
 <style>
+  /* No rodapé da tela: não cobre o cabeçalho fixo. */
   .faixa-revisao {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 100;
     display: flex;
     flex-wrap: wrap;
@@ -35,10 +38,15 @@ const { pendencias } = Astro.props;
       500 0.75rem/1.4 system-ui,
       sans-serif;
     letter-spacing: 0.08em;
-    border-bottom: 1px solid #f7d9a8;
+    pointer-events: none;
+    border-top: 1px solid #f7d9a8;
   }
   .faixa-revisao > span:first-child {
     text-transform: uppercase;
+  }
+  :global(body:has(.faixa-revisao)) {
+    --faixa-preview: 2.5rem;
+    padding-bottom: 3.5rem;
   }
   .faixa-revisao__nota {
     letter-spacing: 0;

@@ -37,3 +37,5 @@ function iniciar(): void {
 if (document.readyState === 'loading')
   document.addEventListener('DOMContentLoaded', iniciar, { once: true });
 else iniciar();
+
+export {};

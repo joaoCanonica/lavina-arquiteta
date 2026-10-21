@@ -1,0 +1,277 @@
+---
+// Abertura da home: grafite, tela cheia, assimétrica. Foto executada da Cozinha J|C
+// com a linha de luz no forro (a luz da foto conversa com a fresta). LCP = esta foto.
+import { config } from '../../config/index.ts';
+import { linkWhatsapp } from '../../config/contato.ts';
+import Botao from '../ui/Botao.astro';
+import Imagem from '../ui/Imagem.astro';
+import Rotulo from '../ui/Rotulo.astro';
+
+export const FOTO_ABERTURA = 'cozinha-jc-depois-01'; // 728943785, verticais corrigidas
+export const TAMANHOS_ABERTURA = '(min-width: 64rem) 56vw, 100vw';
+
+const regiao = config.atuacao.regiao.valor;
+const sede = config.atuacao.cidades.find((c) => c.papel === 'sede')?.nome.valor;
+const whatsapp = linkWhatsapp(
+  config.contato.whatsapp.valor,
+  'Olá! Gostaria de solicitar um orçamento. Tipo de projeto: ___ · Cidade: ___',
+);
+---
+
+<section class="abertura" data-tone="escuro" data-theme="dark" aria-labelledby="abertura-titulo">
+  <figure class="abertura__foto" data-midia>
+    <div class="abertura__quadro">
+      <Imagem
+        id={FOTO_ABERTURA}
+        natureza="executado"
+        alt="Cozinha J|C executada: corredor com torre de fornos à esquerda, ilha de pedra com banquetas à direita e uma linha de luz embutida no forro"
+        sizes={TAMANHOS_ABERTURA}
+        prioridade
+      />
+    </div>
+    <figcaption class="abertura__legenda">
+      <span class="abertura__legenda-projeto">Cozinha J|C</span>
+      <Rotulo natureza="executado" />
+      <span class="abertura__legenda-cidade">Balneário Camboriú</span>
+    </figcaption>
+  </figure>
+
+  <div class="abertura__texto">
+    <div class="abertura__tese">
+      <h1 id="abertura-titulo" class="abertura__titulo" tabindex="-1">
+        Arquitetura com presença em cada etapa.
+      </h1>
+      <p class="abertura__sub">
+        Interiores, iluminação e acompanhamento de obra. {sede} e {regiao}.
+      </p>
+    </div>
+    <div class="abertura__ctas">
+      <Botao href="/projetos/">Ver projetos</Botao>
+      <Botao href={whatsapp} externo>Solicitar orçamento</Botao>
+    </div>
+  </div>
+
+  <a class="abertura__rolar" href="#depois-da-abertura">
+    <span class="abertura__rolar-linha" aria-hidden="true"></span>
+    <span class="t-rotulo">Rolar</span>
+  </a>
+</section>
+<span id="depois-da-abertura"></span>
+
+<style>
+  .abertura {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    background: var(--grafite);
+    color: var(--osso);
+    overflow: hidden;
+  }
+
+  /* ---------- Celular (padrão): foto 4:5; tese sobre o terço inferior; CTAs empilhados ---------- */
+  .abertura__foto {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: grid;
+    grid-template-rows: subgrid;
+  }
+  .abertura__quadro {
+    grid-row: 1;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .abertura__quadro :global(picture),
+  .abertura__quadro :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .abertura__quadro :global(img) {
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  /* Proteção de contraste: só luminosidade (preto translúcido), sem cor. */
+  .abertura__quadro::before,
+  .abertura__quadro::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .abertura__quadro::before {
+    top: 0;
+    height: 24%;
+    background: linear-gradient(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0));
+  }
+  .abertura__quadro::after {
+    bottom: 0;
+    height: 62%;
+    background: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.5) 40%, rgb(0 0 0 / 0.8));
+  }
+
+  .abertura__legenda {
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--e-2) var(--e-4);
+    padding: var(--e-5) var(--margem) var(--e-7);
+    font-size: var(--t-pequeno);
+    color: var(--greige);
+  }
+  .abertura__legenda-projeto {
+    color: var(--osso);
+  }
+  .abertura__legenda :global(.rotulo) {
+    color: var(--greige);
+  }
+
+  .abertura__texto {
+    display: contents;
+  }
+  .abertura__tese {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: var(--e-4);
+    padding: 0 var(--margem) var(--e-5);
+  }
+  .abertura__titulo {
+    font-size: clamp(2.5rem, 1.1rem + 7vw, 9rem);
+    font-weight: var(--peso-display);
+    line-height: var(--entrelinha-display);
+    letter-spacing: var(--espaco-display);
+    max-width: 11ch;
+    text-wrap: balance;
+  }
+  .abertura__titulo:focus {
+    outline: none;
+  }
+  .abertura__sub {
+    max-width: 26rem;
+    font-size: var(--t-corpo);
+    line-height: 1.5;
+    color: var(--osso);
+  }
+  .abertura__ctas {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--e-1);
+    padding: var(--e-4) var(--margem) 0;
+  }
+  .abertura__ctas :global(.botao) {
+    color: var(--osso);
+  }
+
+  .abertura__rolar {
+    display: none;
+  }
+
+  /* ---------- Desktop: assimetria — texto à esquerda, foto alta à direita ---------- */
+  @media (min-width: 64rem) {
+    .abertura {
+      grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
+      grid-template-rows: minmax(0, 1fr) auto;
+      height: calc(100svh - var(--faixa-preview, 0px));
+      min-height: 40rem;
+    }
+    .abertura__foto {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-height: 0;
+    }
+    .abertura__quadro {
+      aspect-ratio: auto;
+      min-height: 0;
+    }
+    /* Proteção do título que invade a foto: só luminosidade, da esquerda. */
+    .abertura__quadro::after {
+      inset: 0 auto 0 0;
+      width: 38%;
+      height: auto;
+      background: linear-gradient(90deg, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0));
+    }
+    .abertura__legenda {
+      grid-row: 2;
+      padding: var(--e-4) var(--margem) var(--e-5) var(--e-5);
+    }
+    .abertura__texto {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: end;
+      display: grid;
+      gap: var(--e-6);
+      position: relative;
+      z-index: 2;
+      /* o título invade a foto: assimetria e presença */
+      margin-right: calc(-1 * var(--e-8));
+      padding: 0 0 var(--e-6) var(--margem);
+    }
+    .abertura__tese {
+      padding: 0;
+      gap: var(--e-5);
+    }
+    .abertura__sub {
+      font-size: var(--t-corpo-grande);
+    }
+    .abertura__ctas {
+      flex-direction: row;
+      gap: var(--e-7);
+      padding: 0;
+    }
+    .abertura__rolar {
+      grid-column: 1;
+      grid-row: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--e-3);
+      justify-self: start;
+      margin: 0 0 var(--e-5) var(--margem);
+      min-height: 44px;
+      color: var(--greige);
+      text-decoration: none;
+    }
+    .abertura__rolar-linha {
+      position: relative;
+      width: var(--linha);
+      height: 2.75rem;
+      background: rgb(244 241 236 / 0.18);
+      overflow: hidden;
+    }
+    .abertura__rolar-linha::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: var(--luz);
+      box-shadow: var(--sombra-fresta);
+    }
+  }
+
+  @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+    .abertura__rolar-linha::after {
+      transform: translateY(-110%);
+      animation: rolar-desce 2.4s var(--ease-entrada-saida) 4s infinite;
+    }
+  }
+  @keyframes rolar-desce {
+    0% {
+      transform: translateY(-110%);
+    }
+    60%,
+    100% {
+      transform: translateY(260%);
+    }
+  }
+</style>
