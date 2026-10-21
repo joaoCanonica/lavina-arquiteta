@@ -48,6 +48,14 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Links do menu** (/projetos/, /processo/, /coletivo/, /contato/) apontam para páginas das sessões 6B e 6C.
 - **SEO 54 no Lighthouse** por noindex (preview) e falta de meta description: resolve nas sessões 5/8 e com o domínio.
 
+## Sessão 5 — Textos
+
+- **10 decisões para o João e a Amanda** em `docs/COPY_DECK.md` §10 (assinatura das citações, título, "Serra", comentários de clientes, prazos, projeto à distância, dados da equipe, cidades/anos, linha da IA).
+- **[PENDENTE] no copy deck**: pedido do living e jantar; cidades de living, farmhouse, banheiro e quarto; prazos (FAQ 2); formato do atendimento à distância (FAQ 5); formação/CAU/papel da equipe; autoria de fotos e vídeos.
+- **Pilar "projetar pra viver"**: fonte resolvida (post DXzMwBRFUox, literal no mapa de mídia); `src/config/marca.ts` atualizado de aviso para confirmado.
+- **Pesquisa CAU** (`docs/pesquisa/cau-publicidade-autoria.md`): texto integral das Res. 75/2014, 52/2013 e 67/2013 a conferir nas fontes oficiais (bloqueadas neste ambiente); verificar se a Consulta Pública 51/2025 virou resolução que alcance sites.
+- **Termos de busca** (`docs/pesquisa/busca-local.md`): sem dado de volume; validar no Search Console após o deploy.
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)
@@ -57,7 +65,6 @@ Projetos válidos no schema: 9. Travas de produção hoje: nenhuma.
 ### Avisos da config (PROVISÓRIO no preview; não travam)
 
 - **Logo validado pela Amanda** — o SVG foi reconstruído a partir do vídeo; falta o arquivo original da marca `marca.logo.validacao`
-- **Fonte da frase "projetar pra viver, não pra impressionar"** — a investigação (§5) cita o post do living de 01/05/2026, sem o código do post `marca.pilares[viver].citacao`
 - **CAU de Amanda Lavina** — ainda não há número (decisão do João: aviso, vai para a conferência final) `pessoas[amanda-lavina].cau`
 - **Formação de Amanda Lavina** — instituição e ano não informados `pessoas[amanda-lavina].formacao`
 - **CAU de Renata Nürnberg** — ainda não há número (decisão do João: aviso, vai para a conferência final) `pessoas[renata-nurnberg].cau`
@@ -72,34 +79,25 @@ Projetos válidos no schema: 9. Travas de produção hoje: nenhuma.
 
 ### Projetos (PROVISÓRIO no preview; não travam)
 
-- **Texto de "Banheiro em tons claros"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[banheiro-tons-claros]`
 - **Cidade de "Banheiro em tons claros"** — não informada; o campo não aparece `projetos[banheiro-tons-claros]`
 - **Ano de "Banheiro em tons claros"** — não informado; o campo não aparece `projetos[banheiro-tons-claros]`
 - **Autoria das imagens (foto) de "Banheiro em tons claros"** — a confirmar com o João `projetos[banheiro-tons-claros]`
-- **Texto de "Clínica Cordis"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[clinica-cordis]`
 - **Ano de "Clínica Cordis"** — não informado; o campo não aparece `projetos[clinica-cordis]`
-- **Texto de "Consultório Jonny Arruda"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[consultorio-jonny-arruda]`
 - **Ano de "Consultório Jonny Arruda"** — não informado; o campo não aparece `projetos[consultorio-jonny-arruda]`
 - **Autoria das imagens (foto) de "Consultório Jonny Arruda"** — a confirmar com o João `projetos[consultorio-jonny-arruda]`
-- **Texto de "Cozinha farmhouse"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[cozinha-farmhouse]`
 - **Cidade de "Cozinha farmhouse"** — não informada; o campo não aparece `projetos[cozinha-farmhouse]`
 - **Ano de "Cozinha farmhouse"** — não informado; o campo não aparece `projetos[cozinha-farmhouse]`
 - **Autoria das imagens (video) de "Cozinha farmhouse"** — a confirmar com o João `projetos[cozinha-farmhouse]`
-- **Texto de "Cozinha J|C"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[cozinha-jc]`
 - **Ano de "Cozinha J|C"** — não informado; o campo não aparece `projetos[cozinha-jc]`
 - **Autoria das imagens (foto) de "Cozinha J|C"** — a confirmar com o João `projetos[cozinha-jc]`
 - **Autoria das imagens (video) de "Cozinha J|C"** — a confirmar com o João `projetos[cozinha-jc]`
-- **Texto de "Living e jantar com painel paramétrico"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[living-jantar-painel]`
 - **Cidade de "Living e jantar com painel paramétrico"** — não informada; o campo não aparece `projetos[living-jantar-painel]`
 - **Ano de "Living e jantar com painel paramétrico"** — não informado; o campo não aparece `projetos[living-jantar-painel]`
 - **Autoria das imagens (video) de "Living e jantar com painel paramétrico"** — a confirmar com o João `projetos[living-jantar-painel]`
-- **Texto de "Projeto T|B"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[projeto-tb]`
 - **Ano de "Projeto T|B"** — não informado; o campo não aparece `projetos[projeto-tb]`
-- **Texto de "Quarto e closet"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[quarto-closet]`
 - **Cidade de "Quarto e closet"** — não informada; o campo não aparece `projetos[quarto-closet]`
 - **Ano de "Quarto e closet"** — não informado; o campo não aparece `projetos[quarto-closet]`
 - **Autoria das imagens (video) de "Quarto e closet"** — a confirmar com o João `projetos[quarto-closet]`
-- **Texto de "Suíte F|L"** — textoSite vazio (sessão 5); aparece com selo PROVISÓRIO no preview `projetos[suite-fl]`
 - **Ano de "Suíte F|L"** — não informado; o campo não aparece `projetos[suite-fl]`
 
 <!-- pendencias:auto:fim -->

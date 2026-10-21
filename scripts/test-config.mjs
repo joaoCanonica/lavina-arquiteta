@@ -86,17 +86,20 @@ test('trava: mídia "não usar" referenciada derruba a produção', () => {
 });
 
 test('projeto sem texto aparece no preview com selo e não some', () => {
-  const vis = projetosVisiveis(base.projetos, 'preview');
-  assert.equal(vis.length, base.projetos.length);
-  for (const p of vis.filter((x) => !x.textoSite.trim())) assert.equal(p.provisorio, true, p.slug);
+  const d = clonar();
+  d.projetos[0].textoSite = '';
+  const vis = projetosVisiveis(d.projetos, 'preview');
+  assert.equal(vis.length, d.projetos.length, 'nenhum projeto some');
+  assert.equal(vis.find((p) => p.slug === d.projetos[0].slug).provisorio, true);
 });
 
-test('build de preview: rota _pendencias lista os 9 projetos com selo PROVISÓRIO e noindex', () => {
+test('build de preview: rota _pendencias lista os 9 projetos (selo PROVISÓRIO onde há pendência) e noindex', () => {
   const b = astroBuild('preview');
   assert.equal(b.status, 0, b.stderr || b.stdout);
   const html = readFileSync('dist/_pendencias/index.html', 'utf8');
-  for (const p of base.projetos) {
-    assert.match(html, new RegExp(`data-projeto="${p.slug}" data-provisorio="sim"`), p.slug);
+  for (const p of projetosVisiveis(base.projetos, 'preview')) {
+    const selo = p.provisorio ? 'sim' : 'nao';
+    assert.match(html, new RegExp(`data-projeto="${p.slug}" data-provisorio="${selo}"`), p.slug);
   }
   assert.match(html, /Provisório/);
   assert.match(html, /data-preview-banner/);

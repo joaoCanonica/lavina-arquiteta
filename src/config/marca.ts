@@ -56,10 +56,9 @@ export const marca = {
     {
       id: 'viver',
       titulo: 'Projetar pra viver, não pra impressionar',
-      citacao: aviso(
-        'Fonte da frase "projetar pra viver, não pra impressionar"',
-        'a investigação (§5) cita o post do living de 01/05/2026, sem o código do post',
-        'projetar pra viver, não pra impressionar',
+      citacao: confirmado(
+        'Hoje eu não projeto mais pra impressionar, eu projeto pra viver.',
+        'post DXzMwBRFUox de Amanda Lavina (docs/LAVINA_MAPA_MIDIA_LEGENDAS.md, frases literais)',
       ),
     },
     {
