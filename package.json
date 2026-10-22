@@ -38,7 +38,9 @@
     "capturar:secoes": "node scripts/capturar-secoes.mjs",
     "test:projetos": "node --test scripts/test-projetos.mjs",
     "verificar-links": "node scripts/verificar-links.mjs",
-    "capturar:projetos": "node scripts/capturar-projetos.mjs"
+    "capturar:projetos": "node scripts/capturar-projetos.mjs",
+    "test:paginas": "node --test scripts/test-paginas.mjs",
+    "capturar:paginas": "node scripts/capturar-paginas.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

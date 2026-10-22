@@ -1,0 +1,71 @@
+---
+// 404: tela grafite, o monograma, uma fresta acesa e o caminho de volta aos projetos.
+import Fresta from '../components/fresta/Fresta.astro';
+import Logo from '../components/marca/Logo.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base titulo="Página não encontrada" temaPadrao="dark" interna>
+  <main id="conteudo" class="nao-achada" data-theme="dark" data-tone="escuro">
+    <a href="/" class="nao-achada__marca" aria-label="Lavina — coletivo de arquitetura, início">
+      <Logo variante="monograma" decorativo />
+    </a>
+    <div class="nao-achada__fresta" data-fresta-gatilho>
+      <Fresta />
+    </div>
+    <h1 class="nao-achada__titulo">Esta página não existe.</h1>
+    <p class="nao-achada__texto">O endereço pode ter mudado. Os projetos continuam aqui.</p>
+    <a class="nao-achada__link" href="/projetos/">Voltar aos projetos</a>
+  </main>
+</Base>
+
+<style>
+  .nao-achada {
+    min-height: 100svh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: var(--e-6);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    text-align: center;
+  }
+  .nao-achada__marca {
+    width: 4.5rem;
+    color: inherit;
+  }
+  .nao-achada__marca :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+  .nao-achada__fresta {
+    width: min(100%, 36rem);
+  }
+  .nao-achada__titulo {
+    font-size: clamp(2.2rem, 1.2rem + 4vw, 5rem);
+    font-weight: var(--peso-display);
+    letter-spacing: -0.03em;
+  }
+  .nao-achada__texto {
+    color: var(--cor-texto-2);
+  }
+  .nao-achada__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+</style>
+
+<style is:global>
+  /* A 404 é sempre grafite, também abaixo da tela (tema claro salvo ou faixa de preview). */
+  html,
+  body {
+    background: var(--grafite);
+  }
+</style>

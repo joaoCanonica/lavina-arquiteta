@@ -63,7 +63,16 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Cordis e T|B**: a página diz que a obra foi executada e que as fotos ainda não estão no site (decisão 5 do copy deck). A citação "Executado ficou tão lindo quanto." da Cordis só entra com a foto da obra.
 - **Quem apresenta o vídeo do quarto e closet**: a legenda do vídeo não nomeia ninguém até confirmar.
 - **Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9.
-- **Páginas do menu** /processo/, /coletivo/ e /contato/: ainda não existem (sessão 6C). O `verificar-links` as lista como planejadas.
+- **Páginas do menu** /processo/, /coletivo/ e /contato/: construídas na sessão 6C.
+
+## Sessão 6C — Processo, coletivo, contato e 404
+
+- **Mapa incorporado em /contato**: entra só com o consentimento (sessão 7). Por enquanto, link "Ver no mapa".
+- **Stills de obra em /processo**: três quadros novos do vídeo `um-dia-no-escritorio` (galpão), escolhidos sem rosto de terceiros. O primeiro foi recortado para tirar o carro e a placa (registrado em `docs/dados/stills.json` e no manifesto). A obra do vídeo não é identificada como projeto; os quadros levam o rótulo "Vídeo".
+- **CAU e formação** de Amanda, Renata e Lara: não aparecem em /coletivo enquanto pendentes. Quando confirmados em `src/config/pessoas.ts`, entram sozinhos (Formação e CAU sob o texto de cada uma).
+- **Linha sobre IA no processo** (decisão 10 do copy deck): aparece em /processo, discreta, como na home.
+- **"À distância" em /contato**: apoiado nas avaliações de Luísa W. (consultoria à distância) e Jane W. (cliente em outro estado). "Serra" ficou de fora até a decisão 3 do copy deck.
+- **Retratos da Renata e da Lara**: o nome e as palavras queimados na foto ficaram; as palavras se repetem em HTML. Se chegar o original sem texto, troca-se o arquivo.
 
 <!-- pendencias:auto:inicio -->
 

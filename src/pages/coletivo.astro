@@ -1,0 +1,495 @@
+---
+// /coletivo: Amanda em destaque (retratos P&B, crédito da fotógrafa, texto, citação,
+// Instagram), Renata e Lara com os retratos e as palavras-chave em HTML, e a legenda do
+// Dia do Arquiteto. CAU e formação só aparecem quando confirmados na config (sem buraco).
+// Textos: COPY_DECK §5. Dados: config/pessoas.ts.
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import DivisorFresta from '../components/fresta/DivisorFresta.astro';
+import RevelaPorFresta from '../components/fresta/RevelaPorFresta.astro';
+import Botao from '../components/ui/Botao.astro';
+import Imagem from '../components/ui/Imagem.astro';
+import { config, type Campo } from '../config/index.ts';
+import Base from '../layouts/Base.astro';
+
+type Pessoa = (typeof config.pessoas)[number];
+const pessoa = (id: string) => config.pessoas.find((p) => p.id === id) as Pessoa;
+const amanda = pessoa('amanda-lavina');
+const urlInstagram = (u: string) => `https://www.instagram.com/${u.replace('@', '')}/`;
+// Registro profissional: só entra o que estiver confirmado.
+const confirmadoOuNada = (c: Campo<unknown>) =>
+  c.estado === 'confirmado' && c.valor ? String(c.valor) : null;
+const registros = (p: Pessoa) =>
+  [
+    { dt: 'Formação', dd: confirmadoOuNada(p.formacao) },
+    { dt: 'CAU', dd: confirmadoOuNada(p.cau) },
+  ].filter((x): x is { dt: string; dd: string } => x.dd !== null);
+
+const EQUIPE = [
+  {
+    p: pessoa('renata-nurnberg'),
+    texto: 'Assina os projetos e as imagens 3D feitos para o coletivo.',
+    alt: 'Retrato de Renata Nürnberg, com o nome e as palavras-chave escritos na foto',
+    palavras: [
+      'Calma que resolve',
+      'Escutar vem antes de projetar',
+      'Projeta para pessoas reais',
+      'Detalhe é prioridade',
+      'Diálogo claro com os clientes',
+      'Apaixonada por criar imagens realistas',
+    ],
+  },
+  {
+    p: pessoa('lara-honofre'),
+    texto: null,
+    alt: 'Retrato de Lara Honofre, com o nome e as palavras-chave escritos na foto',
+    palavras: [
+      'Sensibilidade e acolhimento',
+      'Apoio no processo',
+      'Evolução diária',
+      'Construindo repertório',
+      'Dedicação constante',
+    ],
+  },
+];
+const regAmanda = registros(amanda);
+---
+
+<Base titulo="Coletivo">
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <section class="abertura" data-theme="dark" data-tone="escuro" aria-labelledby="coletivo-h1">
+      <p class="t-rotulo t-secundario">Coletivo</p>
+      <h1 id="coletivo-h1" class="abertura__titulo" data-fonte-post="DSTUiTJjoQk">
+        Cada uma com sua essência, todas com o mesmo propósito: criar espaços que respeitam quem
+        habita.
+      </h1>
+    </section>
+
+    <section class="amanda" data-theme="light" data-tone="claro" aria-labelledby="amanda-h2">
+      <figure class="amanda__retrato" data-midia>
+        <RevelaPorFresta>
+          <Imagem
+            id="retrato-amanda-02"
+            alt="Retrato de Amanda Lavina em estúdio, em preto e branco, sentada numa poltrona"
+            natureza="retrato"
+            sizes="(min-width: 64rem) 46vw, 100vw"
+          />
+        </RevelaPorFresta>
+        <figcaption class="legenda">
+          <span class="rotulo-retrato" data-rotulo-natureza data-natureza="retrato">Retrato</span>
+          <span>
+            Fotografia:{' '}
+            <a
+              href="https://www.instagram.com/sabrinarodriguesfoto/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @sabrinarodriguesfoto<span class="so-leitor"> (abre em nova aba)</span>
+            </a>
+          </span>
+        </figcaption>
+      </figure>
+
+      <div class="amanda__texto">
+        <p class="t-rotulo t-secundario">{amanda.papel.valor}</p>
+        <h2 id="amanda-h2" class="amanda__nome">{amanda.nome.valor}</h2>
+        <p class="amanda__bio">
+          Arquiteta líder e sócia-administradora da Amanda Lavina Arquitetura Ltda. Na bio do
+          Instagram: “Projetos, lugares e rituais do cotidiano.”
+        </p>
+        <blockquote class="amanda__citacao" data-fonte-post="DXzMwBRFUox">
+          <p class="t-citacao">
+            “Hoje eu não projeto mais pra impressionar, eu projeto pra viver.”
+          </p>
+          <footer>— Amanda Lavina</footer>
+        </blockquote>
+        {
+          regAmanda.length > 0 && (
+            <dl class="registro">
+              {regAmanda.map((r) => (
+                <div>
+                  <dt>{r.dt}</dt>
+                  <dd>{r.dd}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
+        <a
+          class="instagram"
+          href={urlInstagram(amanda.instagram.valor)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {amanda.instagram.valor}<span class="so-leitor"> no Instagram (abre em nova aba)</span>
+        </a>
+      </div>
+
+      <figure class="amanda__segundo" data-midia>
+        <Imagem
+          id="retrato-amanda-01"
+          alt="Amanda Lavina em estúdio, corpo inteiro, sentada na poltrona, em preto e branco"
+          natureza="retrato"
+          sizes="(min-width: 64rem) 22vw, 60vw"
+        />
+        <figcaption class="legenda">
+          <span class="rotulo-retrato" data-rotulo-natureza data-natureza="retrato">Retrato</span>
+          <span>Fotografia: @sabrinarodriguesfoto</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section
+      class="equipe"
+      data-theme="dark"
+      data-tone="escuro"
+      aria-label="Renata Nürnberg e Lara Honofre"
+    >
+      {
+        EQUIPE.map(({ p, texto, alt, palavras }, i) => {
+          const reg = registros(p);
+          return (
+            <article
+              class:list={['membro', i % 2 ? 'membro--dir' : 'membro--esq']}
+              aria-labelledby={`${p.id}-h2`}
+            >
+              <figure class="membro__retrato" data-midia>
+                <RevelaPorFresta>
+                  <Imagem
+                    id={p.retrato.valor}
+                    alt={alt}
+                    natureza="retrato"
+                    sizes="(min-width: 64rem) 34vw, 86vw"
+                  />
+                </RevelaPorFresta>
+                <figcaption class="legenda">
+                  <span class="rotulo-retrato" data-rotulo-natureza data-natureza="retrato">
+                    Retrato
+                  </span>
+                </figcaption>
+              </figure>
+              <div class="membro__texto">
+                <h2 id={`${p.id}-h2`} class="membro__nome">
+                  {p.nome.valor}
+                </h2>
+                <p class="membro__papel">{p.papel.valor}</p>
+                {texto && <p class="membro__desc">{texto}</p>}
+                <ul class="palavras" aria-label={`Palavras de ${p.nome.valor.split(' ')[0]}`}>
+                  {palavras.map((w) => (
+                    <li>{w}</li>
+                  ))}
+                </ul>
+                {reg.length > 0 && (
+                  <dl class="registro">
+                    {reg.map((r) => (
+                      <div>
+                        <dt>{r.dt}</dt>
+                        <dd>{r.dd}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+                <a
+                  class="instagram"
+                  href={urlInstagram(p.instagram.valor)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {p.instagram.valor}
+                  <span class="so-leitor"> no Instagram (abre em nova aba)</span>
+                </a>
+              </div>
+            </article>
+          );
+        })
+      }
+    </section>
+
+    <section class="dia" data-theme="light" data-tone="claro" aria-labelledby="dia-h2">
+      <DivisorFresta largura="curta" />
+      <h2 id="dia-h2" class="t-rotulo t-secundario">Dia do Arquiteto</h2>
+      <blockquote class="dia__citacao" data-fonte-post="DSTUiTJjoQk">
+        <p>
+          Conheça as arquitetas que caminham comigo. Celebro mais do que projetos: celebro pessoas,
+          processos e relações construídas com cuidado.
+        </p>
+        <footer>
+          — Amanda Lavina ·{' '}
+          <a
+            href="https://www.instagram.com/p/DSTUiTJjoQk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            post DSTUiTJjoQk<span class="so-leitor"> (abre em nova aba)</span>
+          </a>
+        </footer>
+      </blockquote>
+      <div class="dia__acoes">
+        <Botao href="/projetos/">Ver projetos</Botao>
+        <Botao href="/processo/" variante="secundario">Como trabalhamos</Botao>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .abertura {
+    display: grid;
+    gap: var(--e-5);
+    padding: calc(var(--e-10) + var(--e-6)) var(--margem) var(--e-9);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .abertura__titulo {
+    font-size: clamp(2.2rem, 1rem + 4.8vw, 6.2rem);
+    font-weight: var(--peso-display);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    max-width: 18ch;
+  }
+  .legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-1) var(--e-4);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .legenda a {
+    color: inherit;
+  }
+  .rotulo-retrato {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .rotulo-retrato::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: var(--linha);
+    margin-right: 0.6em;
+    vertical-align: middle;
+    background: currentColor;
+    opacity: 0.6;
+  }
+  .instagram {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+  .registro {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-3) var(--e-6);
+    font-size: var(--t-pequeno);
+  }
+  .registro dt {
+    font-size: var(--t-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .registro dd {
+    margin: 0;
+  }
+
+  /* ---------- Amanda ---------- */
+  .amanda {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .amanda__retrato,
+  .amanda__segundo,
+  .membro__retrato {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .amanda__texto {
+    display: grid;
+    gap: var(--e-5);
+    align-content: start;
+  }
+  .amanda__nome {
+    font-size: clamp(3.2rem, 1.4rem + 7vw, 8.5rem);
+    font-weight: var(--peso-display);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .amanda__bio {
+    max-width: 32rem;
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .amanda__citacao {
+    display: grid;
+    gap: var(--e-3);
+    padding-top: var(--e-5);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .amanda__citacao p {
+    font-size: clamp(1.6rem, 1rem + 2.2vw, 2.8rem);
+  }
+  .amanda__citacao footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .amanda__segundo {
+    width: 62%;
+    justify-self: end;
+  }
+
+  /* ---------- Renata e Lara ---------- */
+  .equipe {
+    display: grid;
+    gap: var(--e-10);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .membro {
+    display: grid;
+    gap: var(--e-6);
+  }
+  .membro__retrato {
+    width: 86%;
+  }
+  .membro--dir .membro__retrato {
+    justify-self: end;
+  }
+  .membro__texto {
+    display: grid;
+    gap: var(--e-4);
+    align-content: end;
+  }
+  .membro__nome {
+    font-size: clamp(2.4rem, 1.2rem + 4.4vw, 5.5rem);
+    font-weight: var(--peso-display);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .membro__papel {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .membro__desc {
+    max-width: 30rem;
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+  }
+  .palavras {
+    list-style: none;
+    margin: var(--e-2) 0 0;
+    padding: 0;
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .palavras li {
+    padding-block: var(--e-2);
+    border-bottom: var(--linha) solid var(--cor-linha);
+    font-family: var(--fonte-citacao);
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--t-corpo-grande);
+  }
+
+  /* ---------- Dia do Arquiteto ---------- */
+  .dia {
+    display: grid;
+    gap: var(--e-5);
+    justify-items: start;
+    padding: var(--e-9) var(--margem) var(--e-10);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .dia :global(.divisor) {
+    padding: 0 0 var(--e-4);
+    justify-content: flex-start;
+  }
+  .dia__citacao {
+    display: grid;
+    gap: var(--e-4);
+    max-width: 52rem;
+  }
+  .dia__citacao p {
+    font-size: clamp(1.6rem, 1rem + 2.4vw, 3.2rem);
+    font-weight: var(--peso-display);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .dia__citacao footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .dia__citacao footer a {
+    color: inherit;
+  }
+  .dia__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-4) var(--e-7);
+    margin-top: var(--e-5);
+  }
+
+  @media (min-width: 64rem) {
+    .amanda {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--e-6);
+      padding-block: var(--e-10);
+      align-items: start;
+    }
+    .amanda__retrato {
+      grid-column: 1 / span 6;
+      grid-row: 1 / span 2;
+    }
+    .amanda__texto {
+      grid-column: 8 / span 5;
+      grid-row: 1;
+    }
+    .amanda__segundo {
+      grid-column: 9 / span 3;
+      grid-row: 2;
+      width: auto;
+      align-self: end;
+    }
+    .equipe {
+      padding-block: var(--e-10);
+    }
+    .membro {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--e-6);
+      align-items: end;
+    }
+    .membro__retrato {
+      width: auto;
+    }
+    .membro--esq .membro__retrato {
+      grid-column: 1 / span 5;
+    }
+    .membro--esq .membro__texto {
+      grid-column: 7 / span 5;
+    }
+    .membro--dir .membro__retrato {
+      grid-column: 7 / span 5;
+      grid-row: 1;
+    }
+    .membro--dir .membro__texto {
+      grid-column: 2 / span 5;
+      grid-row: 1;
+    }
+  }
+</style>

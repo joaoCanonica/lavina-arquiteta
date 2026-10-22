@@ -1,7 +1,7 @@
 {
   "$schema": "./docs/dados/media.manifest.schema.json",
   "versao": 1,
-  "gerado": "2026-10-21",
+  "gerado": "2026-10-22",
   "rotulos": {
     "render": "Imagem 3D do projeto",
     "executado": "Obra executada",
@@ -2826,6 +2826,87 @@
       "origemDado": "docs/dados/stills.json",
       "video": "video-um-dia-no-escritorio",
       "tempo": 50.2
+    },
+    {
+      "id": "quadro-obra-galpao-01",
+      "arquivo": "um-dia-no-escritorio.mp4#t=38",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo publicado por @lavina.co.arq; autoria da gravação a confirmar",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "chegada ao galpão da obra",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.66,
+          "motivo": "exclui o carro estacionado (placa) na parte de baixo"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 38
+    },
+    {
+      "id": "quadro-obra-galpao-02",
+      "arquivo": "um-dia-no-escritorio.mp4#t=38.65",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo publicado por @lavina.co.arq; autoria da gravação a confirmar",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "o galpão em obra, visto por dentro",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 38.65
+    },
+    {
+      "id": "quadro-obra-galpao-03",
+      "arquivo": "um-dia-no-escritorio.mp4#t=48.25",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo publicado por @lavina.co.arq; autoria da gravação a confirmar",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "conversa com a equipe na obra (operário sem rosto no quadro)",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 48.25
     }
   ]
 }

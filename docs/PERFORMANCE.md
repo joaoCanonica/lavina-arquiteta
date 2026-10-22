@@ -148,3 +148,18 @@ Lighthouse mobile, 1 execução por rota (`node scripts/audit-lighthouse.mjs <ro
 - Na chegada por transição (`pagereveal` com `viewTransition`), a página recebe `.vt-chegada`: a imagem já entra aberta, sem repetir a fresta.
 - Quadros em `docs/capturas/projetos/transicao/` (Chromium, animação a 1/8 da velocidade por CDP).
 - **Fallback**: o teste emula um navegador sem `@view-transition` (o HTML chega sem a regra). Resultado: navegação comum, a fresta abre a foto e nenhum erro de JS. Firefox e Safari reais não existem neste ambiente.
+
+## Processo, coletivo, contato e 404 (sessão 6C)
+
+Lighthouse mobile, 1 execução por rota, mesma simulação:
+
+| página | Perf | A11y | BP | SEO | FCP | LCP | CLS | peso | JS (gzip) | elemento de LCP |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| /processo/ | 100 | 100 | 100 | 54 | 0,90 s | 1,20 s | 0 | 66 KB | 1,8 KB | título da abertura |
+| /coletivo/ | 100 | 100 | 100 | 54 | 0,90 s | 1,35 s | 0 | 91 KB | 0,9 KB | retrato da Amanda |
+| /contato/ | 100 | 100 | 100 | 50 | 0,71 s | 1,05 s | 0 | 37 KB | 1,1 KB | trecho de avaliação |
+| 404 | 100 | 100 | 100 | 50 | 0,66 s | 1,05 s | 0 | 34 KB | 0,7 KB | título |
+
+- **SEO 50 e 54:** as falhas são as mesmas em todas as páginas: noindex do preview e meta description ausente. O 50 aparece nas páginas sem imagem, que não têm a auditoria de `alt` somando a favor; não é falha nova.
+- **Vídeo do processo:** só carrega no clique (testado). Os capítulos funcionam por teclado.
+- **Mapa:** nenhum iframe; só o link "Ver no mapa" até o consentimento (sessão 7).

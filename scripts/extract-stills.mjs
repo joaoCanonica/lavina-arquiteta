@@ -67,6 +67,27 @@ const VIDEOS = [
   },
   { video: 'falando-sobre-primeiro-contato.mp4', projeto: null, natureza: 'retrato' },
   { video: 'um-dia-no-escritorio.mp4', projeto: null, natureza: 'retrato' },
+  // Acompanhamento de obra (galpão), para /processo. Só quadros sem rosto de terceiros:
+  // a Amanda de costas ou de perfil; operários fora do quadro ou sem rosto visível.
+  {
+    video: 'um-dia-no-escritorio.mp4',
+    prefixo: 'quadro-obra-galpao',
+    projeto: null,
+    natureza: 'retrato',
+    janelas: [
+      [
+        37.75,
+        38.25,
+        'chegada ao galpão da obra',
+        {
+          recorte: { x: 0, y: 0, largura: 1, altura: 0.66 },
+          motivoRecorte: 'exclui o carro estacionado (placa) na parte de baixo',
+        },
+      ],
+      [38.4, 38.9, 'o galpão em obra, visto por dentro'],
+      [47.75, 48.25, 'conversa com a equipe na obra (operário sem rosto no quadro)'],
+    ],
+  },
 ];
 
 async function duracao(arquivo) {
@@ -117,14 +138,17 @@ for (const cfg of VIDEOS) {
       return [1 + i * passo, 1 + (i + 1) * passo - 0.5, 'quadro automático'];
     });
   const miniaturas = [];
-  for (const [i, [ini, fim, descricao]] of janelas.entries()) {
+  for (const [i, [ini, fim, descricao, extra]] of janelas.entries()) {
+    const recorte = extra?.recorte ?? cfg.recorte;
+    const motivoRecorte = extra?.motivoRecorte ?? cfg.motivoRecorte;
     let melhor = null;
     for (let t = ini; t <= fim; t += PASSO) {
       const png = await quadro(arquivo, t.toFixed(2));
-      const n = await nitidez(png, cfg.recorte);
+      const n = await nitidez(png, recorte);
       if (!melhor || n > melhor.n) melhor = { t: Number(t.toFixed(2)), n, png };
     }
-    const id = `quadro-${cfg.video.replace(/\.mp4$/, '')}-${String(i + 1).padStart(2, '0')}`;
+    const prefixo = cfg.prefixo ?? `quadro-${cfg.video.replace(/\.mp4$/, '')}`;
+    const id = `${prefixo}-${String(i + 1).padStart(2, '0')}`;
     quadros.push({
       id,
       video: cfg.video,
@@ -133,12 +157,12 @@ for (const cfg of VIDEOS) {
       natureza: cfg.natureza,
       descricao,
       nitidez: Math.round(melhor.n),
-      ...(cfg.recorte ? { recorte: cfg.recorte, motivoRecorte: cfg.motivoRecorte } : {}),
+      ...(recorte ? { recorte, motivoRecorte } : {}),
     });
     let mini = sharp(melhor.png);
-    if (cfg.recorte) {
+    if (recorte) {
       const m = await sharp(melhor.png).metadata();
-      mini = mini.extract(caixa(cfg.recorte, m.width, m.height));
+      mini = mini.extract(caixa(recorte, m.width, m.height));
     }
     miniaturas.push(
       await mini.resize({ height: 420 }).jpeg().toBuffer({ resolveWithObject: true }),
@@ -159,7 +183,9 @@ for (const cfg of VIDEOS) {
       })),
     )
     .jpeg({ quality: 80 })
-    .toFile(path.join('docs/capturas/stills', `${cfg.video.replace(/\.mp4$/, '')}.jpg`));
+    .toFile(
+      path.join('docs/capturas/stills', `${cfg.prefixo ?? cfg.video.replace(/\.mp4$/, '')}.jpg`),
+    );
 }
 
 await writeFile(

@@ -1,0 +1,152 @@
+---
+// As 5 etapas em sequência vertical. Cada uma acende pela fresta ao entrar na tela
+// (uma vez) e o texto aparece logo depois. Sem JS ou com movimento reduzido: tudo visível.
+// Textos: COPY_DECK §3 (etapa literal editada + frase dela, com o post de origem).
+import Fresta from '../fresta/Fresta.astro';
+
+const ETAPAS = [
+  {
+    etapa: 'Reunião inicial, para entender cada necessidade.',
+    frase: '“Antes de falar de plantas, medidas e orçamentos… a gente fala sobre você.”',
+    fonte: 'DNVwPbWxkqZ',
+  },
+  {
+    etapa: 'Estudo do espaço, da rotina e do estilo de vida de quem vai viver ali.',
+    frase: 'Seu lifestyle, o que te encanta, o que você não gosta, suas memórias e sonhos.',
+    fonte: 'DNVwPbWxkqZ',
+  },
+  {
+    etapa: 'Criação do conceito, onde estética e propósito se encontram.',
+    frase: '“É como assistir a um filme na mente e depois desenhá-lo cena por cena.”',
+    fonte: 'DMyqTe1MnUS',
+  },
+  {
+    etapa: 'Desenvolvimento do projeto técnico, com soluções funcionais e criativas.',
+    frase: '“Cada escolha tem um motivo. Cada detalhe tem uma função.”',
+    fonte: 'DZn_e-qOnLN',
+  },
+  {
+    etapa: 'Acompanhamento próximo da execução, para que tudo saia como planejado.',
+    frase: '“Não existe acaso em um projeto bem executado.”',
+    fonte: 'DZn_e-qOnLN',
+  },
+];
+---
+
+<ol class="etapas">
+  {
+    ETAPAS.map((e, i) => (
+      <li class="etapa" data-fresta-gatilho>
+        <Fresta class="etapa__fresta" />
+        <span class="etapa__n" aria-hidden="true">
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        <div class="etapa__texto">
+          <h3 class="etapa__nome">
+            <span class="so-leitor">Etapa {i + 1}: </span>
+            {e.etapa}
+          </h3>
+          <p class="etapa__frase" data-fonte-post={e.fonte}>
+            {e.frase}
+          </p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .etapas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .etapa {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--e-3);
+    padding-block: var(--e-7) var(--e-8);
+  }
+  .etapa::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--linha);
+    background: var(--cor-linha);
+  }
+  .etapa :global(.etapa__fresta) {
+    position: absolute;
+    left: 0;
+    top: calc(var(--linha-fresta) / -2);
+    z-index: 1;
+  }
+  .etapa__n {
+    font-size: clamp(4rem, 2rem + 9vw, 10rem);
+    font-weight: var(--peso-display);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    font-variant-numeric: lining-nums tabular-nums;
+    color: var(--cor-texto-2);
+  }
+  .etapa__texto {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .etapa__nome {
+    font-size: clamp(1.5rem, 1rem + 2vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    max-width: 22em;
+  }
+  .etapa__frase {
+    font-family: var(--fonte-citacao);
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--t-corpo-grande);
+    color: var(--cor-texto-2);
+    max-width: 34rem;
+  }
+
+  @media (min-width: 64rem) {
+    .etapa {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      column-gap: var(--e-8);
+      align-items: start;
+    }
+    /* Alterna o recuo: a sequência desce em degraus, como um percurso. */
+    .etapa:nth-child(even) {
+      margin-left: 8.33%;
+    }
+  }
+
+  /* Acende: a fresta abre do centro e o texto chega logo depois (uma vez). */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(:root.js) .etapa__n,
+    :global(:root.js) .etapa__texto {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    :global(:root.js) .etapa:global(.esta-aceso) .etapa__n,
+    :global(:root.js) .etapa:global(.esta-aceso) .etapa__texto {
+      animation: etapa-chega 900ms var(--ease-saida) 380ms forwards;
+    }
+    :global(:root.js) .etapa:global(.esta-aceso) .etapa__texto {
+      animation-delay: 520ms;
+    }
+    :global(:root.js) .etapa:global(.esta-aceso) .etapa__n {
+      color: var(--cor-texto);
+      transition: color 1200ms var(--ease-suave) 900ms;
+    }
+  }
+  @keyframes etapa-chega {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

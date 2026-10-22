@@ -451,6 +451,40 @@
       "natureza": "retrato",
       "descricao": "quadro automático",
       "nitidez": 191
+    },
+    {
+      "id": "quadro-obra-galpao-01",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 38,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "chegada ao galpão da obra",
+      "nitidez": 271,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.66
+      },
+      "motivoRecorte": "exclui o carro estacionado (placa) na parte de baixo"
+    },
+    {
+      "id": "quadro-obra-galpao-02",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 38.65,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "o galpão em obra, visto por dentro",
+      "nitidez": 723
+    },
+    {
+      "id": "quadro-obra-galpao-03",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 48.25,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "conversa com a equipe na obra (operário sem rosto no quadro)",
+      "nitidez": 207
     }
   ]
 }

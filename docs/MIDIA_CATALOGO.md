@@ -4,8 +4,8 @@ Gerado por `pnpm media:catalogo` a partir de `media.manifest.json`, `docs/dados/
 
 ## Resumo
 
-- **58 originais** em `media-originais/` (68,0 MB), todos com natureza; **36 quadros de vídeo** extraídos.
-- Naturezas no manifesto: render 20 · antes 9 · depois 10 · executado 29 · retrato 17 · video 6 · marca 1 · documentacao 1 · nao-usar 1.
+- **58 originais** em `media-originais/` (68,0 MB), todos com natureza; **39 quadros de vídeo** extraídos.
+- Naturezas no manifesto: render 20 · antes 9 · depois 10 · executado 29 · retrato 20 · video 6 · marca 1 · documentacao 1 · nao-usar 1.
 - Não publicáveis: `retrato-amanda-03`, `doc-logo-comparacao`, `nao-usar-logo-antigo`.
 - Rótulos de natureza no site: "Imagem 3D do projeto", "Obra executada", "Antes", "Depois", "Vídeo", "Retrato", "Marca".
 
@@ -120,6 +120,9 @@ Gerado por `pnpm media:catalogo` a partir de `media.manifest.json`, `docs/dados/
 | `quadro-um-dia-no-escritorio-04` | um-dia-no-escritorio.mp4#t=36.37 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 36.37s | 720px · 59 KB |
 | `quadro-um-dia-no-escritorio-05` | um-dia-no-escritorio.mp4#t=41.16 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 41.16s | 720px · 39 KB |
 | `quadro-um-dia-no-escritorio-06` | um-dia-no-escritorio.mp4#t=50.2 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 50.2s | 720px · 27 KB |
+| `quadro-obra-galpao-01` | um-dia-no-escritorio.mp4#t=38 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | recorte | quadro 38s | 720px · 20 KB |
+| `quadro-obra-galpao-02` | um-dia-no-escritorio.mp4#t=38.65 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 38.65s | 720px · 49 KB |
+| `quadro-obra-galpao-03` | um-dia-no-escritorio.mp4#t=48.25 | Quadro de vídeo | tamanho médio (720 px de largura nativa; sem upscale) | — | — | quadro 48.25s | 720px · 36 KB |
 
 ### Living e jantar com painel paramétrico (só em vídeo)
 
@@ -249,6 +252,9 @@ Método: Quadro mais nítido (variância do laplaciano, passo de 0,25 s) dentro 
 | `quadro-um-dia-no-escritorio-04` | um-dia-no-escritorio.mp4 | 36.37s | retrato | quadro automático | — |
 | `quadro-um-dia-no-escritorio-05` | um-dia-no-escritorio.mp4 | 41.16s | retrato | quadro automático | — |
 | `quadro-um-dia-no-escritorio-06` | um-dia-no-escritorio.mp4 | 50.2s | retrato | quadro automático | — |
+| `quadro-obra-galpao-01` | um-dia-no-escritorio.mp4 | 38s | retrato | chegada ao galpão da obra | exclui o carro estacionado (placa) na parte de baixo |
+| `quadro-obra-galpao-02` | um-dia-no-escritorio.mp4 | 38.65s | retrato | o galpão em obra, visto por dentro | — |
+| `quadro-obra-galpao-03` | um-dia-no-escritorio.mp4 | 48.25s | retrato | conversa com a equipe na obra (operário sem rosto no quadro) | — |
 
 ## O que pedir ao João
 

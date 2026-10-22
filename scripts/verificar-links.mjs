@@ -7,8 +7,8 @@ import path from 'node:path';
 import { parse } from 'node-html-parser';
 
 const DIST = 'dist';
-// Páginas do menu previstas para a sessão 6C.
-const PLANEJADAS = new Set(['/processo/', '/coletivo/', '/contato/']);
+// Rotas previstas e ainda não construídas (nenhuma desde a sessão 6C).
+const PLANEJADAS = new Set([]);
 
 const htmls = (dir) =>
   readdirSync(dir).flatMap((n) => {
