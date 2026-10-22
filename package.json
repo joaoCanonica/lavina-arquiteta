@@ -47,7 +47,8 @@
     "test:consentimento": "node --test scripts/test-consentimento.mjs",
     "validar-schema": "node scripts/validar-schema.mjs",
     "medir-peso": "node scripts/medir-peso.mjs",
-    "capturar:final": "node scripts/capturar-final.mjs"
+    "capturar:final": "node scripts/capturar-final.mjs",
+    "test:navegadores": "node --test scripts/test-navegadores.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

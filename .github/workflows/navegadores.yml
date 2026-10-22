@@ -1,0 +1,64 @@
+# Firefox e WebKit (Safari) de verdade: o ambiente de desenvolvimento só tem Chromium.
+# Build de preview (mídia em modo rápido) e scripts/test-navegadores.mjs em cada navegador.
+# O relatório de cada um sai como artefato (navegadores-<nome>.json).
+name: navegadores
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/friendly-goldberg-az7dgf, main]
+    paths-ignore: ['docs/**', '**/*.md']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          MIDIA_RAPIDA: '1'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
+  testes:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        navegador: [firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - run: pnpm exec playwright-core install --with-deps ${{ matrix.navegador }}
+      - run: node --test scripts/test-navegadores.mjs
+        env:
+          NAVEGADOR: ${{ matrix.navegador }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: navegadores-${{ matrix.navegador }}
+          path: docs/capturas/final/navegadores-${{ matrix.navegador }}.json
