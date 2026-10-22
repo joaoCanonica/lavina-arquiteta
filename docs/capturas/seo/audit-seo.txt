@@ -1,0 +1,20 @@
+$ node scripts/audit-seo.mjs
+audit-seo: 15 páginas · sitemap com 15 URLs · SITE_URL https://coletivoarquiteturalavina.com.br
+  validar-schema: vocabulário schema.org 30.1 · 15 blocos JSON-LD em dist/
+  /                                      title 57 · desc 149 · City, GeoCoordinates, ImageObject, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/                             title 42 · desc 143 · BreadcrumbList, City, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/cozinha-jc/                  title 51 · desc 147 · GEO 56 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/consultorio-jonny-arruda/    title 56 · desc 147 · GEO 54 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/living-jantar-painel/        title 47 · desc 137 · GEO 56 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/cozinha-farmhouse/           title 42 · desc 146 · GEO 50 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/banheiro-tons-claros/        title 48 · desc 146 · GEO 45 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/quarto-closet/               title 43 · desc 144 · GEO 48 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/clinica-cordis/              title 53 · desc 148 · GEO 57 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/projeto-tb/                  title 51 · desc 133 · GEO 59 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /projetos/suite-fl/                    title 48 · desc 136 · GEO 49 palavras · BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /processo/                             title 41 · desc 142 · GEO 54 palavras · BreadcrumbList, City, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /coletivo/                             title 47 · desc 146 · BreadcrumbList, City, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /contato/                              title 58 · desc 146 · BreadcrumbList, City, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  /privacidade/                          title 45 · desc 145 · BreadcrumbList, City, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  aviso: noindex ativo (modo preview; domínio: aviso). robots.txt bloqueia tudo.
+  ✓ verde: metadados, OG, JSON-LD (estrutura e vocabulário schema.org), GEO, sitemap, robots e links

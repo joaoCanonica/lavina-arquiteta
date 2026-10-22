@@ -5,6 +5,8 @@ import PreviewBanner from '../components/PreviewBanner.astro';
 import Consentimento from '../components/consentimento/Consentimento.astro';
 import Rodape from '../components/consentimento/Rodape.astro';
 import WhatsappFixo from '../components/consentimento/WhatsappFixo.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import Seo from '../components/seo/Seo.astro';
 import { config } from '../config/index.ts';
 import { ehPreview } from '../config/modo.ts';
 import '../styles/base.css';
@@ -29,15 +31,13 @@ const {
   rodape = !interna,
 } = Astro.props;
 const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirmado';
-const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.marca.nome.valor;
 ---
 
 <html lang={config.seo.idioma} data-tema-padrao={temaPadrao} data-grao={grao ? '' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {semIndice && <meta name="robots" content="noindex, nofollow" />}
-    <title>{tituloFinal}</title>
+    <Seo semIndice={semIndice} {...titulo ? { titulo } : {}} />
     <!-- Tema sem flash: escolha salva > padrão da página ("dark" na home) > sistema. -->
     <script is:inline>
       (() => {
@@ -86,6 +86,7 @@ const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.
     {rodape && <Rodape />}
     {rodape && <WhatsappFixo />}
     <Consentimento />
+    <JsonLd />
     <script>
       import '../scripts/fresta.ts';
     </script>

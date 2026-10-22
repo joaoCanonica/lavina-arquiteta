@@ -82,6 +82,14 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **CSP**: depois de mudar qualquer script ou CSS inline, rodar `pnpm csp` e versionar o `vercel.json` (o `postbuild` reprova o build se esquecer).
 - **HSTS `preload`**: decidir quando o domínio definitivo estiver no ar.
 
+## Sessão 8 — SEO e GEO
+
+- **Indexação**: noindex e robots.txt "Disallow: /" até o domínio ser confirmado e o site ir para produção (`docs/SEO.md` §1).
+- **Robôs de IA**: liberados por decisão de GEO. Se o João quiser aparecer sem servir de treino, bloquear só GPTBot, ClaudeBot, Google-Extended e Applebot-Extended (`docs/SEO.md` §4).
+- **Nome no Perfil da Empresa** ("Amanda Lavina Arquitetura" ou "Lavina — coletivo de arquitetura"): decisão da Amanda (`docs/SEO.md` §7).
+- **Validação externa**: Rich Results Test, validator.schema.org e as páginas de robôs dos fornecedores, na URL do preview (bloqueados neste ambiente).
+- **Search Console**: medir as consultas reais; hoje não há dado de volume.
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)
@@ -101,7 +109,6 @@ Projetos válidos no schema: 9. Travas de produção hoje: nenhuma.
 - **Endereço da Receita diverge do Google** — Receita: Rua Lourenço Teodoro Waltrick, 505, CEP 88508-170 (prédio de esquina); o site usa o do Google, confirmado pelo João `contato.enderecoDivergencia`
 - **E-mail de contato** — não informado (investigação §13.9) `contato.email`
 - **Domínio do site** — coletivoarquiteturalavina.com.br ainda não registrado; noindex até existir (pacote §A) `seo.dominio`
-- **Descrição SEO** — copy final nas sessões 5 e 8 `seo.descricaoPadrao`
 
 ### Projetos (PROVISÓRIO no preview; não travam)
 

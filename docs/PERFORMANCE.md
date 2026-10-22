@@ -191,3 +191,15 @@ Lighthouse mobile depois do banner, do rodapé e do botão fixo do WhatsApp:
 - Junto vão Referrer-Policy, Permissions-Policy, X-Content-Type-Options, X-Frame-Options, COOP e HSTS (2 anos, sem `preload` até haver o domínio definitivo).
 - **Fluxo:** a Vercel lê o `vercel.json` antes do build, então ele é versionado. Toda mudança de script ou CSS inline pede `pnpm csp`, que constrói o preview e a produção e grava a união dos hashes. O `postbuild` reprova o build quando algum hash falta: uma CSP desatualizada nunca chega ao ar.
 - **Prova:** `pnpm test:consentimento` serve o `dist/` com esses cabeçalhos (`scripts/servir-dist.mjs`) e não registra nenhuma violação em 8 rotas, a 390 e 1440 px, antes e depois do aceite. Num teste à parte, um script injetado na página foi bloqueado e a violação apareceu no console, o que mostra que a detecção funciona.
+
+## SEO e GEO (sessão 8)
+
+| página | Perf | A11y | BP | SEO | LCP |
+| --- | --- | --- | --- | --- | --- |
+| / (mediana de 3) | 100 | 100 | 100 | 69 | 1,65 s (1,51 · 1,65 · 2,28) |
+| /projetos/cozinha-jc/ | 99 | 100 | 100 | 69 | 1,81 s |
+| /processo/ | 100 | 100 | 100 | 69 | 1,51 s |
+
+- **SEO 54 → 69:** a meta description agora existe em todas as páginas. A única auditoria que ainda falha é `is-crawlable`, por causa do noindex, que é obrigatório enquanto não houver domínio.
+- **Regressão corrigida:** com o JSON-LD no `<head>`, o LCP simulado da home foi a 2,4–2,6 s nas três execuções, porque o preload da foto ficava mais para baixo no documento. O JSON-LD passou para o fim do `<body>` (`src/components/seo/JsonLd.astro`, válido para o Google), e o LCP voltou a 1,65 s.
+- **Imagens OG:** 15 JPEGs 1200×630 gerados no build (`/og/*.jpg`, 30–110 KB). Só são pedidos por quem compartilha o link; nenhum entra na carga da página.

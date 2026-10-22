@@ -11,6 +11,7 @@ import Botao from '../components/ui/Botao.astro';
 import Imagem from '../components/ui/Imagem.astro';
 import Rotulo from '../components/ui/Rotulo.astro';
 import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
+import { paragrafoProcesso } from '../components/seo/geo.ts';
 import Base from '../layouts/Base.astro';
 
 // Quadros reais do vídeo (obra em galpão), sem rosto de terceiros: docs/dados/stills.json.
@@ -44,6 +45,8 @@ const whatsapp = linkOrcamento();
         Arquitetura é feita de detalhes e processos bem definidos. No nosso escritório, cada projeto
         passa por cinco etapas.
       </p>
+      <!-- GEO: resumo citável (40–60 palavras) com autoria. -->
+      <p class="abertura__resumo" data-geo>{paragrafoProcesso()}</p>
     </section>
 
     <section class="etapas-secao" data-theme="light" data-tone="claro" aria-labelledby="etapas-h2">
@@ -171,6 +174,14 @@ const whatsapp = linkOrcamento();
     line-height: 0.92;
     letter-spacing: -0.035em;
     max-width: 11ch;
+  }
+  .abertura__resumo {
+    max-width: 40rem;
+    padding-left: var(--e-4);
+    border-left: var(--linha-fresta) solid var(--cor-fresta);
+    font-size: var(--t-pequeno);
+    line-height: 1.65;
+    color: var(--cor-texto-2);
   }
   .abertura__texto {
     max-width: 32rem;

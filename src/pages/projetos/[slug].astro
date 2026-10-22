@@ -18,6 +18,7 @@ import {
   type NaturezaExibida,
   type ProjetoPagina,
 } from '../../components/projetos/dados.ts';
+import { paragrafoProjeto } from '../../components/seo/geo.ts';
 import Botao from '../../components/ui/Botao.astro';
 import Imagem from '../../components/ui/Imagem.astro';
 import Rotulo from '../../components/ui/Rotulo.astro';
@@ -147,6 +148,8 @@ const temEscuro = p.citacao || p.comparadores.length > 0 || (p.video && !comVide
 
     <!-- 2. Texto: linha citável, o pedido, a resposta -->
     <section class="texto" data-theme="light" data-tone="claro" aria-label="Sobre o projeto">
+      <!-- GEO: resumo citável (40–60 palavras) com autoria e créditos, no topo do texto. -->
+      <p class="resumo" data-geo>{paragrafoProjeto(p)}</p>
       {
         p.soRender && (
           <p class="aviso" data-aviso-render>
@@ -496,6 +499,14 @@ const temEscuro = p.citacao || p.comparadores.length > 0 || (p.video && !comVide
     padding: var(--e-9) var(--margem);
     background: var(--cor-fundo);
     color: var(--cor-texto);
+  }
+  .resumo {
+    max-width: 44rem;
+    padding-left: var(--e-4);
+    border-left: var(--linha-fresta) solid var(--cor-fresta);
+    font-size: var(--t-pequeno);
+    line-height: 1.65;
+    color: var(--cor-texto-2);
   }
   .aviso {
     display: flex;

@@ -44,7 +44,8 @@
     "capturar:paginas": "node scripts/capturar-paginas.mjs",
     "csp": "node scripts/gerar-csp.mjs --ambos",
     "servir": "node scripts/servir-dist.mjs",
-    "test:consentimento": "node --test scripts/test-consentimento.mjs"
+    "test:consentimento": "node --test scripts/test-consentimento.mjs",
+    "validar-schema": "node scripts/validar-schema.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

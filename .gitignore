@@ -6,3 +6,4 @@ docs/capturas/**/*.png
 .env*
 docs/capturas/lighthouse/.tmp-*
 .csp
+.cache

@@ -1,0 +1,9 @@
+---
+// JSON-LD da rota (schema.org), no fim do <body>: o Google lê os dados estruturados em qualquer
+// ponto do documento, e o <head> fica curto (a imagem do LCP é descoberta antes).
+import { grafoDaRota, rotaNormal } from './jsonld.ts';
+
+const jsonld = await grafoDaRota(rotaNormal(Astro.url.pathname));
+---
+
+{jsonld && <script type="application/ld+json" set:html={jsonld} />}
