@@ -62,4 +62,14 @@ Ordem obrigatória:
 
 ## Preview atual
 
-(preenchido no fim da sessão 9)
+Sessão 9 · 22/10/2026 · commit `409f001` · build na Vercel em 7 min, `gerar-csp --verificar` ok.
+
+- **URL do branch (estável):** https://lavina-arquiteta-git-claude-frie-381f5d-joao-canonicas-projects.vercel.app
+- **URL do deployment:** https://lavina-arquiteta-31t8j29qe-joao-canonicas-projects.vercel.app
+- **Conferido no ar:**
+  - `<meta name="robots" content="noindex, nofollow">`, `X-Robots-Tag: noindex` e robots.txt `Disallow: /`;
+  - faixa "em revisão" presente;
+  - CSP, HSTS, nosniff, X-Frame-Options e COOP no cabeçalho;
+  - mídia AVIF servida.
+- **Acesso:** a proteção da Vercel está ligada (`all_except_custom_domains`), então a URL pede login no time da Vercel. Para mostrar a quem não tem conta: Settings → Deployment Protection → link de compartilhamento.
+- **Atenção:** a Vercel marcou este deployment como `target: production`, embora o projeto aponte `main` como branch de produção. O site continua em **modo preview** (`LAVINA_MODO` não definido, noindex), então nada foi publicado como produção do ponto de vista do site. Conferir em Settings → Git qual é o branch de produção e, se necessário, voltar para `main`.
