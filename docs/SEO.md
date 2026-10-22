@@ -98,7 +98,9 @@ Campos (todos da config):
 
 - **`sitemap.xml`:** as 15 rotas públicas, em URL absoluta. Sem `<lastmod>`, porque não há data confiável por página.
 - **`robots.txt` em preview ou sem domínio:** bloqueia tudo.
-- **`robots.txt` em produção com domínio:** libera tudo, exceto `/_sistema/`, `/_pendencias/` e `/og/`, aponta o sitemap e lista os robôs de IA.
+- **`robots.txt` em produção com domínio:** libera tudo, exceto `/_sistema/` e `/_pendencias/`, aponta o sitemap e lista os robôs de IA.
+  - **`/og/` fica liberado:** os robôs das redes sociais (Twitterbot e outros) respeitam o robots.txt e precisam buscar a imagem da prévia.
+  - **Os dois modos são conferidos hoje** pelo `audit-seo`, porque a versão liberada só vai ao ar com o domínio. O texto sai de `src/components/seo/robots.ts`, uma função pura que a rota e a auditoria usam.
 
 ### Robôs de IA (decisão: liberados)
 
@@ -120,6 +122,8 @@ O objetivo do GEO é ser citado. Por isso os robôs que declaram respeitar o rob
 - **Fontes:** guias de 2026 encontrados pela busca, por exemplo [anagram.ai](https://www.anagram.ai/blog/ai-crawler-user-agent-list-2026-14-bots-and-robotstxt-tokens-to-know) e [contextbolt](https://contextbolt.com/blog/ai-crawlers-list/). A documentação dos próprios fornecedores não estava acessível deste ambiente; conferir na sessão 9.
 
 ## 5. GEO: parágrafo citável
+
+**Autoria perto do topo:** nos projetos, a abertura mostra "Projeto" (autoria) e, quando houver, "Imagens 3D" (Renata Nürnberg), junto com tipo, cidade e natureza. A ficha técnica completa fica no fim. O `audit-seo` exige a autoria dentro da primeira seção.
 
 Cada página de projeto e o `/processo` têm, no topo do texto, um parágrafo de 40 a 60 palavras (`[data-geo]`). Ele é montado só com dados da config:
 - o que é;

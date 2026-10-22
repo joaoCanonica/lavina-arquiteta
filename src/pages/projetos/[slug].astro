@@ -11,6 +11,7 @@ import Galeria from '../../components/projetos/Galeria.astro';
 import Transicoes from '../../components/projetos/Transicoes.astro';
 import {
   TIPO,
+  nomeAutoria,
   nomeTransicao,
   partesTexto,
   projetosOrdenados,
@@ -41,6 +42,8 @@ const total = (await projetosOrdenados()).length;
 const dois = (n: number) => String(n).padStart(2, '0');
 
 const { abertura, pedido, resposta } = partesTexto(p.textoSite);
+// Autoria e créditos perto do topo (a ficha técnica completa fica no fim da página).
+const renderista = p.autoriaImagens.find((a) => a.tipo === 'render' && a.autor)?.autor ?? null;
 // Linha citável: a primeira frase da abertura; o resto vem logo abaixo, em corpo.
 const m = abertura.match(/^(.+?[.!?])\s+([\s\S]*)$/);
 const linha = m?.[1] ?? abertura;
@@ -142,6 +145,18 @@ const temEscuro = p.citacao || p.comparadores.length > 0 || (p.video && !comVide
             <dt>Natureza</dt>
             <dd>{p.naturezas.map((n) => NATUREZA[n]).join(' · ')}</dd>
           </div>
+          <div data-autoria>
+            <dt>Projeto</dt>
+            <dd>{nomeAutoria(p.autoriaProjeto)}</dd>
+          </div>
+          {
+            renderista && !p.autoriaProjeto.startsWith(renderista) && (
+              <div>
+                <dt>Imagens 3D</dt>
+                <dd>{renderista}</dd>
+              </div>
+            )
+          }
         </dl>
       </div>
     </section>

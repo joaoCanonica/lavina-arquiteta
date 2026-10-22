@@ -5,8 +5,10 @@
 //  - JSON-LD: JSON válido, @context schema.org, tipos e propriedades exigidos (LocalBusiness,
 //    WebSite, WebPage, BreadcrumbList, CreativeWork nos projetos), areaServed só com as cidades
 //    da config, @id referenciados existentes, NENHUM AggregateRating/Review;
-//  - GEO: parágrafo [data-geo] com 40–60 palavras nos projetos e no /processo;
-//  - noindex enquanto não houver domínio (ou em preview) e robots.txt coerente;
+//  - GEO: parágrafo [data-geo] com 40–60 palavras nos projetos e no /processo; autoria na
+//    abertura de cada projeto;
+//  - noindex enquanto não houver domínio (ou em preview); robots.txt dos dois modos (o liberado
+//    só vai ao ar com o domínio, então é conferido aqui antes);
 //  - sitemap.xml: URLs absolutas, todas existem, todas as páginas públicas presentes;
 //  - links internos (scripts/verificar-links.mjs).
 // Grava docs/capturas/seo/audit-seo.json. Sai com 1 se houver erro.
@@ -18,6 +20,7 @@ import path from 'node:path';
 import { parse } from 'node-html-parser';
 import sharp from 'sharp';
 import { config } from '../src/config/index.ts';
+import { ROTAS_INTERNAS, textoRobots } from '../src/components/seo/robots.ts';
 import { SITE_URL, paginas, robosIA } from '../src/config/seo.ts';
 
 const DIST = 'dist';
@@ -164,6 +167,12 @@ for (const [rota, meta] of Object.entries(paginas)) {
   }
   for (const r of refs) if (!ids.has(r)) erro(rota, `@id referenciado e não definido: ${r}`);
 
+  // Autoria perto do topo: nos projetos, dentro da primeira seção (abertura).
+  if (/^\/projetos\/[^/]+\/$/.test(rota)) {
+    const autoria = doc.querySelector('main > section')?.querySelector('[data-autoria]');
+    if (!autoria || !/Lavina/.test(autoria.text)) erro(rota, 'autoria do projeto fora da abertura');
+  }
+
   // GEO
   const geo = doc.querySelector('[data-geo]');
   if (/^\/projetos\/[^/]+\/$/.test(rota) || rota === '/processo/') {
@@ -210,17 +219,28 @@ for (const r of Object.keys(paginas))
 if (locs.some((u) => /\/(_sistema|_pendencias|404)/.test(u)))
   erro('sitemap.xml', 'rota interna no sitemap');
 
-// robots.txt
+// robots.txt: o do build tem de ser o do modo atual; e os DOIS modos são conferidos aqui,
+// porque o liberado só vai ao ar com o domínio (não dá para esperar o deploy para testá-lo).
 const robots = existsSync(path.join(DIST, 'robots.txt'))
   ? readFileSync(path.join(DIST, 'robots.txt'), 'utf8')
   : '';
 if (!robots) erro('robots.txt', 'ausente');
-else if (!indexavel && !/User-agent: \*\s*\nDisallow: \/\s*$/m.test(robots))
-  erro('robots.txt', 'preview/sem domínio deve bloquear tudo');
-else if (indexavel) {
-  if (!robots.includes(`Sitemap: ${SITE_URL}/sitemap.xml`)) erro('robots.txt', 'sem Sitemap');
-  for (const r of robosIA) if (!robots.includes(`User-agent: ${r}`)) erro('robots.txt', `sem ${r}`);
-}
+else if (robots !== textoRobots(indexavel, SITE_URL))
+  erro('robots.txt', 'diferente do esperado para o modo atual');
+const fechado = textoRobots(false, SITE_URL);
+if (!/^User-agent: \*\nDisallow: \/$/m.test(fechado) || /Allow: \/$/m.test(fechado))
+  erro('robots.txt (sem domínio)', 'deve bloquear tudo');
+const aberto = textoRobots(true, SITE_URL);
+if (!aberto.includes(`Sitemap: ${SITE_URL}/sitemap.xml`))
+  erro('robots.txt (com domínio)', 'sem Sitemap');
+for (const r of robosIA)
+  if (!aberto.includes(`User-agent: ${r}`)) erro('robots.txt (com domínio)', `sem ${r}`);
+if (/^Disallow: \/$/m.test(aberto)) erro('robots.txt (com domínio)', 'bloqueia o site inteiro');
+const bloqueios = [...aberto.matchAll(/^Disallow: (\S+)$/gm)].map((x) => x[1]);
+for (const r of [...Object.keys(paginas), '/og/', '/sitemap.xml'])
+  if (bloqueios.some((d) => r.startsWith(d))) erro('robots.txt (com domínio)', `bloqueia ${r}`);
+for (const r of ROTAS_INTERNAS)
+  if (!bloqueios.includes(r)) erro('robots.txt (com domínio)', `não fecha ${r}`);
 
 // Vocabulário schema.org (tipos e propriedades existentes e aplicáveis).
 const schema = spawnSync('node', ['scripts/validar-schema.mjs'], { encoding: 'utf8' });
