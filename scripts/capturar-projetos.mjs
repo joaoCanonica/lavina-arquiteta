@@ -17,7 +17,10 @@ const slugs = readdirSync('dist/projetos', { withFileTypes: true })
   .filter((d) => d.isDirectory())
   .map((d) => d.name);
 const paginas = [['indice', '/projetos/'], ...slugs.map((s) => [s, `/projetos/${s}/`])];
-await rm(SAIDA, { recursive: true, force: true });
+// Limpa só as capturas deste script (a pasta transicao/ é de capturar-transicao.mjs).
+if (existsSync(SAIDA))
+  for (const n of readdirSync(SAIDA))
+    if (n !== 'transicao') await rm(path.join(SAIDA, n), { recursive: true, force: true });
 
 spawnSync('pnpm', ['exec', 'astro', 'preview', 'stop'], { stdio: 'ignore' });
 const preview = spawn('pnpm', ['exec', 'astro', 'preview', '--port', String(PORTA)], {
