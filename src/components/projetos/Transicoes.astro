@@ -1,0 +1,64 @@
+---
+// View Transitions entre documentos (índice ↔ projeto ↔ próximo projeto), como melhoria
+// progressiva: só com movimento permitido e só onde o navegador suporta. A imagem de
+// destaque leva view-transition-name "projeto-<slug>" e "viaja" entre as páginas.
+// Sem suporte (Firefox, Safari antigo): navegação normal, e a abertura revela pela fresta.
+---
+
+<script is:inline>
+  // Chegada por transição: a imagem já está aberta (a fresta não roda de novo por cima).
+  addEventListener('pagereveal', (e) => {
+    // A classe fica: nesta visita, as imagens já entram abertas.
+    if (e.viewTransition) document.documentElement.classList.add('vt-chegada');
+  });
+</script>
+
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto;
+    }
+  }
+  /* O cabeçalho e a faixa de preview ficam parados durante a troca. */
+  [data-cabecalho] {
+    view-transition-name: cabecalho;
+  }
+  [data-preview-banner] {
+    view-transition-name: faixa-preview;
+  }
+  :root.vt-chegada .revela__midia {
+    clip-path: none !important;
+    animation: none !important;
+  }
+  :root.vt-chegada .revela__fresta {
+    display: none !important;
+  }
+  ::view-transition-group(*) {
+    animation-duration: 640ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  ::view-transition-old(root) {
+    animation: 280ms cubic-bezier(0.4, 0, 1, 1) both vt-sai;
+  }
+  ::view-transition-new(root) {
+    animation: 420ms cubic-bezier(0, 0, 0.2, 1) 120ms both vt-entra;
+  }
+  /* A imagem que viaja: recorte em vez de esticar (as proporções mudam entre as páginas). */
+  ::view-transition-old(.projeto-imagem),
+  ::view-transition-new(.projeto-imagem) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: clip;
+  }
+  @keyframes vt-sai {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes vt-entra {
+    from {
+      opacity: 0;
+    }
+  }
+</style>

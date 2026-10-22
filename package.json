@@ -35,7 +35,10 @@
     "test:entrada": "node --test scripts/test-entrada.mjs",
     "capturar:entrada": "node scripts/capturar-entrada.mjs",
     "test:home": "node --test scripts/test-home.mjs",
-    "capturar:secoes": "node scripts/capturar-secoes.mjs"
+    "capturar:secoes": "node scripts/capturar-secoes.mjs",
+    "test:projetos": "node --test scripts/test-projetos.mjs",
+    "verificar-links": "node scripts/verificar-links.mjs",
+    "capturar:projetos": "node scripts/capturar-projetos.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

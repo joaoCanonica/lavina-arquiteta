@@ -1,0 +1,380 @@
+---
+// Galeria editorial do projeto, agrupada pela natureza da imagem (Imagem 3D do projeto,
+// Antes, Obra executada). Formatos mistos; rótulo e legenda em cada imagem.
+// Lightbox em <dialog> nativo: foco preso e Esc do navegador; setas do teclado, botões e
+// arraste (toque/ponteiro). Sem biblioteca. Sem JS: as imagens continuam na página.
+import Imagem from '../ui/Imagem.astro';
+import Rotulo from '../ui/Rotulo.astro';
+import type { GrupoGaleria } from './dados.ts';
+
+interface Props {
+  grupos: GrupoGaleria[];
+  titulo: string;
+}
+const { grupos, titulo } = Astro.props;
+const total = grupos.reduce((s, g) => s + g.itens.length, 0);
+const dois = (n: number) => String(n).padStart(2, '0');
+const TAMANHOS = {
+  retrato: '(min-width: 64rem) 34vw, 82vw',
+  paisagem: '(min-width: 64rem) 62vw, 100vw',
+  faixa: '100vw',
+  pequena: '(min-width: 64rem) 30vw, 82vw',
+} as const;
+let n = 0;
+---
+
+<div class="galeria" data-galeria>
+  {
+    grupos.map((g) => (
+      <section class="grupo" aria-labelledby={`grupo-${g.natureza}`}>
+        <header class="grupo__topo">
+          <h3 id={`grupo-${g.natureza}`} class="grupo__titulo">
+            {g.titulo}
+          </h3>
+          <p class="grupo__n">
+            {dois(g.itens.length)} {g.itens.length === 1 ? 'imagem' : 'imagens'}
+          </p>
+        </header>
+        <ul class="grupo__lista">
+          {g.itens.map((item, i) => {
+            const indice = n++;
+            return (
+              <li class:list={['g', `g--${item.formato}`, i % 2 ? 'g--par' : 'g--impar']}>
+                <figure class="g__fig" data-midia data-galeria-item data-indice={indice}>
+                  <button
+                    type="button"
+                    class="g__abrir"
+                    data-lightbox-abrir
+                    aria-label={`Ampliar: ${item.legenda} (${dois(indice + 1)} de ${dois(total)})`}
+                  >
+                    <Imagem
+                      id={item.id}
+                      alt={item.alt}
+                      natureza={item.natureza}
+                      sizes={TAMANHOS[item.formato]}
+                    />
+                  </button>
+                  <figcaption class="g__legenda">
+                    <Rotulo natureza={item.natureza} />
+                    <span data-legenda-texto>{item.legenda}</span>
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<dialog class="lb" data-lightbox aria-label={`Galeria ampliada: ${titulo}`}>
+  <div class="lb__barra">
+    <p class="lb__contagem" aria-live="polite" data-lb-contagem></p>
+    <form method="dialog">
+      <button class="lb__botao" type="submit" data-lb-fechar>Fechar</button>
+    </form>
+  </div>
+  <figure class="lb__fig" data-midia>
+    <div class="lb__palco" data-lb-palco></div>
+    <figcaption class="lb__legenda">
+      <span data-lb-rotulo></span>
+      <span data-lb-legenda></span>
+    </figcaption>
+  </figure>
+  <div class="lb__nav">
+    <button class="lb__botao" type="button" data-lb-anterior>
+      <span aria-hidden="true">←</span> Anterior
+    </button>
+    <button class="lb__botao" type="button" data-lb-proxima>
+      Próxima <span aria-hidden="true">→</span>
+    </button>
+  </div>
+</dialog>
+
+<script>
+  const dialogo = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  const itens = [...document.querySelectorAll<HTMLElement>('[data-galeria-item]')];
+  if (dialogo && itens.length) {
+    const palco = dialogo.querySelector<HTMLElement>('[data-lb-palco]')!;
+    const rotulo = dialogo.querySelector<HTMLElement>('[data-lb-rotulo]')!;
+    const legenda = dialogo.querySelector<HTMLElement>('[data-lb-legenda]')!;
+    const contagem = dialogo.querySelector<HTMLElement>('[data-lb-contagem]')!;
+    const dois = (n: number) => String(n).padStart(2, '0');
+    let atual = 0;
+    let origem: HTMLElement | null = null;
+
+    const mostrar = (i: number) => {
+      atual = (i + itens.length) % itens.length;
+      const item = itens[atual]!;
+      const pic = item.querySelector('picture')?.cloneNode(true) as HTMLElement | undefined;
+      if (pic) {
+        pic.querySelectorAll('source').forEach((s) => s.setAttribute('sizes', '100vw'));
+        const img = pic.querySelector('img');
+        if (img) {
+          img.loading = 'eager';
+          img.draggable = false;
+          img.removeAttribute('fetchpriority');
+        }
+        palco.replaceChildren(pic);
+      }
+      const r = item.querySelector('[data-rotulo-natureza]')?.cloneNode(true);
+      rotulo.replaceChildren(...(r ? [r] : []));
+      legenda.textContent = item.querySelector('[data-legenda-texto]')?.textContent ?? '';
+      contagem.textContent = `${dois(atual + 1)} / ${dois(itens.length)}`;
+    };
+
+    itens.forEach((item, i) =>
+      item.querySelector('[data-lightbox-abrir]')?.addEventListener('click', (e) => {
+        origem = e.currentTarget as HTMLElement;
+        mostrar(i);
+        dialogo.showModal();
+      }),
+    );
+    dialogo
+      .querySelector('[data-lb-anterior]')
+      ?.addEventListener('click', () => mostrar(atual - 1));
+    dialogo.querySelector('[data-lb-proxima]')?.addEventListener('click', () => mostrar(atual + 1));
+    dialogo.addEventListener('keydown', (e) => {
+      // Foco preso: Tab circula entre os controles do diálogo (não escapa para a página).
+      if (e.key === 'Tab') {
+        const f = [...dialogo.querySelectorAll<HTMLElement>('button')];
+        const i = f.indexOf(document.activeElement as HTMLElement);
+        const prox = e.shiftKey ? (i <= 0 ? f.length - 1 : i - 1) : (i + 1) % f.length;
+        f[prox]?.focus();
+        e.preventDefault();
+        return;
+      }
+      if (e.key === 'ArrowLeft') mostrar(atual - 1);
+      else if (e.key === 'ArrowRight') mostrar(atual + 1);
+      else return;
+      e.preventDefault();
+    });
+    dialogo.addEventListener('close', () => {
+      palco.replaceChildren();
+      origem?.focus();
+    });
+    // Clique fora da imagem (no fundo do diálogo) fecha.
+    dialogo.addEventListener('click', (e) => {
+      if (e.target === dialogo) dialogo.close();
+    });
+    // Arraste horizontal: 50 px trocam de imagem (o vertical continua livre).
+    let x0: number | null = null;
+    palco.addEventListener('pointerdown', (e) => {
+      x0 = e.clientX;
+      palco.setPointerCapture(e.pointerId);
+    });
+    palco.addEventListener('pointerup', (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 50) mostrar(atual + (dx < 0 ? 1 : -1));
+    });
+    palco.addEventListener('pointercancel', () => (x0 = null));
+  }
+</script>
+
+<style>
+  .galeria {
+    display: grid;
+    gap: var(--e-9);
+  }
+  .grupo__topo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--e-4);
+    padding-bottom: var(--e-3);
+    margin-bottom: var(--e-6);
+    border-bottom: var(--linha) solid var(--cor-linha);
+  }
+  .grupo__titulo {
+    font-size: var(--t-subtitulo);
+    font-weight: 300;
+  }
+  .grupo__n {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--cor-texto-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .grupo__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-8) var(--e-6);
+  }
+  .g__fig {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .g__abrir {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Hover/foco: a linha de luz corre na base da imagem. */
+  .g__abrir::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      var(--cor-fresta),
+      var(--cor-fresta-nucleo) 85%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-media) var(--ease-saida);
+  }
+  .g__abrir:hover::after,
+  .g__abrir:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .g__abrir :global(img) {
+    transition: transform 900ms var(--ease-saida);
+  }
+  .g__abrir:hover :global(img) {
+    transform: scale(1.015);
+  }
+  .g__legenda {
+    display: grid;
+    gap: var(--e-1);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+    max-width: 34rem;
+  }
+  /* Celular: retratos e imagens pequenas a 82%, alternando o lado. */
+  .g--retrato,
+  .g--pequena {
+    width: 82%;
+  }
+  .g--par.g--retrato,
+  .g--par.g--pequena {
+    justify-self: end;
+  }
+
+  @media (min-width: 64rem) {
+    .grupo__lista {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: end;
+    }
+    .g--retrato,
+    .g--pequena {
+      width: auto;
+    }
+    .g--paisagem {
+      grid-column: 1 / span 8;
+    }
+    .g--paisagem.g--par {
+      grid-column: 5 / span 8;
+    }
+    .g--retrato {
+      grid-column: span 4;
+    }
+    .g--retrato.g--par {
+      grid-column: span 5;
+    }
+    .g--pequena {
+      grid-column: span 4;
+    }
+    .g--faixa {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lb {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: var(--e-4) var(--margem);
+    border: 0;
+    background: rgb(20 18 17 / 0.97);
+    color: var(--osso);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: var(--e-4);
+  }
+  .lb[open] {
+    display: grid;
+  }
+  .lb::backdrop {
+    background: rgb(20 18 17 / 0.9);
+  }
+  .lb__barra,
+  .lb__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--e-4);
+  }
+  .lb__contagem {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    font-variant-numeric: tabular-nums;
+    color: var(--greige);
+  }
+  .lb__botao {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 var(--e-2);
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .lb__botao:focus-visible {
+    outline-color: var(--luz);
+  }
+  .lb__fig {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: var(--e-3);
+    min-height: 0;
+  }
+  .lb__palco {
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .lb__palco :global(picture),
+  .lb__palco :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .lb__palco :global(img) {
+    object-fit: contain;
+    -webkit-user-drag: none;
+    background: none !important;
+  }
+  .lb__legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-1) var(--e-4);
+    font-size: var(--t-pequeno);
+    color: var(--greige);
+  }
+  .lb__legenda :global(.rotulo) {
+    color: var(--greige);
+  }
+</style>

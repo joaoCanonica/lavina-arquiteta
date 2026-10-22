@@ -1,0 +1,31 @@
+{
+  "rota": "/projetos/",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 54,
+  "fcpMs": 700,
+  "lcpMs": 1357,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 700,
+  "bytesTotaisKB": 75,
+  "lcpElemento": "body > main#conteudo > section.abertura > p.abertura__texto",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 699.5874,
+      "lcp": 1357.1748,
+      "tbt": 0,
+      "cls": 0,
+      "si": 699.5874,
+      "bytesTotais": 76887,
+      "falhasA11y": []
+    }
+  ]
+}

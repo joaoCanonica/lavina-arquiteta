@@ -1,0 +1,31 @@
+{
+  "rota": "/projetos/projeto-tb/",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 54,
+  "fcpMs": 698,
+  "lcpMs": 1204,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 1061,
+  "bytesTotaisKB": 60,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 697.7878,
+      "lcp": 1203.5756,
+      "tbt": 0,
+      "cls": 0,
+      "si": 1060.7355220000884,
+      "bytesTotais": 61273,
+      "falhasA11y": []
+    }
+  ]
+}

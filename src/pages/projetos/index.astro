@@ -1,0 +1,514 @@
+---
+// /projetos: abertura curta, filtros (texto com sublinhado de luz; ?tipo= na URL) e a lista
+// editorial dos 9 projetos, com a imagem de destaque alternando lados e formatos.
+// Sem JS: todos os projetos visíveis e os filtros viram links comuns.
+import Cabecalho from '../../components/abertura/Cabecalho.astro';
+import RevelaPorFresta from '../../components/fresta/RevelaPorFresta.astro';
+import Transicoes from '../../components/projetos/Transicoes.astro';
+import {
+  TIPO,
+  nomeTransicao,
+  projetosOrdenados,
+  type NaturezaExibida,
+} from '../../components/projetos/dados.ts';
+import Imagem from '../../components/ui/Imagem.astro';
+import Rotulo from '../../components/ui/Rotulo.astro';
+import Base from '../../layouts/Base.astro';
+
+const projetos = await projetosOrdenados();
+const total = projetos.length;
+const dois = (n: number) => String(n).padStart(2, '0');
+
+const FILTROS = [
+  { id: 'todos', texto: 'Todos' },
+  { id: 'residencial', texto: 'Residencial' },
+  { id: 'saude', texto: 'Saúde e comercial' },
+  { id: 'executados', texto: 'Obras executadas' },
+  { id: 'imagens-3d', texto: 'Imagens 3D' },
+];
+const NATUREZA: Record<NaturezaExibida, string> = {
+  render: 'Imagem 3D',
+  antes: 'Antes e depois',
+  executado: 'Obra executada',
+  video: 'Vídeo',
+};
+// Formato da imagem na lista: segue a orientação da capa e alterna entre dois recortes.
+const formato = (largura: number, altura: number, i: number) =>
+  largura / altura > 1.15 ? (i % 4 < 2 ? 'largo' : 'paisagem') : i % 4 < 2 ? 'alto' : 'retrato';
+---
+
+<Base titulo="Projetos">
+  <Transicoes slot="head" />
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <section class="abertura" data-theme="dark" data-tone="escuro" aria-labelledby="projetos-h1">
+      <p class="t-rotulo t-secundario">Projetos</p>
+      <h1 id="projetos-h1" class="abertura__titulo">
+        <span class="abertura__n" data-contagem-total>{total}</span>
+        <span>projetos</span>
+      </h1>
+      <p class="abertura__texto">
+        Residências, consultórios e clínicas. Em cada imagem, a natureza vem escrita: obra
+        executada, imagem 3D do projeto, antes e depois.
+      </p>
+      <nav class="filtros" aria-label="Filtrar projetos">
+        <ul>
+          {
+            FILTROS.map((f) => (
+              <li>
+                <a
+                  href={f.id === 'todos' ? '/projetos/' : `/projetos/?tipo=${f.id}`}
+                  data-filtro={f.id}
+                  aria-current={f.id === 'todos' ? 'page' : undefined}
+                >
+                  {f.texto}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <p class="contagem" aria-live="polite" data-contagem>
+        {total} projetos
+      </p>
+    </section>
+
+    <section class="lista" data-theme="light" data-tone="claro" aria-label="Lista de projetos">
+      <ol class="lista__itens" data-lista>
+        {
+          projetos.map((p, i) => {
+            const f = formato(p.capa.largura, p.capa.altura, i);
+            return (
+              <li
+                class:list={['item', `item--${f}`, i % 2 ? 'item--dir' : 'item--esq']}
+                data-projeto={p.slug}
+                data-filtros={p.filtros.join(' ')}
+              >
+                <figure class="item__fig" data-midia>
+                  <RevelaPorFresta>
+                    <div
+                      class="item__midia"
+                      style={`view-transition-name:${nomeTransicao(p.slug)};view-transition-class:projeto-imagem;--posicao:${p.capa.posicao ?? '50% 50%'}`}
+                    >
+                      <Imagem
+                        id={p.capa.id}
+                        alt={p.capa.alt}
+                        natureza={p.capa.natureza}
+                        sizes={
+                          f === 'largo' || f === 'paisagem'
+                            ? '(min-width: 64rem) 58vw, 100vw'
+                            : '(min-width: 64rem) 40vw, 86vw'
+                        }
+                        prioridade={i === 0}
+                      />
+                    </div>
+                  </RevelaPorFresta>
+                  <figcaption class="item__rotulo">
+                    <Rotulo natureza={p.capa.natureza} />
+                  </figcaption>
+                </figure>
+                <div class="item__texto">
+                  <p class="item__n" aria-hidden="true">
+                    <span data-n>{dois(i + 1)}</span> / <span data-n-total>{dois(total)}</span>
+                  </p>
+                  <h2 class="item__nome">
+                    <a class="item__link" href={`/projetos/${p.slug}/`}>
+                      {p.titulo}
+                    </a>
+                  </h2>
+                  <p class="item__meta">
+                    <span>{TIPO[p.tipo]}</span>
+                    {p.cidade && <span>{p.cidade}</span>}
+                  </p>
+                  <p class="item__natureza">
+                    <span class="so-leitor">Imagens: </span>
+                    {p.naturezas.map((n) => NATUREZA[n]).join(' · ')}
+                  </p>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Filtros: atualizam a lista, a contagem e a URL (?tipo=) sem recarregar.
+  const lista = document.querySelector<HTMLElement>('[data-lista]');
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-filtro]')];
+  const contagem = document.querySelector<HTMLElement>('[data-contagem]');
+  const titulo = document.querySelector<HTMLElement>('[data-contagem-total]');
+  const VALIDOS = links.map((a) => a.dataset['filtro']);
+  const NOMES: Record<string, string> = {
+    residencial: 'residenciais',
+    saude: 'de saúde e comercial',
+    executados: 'com obra executada',
+    'imagens-3d': 'com imagens 3D',
+  };
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dois = (n: number) => String(n).padStart(2, '0');
+
+  const lerTipo = () => {
+    const t = new URLSearchParams(location.search).get('tipo') ?? 'todos';
+    return VALIDOS.includes(t) ? t : 'todos';
+  };
+
+  const aplicar = (tipo: string) => {
+    if (!lista) return;
+    const itens = [...lista.querySelectorAll<HTMLElement>('[data-projeto]')];
+    const visiveis = itens.filter(
+      (li) => tipo === 'todos' || (li.dataset['filtros'] ?? '').split(' ').includes(tipo),
+    );
+    itens.forEach((li) => (li.hidden = !visiveis.includes(li)));
+    visiveis.forEach((li, i) => {
+      li.classList.toggle('item--dir', i % 2 === 1);
+      li.classList.toggle('item--esq', i % 2 === 0);
+      const n = li.querySelector('[data-n]');
+      const t = li.querySelector('[data-n-total]');
+      if (n) n.textContent = dois(i + 1);
+      if (t) t.textContent = dois(visiveis.length);
+    });
+    links.forEach((a) =>
+      a.dataset['filtro'] === tipo
+        ? a.setAttribute('aria-current', 'page')
+        : a.removeAttribute('aria-current'),
+    );
+    const n = visiveis.length;
+    if (titulo) titulo.textContent = String(n);
+    if (contagem)
+      contagem.textContent =
+        tipo === 'todos'
+          ? `${n} projetos`
+          : `${n} ${n === 1 ? 'projeto' : 'projetos'} ${NOMES[tipo] ?? ''}`.trim();
+  };
+
+  const trocar = (tipo: string) => {
+    const doc = document as Document & { startViewTransition?: (f: () => void) => unknown };
+    if (doc.startViewTransition && !calmo) doc.startViewTransition(() => aplicar(tipo));
+    else aplicar(tipo);
+  };
+
+  links.forEach((a) =>
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tipo = a.dataset['filtro'] ?? 'todos';
+      const url = new URL(location.href);
+      if (tipo === 'todos') url.searchParams.delete('tipo');
+      else url.searchParams.set('tipo', tipo);
+      history.pushState({ tipo }, '', url);
+      trocar(tipo);
+    }),
+  );
+  addEventListener('popstate', () => trocar(lerTipo()));
+  if (lerTipo() !== 'todos') aplicar(lerTipo());
+</script>
+
+<style>
+  .abertura {
+    display: grid;
+    gap: var(--e-5);
+    padding: calc(var(--e-10) + var(--e-6)) var(--margem) var(--e-8);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .abertura__titulo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3em;
+    font-size: clamp(3.5rem, 1.5rem + 10vw, 11rem);
+    font-weight: var(--peso-display);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+  }
+  .abertura__n {
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .abertura__texto {
+    max-width: 36rem;
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    color: var(--cor-texto-2);
+  }
+
+  /* Filtros: texto com sublinhado de luz no ativo e no hover/foco. */
+  .filtros {
+    margin-top: var(--e-6);
+  }
+  .filtros ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--e-6);
+  }
+  .filtros a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--cor-texto-2);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color var(--dur-curta) linear;
+  }
+  .filtros a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--cor-fresta) 15%,
+      var(--cor-fresta-nucleo) 50%,
+      var(--cor-fresta) 85%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    opacity: 0;
+    transition:
+      transform var(--dur-media) var(--ease-saida),
+      opacity var(--dur-curta) linear;
+  }
+  .filtros a:hover,
+  .filtros a:focus-visible,
+  .filtros a[aria-current='page'] {
+    color: var(--cor-texto);
+  }
+  .filtros a:hover::after,
+  .filtros a:focus-visible::after {
+    transform: scaleX(0.6);
+    opacity: 0.7;
+  }
+  .filtros a[aria-current='page']::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  .contagem {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Lista editorial ---------- */
+  .lista {
+    padding: var(--e-8) var(--margem) var(--e-10);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .lista__itens {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: var(--largura-max);
+    display: grid;
+    gap: var(--e-9);
+  }
+  .item {
+    position: relative;
+    display: grid;
+    gap: var(--e-4);
+    padding-bottom: var(--e-6);
+  }
+  .item[hidden] {
+    display: none;
+  }
+  .item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--linha);
+    background: var(--cor-linha);
+  }
+  /* Linha de luz que percorre a borda inferior no hover/foco. */
+  .item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      var(--cor-fresta),
+      var(--cor-fresta-nucleo) 85%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-media) var(--ease-saida);
+    pointer-events: none;
+  }
+  .item:hover::before,
+  .item:focus-within::before {
+    transform: scaleX(1);
+  }
+  .item__fig {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .item__midia {
+    overflow: hidden;
+    background: var(--cor-superficie);
+  }
+  .item__midia :global(picture),
+  .item__midia :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .item__midia :global(img) {
+    object-fit: cover;
+    object-position: var(--posicao, 50% 50%);
+    transition: transform 1100ms var(--ease-saida);
+  }
+  .item:hover .item__midia :global(img) {
+    transform: scale(1.02);
+  }
+  .item--largo .item__midia {
+    aspect-ratio: 16 / 10;
+  }
+  .item--paisagem .item__midia {
+    aspect-ratio: 3 / 2;
+  }
+  .item--alto .item__midia {
+    aspect-ratio: 3 / 4;
+  }
+  .item--retrato .item__midia {
+    aspect-ratio: 4 / 5;
+  }
+  /* Celular: imagens verticais a 86%, alternando o lado. */
+  .item--alto .item__fig,
+  .item--retrato .item__fig {
+    width: 86%;
+  }
+  .item--dir.item--alto .item__fig,
+  .item--dir.item--retrato .item__fig {
+    justify-self: end;
+  }
+  .item__texto {
+    display: grid;
+    gap: var(--e-2);
+    align-content: end;
+  }
+  .item__n {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--cor-texto-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .item__nome {
+    font-size: clamp(2rem, 1.1rem + 3.6vw, 5rem);
+    font-weight: var(--peso-display);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .item__link {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* O link cobre o item todo (imagem incluída). */
+  .item__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+  .item__link:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+  .item__link:focus-visible::after {
+    outline: 2px solid var(--cor-foco);
+    outline-offset: 6px;
+  }
+  .item__meta,
+  .item__natureza {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-1) var(--e-4);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .item__natureza {
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    font-size: var(--t-pequeno);
+  }
+
+  @media (min-width: 64rem) {
+    .lista__itens {
+      gap: var(--e-10);
+    }
+    .item {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--e-6);
+      align-items: end;
+      padding-bottom: var(--e-7);
+    }
+    .item__fig,
+    .item--alto .item__fig,
+    .item--retrato .item__fig {
+      width: auto;
+      grid-row: 1;
+    }
+    .item__texto {
+      grid-row: 1;
+      padding-bottom: var(--e-6);
+    }
+    .item--largo.item--esq .item__fig {
+      grid-column: 1 / span 8;
+    }
+    .item--largo.item--dir .item__fig {
+      grid-column: 5 / span 8;
+    }
+    .item--paisagem.item--esq .item__fig {
+      grid-column: 1 / span 7;
+    }
+    .item--paisagem.item--dir .item__fig {
+      grid-column: 6 / span 7;
+    }
+    .item--alto.item--esq .item__fig {
+      grid-column: 1 / span 6;
+    }
+    .item--alto.item--dir .item__fig {
+      grid-column: 7 / span 6;
+    }
+    .item--retrato.item--esq .item__fig {
+      grid-column: 2 / span 5;
+    }
+    .item--retrato.item--dir .item__fig {
+      grid-column: 7 / span 5;
+    }
+    .item--esq .item__texto {
+      grid-column: 9 / span 4;
+    }
+    .item--dir .item__texto {
+      grid-column: 1 / span 4;
+    }
+    .item--esq.item--alto .item__texto,
+    .item--esq.item--retrato .item__texto {
+      grid-column: 8 / span 5;
+    }
+    .item--dir.item--alto .item__texto,
+    .item--dir.item--retrato .item__texto {
+      grid-column: 1 / span 5;
+    }
+  }
+</style>

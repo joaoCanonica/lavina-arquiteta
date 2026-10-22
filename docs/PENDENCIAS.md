@@ -56,6 +56,15 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Pesquisa CAU** (`docs/pesquisa/cau-publicidade-autoria.md`): texto integral das Res. 75/2014, 52/2013 e 67/2013 a conferir nas fontes oficiais (bloqueadas neste ambiente); verificar se a Consulta Pública 51/2025 virou resolução que alcance sites.
 - **Termos de busca** (`docs/pesquisa/busca-local.md`): sem dado de volume; validar no Search Console após o deploy.
 
+## Sessão 6B — Projetos
+
+- **Comentários de clientes como citação** (decisão 4 do copy deck): o living e jantar mostra "Nosso ambiente mais aconchegante! Da idéia a realização!" (grafia original) e a farmhouse mostra a frase da cliente, ambos com o post de origem. Se a decisão for não usar, sai de `src/components/projetos/dados.ts` (CITACOES).
+- **Autoria de fotos e vídeos de obra**: aparece "A confirmar" na ficha técnica (selo PROVISÓRIO no preview) em todos os projetos com foto ou vídeo.
+- **Cordis e T|B**: a página diz que a obra foi executada e que as fotos ainda não estão no site (decisão 5 do copy deck). A citação "Executado ficou tão lindo quanto." da Cordis só entra com a foto da obra.
+- **Quem apresenta o vídeo do quarto e closet**: a legenda do vídeo não nomeia ninguém até confirmar.
+- **Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9.
+- **Páginas do menu** /processo/, /coletivo/ e /contato/: ainda não existem (sessão 6C). O `verificar-links` as lista como planejadas.
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)

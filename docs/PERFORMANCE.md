@@ -110,3 +110,41 @@ Lighthouse mobile, mediana de 3 execuções (`pnpm audit-lighthouse /`):
 | `/_pendencias` | 0,7 KB |
 
 Orçamento: 40 KB por página.
+
+## Projetos (sessão 6B: /projetos e as 9 páginas)
+
+Lighthouse mobile, 1 execução por rota (`node scripts/audit-lighthouse.mjs <rotas> --vezes 1`), mesma simulação da home:
+
+| página | Perf | A11y | BP | SEO | FCP | LCP | CLS | peso | elemento de LCP |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| /projetos/ | 100 | 100 | 100 | 54 | 0,70 s | 1,36 s | 0 | 75 KB | texto da abertura |
+| cozinha-jc | 100 | 100 | 100 | 54 | 0,93 s | 1,73 s | 0 | 106 KB | foto da abertura |
+| consultorio-jonny-arruda | 100 | 100 | 100 | 54 | 0,91 s | 1,73 s | 0 | 101 KB | foto da abertura |
+| living-jantar-painel | 100 | 100 | 100 | 54 | 0,90 s | 1,58 s | 0 | 93 KB | pôster do vídeo |
+| cozinha-farmhouse | 100 | 100 | 100 | 54 | 0,91 s | 1,73 s | 0 | 109 KB | pôster do vídeo |
+| banheiro-tons-claros | 100 | 100 | 100 | 54 | 0,91 s | 1,28 s | 0 | 87 KB | foto da abertura |
+| quarto-closet | 100 | 100 | 100 | 54 | 0,69 s | 1,13 s | 0 | 66 KB | pôster do vídeo |
+| clinica-cordis | 100 | 100 | 100 | 54 | 0,73 s | 1,21 s | 0 | 61 KB | imagem 3D da abertura |
+| projeto-tb | 100 | 100 | 100 | 54 | 0,70 s | 1,20 s | 0 | 60 KB | imagem 3D da abertura |
+| suite-fl | 100 | 100 | 100 | 54 | 0,69 s | 1,28 s | 0 | 69 KB | imagem 3D da abertura |
+
+- **SEO 54**: mesma causa da home (noindex do preview e meta description ausente).
+- **Abertura das páginas**: a foto tem `preload` AVIF no `<head>` e `fetchpriority="high"`. A fresta abre a foto com `clip-path` a partir de uma fenda de 0,8% da altura: a imagem pinta no primeiro quadro, e o LCP não espera a animação.
+- **Projetos só em vídeo**: o pôster da `VideoJanela` (componente da home, não alterado) é `loading="lazy"` e vira o LCP. Mesmo assim fica abaixo de 1,8 s. Ganho possível na sessão 9: pôster `eager` no topo.
+- **Vídeos**: nenhum carrega antes do clique.
+
+### JS por página (gzip, inline; nenhum script externo)
+
+| página | JS |
+| --- | --- |
+| /projetos/ | 1,6 KB (tema, Fresta, cabeçalho, filtros) |
+| cozinha-jc (página mais completa) | 2,3 KB (+ comparadores, vídeo, lightbox) |
+| living-jantar-painel | 2,1 KB |
+| suite-fl | 1,7 KB |
+
+### View Transitions
+
+- `@view-transition { navigation: auto }` só sob `prefers-reduced-motion: no-preference`. A imagem de destaque leva `view-transition-name: projeto-<slug>` no índice, na abertura do projeto e no "próximo projeto". O cabeçalho fica parado (`view-transition-name: cabecalho`).
+- Na chegada por transição (`pagereveal` com `viewTransition`), a página recebe `.vt-chegada`: a imagem já entra aberta, sem repetir a fresta.
+- Quadros em `docs/capturas/projetos/transicao/` (Chromium, animação a 1/8 da velocidade por CDP).
+- **Fallback**: o teste emula um navegador sem `@view-transition` (o HTML chega sem a regra). Resultado: navegação comum, a fresta abre a foto e nenhum erro de JS. Firefox e Safari reais não existem neste ambiente.
