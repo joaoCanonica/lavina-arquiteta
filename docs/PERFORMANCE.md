@@ -202,4 +202,4 @@ Lighthouse mobile depois do banner, do rodapé e do botão fixo do WhatsApp:
 
 - **SEO 54 → 69:** a meta description agora existe em todas as páginas. A única auditoria que ainda falha é `is-crawlable`, por causa do noindex, que é obrigatório enquanto não houver domínio.
 - **Regressão corrigida:** com o JSON-LD no `<head>`, o LCP simulado da home foi a 2,4–2,6 s nas três execuções, porque o preload da foto ficava mais para baixo no documento. O JSON-LD passou para o fim do `<body>` (`src/components/seo/JsonLd.astro`, válido para o Google), e o LCP voltou a 1,65 s.
-- **Imagens OG:** 15 JPEGs 1200×630 gerados no build (`/og/*.jpg`, 30–110 KB). Só são pedidos por quem compartilha o link; nenhum entra na carga da página.
+- **Imagens OG:** 15 JPEGs 1200×630 gerados no build (`/og/*.jpg`, 37–71 KB). Só são pedidos por quem compartilha o link; nenhum entra na carga da página.
