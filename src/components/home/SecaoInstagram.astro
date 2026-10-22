@@ -99,6 +99,9 @@ const perfil = config.contato.instagram.valor[0];
     background: currentColor;
   }
   .insta__faixa {
+    /* bloco de contenção dos .so-leitor (absolutos): sem isso eles escapam da rolagem
+       e alargam a viewport de layout no celular (1465 px medidos em 390) */
+    position: relative;
     list-style: none;
     margin: 0;
     padding: 0 var(--margem) var(--e-4);

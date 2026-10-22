@@ -10,11 +10,17 @@ import { mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import sharp from 'sharp';
-import { DESTINO, ORIG, caixa, originalPorNumero, quadro } from './lib/midia.mjs';
+import { DESTINO, FFMPEG, ORIG, caixa, originalPorNumero, quadro } from './lib/midia.mjs';
 
 const exec = promisify(execFile);
-const VERSAO = 3;
-const VERSAO_VIDEO = 2; // muda quando a lógica de saída muda (invalida o cache)
+// Modo rápido (build na Vercel, ou MIDIA_RAPIDA=1): AVIF com esforço 1 e VP9 em tempo real.
+// O build da Vercel gera tudo do zero e tem limite de tempo; aqui, com cache, vale o modo
+// normal (melhor compressão). As chaves de cache mudam com o modo: nada se mistura.
+const RAPIDO = process.env.MIDIA_RAPIDA === '1' || Boolean(process.env.VERCEL);
+const AVIF_ESFORCO = RAPIDO ? 1 : 4;
+const VP9 = (cpu) => ['-deadline', RAPIDO ? 'realtime' : 'good', '-cpu-used', RAPIDO ? '8' : cpu];
+const VERSAO = RAPIDO ? '3-rapido' : 3;
+const VERSAO_VIDEO = RAPIDO ? '2-rapido' : 2; // muda quando a lógica de saída muda (invalida o cache)
 const LARGURAS = [480, 800, 1200, 1600, 2400];
 const CAPTURAS = process.argv.includes('--capturas');
 
@@ -182,7 +188,7 @@ async function exportarLarguras(
     const r = sharp(buf).resize({ width: w, withoutEnlargement: true });
     const avif = path.join(pasta, `${base}-${w}.avif`);
     const webp = path.join(pasta, `${base}-${w}.webp`);
-    await r.clone().avif({ quality: 52, effort: 4 }).toFile(path.join(DESTINO, avif));
+    await r.clone().avif({ quality: 52, effort: AVIF_ESFORCO }).toFile(path.join(DESTINO, avif));
     await r.clone().webp({ quality: 74 }).toFile(path.join(DESTINO, webp));
     saidas.push(avif, webp);
     fontes.push({ largura: w, avif: `/media/${avif}`, webp: `/media/${webp}` });
@@ -311,7 +317,7 @@ const TAMANHOS = [
 ];
 
 async function ffmpeg(args) {
-  await exec('ffmpeg', ['-v', 'error', '-y', ...args], { maxBuffer: 16 * 1024 * 1024 });
+  await exec(FFMPEG, ['-v', 'error', '-y', ...args], { maxBuffer: 16 * 1024 * 1024 });
 }
 
 for (const r of manifesto.registros.filter((x) => x.tipo === 'video')) {
@@ -324,7 +330,7 @@ for (const r of manifesto.registros.filter((x) => x.tipo === 'video')) {
     const saidas = [];
     const poster = path.join(pasta, 'poster.avif');
     await sharp(await quadro(arquivo, POSTER[r.arquivo]))
-      .avif({ quality: 50 })
+      .avif({ quality: 50, effort: AVIF_ESFORCO })
       .toFile(path.join(DESTINO, poster));
     saidas.push(poster);
     const fontes = [];
@@ -381,10 +387,7 @@ for (const r of manifesto.registros.filter((x) => x.tipo === 'video')) {
         '1',
         '-threads',
         '4',
-        '-deadline',
-        'good',
-        '-cpu-used',
-        '4',
+        ...VP9('4'),
         '-pix_fmt',
         'yuv420p',
         '-c:a',
@@ -452,17 +455,14 @@ const LOOP = { video: 'mudanca-cozinha.mp4', inicio: 7.0, duracao: 6.5, altura: 
       '0',
       '-row-mt',
       '1',
-      '-deadline',
-      'good',
-      '-cpu-used',
-      '2',
+      ...VP9('2'),
       path.join(DESTINO, webm),
     ]);
     const quadroPoster = await quadro(arquivo, LOOP.inicio);
     await sharp(quadroPoster)
       .extract({ left: 0, top: 0, width: 720, height: LOOP.altura })
       .resize({ width: 540 })
-      .avif({ quality: 50 })
+      .avif({ quality: 50, effort: AVIF_ESFORCO })
       .toFile(path.join(DESTINO, poster));
     for (const s of [mp4, webm]) {
       const { size } = await stat(path.join(DESTINO, s));

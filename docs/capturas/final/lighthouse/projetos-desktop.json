@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 282,
+  "lcpMs": 395,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 282,
+  "bytesTotaisKB": 81,
+  "lcpElemento": "main#conteudo > section.abertura > h1#projetos-h1 > span",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 282.20925,
+      "lcp": 395.20925,
+      "tbt": 0,
+      "cls": 0,
+      "si": 282.20925,
+      "bytesTotais": 83141,
+      "falhasA11y": []
+    }
+  ]
+}

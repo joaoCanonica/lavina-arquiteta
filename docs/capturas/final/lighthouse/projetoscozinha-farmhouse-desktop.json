@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/cozinha-farmhouse/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 313,
+  "lcpMs": 422,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 313,
+  "bytesTotaisKB": 116,
+  "lcpElemento": "figure.janela > div.janela__quadro > button.janela__tocar > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 312.897375,
+      "lcp": 422.3179,
+      "tbt": 0,
+      "cls": 0,
+      "si": 312.897375,
+      "bytesTotais": 118360,
+      "falhasA11y": []
+    }
+  ]
+}

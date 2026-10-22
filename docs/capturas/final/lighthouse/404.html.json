@@ -1,0 +1,32 @@
+{
+  "rota": "/404.html",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 266,
+  "lcpMs": 367,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 266,
+  "bytesTotaisKB": 72,
+  "lcpElemento": "figure.janela > div.janela__quadro > button.janela__tocar > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 265.58075,
+      "lcp": 366.6969,
+      "tbt": 0,
+      "cls": 0,
+      "si": 265.58075,
+      "bytesTotais": 73858,
+      "falhasA11y": []
+    }
+  ]
+}

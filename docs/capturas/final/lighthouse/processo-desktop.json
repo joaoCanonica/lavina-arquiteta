@@ -1,0 +1,32 @@
+{
+  "rota": "/processo/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 315,
+  "lcpMs": 376,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 315,
+  "bytesTotaisKB": 72,
+  "lcpElemento": "body > main#conteudo > section.abertura > h1#processo-h1",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 314.81675,
+      "lcp": 375.5801,
+      "tbt": 0,
+      "cls": 0,
+      "si": 314.81675,
+      "bytesTotais": 73725,
+      "falhasA11y": []
+    }
+  ]
+}

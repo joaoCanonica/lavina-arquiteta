@@ -158,7 +158,7 @@ const linhas = [
   '',
   '## O que esta auditoria ainda não cobre',
   '',
-  '- Conferência de normas (CAU, direito autoral, CDC, LGPD): passada única na sessão 9.',
+  '- Conferência de normas (CAU, direito autoral, CDC, LGPD): feita na sessão 9; tabela abaixo.',
   '- Texto queimado em vídeo (ex.: "o melhor" na legenda de `apresentacao-principal.mp4`): ver `docs/PENDENCIAS.md`.',
   '',
   '## Privacidade e segurança (sessão 7)',
@@ -179,6 +179,9 @@ const linhas = [
   '- [DECISÃO HUMANA] E-mail de contato para o titular exercer direitos: ausente na config (aparece PROVISÓRIO no preview).',
   '',
 ];
+// Tabela de normas e bloqueios (fonte versionada: docs/dados/compliance-normas.md).
+const NORMAS = 'docs/dados/compliance-normas.md';
+if (existsSync(NORMAS)) linhas.push((await readFile(NORMAS, 'utf8')).trim(), '');
 await writeFile(SAIDA, linhas.join('\n'));
 console.log(
   `audit-compliance [${modo}]: ${paginas} páginas, ${midiasConferidas} mídias, ${achados.termos.length} termos, ${achados.midia.length} sem rótulo → ${SAIDA}`,

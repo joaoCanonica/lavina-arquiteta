@@ -1,0 +1,32 @@
+{
+  "rota": "/contato/",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 66,
+  "fcpMs": 952,
+  "lcpMs": 1253,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 952,
+  "bytesTotaisKB": 45,
+  "lcpElemento": "ul.provas > li.prova > blockquote > p",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 66,
+      "fcp": 951.5153750000001,
+      "lcp": 1253.01845,
+      "tbt": 0,
+      "cls": 0,
+      "si": 951.5153750000001,
+      "bytesTotais": 45630,
+      "falhasA11y": []
+    }
+  ]
+}

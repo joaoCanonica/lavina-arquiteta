@@ -90,6 +90,20 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Validação externa**: Rich Results Test, validator.schema.org e as páginas de robôs dos fornecedores, na URL do preview (bloqueados neste ambiente).
 - **Search Console**: medir as consultas reais; hoje não há dado de volume.
 
+## Sessão 9 — Auditoria final, normas e deploy de preview
+
+- **Normas:** a tabela "item → situação → o que mudar → quem decide" está em `docs/COMPLIANCE.md`; o detalhe em `docs/pesquisa/final-1.md` … `final-9.md`. As decisões humanas abertas:
+  - CAU e responsável técnico de cada projeto (João e Amanda);
+  - crédito das fotos e vídeos de obra (Amanda);
+  - vídeo do living com "o melhor" queimado (João);
+  - autorização escrita das clínicas (João);
+  - revisão jurídica da `/privacidade`, e-mail do titular e encarregado (advogado);
+  - nome no Google e endereço da Receita (Amanda e João);
+  - linha sobre IA (João).
+- **Domínio:** `coletivoarquiteturalavina.com.br` não registrado. Bloqueia a produção (`docs/DEPLOY.md` §2 e §3).
+- **Proteção da Vercel:** o preview pede login da Vercel (Deployment Protection ligada no projeto). Para mostrar à Amanda: link de compartilhamento ou desligar a proteção de previews (decisão do João).
+- **Firefox e Safari:** não testados neste ambiente (`docs/AUDITORIA.md` §1).
+
 <!-- pendencias:auto:inicio -->
 
 ## Pendências da config (gerado por `pnpm validate-config`; não edite este bloco)

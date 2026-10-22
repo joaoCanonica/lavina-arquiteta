@@ -9,10 +9,15 @@ import path from 'node:path';
 const args = process.argv.slice(2);
 const iV = args.indexOf('--vezes');
 const VEZES = iV >= 0 ? Number(args[iV + 1]) : 3;
-const rotas = args.filter((a, i) => a.startsWith('/') && args[i - 1] !== '--vezes');
+// --desktop: preset desktop do Lighthouse (sem simulação de celular). --saida <pasta>.
+const DESKTOP = args.includes('--desktop');
+const iS = args.indexOf('--saida');
+const rotas = args.filter(
+  (a, i) => a.startsWith('/') && args[i - 1] !== '--vezes' && args[i - 1] !== '--saida',
+);
 if (!rotas.length) rotas.push('/');
 const PORTA = 4333;
-const SAIDA = 'docs/capturas/lighthouse';
+const SAIDA = iS >= 0 ? args[iS + 1] : 'docs/capturas/lighthouse';
 await mkdir(SAIDA, { recursive: true });
 
 spawnSync('pnpm', ['exec', 'astro', 'preview', 'stop'], { stdio: 'ignore' });
@@ -49,6 +54,7 @@ for (const rota of rotas) {
         '--output=json',
         `--output-path=${tmp}`,
         '--only-categories=performance,accessibility,best-practices,seo',
+        ...(DESKTOP ? ['--preset=desktop'] : []),
         '--chrome-flags=--headless=new --no-sandbox --disable-gpu',
       ],
       { env: { ...process.env, CHROME_PATH: chrome }, encoding: 'utf8' },
@@ -81,6 +87,7 @@ for (const rota of rotas) {
   const pick = (k) => mediana(execucoes.map((e) => e[k]));
   const med = {
     rota,
+    perfil: DESKTOP ? 'desktop' : 'mobile',
     vezes: VEZES,
     performance: pick('performance'),
     acessibilidade: pick('acessibilidade'),
@@ -97,7 +104,7 @@ for (const rota of rotas) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     execucoes: execucoes.map(({ json, ...e }) => ({ ...e, lcpElemento: undefined })),
   };
-  const nome = rota === '/' ? 'home' : rota.replace(/\//g, '');
+  const nome = (rota === '/' ? 'home' : rota.replace(/\//g, '')) + (DESKTOP ? '-desktop' : '');
   await writeFile(path.join(SAIDA, `${nome}.json`), JSON.stringify(med, null, 2) + '\n');
   await writeFile(path.join(SAIDA, `${nome}.lighthouse.json`), JSON.stringify(execucoes[0].json));
   resumo.push(med);

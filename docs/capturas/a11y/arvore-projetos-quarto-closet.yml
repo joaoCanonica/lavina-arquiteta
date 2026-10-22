@@ -1,0 +1,133 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- banner:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - navigation "Principal":
+    - list:
+      - listitem:
+        - link "Projetos":
+          - /url: /projetos/
+      - listitem:
+        - link "Processo":
+          - /url: /processo/
+      - listitem:
+        - link "Coletivo":
+          - /url: /coletivo/
+      - listitem:
+        - link "Contato":
+          - /url: /contato/
+  - link "WhatsApp (abre em nova aba)":
+    - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+- main:
+  - region "Quarto e closet":
+    - figure "Vídeo Quarto, closet e penteadeira, apresentados em vídeo.":
+      - 'button "Tocar o vídeo: Quarto e closet, apresentação em vídeo (com som)"'
+      - text: Vídeo Quarto, closet e penteadeira, apresentados em vídeo.
+    - paragraph:
+      - link "Projetos":
+        - /url: /projetos/
+      - text: 06 / 09
+    - heading "Quarto e closet" [level=1]
+    - term: Tipo
+    - definition: Residencial
+    - term: Natureza
+    - definition: Obra executada · Vídeo
+    - term: Projeto
+    - definition: Lavina — coletivo de arquitetura
+  - region "Sobre o projeto":
+    - paragraph: "Quarto e closet é um projeto residencial da Lavina — coletivo de arquitetura, de Lages (SC), liderado pela arquiteta Amanda Lavina. A obra executada aparece em vídeo e em quadros do vídeo. Destaques: arandelas na cabeceira, penteadeira com espelho iluminado, closet integrado. Projeto: Lavina — coletivo de arquitetura."
+    - paragraph: Às vezes o que você precisa não é de uma casa nova, mas de um novo olhar para a sua casa.
+    - paragraph: "Este quarto passou por uma transformação: cada centímetro foi redesenhado para trazer amplitude, leveza e sofisticação, com closet e penteadeira integrados."
+    - heading "O pedido" [level=2]
+    - paragraph: Um quarto que voltasse a representar quem vive nele.
+    - heading "A resposta do projeto" [level=2]
+    - paragraph: "Cada centímetro redesenhado: cabeceira estofada com arandelas, penteadeira com espelho iluminado, nichos e um closet de portas claras."
+    - heading "Detalhes" [level=2]
+    - list:
+      - listitem: Arandelas na cabeceira
+      - listitem: Penteadeira com espelho iluminado
+      - listitem: Closet integrado
+      - listitem: Nichos para perfumes e objetos
+  - region "Quadros do vídeo":
+    - heading "Quadros do vídeo" [level=2]
+    - region "Obra executada":
+      - heading "Obra executada" [level=3]
+      - paragraph: 05 imagens
+      - list:
+        - listitem:
+          - figure "Obra executada Cabeceira e arandela (quadro do vídeo)":
+            - 'button "Ampliar: Cabeceira e arandela (quadro do vídeo) (01 de 05)"':
+              - 'img "Quarto e closet: cabeceira e arandela (quadro do vídeo)"'
+            - text: Obra executada Cabeceira e arandela (quadro do vídeo)
+        - listitem:
+          - figure "Obra executada Cama (quadro do vídeo)":
+            - 'button "Ampliar: Cama (quadro do vídeo) (02 de 05)"':
+              - 'img "Quarto e closet: cama (quadro do vídeo)"'
+            - text: Obra executada Cama (quadro do vídeo)
+        - listitem:
+          - figure "Obra executada Quarto com janela (quadro do vídeo)":
+            - 'button "Ampliar: Quarto com janela (quadro do vídeo) (03 de 05)"':
+              - 'img "Quarto e closet: quarto com janela (quadro do vídeo)"'
+            - text: Obra executada Quarto com janela (quadro do vídeo)
+        - listitem:
+          - figure "Obra executada Penteadeira e nichos (quadro do vídeo)":
+            - 'button "Ampliar: Penteadeira e nichos (quadro do vídeo) (04 de 05)"':
+              - 'img "Quarto e closet: penteadeira e nichos (quadro do vídeo)"'
+            - text: Obra executada Penteadeira e nichos (quadro do vídeo)
+        - listitem:
+          - figure "Obra executada Cama e penteadeira (quadro do vídeo)":
+            - 'button "Ampliar: Cama e penteadeira (quadro do vídeo) (05 de 05)"':
+              - 'img "Quarto e closet: cama e penteadeira (quadro do vídeo)"'
+            - text: Obra executada Cama e penteadeira (quadro do vídeo)
+  - region "Ficha técnica":
+    - separator
+    - heading "Ficha técnica" [level=2]
+    - link "Ver no Instagram (abre em nova aba) (abre em nova aba)":
+      - /url: https://www.instagram.com/p/DVPU7xpDhVQ/
+    - term: Projeto
+    - definition: Lavina — coletivo de arquitetura
+    - term: Vídeo
+    - definition: A confirmar Provisório
+    - term: Tipo
+    - definition: Residencial
+    - term: Natureza das imagens
+    - definition: Obra executada · Vídeo
+    - term: Post de origem
+    - definition:
+      - link "DVPU7xpDhVQ no Instagram (abre em nova aba)":
+        - /url: https://www.instagram.com/p/DVPU7xpDhVQ/
+  - region "Clínica Cordis":
+    - figure "Imagem 3D do projeto":
+      - 'img "Imagem 3D da Clínica Cordis: mesa e painel com o coração iluminado"'
+      - text: Imagem 3D do projeto
+    - paragraph: Próximo projeto
+    - heading "Clínica Cordis" [level=2]:
+      - link "Clínica Cordis":
+        - /url: /projetos/clinica-cordis/
+    - paragraph: Saúde e comercial · Lages
+- contentinfo:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - paragraph: Amanda Lavina Arquitetura Ltda · CNPJ 52.116.202/0001-05
+  - heading "Escritório" [level=2]
+  - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110
+  - paragraph: Segunda a sexta, 09h às 19h
+  - heading "Instagram" [level=2]
+  - list:
+    - listitem:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+    - listitem:
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+  - heading "Site" [level=2]
+  - list:
+    - listitem:
+      - link "Política de privacidade":
+        - /url: /privacidade/
+    - listitem:
+      - link "Preferências de cookies":
+        - /url: /privacidade/#cookies
+  - paragraph: "Site: WAXLO"

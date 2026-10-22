@@ -203,3 +203,13 @@ Lighthouse mobile depois do banner, do rodapé e do botão fixo do WhatsApp:
 - **SEO 54 → 69:** a meta description agora existe em todas as páginas. A única auditoria que ainda falha é `is-crawlable`, por causa do noindex, que é obrigatório enquanto não houver domínio.
 - **Regressão corrigida:** com o JSON-LD no `<head>`, o LCP simulado da home foi a 2,4–2,6 s nas três execuções, porque o preload da foto ficava mais para baixo no documento. O JSON-LD passou para o fim do `<body>` (`src/components/seo/JsonLd.astro`, válido para o Google), e o LCP voltou a 1,65 s.
 - **Imagens OG:** 15 JPEGs 1200×630 gerados no build (`/og/*.jpg`, 37–71 KB). Só são pedidos por quem compartilha o link; nenhum entra na carga da página.
+
+## Auditoria final (sessão 9)
+
+Todas as rotas, mobile e desktop: tabela completa em `docs/AUDITORIA.md` §2.
+
+- **Mobile:** Performance 99–100 em todas as rotas. LCP de 1,10 s (/privacidade) a 1,80 s (Cozinha J|C, Consultório, Farmhouse). Home com 1,73 s na mediana de 3 (1,51 · 1,81 · 1,73). CLS 0 e TBT 0 em todas.
+- **Desktop:** Performance 100 em todas as rotas, LCP de 0,30 s a 0,54 s.
+- **JS:** no máximo ≈ 5 KB gzip por página (orçamento de 40 KB).
+- **Peso (`node scripts/medir-peso.mjs`):** a carga inicial vai de 35 KB (404) a 196 KB (Cozinha J|C em 1440). A página inteira chega a 774 KB (Cozinha J|C em 1440, com a galeria toda carregada).
+- **Correção:** a faixa do Instagram alargava a viewport de layout do celular para 1465 px. Corrigido, e o reflow agora é verificado em `audit-a11y`.

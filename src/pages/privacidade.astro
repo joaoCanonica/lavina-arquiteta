@@ -306,12 +306,13 @@ const ARMAZENAMENTO = [
 </Base>
 
 <style>
+  /* Fundo claro de ponta a ponta (o cabeçalho de tom claro fica sempre sobre ele);
+     só a coluna de texto tem largura máxima. */
   .politica {
     display: grid;
     gap: var(--e-8);
-    max-width: calc(var(--largura-texto, 42rem) + 2 * var(--margem));
-    margin: 0 auto;
-    padding: calc(var(--e-10) + var(--e-6)) var(--margem) var(--e-10);
+    padding: calc(var(--e-10) + var(--e-6))
+      max(var(--margem), calc((100% - var(--largura-texto, 42rem)) / 2)) var(--e-10);
     background: var(--cor-fundo);
     color: var(--cor-texto);
   }

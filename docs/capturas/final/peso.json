@@ -1,0 +1,628 @@
+[
+  {
+    "rota": "/",
+    "largura": 390,
+    "inicialKB": 118,
+    "inteiraKB": 368,
+    "inicial": {
+      "imagem": 35,
+      "fonte": 50,
+      "js": 1,
+      "html": 31,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 285,
+      "fonte": 50,
+      "js": 1,
+      "html": 31,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/",
+    "largura": 390,
+    "inicialKB": 58,
+    "inteiraKB": 74,
+    "inicial": {
+      "imagem": 14,
+      "fonte": 27,
+      "js": 1,
+      "html": 15,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 30,
+      "fonte": 27,
+      "js": 1,
+      "html": 15,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/cozinha-jc/",
+    "largura": 390,
+    "inicialKB": 89,
+    "inteiraKB": 334,
+    "inicial": {
+      "imagem": 14,
+      "fonte": 50,
+      "html": 23,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 259,
+      "fonte": 50,
+      "html": 23,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/consultorio-jonny-arruda/",
+    "largura": 390,
+    "inicialKB": 88,
+    "inteiraKB": 311,
+    "inicial": {
+      "imagem": 14,
+      "fonte": 50,
+      "js": 1,
+      "html": 22,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 237,
+      "fonte": 50,
+      "js": 1,
+      "html": 22,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/living-jantar-painel/",
+    "largura": 390,
+    "inicialKB": 96,
+    "inteiraKB": 171,
+    "inicial": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 26,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 101,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/cozinha-farmhouse/",
+    "largura": 390,
+    "inicialKB": 112,
+    "inteiraKB": 194,
+    "inicial": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 42,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 124,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/banheiro-tons-claros/",
+    "largura": 390,
+    "inicialKB": 79,
+    "inteiraKB": 133,
+    "inicial": {
+      "imagem": 10,
+      "fonte": 50,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 64,
+      "fonte": 50,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/quarto-closet/",
+    "largura": 390,
+    "inicialKB": 69,
+    "inteiraKB": 146,
+    "inicial": {
+      "fonte": 27,
+      "js": 1,
+      "html": 18,
+      "imagem": 23,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 1,
+      "html": 18,
+      "imagem": 99,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/clinica-cordis/",
+    "largura": 390,
+    "inicialKB": 54,
+    "inteiraKB": 77,
+    "inicial": {
+      "imagem": 8,
+      "fonte": 27,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 32,
+      "fonte": 27,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/projeto-tb/",
+    "largura": 390,
+    "inicialKB": 53,
+    "inteiraKB": 96,
+    "inicial": {
+      "imagem": 7,
+      "fonte": 27,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 50,
+      "fonte": 27,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/suite-fl/",
+    "largura": 390,
+    "inicialKB": 55,
+    "inteiraKB": 90,
+    "inicial": {
+      "fonte": 27,
+      "imagem": 9,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "imagem": 44,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/processo/",
+    "largura": 390,
+    "inicialKB": 69,
+    "inteiraKB": 183,
+    "inicial": {
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0,
+      "imagem": 114
+    }
+  },
+  {
+    "rota": "/coletivo/",
+    "largura": 390,
+    "inicialKB": 82,
+    "inteiraKB": 98,
+    "inicial": {
+      "fonte": 50,
+      "html": 13,
+      "js": 1,
+      "imagem": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "html": 13,
+      "js": 1,
+      "imagem": 33,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/contato/",
+    "largura": 390,
+    "inicialKB": 41,
+    "inteiraKB": 41,
+    "inicial": {
+      "fonte": 27,
+      "js": 2,
+      "html": 12,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 2,
+      "html": 12,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/privacidade/",
+    "largura": 390,
+    "inicialKB": 41,
+    "inteiraKB": 41,
+    "inicial": {
+      "fonte": 27,
+      "js": 1,
+      "html": 12,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 1,
+      "html": 12,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/nao-existe/",
+    "largura": 390,
+    "inicialKB": 35,
+    "inteiraKB": 35,
+    "inicial": {
+      "fonte": 27,
+      "html": 6,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "html": 6,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/",
+    "largura": 1440,
+    "inicialKB": 151,
+    "inteiraKB": 541,
+    "inicial": {
+      "imagem": 68,
+      "fonte": 50,
+      "html": 31,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 458,
+      "fonte": 50,
+      "html": 31,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/",
+    "largura": 1440,
+    "inicialKB": 78,
+    "inteiraKB": 105,
+    "inicial": {
+      "imagem": 34,
+      "fonte": 27,
+      "js": 1,
+      "html": 15,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 61,
+      "fonte": 27,
+      "js": 1,
+      "html": 15,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/cozinha-jc/",
+    "largura": 1440,
+    "inicialKB": 196,
+    "inteiraKB": 774,
+    "inicial": {
+      "imagem": 120,
+      "fonte": 50,
+      "html": 23,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 699,
+      "fonte": 50,
+      "html": 23,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/consultorio-jonny-arruda/",
+    "largura": 1440,
+    "inicialKB": 149,
+    "inteiraKB": 681,
+    "inicial": {
+      "imagem": 75,
+      "fonte": 50,
+      "html": 22,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 607,
+      "fonte": 50,
+      "html": 22,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/living-jantar-painel/",
+    "largura": 1440,
+    "inicialKB": 96,
+    "inteiraKB": 187,
+    "inicial": {
+      "fonte": 50,
+      "html": 18,
+      "js": 1,
+      "imagem": 26,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "html": 18,
+      "js": 1,
+      "imagem": 117,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/cozinha-farmhouse/",
+    "largura": 1440,
+    "inicialKB": 112,
+    "inteiraKB": 204,
+    "inicial": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 42,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "js": 1,
+      "html": 18,
+      "imagem": 134,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/banheiro-tons-claros/",
+    "largura": 1440,
+    "inicialKB": 117,
+    "inteiraKB": 221,
+    "inicial": {
+      "imagem": 48,
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 152,
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/quarto-closet/",
+    "largura": 1440,
+    "inicialKB": 69,
+    "inteiraKB": 157,
+    "inicial": {
+      "fonte": 27,
+      "js": 1,
+      "html": 18,
+      "imagem": 23,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 1,
+      "html": 18,
+      "imagem": 110,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/clinica-cordis/",
+    "largura": 1440,
+    "inicialKB": 96,
+    "inteiraKB": 186,
+    "inicial": {
+      "fonte": 27,
+      "imagem": 50,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "imagem": 140,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/projeto-tb/",
+    "largura": 1440,
+    "inicialKB": 108,
+    "inteiraKB": 314,
+    "inicial": {
+      "fonte": 27,
+      "imagem": 62,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "imagem": 268,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/projetos/suite-fl/",
+    "largura": 1440,
+    "inicialKB": 143,
+    "inteiraKB": 253,
+    "inicial": {
+      "imagem": 97,
+      "fonte": 27,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    },
+    "inteira": {
+      "imagem": 207,
+      "fonte": 27,
+      "html": 17,
+      "js": 1,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/processo/",
+    "largura": 1440,
+    "inicialKB": 69,
+    "inteiraKB": 230,
+    "inicial": {
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 50,
+      "js": 1,
+      "html": 17,
+      "outro": 0,
+      "imagem": 161
+    }
+  },
+  {
+    "rota": "/coletivo/",
+    "largura": 1440,
+    "inicialKB": 71,
+    "inteiraKB": 107,
+    "inicial": {
+      "html": 13,
+      "fonte": 50,
+      "js": 1,
+      "imagem": 6,
+      "outro": 0
+    },
+    "inteira": {
+      "html": 13,
+      "fonte": 50,
+      "js": 1,
+      "imagem": 42,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/contato/",
+    "largura": 1440,
+    "inicialKB": 41,
+    "inteiraKB": 41,
+    "inicial": {
+      "fonte": 27,
+      "html": 12,
+      "js": 2,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "html": 12,
+      "js": 2,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/privacidade/",
+    "largura": 1440,
+    "inicialKB": 41,
+    "inteiraKB": 41,
+    "inicial": {
+      "fonte": 27,
+      "js": 1,
+      "html": 12,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 1,
+      "html": 12,
+      "outro": 0
+    }
+  },
+  {
+    "rota": "/nao-existe/",
+    "largura": 1440,
+    "inicialKB": 35,
+    "inteiraKB": 35,
+    "inicial": {
+      "fonte": 27,
+      "js": 1,
+      "html": 6,
+      "outro": 0
+    },
+    "inteira": {
+      "fonte": 27,
+      "js": 1,
+      "html": 6,
+      "outro": 0
+    }
+  }
+]

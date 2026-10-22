@@ -1,0 +1,32 @@
+{
+  "rota": "/coletivo/",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 903,
+  "lcpMs": 1428,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 903,
+  "bytesTotaisKB": 97,
+  "lcpElemento": "div.revela > div.revela__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 902.8526999999999,
+      "lcp": 1427.8527,
+      "tbt": 0,
+      "cls": 0,
+      "si": 902.8526999999999,
+      "bytesTotais": 98890,
+      "falhasA11y": []
+    }
+  ]
+}

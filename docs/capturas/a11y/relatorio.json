@@ -1,0 +1,900 @@
+{
+  "axe": {
+    "/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-jc/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/consultorio-jonny-arruda/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/living-jantar-painel/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-farmhouse/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/banheiro-tons-claros/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/quarto-closet/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/clinica-cordis/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/projeto-tb/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/suite-fl/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/processo/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/coletivo/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value"
+      ]
+    },
+    "/contato/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/privacidade/ @390 light": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/nao-existe/ @390 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-jc/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/consultorio-jonny-arruda/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/living-jantar-painel/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-farmhouse/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/banheiro-tons-claros/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/quarto-closet/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/clinica-cordis/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/projeto-tb/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/projetos/suite-fl/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/processo/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/coletivo/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value"
+      ]
+    },
+    "/contato/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/privacidade/ @390 dark": {
+      "violacoes": [],
+      "revisar": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "/nao-existe/ @390 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-jc/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/consultorio-jonny-arruda/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/living-jantar-painel/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/cozinha-farmhouse/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/banheiro-tons-claros/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/quarto-closet/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/clinica-cordis/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/projeto-tb/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/suite-fl/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/processo/ @1440 light": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/coletivo/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/contato/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/privacidade/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/nao-existe/ @1440 light": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/cozinha-jc/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/consultorio-jonny-arruda/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/living-jantar-painel/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/cozinha-farmhouse/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/banheiro-tons-claros/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/quarto-closet/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/projetos/clinica-cordis/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/projeto-tb/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/projetos/suite-fl/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/processo/ @1440 dark": {
+      "violacoes": [],
+      "revisar": [
+        "color-contrast"
+      ]
+    },
+    "/coletivo/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/contato/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/privacidade/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    },
+    "/nao-existe/ @1440 dark": {
+      "violacoes": [],
+      "revisar": []
+    }
+  },
+  "teclado": {
+    "/ @1440": {
+      "tabs": 45,
+      "semIndicador": []
+    },
+    "/projetos/ @1440": {
+      "tabs": 25,
+      "semIndicador": []
+    },
+    "/projetos/cozinha-jc/ @1440": {
+      "tabs": 38,
+      "semIndicador": []
+    },
+    "/projetos/consultorio-jonny-arruda/ @1440": {
+      "tabs": 31,
+      "semIndicador": []
+    },
+    "/projetos/living-jantar-painel/ @1440": {
+      "tabs": 23,
+      "semIndicador": []
+    },
+    "/projetos/cozinha-farmhouse/ @1440": {
+      "tabs": 22,
+      "semIndicador": []
+    },
+    "/projetos/banheiro-tons-claros/ @1440": {
+      "tabs": 20,
+      "semIndicador": []
+    },
+    "/projetos/quarto-closet/ @1440": {
+      "tabs": 21,
+      "semIndicador": []
+    },
+    "/projetos/clinica-cordis/ @1440": {
+      "tabs": 18,
+      "semIndicador": []
+    },
+    "/projetos/projeto-tb/ @1440": {
+      "tabs": 19,
+      "semIndicador": []
+    },
+    "/projetos/suite-fl/ @1440": {
+      "tabs": 19,
+      "semIndicador": []
+    },
+    "/processo/ @1440": {
+      "tabs": 28,
+      "semIndicador": []
+    },
+    "/coletivo/ @1440": {
+      "tabs": 18,
+      "semIndicador": []
+    },
+    "/contato/ @1440": {
+      "tabs": 22,
+      "semIndicador": []
+    },
+    "/privacidade/ @1440": {
+      "tabs": 23,
+      "semIndicador": []
+    },
+    "/nao-existe/ @1440": {
+      "tabs": 2,
+      "semIndicador": []
+    },
+    "/ @390": {
+      "tabs": 41,
+      "semIndicador": []
+    },
+    "/projetos/ @390": {
+      "tabs": 22,
+      "semIndicador": []
+    },
+    "/projetos/cozinha-jc/ @390": {
+      "tabs": 35,
+      "semIndicador": []
+    },
+    "/projetos/consultorio-jonny-arruda/ @390": {
+      "tabs": 28,
+      "semIndicador": []
+    },
+    "/projetos/living-jantar-painel/ @390": {
+      "tabs": 20,
+      "semIndicador": []
+    },
+    "/projetos/cozinha-farmhouse/ @390": {
+      "tabs": 19,
+      "semIndicador": []
+    },
+    "/projetos/banheiro-tons-claros/ @390": {
+      "tabs": 17,
+      "semIndicador": []
+    },
+    "/projetos/quarto-closet/ @390": {
+      "tabs": 18,
+      "semIndicador": []
+    },
+    "/projetos/clinica-cordis/ @390": {
+      "tabs": 15,
+      "semIndicador": []
+    },
+    "/projetos/projeto-tb/ @390": {
+      "tabs": 16,
+      "semIndicador": []
+    },
+    "/projetos/suite-fl/ @390": {
+      "tabs": 16,
+      "semIndicador": []
+    },
+    "/processo/ @390": {
+      "tabs": 25,
+      "semIndicador": []
+    },
+    "/coletivo/ @390": {
+      "tabs": 15,
+      "semIndicador": []
+    },
+    "/contato/ @390": {
+      "tabs": 19,
+      "semIndicador": []
+    },
+    "/privacidade/ @390": {
+      "tabs": 20,
+      "semIndicador": []
+    },
+    "/nao-existe/ @390": {
+      "tabs": 2,
+      "semIndicador": []
+    },
+    "banner (teclado)": {
+      "salvo": {
+        "preferencias": true,
+        "mapas": false,
+        "estatistica": false,
+        "versao": 1,
+        "data": "2026-10-22T17:21:36.044Z"
+      }
+    }
+  },
+  "estrutura": {
+    "/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Lavina — coletivo de arquitetura · Interiores em Lages/SC"
+    },
+    "/projetos/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 3,
+      "rodape": 1,
+      "titulo": "Projetos de interiores e reformas · Lavina"
+    },
+    "/projetos/cozinha-jc/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Cozinha J|C: reforma em Balneário Camboriú · Lavina"
+    },
+    "/projetos/consultorio-jonny-arruda/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Consultório Jonny Arruda, Lages: projeto e obra · Lavina"
+    },
+    "/projetos/living-jantar-painel/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Living e jantar com painel paramétrico · Lavina"
+    },
+    "/projetos/cozinha-farmhouse/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Cozinha farmhouse: obra executada · Lavina"
+    },
+    "/projetos/banheiro-tons-claros/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Banheiro em tons claros: obra executada · Lavina"
+    },
+    "/projetos/quarto-closet/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Quarto e closet: reforma executada · Lavina"
+    },
+    "/projetos/clinica-cordis/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Clínica Cordis, Lages: imagens 3D do projeto · Lavina"
+    },
+    "/projetos/projeto-tb/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Projeto T|B, Campo Belo do Sul: imagens 3D · Lavina"
+    },
+    "/projetos/suite-fl/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Suíte F|L, Lages: imagens 3D do projeto · Lavina"
+    },
+    "/processo/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Processo: presença em cada etapa · Lavina"
+    },
+    "/coletivo/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Coletivo: Amanda Lavina, Renata e Lara · Lavina"
+    },
+    "/contato/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Contato e orçamento: Lages, Litoral e à distância · Lavina"
+    },
+    "/privacidade/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 3,
+      "rodape": 1,
+      "titulo": "Política de privacidade e de cookies · Lavina"
+    },
+    "/nao-existe/ @1440": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 0,
+      "nav": 0,
+      "rodape": 0,
+      "titulo": "Página não encontrada · Lavina"
+    },
+    "/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Lavina — coletivo de arquitetura · Interiores em Lages/SC"
+    },
+    "/projetos/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 3,
+      "rodape": 1,
+      "titulo": "Projetos de interiores e reformas · Lavina"
+    },
+    "/projetos/cozinha-jc/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Cozinha J|C: reforma em Balneário Camboriú · Lavina"
+    },
+    "/projetos/consultorio-jonny-arruda/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Consultório Jonny Arruda, Lages: projeto e obra · Lavina"
+    },
+    "/projetos/living-jantar-painel/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Living e jantar com painel paramétrico · Lavina"
+    },
+    "/projetos/cozinha-farmhouse/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Cozinha farmhouse: obra executada · Lavina"
+    },
+    "/projetos/banheiro-tons-claros/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Banheiro em tons claros: obra executada · Lavina"
+    },
+    "/projetos/quarto-closet/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Quarto e closet: reforma executada · Lavina"
+    },
+    "/projetos/clinica-cordis/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Clínica Cordis, Lages: imagens 3D do projeto · Lavina"
+    },
+    "/projetos/projeto-tb/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Projeto T|B, Campo Belo do Sul: imagens 3D · Lavina"
+    },
+    "/projetos/suite-fl/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Suíte F|L, Lages: imagens 3D do projeto · Lavina"
+    },
+    "/processo/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Processo: presença em cada etapa · Lavina"
+    },
+    "/coletivo/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Coletivo: Amanda Lavina, Renata e Lara · Lavina"
+    },
+    "/contato/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 2,
+      "rodape": 1,
+      "titulo": "Contato e orçamento: Lages, Litoral e à distância · Lavina"
+    },
+    "/privacidade/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 1,
+      "nav": 3,
+      "rodape": 1,
+      "titulo": "Política de privacidade e de cookies · Lavina"
+    },
+    "/nao-existe/ @390": {
+      "lang": "pt-BR",
+      "h1": 1,
+      "saltos": [],
+      "main": 1,
+      "banner": 0,
+      "nav": 0,
+      "rodape": 0,
+      "titulo": "Página não encontrada · Lavina"
+    }
+  },
+  "semJs": {
+    "/": [],
+    "/projetos/": [],
+    "/projetos/cozinha-jc/": [],
+    "/projetos/consultorio-jonny-arruda/": [],
+    "/projetos/living-jantar-painel/": [],
+    "/projetos/cozinha-farmhouse/": [],
+    "/projetos/banheiro-tons-claros/": [],
+    "/projetos/quarto-closet/": [],
+    "/projetos/clinica-cordis/": [],
+    "/projetos/projeto-tb/": [],
+    "/projetos/suite-fl/": [],
+    "/processo/": [],
+    "/coletivo/": [],
+    "/contato/": [],
+    "/privacidade/": [],
+    "/nao-existe/": []
+  },
+  "reduzido": {
+    "/": [],
+    "/projetos/": [],
+    "/projetos/cozinha-jc/": [],
+    "/projetos/consultorio-jonny-arruda/": [],
+    "/projetos/living-jantar-painel/": [],
+    "/projetos/cozinha-farmhouse/": [],
+    "/projetos/banheiro-tons-claros/": [],
+    "/projetos/quarto-closet/": [],
+    "/projetos/clinica-cordis/": [],
+    "/projetos/projeto-tb/": [],
+    "/projetos/suite-fl/": [],
+    "/processo/": [],
+    "/coletivo/": [],
+    "/contato/": [],
+    "/privacidade/": [],
+    "/nao-existe/": []
+  },
+  "reflow": {
+    "/": 390,
+    "/projetos/": 390,
+    "/projetos/cozinha-jc/": 390,
+    "/projetos/consultorio-jonny-arruda/": 390,
+    "/projetos/living-jantar-painel/": 390,
+    "/projetos/cozinha-farmhouse/": 390,
+    "/projetos/banheiro-tons-claros/": 390,
+    "/projetos/quarto-closet/": 390,
+    "/projetos/clinica-cordis/": 390,
+    "/projetos/projeto-tb/": 390,
+    "/projetos/suite-fl/": 390,
+    "/processo/": 390,
+    "/coletivo/": 390,
+    "/contato/": 390,
+    "/privacidade/": 390,
+    "/nao-existe/": 390
+  },
+  "problemas": []
+}

@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/clinica-cordis/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 286,
+  "lcpMs": 423,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 502,
+  "bytesTotaisKB": 99,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 286.44962499999997,
+      "lcp": 422.75969999999995,
+      "tbt": 0,
+      "cls": 0,
+      "si": 501.87007500008406,
+      "bytesTotais": 101332,
+      "falhasA11y": []
+    }
+  ]
+}

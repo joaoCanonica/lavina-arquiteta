@@ -81,6 +81,7 @@ const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirm
     <slot name="head" />
   </head>
   <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <PreviewBanner {...pendencias !== undefined ? { pendencias } : {}} />
     <slot />
     {rodape && <Rodape />}
@@ -92,3 +93,30 @@ const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirm
     </script>
   </body>
 </html>
+
+<style>
+  /* Atalho para quem navega por teclado: invisível até receber foco. */
+  .pular {
+    position: fixed;
+    left: var(--margem);
+    top: var(--e-3);
+    z-index: 2147483001;
+    padding: var(--e-2) var(--e-4);
+    background: var(--grafite);
+    color: var(--osso);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+  .pular:focus-visible {
+    transform: none;
+    outline-color: var(--luz);
+  }
+  /* Durante a entrada, o primeiro Tab é o "Pular" da própria entrada. */
+  :global(html.entrada-ativa) .pular {
+    display: none;
+  }
+</style>

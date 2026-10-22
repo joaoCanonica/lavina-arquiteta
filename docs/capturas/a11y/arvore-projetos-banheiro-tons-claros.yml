@@ -1,0 +1,136 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- banner:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - navigation "Principal":
+    - list:
+      - listitem:
+        - link "Projetos":
+          - /url: /projetos/
+      - listitem:
+        - link "Processo":
+          - /url: /processo/
+      - listitem:
+        - link "Coletivo":
+          - /url: /coletivo/
+      - listitem:
+        - link "Contato":
+          - /url: /contato/
+  - link "WhatsApp (abre em nova aba)":
+    - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+- main:
+  - region "Banheiro em tons claros":
+    - figure "Obra executada":
+      - 'img "Banheiro em tons claros: bancada e espelho com luz embutida"'
+      - text: Obra executada
+    - paragraph:
+      - link "Projetos":
+        - /url: /projetos/
+      - text: 05 / 09
+    - heading "Banheiro em tons claros" [level=1]
+    - term: Tipo
+    - definition: Residencial
+    - term: Natureza
+    - definition: Obra executada
+    - term: Projeto
+    - definition: Lavina — coletivo de arquitetura
+  - region "Sobre o projeto":
+    - paragraph: "Banheiro em tons claros é um projeto residencial da Lavina — coletivo de arquitetura, de Lages (SC), liderado pela arquiteta Amanda Lavina. As fotos são da obra executada. Destaques: espelho com luz embutida, cuba esculpida, marcenaria com puxadores dourados. Projeto: Lavina — coletivo de arquitetura."
+    - paragraph: "Neste banheiro, os tons claros não foram só uma escolha estética: foram estratégicos."
+    - paragraph: A paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena. Um espaço compacto pode e deve parecer grandioso.
+    - heading "O pedido" [level=2]
+    - paragraph: Um banheiro compacto que parecesse maior.
+    - heading "A resposta do projeto" [level=2]
+    - paragraph: Paleta neutra e porcelanato suave para refletir a luz; espelho com luz embutida sobre a bancada; marcenaria com puxadores dourados; cuba esculpida; banheira.
+    - heading "Detalhes" [level=2]
+    - list:
+      - listitem: Espelho com luz embutida
+      - listitem: Cuba esculpida
+      - listitem: Marcenaria com puxadores dourados
+      - listitem: Banheira
+  - region "O projeto e a obra":
+    - blockquote:
+      - paragraph: “Esse banheiro é um respiro.”
+      - text: — Amanda Lavina, comentário no post ·
+      - link "post DVcLRsXDpYJ (abre em nova aba)":
+        - /url: https://www.instagram.com/p/DVcLRsXDpYJ/
+  - region "Imagens":
+    - heading "Imagens" [level=2]
+    - region "Obra executada":
+      - heading "Obra executada" [level=3]
+      - paragraph: 04 imagens
+      - list:
+        - listitem:
+          - figure "Obra executada Vista geral com banheira":
+            - 'button "Ampliar: Vista geral com banheira (01 de 04)"':
+              - 'img "Banheiro em tons claros: vista geral com banheira"'
+            - text: Obra executada Vista geral com banheira
+        - listitem:
+          - figure "Obra executada Marcenaria com puxadores dourados":
+            - 'button "Ampliar: Marcenaria com puxadores dourados (02 de 04)"':
+              - 'img "Banheiro em tons claros: marcenaria com puxadores dourados"'
+            - text: Obra executada Marcenaria com puxadores dourados
+        - listitem:
+          - figure "Obra executada Cuba esculpida":
+            - 'button "Ampliar: Cuba esculpida (03 de 04)"':
+              - 'img "Banheiro em tons claros: cuba esculpida"'
+            - text: Obra executada Cuba esculpida
+        - listitem:
+          - figure "Obra executada Vista com porta":
+            - 'button "Ampliar: Vista com porta (04 de 04)"':
+              - 'img "Banheiro em tons claros: vista com porta"'
+            - text: Obra executada Vista com porta
+  - region "Ficha técnica":
+    - separator
+    - heading "Ficha técnica" [level=2]
+    - link "Ver no Instagram (abre em nova aba) (abre em nova aba)":
+      - /url: https://www.instagram.com/p/DVcLRsXDpYJ/
+    - term: Projeto
+    - definition: Lavina — coletivo de arquitetura
+    - term: Fotografia
+    - definition: A confirmar Provisório
+    - term: Execução e fornecedores
+    - definition: Portobello Shop Lages · Álamo Marmoraria · AF Eletricidade · Espaço Decora Enxovais Marcados no post; a função de cada um não está escrita.
+    - term: Tipo
+    - definition: Residencial
+    - term: Natureza das imagens
+    - definition: Obra executada
+    - term: Post de origem
+    - definition:
+      - link "DVcLRsXDpYJ no Instagram (abre em nova aba)":
+        - /url: https://www.instagram.com/p/DVcLRsXDpYJ/
+  - region "Quarto e closet":
+    - figure "Obra executada":
+      - 'img "Quarto e closet: closet de portas claras e penteadeira (quadro do vídeo)"'
+      - text: Obra executada
+    - paragraph: Próximo projeto
+    - heading "Quarto e closet" [level=2]:
+      - link "Quarto e closet":
+        - /url: /projetos/quarto-closet/
+    - paragraph: Residencial
+- contentinfo:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - paragraph: Amanda Lavina Arquitetura Ltda · CNPJ 52.116.202/0001-05
+  - heading "Escritório" [level=2]
+  - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110
+  - paragraph: Segunda a sexta, 09h às 19h
+  - heading "Instagram" [level=2]
+  - list:
+    - listitem:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+    - listitem:
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+  - heading "Site" [level=2]
+  - list:
+    - listitem:
+      - link "Política de privacidade":
+        - /url: /privacidade/
+    - listitem:
+      - link "Preferências de cookies":
+        - /url: /privacidade/#cookies
+  - paragraph: "Site: WAXLO"

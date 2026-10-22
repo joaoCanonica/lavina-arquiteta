@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/suite-fl/",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 984,
+  "lcpMs": 1434,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 1155,
+  "bytesTotaisKB": 75,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 984.1045,
+      "lcp": 1434.1045000000001,
+      "tbt": 0,
+      "cls": 0,
+      "si": 1154.6899460000395,
+      "bytesTotais": 77155,
+      "falhasA11y": []
+    }
+  ]
+}

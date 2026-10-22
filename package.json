@@ -45,7 +45,9 @@
     "csp": "node scripts/gerar-csp.mjs --ambos",
     "servir": "node scripts/servir-dist.mjs",
     "test:consentimento": "node --test scripts/test-consentimento.mjs",
-    "validar-schema": "node scripts/validar-schema.mjs"
+    "validar-schema": "node scripts/validar-schema.mjs",
+    "medir-peso": "node scripts/medir-peso.mjs",
+    "capturar:final": "node scripts/capturar-final.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"
@@ -55,8 +57,10 @@
     "@eslint/js": "10.0.1",
     "@types/node": "24.19.2",
     "ajv": "8.20.0",
+    "axe-core": "4.14.0",
     "eslint": "10.13.0",
     "eslint-plugin-astro": "1.1.1",
+    "ffmpeg-static": "5.3.0",
     "globals": "17.13.0",
     "lighthouse": "13.5.0",
     "node-html-parser": "9.0.4",

@@ -1,10 +1,25 @@
 // Utilitários compartilhados pelos scripts de mídia.
-import { execFile } from 'node:child_process';
+import { execFile, spawnSync } from 'node:child_process';
 import { readdirSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { promisify } from 'node:util';
 
 const exec = promisify(execFile);
+
+// ffmpeg: o do sistema quando existe; senão, o binário estático do pacote ffmpeg-static
+// (devDependency), para o build na Vercel, que não tem ffmpeg na imagem.
+// FFMPEG_PATH no ambiente tem prioridade.
+function acharFfmpeg() {
+  if (process.env.FFMPEG_PATH) return process.env.FFMPEG_PATH;
+  if (spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' }).status === 0) return 'ffmpeg';
+  try {
+    return createRequire(import.meta.url)('ffmpeg-static');
+  } catch {
+    return 'ffmpeg';
+  }
+}
+export const FFMPEG = acharFfmpeg();
 
 export const ORIG = 'media-originais';
 export const DESTINO = path.join('public', 'media');
@@ -63,7 +78,7 @@ export const PROPORCOES = { '4:5': 4 / 5, '3:2': 3 / 2 };
 // Um quadro do vídeo no tempo t (s), como PNG.
 export async function quadro(arquivo, t) {
   const { stdout } = await exec(
-    'ffmpeg',
+    FFMPEG,
     [
       '-v',
       'error',

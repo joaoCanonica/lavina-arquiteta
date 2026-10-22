@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/banheiro-tons-claros/",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 1137,
+  "lcpMs": 1585,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 1243,
+  "bytesTotaisKB": 93,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 1136.9657499999998,
+      "lcp": 1584.5726,
+      "tbt": 0,
+      "cls": 0,
+      "si": 1242.632210000243,
+      "bytesTotais": 95351,
+      "falhasA11y": []
+    }
+  ]
+}
