@@ -43,6 +43,19 @@ after(async () => {
 
 const pagina = async (rota, opcoes = {}, nav = navegador) => {
   const ctx = await nav.newContext({ viewport: { width: 1440, height: 900 }, ...opcoes });
+  // Escolha de consentimento já feita (Recusar): o banner não cobre o que o teste clica.
+  await ctx.addInitScript(() =>
+    localStorage.setItem(
+      'lavina-consentimento',
+      JSON.stringify({
+        versao: 1,
+        data: new Date().toISOString(),
+        preferencias: false,
+        mapas: false,
+        estatistica: false,
+      }),
+    ),
+  );
   const p = await ctx.newPage();
   const erros = [];
   p.on('pageerror', (e) => erros.push(e.message));

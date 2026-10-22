@@ -163,3 +163,31 @@ Lighthouse mobile, 1 execução por rota, mesma simulação:
 - **SEO 50 e 54:** as falhas são as mesmas em todas as páginas: noindex do preview e meta description ausente. O 50 aparece nas páginas sem imagem, que não têm a auditoria de `alt` somando a favor; não é falha nova.
 - **Vídeo do processo:** só carrega no clique (testado). Os capítulos funcionam por teclado.
 - **Mapa:** nenhum iframe; só o link "Ver no mapa" até o consentimento (sessão 7).
+
+## Consentimento, rodapé e segurança (sessão 7)
+
+Lighthouse mobile depois do banner, do rodapé e do botão fixo do WhatsApp:
+
+| página | Perf | A11y | BP | LCP | CLS | observação |
+| --- | --- | --- | --- | --- | --- | --- |
+| / (mediana de 3) | 100 | 100 | 100 | 1,66 s (1,66 · 1,66 · 2,56) | 0 | FCP 1,10 s (era 0,91 s): o HTML subiu de 141 para 154 KB com o banner, o rodapé e o CSS deles |
+| /projetos/cozinha-jc/ | 99 | 100 | 100 | 1,81 s | 0 | 1 execução |
+| /contato/ | 100 | 100 | 100 | 1,21 s | 0 | 1 execução; mapa só depois do consentimento |
+| /privacidade/ | 100 | 100 | 100 | 1,21 s | 0 | 1 execução |
+
+- **O banner não causa CLS:** é fixo, por cima do conteúdo, e só aparece por JS depois da carga.
+- **Rodapé:** o logo completo (subtítulo em curvas, 7,9 KB por página) foi trocado pelo monograma com o nome em texto.
+- **Uma execução da home passou de 2 s** (2,56 s), a mesma oscilação vista na sessão 6A. Reconferir com dados de campo depois do deploy.
+
+### CSP e cabeçalhos
+
+- `scripts/gerar-csp.mjs` lê o HTML gerado e escreve o `vercel.json`:
+  - `script-src 'self'` + hash de cada script inline (sem `unsafe-inline` e sem `unsafe-eval`);
+  - `style-src-elem` por hash;
+  - `style-src-attr 'unsafe-inline'`: os atributos `style=""` levam variáveis CSS e os LQIPs; hashear cada valor deixaria o cabeçalho com dezenas de KB;
+  - `frame-src` só `https://www.google.com` (o mapa);
+  - `form-action` com `wa.me` e `api.whatsapp.com`;
+  - `frame-ancestors 'none'`.
+- Junto vão Referrer-Policy, Permissions-Policy, X-Content-Type-Options, X-Frame-Options, COOP e HSTS (2 anos, sem `preload` até haver o domínio definitivo).
+- **Fluxo:** a Vercel lê o `vercel.json` antes do build, então ele é versionado. Toda mudança de script ou CSS inline pede `pnpm csp`, que constrói o preview e a produção e grava a união dos hashes. O `postbuild` reprova o build quando algum hash falta: uma CSP desatualizada nunca chega ao ar.
+- **Prova:** `pnpm test:consentimento` serve o `dist/` com esses cabeçalhos (`scripts/servir-dist.mjs`) e não registra nenhuma violação em 8 rotas, a 390 e 1440 px, antes e depois do aceite. Num teste à parte, um script injetado na página foi bloqueado e a violação apareceu no console, o que mostra que a detecção funciona.

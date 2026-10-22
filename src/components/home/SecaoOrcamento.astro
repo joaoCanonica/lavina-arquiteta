@@ -4,14 +4,13 @@
 // Textos: COPY_DECK §8. Dados: config/contato.ts.
 import { config } from '../../config/index.ts';
 import { linkWhatsapp } from '../../config/contato.ts';
+import { mensagemWhatsapp } from '../consentimento/mensagem.ts';
 
 const c = config.contato;
 const e = c.endereco.valor;
 const TIPOS = ['Residencial', 'Comercial e saúde', 'Reforma', 'Só interiores'];
 const CIDADES = ['Lages', 'Litoral', 'Outra'];
-const BASE = 'Olá! Gostaria de conversar sobre um projeto.';
-const mensagem = (tipo = '___', cidade = '___') =>
-  `${BASE}\nTipo de projeto: ${tipo}\nCidade: ${cidade}`;
+const mensagem = () => mensagemWhatsapp();
 const DIAS = {
   seg: 'Segunda',
   ter: 'terça',
@@ -105,6 +104,7 @@ const horario =
 
 <script>
   // Monta a mensagem a partir das escolhas (sem dado sensível; a pessoa completa no WhatsApp).
+  import { mensagemWhatsapp } from '../consentimento/mensagem.ts';
   const form = document.querySelector<HTMLFormElement>('[data-orcamento-form]');
   const texto = form?.querySelector<HTMLInputElement>('[data-orcamento-texto]');
   const previa = form?.querySelector<HTMLElement>('[data-orcamento-previa]');
@@ -113,7 +113,7 @@ const horario =
     const d = new FormData(form);
     const tipo = (d.get('tipo') as string | null) ?? '___';
     const cidade = (d.get('cidade') as string | null) ?? '___';
-    texto.value = `Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: ${tipo}\nCidade: ${cidade}`;
+    texto.value = mensagemWhatsapp(tipo, cidade);
     if (previa)
       previa.replaceChildren(
         ...texto.value

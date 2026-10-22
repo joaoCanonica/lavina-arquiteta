@@ -45,6 +45,19 @@ after(async () => {
 const pagina = async (largura = 1440) => {
   const ctx = await navegador.newContext({ viewport: { width: largura, height: 900 } });
   await ctx.addInitScript(() => sessionStorage.setItem('lavina-entrada', '1'));
+  // Escolha de consentimento já feita (Recusar): o banner não cobre o que o teste clica.
+  await ctx.addInitScript(() =>
+    localStorage.setItem(
+      'lavina-consentimento',
+      JSON.stringify({
+        versao: 1,
+        data: new Date().toISOString(),
+        preferencias: false,
+        mapas: false,
+        estatistica: false,
+      }),
+    ),
+  );
   const p = await ctx.newPage();
   await p.goto(URL, { waitUntil: 'networkidle' });
   return { ctx, p };
@@ -127,7 +140,7 @@ test('orçamento: escolhas montam a mensagem do WhatsApp (sem dado sensível)', 
   const texto = await p.locator('[data-orcamento-texto]').inputValue();
   assert.equal(
     texto,
-    'Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: Reforma\nCidade: Litoral',
+    'Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: Reforma\nCidade: Litoral\nVim pelo site.',
   );
   assert.match(
     await p.locator('[data-orcamento-form]').getAttribute('action'),

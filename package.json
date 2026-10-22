@@ -12,6 +12,7 @@
     "dev": "astro dev",
     "prebuild": "pnpm media:prepare",
     "build": "astro build",
+    "postbuild": "node scripts/gerar-csp.mjs --verificar",
     "preview": "astro preview",
     "check": "astro check && eslint . && prettier --check .",
     "format": "prettier --write .",
@@ -40,7 +41,10 @@
     "verificar-links": "node scripts/verificar-links.mjs",
     "capturar:projetos": "node scripts/capturar-projetos.mjs",
     "test:paginas": "node --test scripts/test-paginas.mjs",
-    "capturar:paginas": "node scripts/capturar-paginas.mjs"
+    "capturar:paginas": "node scripts/capturar-paginas.mjs",
+    "csp": "node scripts/gerar-csp.mjs --ambos",
+    "servir": "node scripts/servir-dist.mjs",
+    "test:consentimento": "node --test scripts/test-consentimento.mjs"
   },
   "dependencies": {
     "astro": "7.4.2"

@@ -2,8 +2,7 @@
 // Cabeçalho: logo (monograma + LAVINA), menu e WhatsApp. Lê o tom da seção que está
 // por baixo ([data-tone="escuro|claro"]) e ajusta as cores. Menu mobile = <dialog>
 // modal (foco preso e Esc nativos).
-import { config } from '../../config/index.ts';
-import { linkWhatsapp } from '../../config/contato.ts';
+import { linkOrcamento } from '../consentimento/whatsapp.ts';
 import Logo from '../marca/Logo.astro';
 
 interface Props {
@@ -18,10 +17,7 @@ const itens = [
   { href: '/coletivo/', texto: 'Coletivo' },
   { href: '/contato/', texto: 'Contato' },
 ];
-const whatsapp = linkWhatsapp(
-  config.contato.whatsapp.valor,
-  'Olá! Gostaria de solicitar um orçamento. Tipo de projeto: ___ · Cidade: ___',
-);
+const whatsapp = linkOrcamento();
 ---
 
 <header class="cabecalho" data-cabecalho data-tone={tom}>

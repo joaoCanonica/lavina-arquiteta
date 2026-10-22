@@ -10,8 +10,7 @@ import Etapas from '../components/processo/Etapas.astro';
 import Botao from '../components/ui/Botao.astro';
 import Imagem from '../components/ui/Imagem.astro';
 import Rotulo from '../components/ui/Rotulo.astro';
-import { config } from '../config/index.ts';
-import { linkWhatsapp } from '../config/contato.ts';
+import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
 import Base from '../layouts/Base.astro';
 
 // Quadros reais do vídeo (obra em galpão), sem rosto de terceiros: docs/dados/stills.json.
@@ -32,10 +31,7 @@ const OBRA = [
     legenda: 'A conversa com a equipe, na obra.',
   },
 ];
-const whatsapp = linkWhatsapp(
-  config.contato.whatsapp.valor,
-  'Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: ___\nCidade: ___',
-);
+const whatsapp = linkOrcamento();
 ---
 
 <Base titulo="Processo">

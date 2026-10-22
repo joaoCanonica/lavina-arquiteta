@@ -44,6 +44,19 @@ after(async () => {
 
 const pagina = async (rota, opcoes = {}) => {
   const ctx = await navegador.newContext({ viewport: { width: 1440, height: 900 }, ...opcoes });
+  // Escolha de consentimento já feita (Recusar): o banner não cobre o que o teste clica.
+  await ctx.addInitScript(() =>
+    localStorage.setItem(
+      'lavina-consentimento',
+      JSON.stringify({
+        versao: 1,
+        data: new Date().toISOString(),
+        preferencias: false,
+        mapas: false,
+        estatistica: false,
+      }),
+    ),
+  );
   const p = await ctx.newPage();
   const erros = [];
   p.on('pageerror', (e) => erros.push(e.message));
@@ -119,7 +132,7 @@ test('coletivo: retratos com rótulo, crédito da fotógrafa e nada de CAU/forma
   assert.match(await p.locator('main').textContent(), /@sabrinarodriguesfoto/);
   assert.equal(await p.locator('.registro').count(), 0);
   assert.doesNotMatch(await p.locator('main').innerText(), /\bCAU\b|Formação|Provisório/i);
-  assert.equal(await p.locator('a[href="https://www.instagram.com/lavinamanda/"]').count(), 1);
+  assert.equal(await p.locator('main a[href="https://www.instagram.com/lavinamanda/"]').count(), 1);
   await ctx.close();
 });
 
@@ -133,7 +146,7 @@ test('contato: o seletor monta a mensagem do WhatsApp e não há campo de dado p
   await p.locator('label:has(input[value="Outra"])').click();
   assert.equal(
     await p.locator('[data-orcamento-texto]').inputValue(),
-    'Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: Residencial\nCidade: Outra',
+    'Olá! Gostaria de conversar sobre um projeto.\nTipo de projeto: Residencial\nCidade: Outra\nVim pelo site.',
   );
   assert.equal(
     await p.locator('main iframe').count(),

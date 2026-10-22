@@ -4,8 +4,9 @@ export const modulos = {
   comparadorAntesDepois: true,
   avaliacoesGoogle: true,
   mapaAtuacao: true,
-  // Mapa e Instagram externos só depois do consentimento (LGPD; sessão 7).
-  mapaInterativo: false,
+  // Mapa do Google: só depois do consentimento "mapas" (components/consentimento/Mapa.astro).
+  mapaInterativo: true,
+  // Instagram: só links. Nenhum embed nem script da Meta (sessão 7).
   blocoInstagram: false,
   videosComSom: true,
   loopAbertura: true,

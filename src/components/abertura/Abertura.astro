@@ -2,7 +2,7 @@
 // Abertura da home: grafite, tela cheia, assimétrica. Foto executada da Cozinha J|C
 // com a linha de luz no forro (a luz da foto conversa com a fresta). LCP = esta foto.
 import { config } from '../../config/index.ts';
-import { linkWhatsapp } from '../../config/contato.ts';
+import { linkOrcamento } from '../consentimento/whatsapp.ts';
 import Botao from '../ui/Botao.astro';
 import Imagem from '../ui/Imagem.astro';
 import Rotulo from '../ui/Rotulo.astro';
@@ -12,10 +12,7 @@ export const TAMANHOS_ABERTURA = '(min-width: 64rem) 56vw, 100vw';
 
 const regiao = config.atuacao.regiao.valor;
 const sede = config.atuacao.cidades.find((c) => c.papel === 'sede')?.nome.valor;
-const whatsapp = linkWhatsapp(
-  config.contato.whatsapp.valor,
-  'Olá! Gostaria de solicitar um orçamento. Tipo de projeto: ___ · Cidade: ___',
-);
+const whatsapp = linkOrcamento();
 ---
 
 <section class="abertura" data-tone="escuro" data-theme="dark" aria-labelledby="abertura-titulo">

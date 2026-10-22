@@ -1,0 +1,131 @@
+---
+// Mapa do escritório: o iframe do Google Maps só entra depois do consentimento "mapas".
+// Antes disso: o link "Ver no mapa" e um botão que pede o consentimento para esta categoria.
+// Coordenadas: ficha do Google Maps (config/contato.ts → geo). Sem chave de API.
+import { config } from '../../config/index.ts';
+
+const { lat, lng } = config.contato.geo.valor;
+const src = `https://www.google.com/maps?q=${lat},${lng}&z=17&hl=pt-BR&output=embed`;
+const e = config.contato.endereco.valor;
+---
+
+<figure class="mapa" data-mapa data-src={config.modulos.mapaInterativo ? src : undefined}>
+  <div class="mapa__quadro" data-mapa-quadro>
+    <div class="mapa__aviso" data-mapa-aviso>
+      <p class="mapa__titulo">Mapa do Google</p>
+      <p class="mapa__texto">
+        O mapa só carrega com a sua permissão: ao abrir, o Google recebe seu endereço IP e dados do
+        navegador. Sem isso, o link abre o mapa em outra aba.
+      </p>
+      <div class="mapa__acoes">
+        <button type="button" class="mapa__botao" data-mapa-permitir hidden>
+          Mostrar o mapa aqui
+        </button>
+        <a
+          class="mapa__botao"
+          href={config.contato.mapsUrl.valor}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver no mapa<span class="so-leitor"> (Google Maps, abre em nova aba)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <figcaption class="mapa__legenda">
+    {e.logradouro} · {e.bairro} · {e.cidade}/{e.uf}
+  </figcaption>
+</figure>
+
+<script>
+  import { quandoPermitido, salvarEscolha, lerEscolha } from './estado.ts';
+
+  document.querySelectorAll<HTMLElement>('[data-mapa]').forEach((mapa) => {
+    const quadro = mapa.querySelector<HTMLElement>('[data-mapa-quadro]');
+    const permitir = mapa.querySelector<HTMLButtonElement>('[data-mapa-permitir]');
+    if (!quadro || !permitir || !mapa.dataset['src']) return;
+    permitir.hidden = false;
+    const montar = () => {
+      if (quadro.querySelector('iframe')) return;
+      const f = document.createElement('iframe');
+      f.src = mapa.dataset['src'] ?? '';
+      f.title = 'Mapa do escritório no Google Maps';
+      f.loading = 'lazy';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.setAttribute('allowfullscreen', '');
+      quadro.replaceChildren(f);
+    };
+    // Clicar no botão é o consentimento para "mapas" (as outras categorias ficam como estavam).
+    permitir.addEventListener('click', () => {
+      const atual = lerEscolha();
+      salvarEscolha({
+        preferencias: atual?.preferencias ?? false,
+        estatistica: atual?.estatistica ?? false,
+        mapas: true,
+      });
+    });
+    quandoPermitido('mapas', montar);
+  });
+</script>
+
+<style>
+  .mapa {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .mapa__quadro {
+    aspect-ratio: 4 / 3;
+    background: var(--cor-superficie);
+    border: var(--linha) solid var(--cor-linha);
+  }
+  .mapa__quadro :global(iframe) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mapa__aviso {
+    height: 100%;
+    display: grid;
+    align-content: center;
+    gap: var(--e-3);
+    padding: var(--e-5);
+  }
+  .mapa__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .mapa__texto {
+    max-width: 28rem;
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .mapa__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-3);
+  }
+  .mapa__botao {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--e-4);
+    border: var(--linha) solid currentColor;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .mapa__legenda {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+</style>

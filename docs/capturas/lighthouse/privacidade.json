@@ -1,0 +1,31 @@
+{
+  "rota": "/privacidade/",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 50,
+  "fcpMs": 830,
+  "lcpMs": 1206,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 830,
+  "bytesTotaisKB": 44,
+  "lcpElemento": "body > main#conteudo > header.politica__topo > p.politica__resumo",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 50,
+      "fcp": 829.8252500000001,
+      "lcp": 1205.7903000000001,
+      "tbt": 0,
+      "cls": 0,
+      "si": 829.8252500000001,
+      "bytesTotais": 45545,
+      "falhasA11y": []
+    }
+  ]
+}

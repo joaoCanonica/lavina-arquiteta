@@ -1,5 +1,6 @@
 ---
-// Alterna claro/escuro e guarda a escolha (localStorage em try/catch).
+// Alterna claro/escuro. A escolha só fica guardada com consentimento de "preferências"
+// (LGPD); sem ele, vale só nesta página.
 ---
 
 <button type="button" class="alternar-tema" data-alternar-tema aria-pressed="false">
@@ -7,6 +8,8 @@
 </button>
 
 <script>
+  import { permitido } from '../consentimento/estado.ts';
+
   const CHAVE = 'lavina-tema';
   const raiz = document.documentElement;
   const atualizar = (b: HTMLButtonElement) => {
@@ -19,7 +22,7 @@
       const novo = raiz.dataset['theme'] === 'dark' ? 'light' : 'dark';
       raiz.dataset['theme'] = novo;
       try {
-        localStorage.setItem(CHAVE, novo);
+        if (permitido('preferencias')) localStorage.setItem(CHAVE, novo);
       } catch {
         /* armazenamento indisponível: vale só nesta página */
       }

@@ -1,12 +1,13 @@
 ---
 // /contato: onde a Lavina atende (com as avaliações como prova), o mesmo seletor de
 // orçamento da home (WhatsApp com mensagem montada; nenhum dado pessoal coletado) e os
-// canais. Mapa: só o link "Ver no mapa"; o mapa incorporado entra com o consentimento
-// (sessão 7). Textos: COPY_DECK §6–§8. Dados: config/contato.ts e config/avaliacoes.ts.
+// canais. Mapa: link "Ver no mapa"; o iframe do Google só entra com o consentimento "mapas"
+// (components/consentimento/Mapa.astro). Textos: COPY_DECK §6–§8. Dados: config/contato.ts e config/avaliacoes.ts.
 import Cabecalho from '../components/abertura/Cabecalho.astro';
 import SecaoOrcamento from '../components/home/SecaoOrcamento.astro';
 import { config } from '../config/index.ts';
-import { linkWhatsapp } from '../config/contato.ts';
+import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
+import Mapa from '../components/consentimento/Mapa.astro';
 import Base from '../layouts/Base.astro';
 
 const c = config.contato;
@@ -69,7 +70,7 @@ const telefone = `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`;
         <div class="canal">
           <dt>Telefone e WhatsApp</dt>
           <dd>
-            <a href={linkWhatsapp(c.whatsapp.valor)} target="_blank" rel="noopener noreferrer">
+            <a href={linkOrcamento()} target="_blank" rel="noopener noreferrer">
               {telefone}<span class="so-leitor"> no WhatsApp (abre em nova aba)</span>
             </a>
           </dd>
@@ -103,6 +104,9 @@ const telefone = `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`;
           <dd>{c.acessibilidade.valor}</dd>
         </div>
       </dl>
+      <div class="canais__mapa">
+        <Mapa />
+      </div>
     </section>
   </main>
 </Base>
@@ -228,6 +232,9 @@ const telefone = `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`;
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
       column-gap: var(--e-9);
       align-items: start;
+    }
+    .canais__mapa {
+      grid-column: 2;
     }
     .canal {
       grid-template-columns: 14rem minmax(0, 1fr);

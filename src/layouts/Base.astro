@@ -2,6 +2,9 @@
 // Layout base: tokens e fontes, tema sem flash, noindex no preview (e enquanto não
 // houver domínio), faixa "em revisão", script da Fresta.
 import PreviewBanner from '../components/PreviewBanner.astro';
+import Consentimento from '../components/consentimento/Consentimento.astro';
+import Rodape from '../components/consentimento/Rodape.astro';
+import WhatsappFixo from '../components/consentimento/WhatsappFixo.astro';
 import { config } from '../config/index.ts';
 import { ehPreview } from '../config/modo.ts';
 import '../styles/base.css';
@@ -12,10 +15,19 @@ interface Props {
   /** "dark" = padrão de impacto (home); "light" = padrão de leitura (segue o sistema). */
   temaPadrao?: 'dark' | 'light';
   grao?: boolean;
-  /** força noindex (páginas internas) */
+  /** força noindex (páginas internas e 404) */
   interna?: boolean;
+  /** rodapé e botão fixo do WhatsApp (padrão: só nas páginas públicas) */
+  rodape?: boolean;
 }
-const { titulo, pendencias, temaPadrao = 'light', grao = false, interna = false } = Astro.props;
+const {
+  titulo,
+  pendencias,
+  temaPadrao = 'light',
+  grao = false,
+  interna = false,
+  rodape = !interna,
+} = Astro.props;
 const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirmado';
 const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.marca.nome.valor;
 ---
@@ -71,6 +83,9 @@ const tituloFinal = titulo ? `${titulo} · ${config.marca.nome.valor}` : config.
   <body>
     <PreviewBanner {...pendencias !== undefined ? { pendencias } : {}} />
     <slot />
+    {rodape && <Rodape />}
+    {rodape && <WhatsappFixo />}
+    <Consentimento />
     <script>
       import '../scripts/fresta.ts';
     </script>

@@ -67,12 +67,20 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 
 ## Sessão 6C — Processo, coletivo, contato e 404
 
-- **Mapa incorporado em /contato**: entra só com o consentimento (sessão 7). Por enquanto, link "Ver no mapa".
+- **Mapa incorporado em /contato**: feito na sessão 7 (iframe só depois do consentimento "mapas").
 - **Stills de obra em /processo**: três quadros novos do vídeo `um-dia-no-escritorio` (galpão), escolhidos sem rosto de terceiros. O primeiro foi recortado para tirar o carro e a placa (registrado em `docs/dados/stills.json` e no manifesto). A obra do vídeo não é identificada como projeto; os quadros levam o rótulo "Vídeo".
 - **CAU e formação** de Amanda, Renata e Lara: não aparecem em /coletivo enquanto pendentes. Quando confirmados em `src/config/pessoas.ts`, entram sozinhos (Formação e CAU sob o texto de cada uma).
 - **Linha sobre IA no processo** (decisão 10 do copy deck): aparece em /processo, discreta, como na home.
 - **"À distância" em /contato**: apoiado nas avaliações de Luísa W. (consultoria à distância) e Jane W. (cliente em outro estado). "Serra" ficou de fora até a decisão 3 do copy deck.
 - **Retratos da Renata e da Lara**: o nome e as palavras queimados na foto ficaram; as palavras se repetem em HTML. Se chegar o original sem texto, troca-se o arquivo.
+
+## Sessão 7 — Consentimento, privacidade e segurança
+
+- **Revisão jurídica da `/privacidade`** e do banner: [DECISÃO HUMANA] em `docs/COMPLIANCE.md` (bases legais, retenção, encarregado, transferência internacional).
+- **E-mail para o titular**: ausente na config; a política oferece WhatsApp e endereço.
+- **Estatística**: ativar o Web Analytics no painel da Vercel no deploy (sessão 9). Antes, conferir na documentação da Vercel como os dados são tratados; neste ambiente ela estava inacessível (bloqueio de rede). Sem a ativação, o aceite de "estatística" não envia nada.
+- **CSP**: depois de mudar qualquer script ou CSS inline, rodar `pnpm csp` e versionar o `vercel.json` (o `postbuild` reprova o build se esquecer).
+- **HSTS `preload`**: decidir quando o domínio definitivo estiver no ar.
 
 <!-- pendencias:auto:inicio -->
 
