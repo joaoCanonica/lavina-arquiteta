@@ -11,7 +11,7 @@ export const pessoas = [
     lider: true,
     instagram: confirmado('@lavinamanda', 'Instagram'),
     cau: aviso('CAU de Amanda Lavina', CAU_MOTIVO),
-    formacao: aviso('Formação de Amanda Lavina', 'instituição e ano não informados'),
+    formacao: opcional<string>(), // João, 23/10/2026: formação e papel não precisam aparecer
     retrato: confirmado(
       'retrato-amanda-02',
       'media.manifest.json (ensaio de @sabrinarodriguesfoto)',
@@ -28,10 +28,7 @@ export const pessoas = [
     lider: false,
     instagram: confirmado('@arq_renatanurnberg', 'Instagram'),
     cau: aviso('CAU de Renata Nürnberg', CAU_MOTIVO),
-    formacao: aviso(
-      'Papel formal de Renata no coletivo',
-      'sócia, associada ou parceira? (investigação §13.4)',
-    ),
+    formacao: opcional<string>(), // João, 23/10/2026: formação e papel não precisam aparecer
     retrato: confirmado('retrato-renata-01', 'media.manifest.json (texto queimado na imagem)'),
   },
   {
@@ -42,10 +39,7 @@ export const pessoas = [
     lider: false,
     instagram: confirmado('@honofrelara', 'Instagram'),
     cau: aviso('CAU de Lara Honofre', CAU_MOTIVO),
-    formacao: aviso(
-      'Formação de Lara Honofre',
-      'arquiteta formada ou estudante? (investigação §13.4)',
-    ),
+    formacao: opcional<string>(), // João, 23/10/2026: formação e papel não precisam aparecer
     retrato: confirmado('retrato-lara-01', 'media.manifest.json (texto queimado na imagem)'),
   },
 ] as const;

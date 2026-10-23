@@ -27,7 +27,10 @@ const ROTULO = {
   'nao-usar': 'Não usar',
 };
 
-const FOTO_A_CONFIRMAR = 'Fotografia: autoria a confirmar (publicada por @lavina.co.arq)';
+// Fotos e vídeos de obra: acervo do escritório, cedido pelo João (23/10/2026), publicado em
+// @lavina.co.arq. Fotógrafo individual não identificado; o crédito é a procedência.
+const ACERVO = 'Lavina | Coletivo de Arquitetura';
+const FOTO_A_CONFIRMAR = `Fotografia: acervo ${ACERVO} (publicada por @lavina.co.arq)`;
 
 // Arquivo → post de origem (nos projetos com mais de um post).
 const POST_POR_ARQUIVO = {
@@ -197,7 +200,12 @@ for (const p of fonte.pessoas) {
     natureza: 'retrato',
     rotulo: ROTULO.retrato,
     pessoa: p.quem,
-    autoriaImagem: p.credito === '—' ? 'a confirmar' : p.credito,
+    autoriaImagem:
+      p.credito === '—' || /a confirmar/.test(p.credito)
+        ? avatar
+          ? 'a confirmar'
+          : `acervo ${ACERVO}`
+        : p.credito,
     creditoProjeto: null,
     post: parsePost(p.post),
     legenda: null,
@@ -221,7 +229,7 @@ for (const v of fonte.videos) {
     projeto: PROJETO_DO_VIDEO[v.arquivo] ?? null,
     natureza: 'video',
     rotulo: ROTULO.video,
-    autoriaImagem: 'Vídeo publicado por @lavina.co.arq; autoria da gravação a confirmar',
+    autoriaImagem: `Vídeo: acervo ${ACERVO} (publicado por @lavina.co.arq)`,
     creditoProjeto: 'Lavina | Coletivo de Arquitetura',
     post: parsePost(v.post),
     legenda: v.legenda,

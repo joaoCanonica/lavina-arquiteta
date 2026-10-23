@@ -1,4 +1,4 @@
-import { aviso, confirmado } from './tipos.ts';
+import { confirmado } from './tipos.ts';
 
 const RECEITA = 'Receita Federal via BrasilAPI, CNPJ 52.116.202/0001-05 (investigação §2)';
 
@@ -18,9 +18,9 @@ export const marca = {
       'logo reconstruído do vídeo (pacote §A)',
     ),
     publico: '/media/marca/lavina-logo.svg',
-    validacao: aviso(
-      'Logo validado pela Amanda',
-      'o SVG foi reconstruído a partir do vídeo; falta o arquivo original da marca',
+    validacao: confirmado(
+      'SVG reconstruído do vídeo (media-originais/lavina-logo.svg)',
+      'João, 23/10/2026: "logo pode ser aquela"',
     ),
   },
   tese: confirmado('Arquitetura com presença em cada etapa.', 'bio do Instagram @lavina.co.arq'),

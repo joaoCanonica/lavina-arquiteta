@@ -101,8 +101,19 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
   - nome no Google e endereço da Receita (Amanda e João);
   - linha sobre IA (João).
 - **Domínio:** `coletivoarquiteturalavina.com.br` não registrado. Bloqueia a produção (`docs/DEPLOY.md` §2 e §3).
-- **Proteção da Vercel:** o preview pede login da Vercel (Deployment Protection ligada no projeto). Para mostrar à Amanda: link de compartilhamento ou desligar a proteção de previews (decisão do João).
+- ~~**Proteção da Vercel:** o preview pede login da Vercel (Deployment Protection ligada no projeto).~~ Resolvido em 23/10/2026: proteção desligada por decisão do João; o link abre para qualquer pessoa.
 - **Firefox e Safari:** testados no CI (Firefox 157 e WebKit 27.2, 5/5 cada; `docs/AUDITORIA.md` §5). Falta só uma olhada num iPhone ou Mac de verdade.
+
+## Decisões do João (23/10/2026)
+
+- **CAU** (pessoas e empresa): fica para depois; segue como aviso, não trava.
+- **Formação e papel da equipe:** não precisam aparecer (campos opcionais). O que importa é apresentar a equipe: /coletivo e a home mostram Amanda, Renata e Lara com os retratos e as palavras de cada uma.
+- **Fotos e vídeos:** todo o material foi enviado pelo João, e o uso está autorizado. O crédito de foto e vídeo de obra passa a ser "Acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)". Se aparecer o nome de quem fotografou, ele substitui o acervo.
+- **Logo:** o SVG atual está aprovado.
+- **Vídeo do living** (legenda queimada com "o melhor"): fica como está.
+- **Comentários de clientes:** ficam como estão, para ajustar depois.
+- **Clínicas:** todas autorizaram.
+- **Acesso:** a proteção da Vercel foi desligada; o link do preview abre para qualquer pessoa. O noindex continua até o domínio existir.
 
 <!-- pendencias:auto:inicio -->
 
@@ -112,13 +123,9 @@ Projetos válidos no schema: 9. Travas de produção hoje: nenhuma.
 
 ### Avisos da config (PROVISÓRIO no preview; não travam)
 
-- **Logo validado pela Amanda** — o SVG foi reconstruído a partir do vídeo; falta o arquivo original da marca `marca.logo.validacao`
 - **CAU de Amanda Lavina** — ainda não há número (decisão do João: aviso, vai para a conferência final) `pessoas[amanda-lavina].cau`
-- **Formação de Amanda Lavina** — instituição e ano não informados `pessoas[amanda-lavina].formacao`
 - **CAU de Renata Nürnberg** — ainda não há número (decisão do João: aviso, vai para a conferência final) `pessoas[renata-nurnberg].cau`
-- **Papel formal de Renata no coletivo** — sócia, associada ou parceira? (investigação §13.4) `pessoas[renata-nurnberg].formacao`
 - **CAU de Lara Honofre** — ainda não há número (decisão do João: aviso, vai para a conferência final) `pessoas[lara-honofre].cau`
-- **Formação de Lara Honofre** — arquiteta formada ou estudante? (investigação §13.4) `pessoas[lara-honofre].formacao`
 - **CAU da pessoa jurídica** — ainda não há número (decisão do João: aviso, vai para a conferência final) `cauEmpresa`
 - **Endereço da Receita diverge do Google** — Receita: Rua Lourenço Teodoro Waltrick, 505, CEP 88508-170 (prédio de esquina); o site usa o do Google, confirmado pelo João `contato.enderecoDivergencia`
 - **E-mail de contato** — não informado (investigação §13.9) `contato.email`
@@ -128,23 +135,16 @@ Projetos válidos no schema: 9. Travas de produção hoje: nenhuma.
 
 - **Cidade de "Banheiro em tons claros"** — não informada; o campo não aparece `projetos[banheiro-tons-claros]`
 - **Ano de "Banheiro em tons claros"** — não informado; o campo não aparece `projetos[banheiro-tons-claros]`
-- **Autoria das imagens (foto) de "Banheiro em tons claros"** — a confirmar com o João `projetos[banheiro-tons-claros]`
 - **Ano de "Clínica Cordis"** — não informado; o campo não aparece `projetos[clinica-cordis]`
 - **Ano de "Consultório Jonny Arruda"** — não informado; o campo não aparece `projetos[consultorio-jonny-arruda]`
-- **Autoria das imagens (foto) de "Consultório Jonny Arruda"** — a confirmar com o João `projetos[consultorio-jonny-arruda]`
 - **Cidade de "Cozinha farmhouse"** — não informada; o campo não aparece `projetos[cozinha-farmhouse]`
 - **Ano de "Cozinha farmhouse"** — não informado; o campo não aparece `projetos[cozinha-farmhouse]`
-- **Autoria das imagens (video) de "Cozinha farmhouse"** — a confirmar com o João `projetos[cozinha-farmhouse]`
 - **Ano de "Cozinha J|C"** — não informado; o campo não aparece `projetos[cozinha-jc]`
-- **Autoria das imagens (foto) de "Cozinha J|C"** — a confirmar com o João `projetos[cozinha-jc]`
-- **Autoria das imagens (video) de "Cozinha J|C"** — a confirmar com o João `projetos[cozinha-jc]`
 - **Cidade de "Living e jantar com painel paramétrico"** — não informada; o campo não aparece `projetos[living-jantar-painel]`
 - **Ano de "Living e jantar com painel paramétrico"** — não informado; o campo não aparece `projetos[living-jantar-painel]`
-- **Autoria das imagens (video) de "Living e jantar com painel paramétrico"** — a confirmar com o João `projetos[living-jantar-painel]`
 - **Ano de "Projeto T|B"** — não informado; o campo não aparece `projetos[projeto-tb]`
 - **Cidade de "Quarto e closet"** — não informada; o campo não aparece `projetos[quarto-closet]`
 - **Ano de "Quarto e closet"** — não informado; o campo não aparece `projetos[quarto-closet]`
-- **Autoria das imagens (video) de "Quarto e closet"** — a confirmar com o João `projetos[quarto-closet]`
 - **Ano de "Suíte F|L"** — não informado; o campo não aparece `projetos[suite-fl]`
 
 <!-- pendencias:auto:fim -->

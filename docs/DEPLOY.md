@@ -9,7 +9,7 @@ Hospedagem: **Vercel**, projeto `lavina-arquiteta` no time "Joao Canonica's proj
   - faixa "em revisão" e selo PROVISÓRIO;
   - `noindex` em todas as páginas;
   - robots.txt `Disallow: /`.
-- **Proteção da Vercel:** depende da configuração do time. Se a URL pedir login, o João libera um link de compartilhamento em Settings → Deployment Protection.
+- **Proteção da Vercel:** desligada (acesso público, decisão do João em 23/10/2026). Para fechar de novo: Settings → Deployment Protection.
 - **Build na Vercel:** `pnpm build` = `media:prepare` + `astro build` + `gerar-csp --verificar`.
   - **Mídia:** a Vercel não tem ffmpeg; o `ffmpeg-static` (devDependency, liberado em `pnpm-workspace.yaml → allowBuilds`) traz o binário. Com a variável `VERCEL` presente, a mídia sai em **modo rápido** (AVIF esforço 1, VP9 em tempo real), para caber no tempo de build: 7 min medidos do zero contra 45 min de limite. Os arquivos ficam cerca de 19% maiores que os gerados localmente (212 MB contra 178 MB no total).
   - **Node 24.x** e **pnpm 12.14.0** (`packageManager`, via Corepack: variável `ENABLE_EXPERIMENTAL_COREPACK=1` no projeto).
@@ -71,5 +71,5 @@ Sessão 9 · 22/10/2026 · commit `409f001` · build na Vercel em 7 min, `gerar-
   - faixa "em revisão" presente;
   - CSP, HSTS, nosniff, X-Frame-Options e COOP no cabeçalho;
   - mídia AVIF servida.
-- **Acesso:** a proteção da Vercel está ligada (`all_except_custom_domains`), então a URL pede login no time da Vercel. Para mostrar a quem não tem conta: Settings → Deployment Protection → link de compartilhamento.
+- **Acesso:** público. A proteção da Vercel foi desligada em 23/10/2026, por decisão do João: qualquer pessoa abre o link, sem login. O site continua com noindex, então não aparece no Google até o domínio e a produção.
 - **Sobre o primeiro deploy:** a Vercel marcou o primeiro deployment do projeto (commit `409f001`) como `target: production`, provavelmente porque o projeto ainda não tinha produção. Todos os seguintes saíram como preview (`target: null`). Mesmo esse primeiro está em **modo preview** (`LAVINA_MODO` não definido, noindex). Ele responde em `lavina-arquiteta-joao-canonicas-projects.vercel.app`, atrás da proteção da Vercel. Na produção de verdade (§3), promover o deployment aprovado.
