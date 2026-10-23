@@ -36,12 +36,24 @@ const ROTAS = [
   '/contato/',
   '/privacidade/',
 ];
-const relatorio = { navegador: NOME, versao: null, rotas: {}, transicao: {}, navegacao: {} };
+const relatorio = {
+  navegador: NOME,
+  versao: null,
+  rotas: {},
+  transicao: {},
+  navegacao: {},
+  cspCompletaEmHttp: null,
+};
 let servidor;
+let servidorCspCompleta;
 let navegador;
 
 before(async () => {
-  servidor = spawn('node', ['scripts/servir-dist.mjs', '--porta', String(PORTA)], {
+  // Sem o upgrade-insecure-requests: o teste roda em http (ver scripts/servir-dist.mjs).
+  servidor = spawn('node', ['scripts/servir-dist.mjs', '--porta', String(PORTA), '--sem-upgrade'], {
+    stdio: 'ignore',
+  });
+  servidorCspCompleta = spawn('node', ['scripts/servir-dist.mjs', '--porta', String(PORTA + 1)], {
     stdio: 'ignore',
   });
   for (let i = 0; i < 40; i++) {
@@ -62,6 +74,7 @@ before(async () => {
 after(async () => {
   await navegador?.close();
   servidor?.kill();
+  servidorCspCompleta?.kill();
   await mkdir('docs/capturas/final', { recursive: true });
   await writeFile(
     `docs/capturas/final/navegadores-${NOME}.json`,
@@ -182,5 +195,29 @@ test(`${NOME}: sem JavaScript, o conteúdo das páginas de projeto aparece`, asy
   const clip = await p.locator('.heroi__midia').evaluate((e) => getComputedStyle(e).clipPath);
   assert.match(clip, ABERTO, `clip ${clip}`);
   assert.ok(await p.locator('h1').isVisible());
+  await ctx.close();
+});
+
+// Controle (não reprova): com a CSP completa em http, a navegação por clique acontece?
+// Documenta a causa da diferença do WebKit (upgrade-insecure-requests em http://localhost).
+test(`${NOME}: controle — clique com a CSP completa servida em http`, async () => {
+  const ctx = await navegador.newContext({ viewport: { width: 1440, height: 900 } });
+  const p = await ctx.newPage();
+  const base = `http://localhost:${PORTA + 1}`;
+  await p.goto(base + '/projetos/', { waitUntil: 'networkidle' });
+  const pedidos = [];
+  p.on('request', (r) => pedidos.push(r.url()));
+  await p.locator('a[href="/projetos/suite-fl/"]').first().click();
+  let commit = true;
+  try {
+    await p.waitForURL('**/suite-fl/', { waitUntil: 'commit', timeout: 8000 });
+  } catch {
+    commit = false;
+  }
+  relatorio.cspCompletaEmHttp = {
+    commit,
+    url: p.url(),
+    pedidoHttps: pedidos.some((u) => u.startsWith('https://localhost')),
+  };
   await ctx.close();
 });

@@ -233,5 +233,10 @@
       "commit": true,
       "load": true
     }
+  },
+  "cspCompletaEmHttp": {
+    "commit": true,
+    "url": "http://localhost:4381/projetos/suite-fl/",
+    "pedidoHttps": false
   }
 }

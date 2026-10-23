@@ -1,6 +1,8 @@
 // Servidor estático de dist/ com os MESMOS cabeçalhos do vercel.json (CSP, HSTS etc.).
 // Serve para testar a CSP e as requisições de rede como em produção (o astro preview não
-// aplica cabeçalhos). Uso: node scripts/servir-dist.mjs [--porta 4350] [--dist dist]
+// aplica cabeçalhos). Uso: node scripts/servir-dist.mjs [--porta 4350] [--dist dist] [--sem-upgrade]
+// --sem-upgrade: tira o upgrade-insecure-requests da CSP. Em http://localhost o WebKit leva a
+// navegação por clique para https://localhost (que não existe); no ar, tudo já é https.
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
 import path from 'node:path';
@@ -11,7 +13,11 @@ const PORTA = Number(arg('--porta', '4350'));
 const DIST = path.resolve(arg('--dist', 'dist'));
 
 const vercel = JSON.parse(readFileSync('vercel.json', 'utf8'));
-const cabecalhos = vercel.headers.find((h) => h.source === '/(.*)')?.headers ?? [];
+const cabecalhos = (vercel.headers.find((h) => h.source === '/(.*)')?.headers ?? []).map((h) =>
+  args.includes('--sem-upgrade') && h.key === 'Content-Security-Policy'
+    ? { ...h, value: h.value.replace(/;\s*upgrade-insecure-requests/, '') }
+    : h,
+);
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
