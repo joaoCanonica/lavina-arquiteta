@@ -36,7 +36,7 @@ jobs:
   testes:
     needs: build
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -53,13 +53,12 @@ jobs:
         with:
           name: dist
           path: dist
-      # A instalação (apt via --with-deps) às vezes trava no runner: até 3 tentativas de 4 min.
-      - run: |
-          for i in 1 2 3; do
-            timeout 240 pnpm exec playwright-core install --with-deps ${{ matrix.navegador }} && exit 0
-            echo "tentativa $i travou ou falhou"
-          done
-          exit 1
+      # Dependências do sistema (apt): o espelho do runner às vezes é lento; sem matar o apt
+      # no meio (ele segura a trava do dpkg). Depois, só o navegador.
+      - run: pnpm exec playwright-core install-deps ${{ matrix.navegador }}
+        timeout-minutes: 15
+      - run: pnpm exec playwright-core install ${{ matrix.navegador }}
+        timeout-minutes: 5
       - run: node --test scripts/test-navegadores.mjs
         env:
           NAVEGADOR: ${{ matrix.navegador }}
