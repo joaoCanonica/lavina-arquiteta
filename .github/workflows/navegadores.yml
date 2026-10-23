@@ -53,7 +53,13 @@ jobs:
         with:
           name: dist
           path: dist
-      - run: pnpm exec playwright-core install --with-deps ${{ matrix.navegador }}
+      # A instalação (apt via --with-deps) às vezes trava no runner: até 3 tentativas de 4 min.
+      - run: |
+          for i in 1 2 3; do
+            timeout 240 pnpm exec playwright-core install --with-deps ${{ matrix.navegador }} && exit 0
+            echo "tentativa $i travou ou falhou"
+          done
+          exit 1
       - run: node --test scripts/test-navegadores.mjs
         env:
           NAVEGADOR: ${{ matrix.navegador }}
