@@ -1,0 +1,160 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- banner:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - navigation "Principal":
+    - list:
+      - listitem:
+        - link "Projetos":
+          - /url: /projetos/
+      - listitem:
+        - link "Processo":
+          - /url: /processo/
+      - listitem:
+        - link "Coletivo":
+          - /url: /coletivo/
+      - listitem:
+        - link "Contato":
+          - /url: /contato/
+  - link "WhatsApp (abre em nova aba)":
+    - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+- main:
+  - region "Presença em cada etapa.":
+    - paragraph: Processo
+    - heading "Presença em cada etapa." [level=1]
+    - paragraph: Arquitetura é feita de detalhes e processos bem definidos. No nosso escritório, cada projeto passa por cinco etapas.
+    - paragraph: "A Lavina — coletivo de arquitetura, de Lages (SC), liderado pela arquiteta Amanda Lavina, conduz cada projeto de interiores em cinco etapas: reunião inicial, estudo do espaço e da rotina, criação do conceito, projeto técnico e acompanhamento próximo da obra, em Lages e no Litoral Catarinense, para que a execução seja fiel ao projeto."
+  - region "As cinco etapas":
+    - heading "As cinco etapas" [level=2]
+    - list:
+      - listitem:
+        - 'heading "Etapa 1: Reunião inicial, para entender cada necessidade." [level=3]'
+        - paragraph: “Antes de falar de plantas, medidas e orçamentos… a gente fala sobre você.”
+      - listitem:
+        - 'heading "Etapa 2: Estudo do espaço, da rotina e do estilo de vida de quem vai viver ali." [level=3]'
+        - paragraph: Seu lifestyle, o que te encanta, o que você não gosta, suas memórias e sonhos.
+      - listitem:
+        - 'heading "Etapa 3: Criação do conceito, onde estética e propósito se encontram." [level=3]'
+        - paragraph: “É como assistir a um filme na mente e depois desenhá-lo cena por cena.”
+      - listitem:
+        - 'heading "Etapa 4: Desenvolvimento do projeto técnico, com soluções funcionais e criativas." [level=3]'
+        - paragraph: “Cada escolha tem um motivo. Cada detalhe tem uma função.”
+      - listitem:
+        - 'heading "Etapa 5: Acompanhamento próximo da execução, para que tudo saia como planejado." [level=3]'
+        - paragraph: “Não existe acaso em um projeto bem executado.”
+    - paragraph: A inteligência artificial também entra, de forma sutil, na organização do processo.
+  - region "Um dia no escritório.":
+    - paragraph: Vídeo
+    - heading "Um dia no escritório." [level=2]
+    - figure "Vídeo A rotina é cheia de reuniões, obras e detalhes. Por trás de tudo isso, existe gente que gosta de ver projetos virando lares.":
+      - 'button "Tocar o vídeo: Um dia no escritório Lavina (com som)"'
+      - text: Vídeo A rotina é cheia de reuniões, obras e detalhes. Por trás de tudo isso, existe gente que gosta de ver projetos virando lares.
+    - heading "Capítulos do vídeo" [level=3]
+    - list:
+      - listitem:
+        - text: 0:08 8 AM Escritório
+        - 'button "Ver no vídeo a partir de 0:08: 8 AM, Escritório"'
+      - listitem:
+        - text: 0:14 9 AM Alinhamento da Equipe
+        - 'button "Ver no vídeo a partir de 0:14: 9 AM, Alinhamento da Equipe"'
+      - listitem:
+        - text: 0:23 10 AM Apresentação de Projeto
+        - 'button "Ver no vídeo a partir de 0:23: 10 AM, Apresentação de Projeto"'
+      - listitem:
+        - text: 0:28 11 AM
+        - 'button "Ver no vídeo a partir de 0:28: 11 AM"'
+      - listitem:
+        - text: 0:34 2 PM
+        - 'button "Ver no vídeo a partir de 0:34: 2 PM"'
+      - listitem:
+        - text: 0:39 — Acompanhamento de Obra
+        - 'button "Ver no vídeo a partir de 0:39: Acompanhamento de Obra"'
+      - listitem:
+        - text: 0:42 3 PM
+        - 'button "Ver no vídeo a partir de 0:42: 3 PM"'
+      - listitem:
+        - text: 0:47 4 PM
+        - 'button "Ver no vídeo a partir de 0:47: 4 PM"'
+      - listitem:
+        - text: 0:52 5 PM Ambientação e entrega de projeto
+        - 'button "Ver no vídeo a partir de 0:52: 5 PM, Ambientação e entrega de projeto"'
+  - region "Acompanhamento de obra.":
+    - paragraph: Etapa 05
+    - heading "Acompanhamento de obra." [level=2]
+    - paragraph: Acompanhamento próximo da execução, para que tudo saia como planejado. Quadros do vídeo “Um dia no escritório”, na visita a uma obra.
+    - list:
+      - listitem:
+        - figure "Vídeo A chegada à obra. Quadro do vídeo DOd4IshDqUc no Instagram (abre em nova aba) .":
+          - img "Amanda chega ao galpão da obra, de costas, pelo portão aberto"
+          - text: Vídeo A chegada à obra. Quadro do vídeo
+          - link "DOd4IshDqUc no Instagram (abre em nova aba)":
+            - /url: https://www.instagram.com/p/DOd4IshDqUc/
+          - text: .
+      - listitem:
+        - figure "Vídeo O galpão, ainda vazio, visto por dentro. Quadro do vídeo DOd4IshDqUc no Instagram (abre em nova aba) .":
+          - img "Galpão em obra visto por dentro, com a estrutura metálica do telhado e Amanda ao fundo"
+          - text: Vídeo O galpão, ainda vazio, visto por dentro. Quadro do vídeo
+          - link "DOd4IshDqUc no Instagram (abre em nova aba)":
+            - /url: https://www.instagram.com/p/DOd4IshDqUc/
+          - text: .
+      - listitem:
+        - figure "Vídeo A conversa com a equipe, na obra. Quadro do vídeo DOd4IshDqUc no Instagram (abre em nova aba) .":
+          - img "Amanda conversa com a equipe na obra; o operário aparece só pelo braço"
+          - text: Vídeo A conversa com a equipe, na obra. Quadro do vídeo
+          - link "DOd4IshDqUc no Instagram (abre em nova aba)":
+            - /url: https://www.instagram.com/p/DOd4IshDqUc/
+          - text: .
+    - blockquote:
+      - paragraph: “Fez o projeto, providenciou materiais, mão de obra e acompanhou a execução. Muito cuidadosa com orçamentos, opções de materiais e sempre disponível.”
+      - text: — Jane W., no Google
+    - blockquote:
+      - paragraph: “Acompanha a obra de perto e é extremamente exigente com o resultado final.”
+      - text: — Roberta S., no Google
+  - region "Projeto fiel à execução.":
+    - paragraph: Consultório Jonny Arruda
+    - heading "Projeto fiel à execução." [level=2]
+    - paragraph: "Aqui o projeto pode ser visto duas vezes: na imagem 3D, antes da obra, e na obra executada, no mesmo ângulo. Arraste a luz, ou use as setas do teclado."
+    - blockquote:
+      - paragraph: “Eu amei esse resultado final, 100% fiel ao projeto!”
+      - text: — Renata Nürnberg, comentário no post DTqJY19jgis
+    - link "Ver o projeto completo":
+      - /url: /projetos/consultorio-jonny-arruda/
+    - figure "Projeto Imagem 3D do projeto Obra executada":
+      - img "Consultório Jonny Arruda executado no mesmo ângulo"
+      - 'img "Imagem 3D do projeto do Consultório Jonny Arruda: armário curvo, pia, estantes iluminadas e mesa oval"'
+      - text: Comparar projeto e executado
+      - slider "Comparar projeto e executado": "50"
+      - text: Projeto Imagem 3D do projeto Obra executada
+  - 'region "Vamos começar pelo que é mais importante: você."':
+    - separator
+    - 'heading "Vamos começar pelo que é mais importante: você." [level=2]'
+    - link "Solicitar orçamento pelo WhatsApp (abre em nova aba) (abre em nova aba)":
+      - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+    - link "Endereço e horários":
+      - /url: /contato/
+- contentinfo:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - paragraph: Amanda Lavina Arquitetura Ltda · CNPJ 52.116.202/0001-05
+  - heading "Escritório" [level=2]
+  - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110
+  - paragraph: Segunda a sexta, 09h às 19h
+  - heading "Instagram" [level=2]
+  - list:
+    - listitem:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+    - listitem:
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+  - heading "Site" [level=2]
+  - list:
+    - listitem:
+      - link "Política de privacidade":
+        - /url: /privacidade/
+    - listitem:
+      - link "Preferências de cookies":
+        - /url: /privacidade/#cookies
+  - paragraph: "Site: WAXLO"

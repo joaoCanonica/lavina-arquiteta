@@ -1,0 +1,4 @@
+validar-schema: vocabulário schema.org 30.1 · 15 blocos JSON-LD em dist/
+  tipos usados: BreadcrumbList, City, CreativeWork, GeoCoordinates, ImageObject, ListItem, LocalBusiness, OpeningHoursSpecification, Person, PostalAddress, State, WebPage, WebSite
+  ProfessionalService hoje: "Original definition: "provider of professional services."\n\nThe general [[ProfessionalService]] type for local businesses was deprecated due to confusion with [[Service]]. For reference, the types that it included were:…"
+  ✓ todos os tipos e propriedades existem no schema.org e se aplicam aos tipos usados

@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/consultorio-jonny-arruda/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 308,
+  "lcpMs": 507,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 540,
+  "bytesTotaisKB": 152,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 308.37462500000004,
+      "lcp": 506.6997,
+      "tbt": 0,
+      "cls": 0,
+      "si": 540.4179773333058,
+      "bytesTotais": 155846,
+      "falhasA11y": []
+    }
+  ]
+}

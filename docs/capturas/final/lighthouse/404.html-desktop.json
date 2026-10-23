@@ -1,0 +1,32 @@
+{
+  "rota": "/404.html",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 63,
+  "fcpMs": 241,
+  "lcpMs": 302,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 241,
+  "bytesTotaisKB": 38,
+  "lcpElemento": "body > main#conteudo > h1.nao-achada__titulo",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 63,
+      "fcp": 240.57949999999997,
+      "lcp": 302.49539999999996,
+      "tbt": 0,
+      "cls": 0,
+      "si": 240.57949999999997,
+      "bytesTotais": 39031,
+      "falhasA11y": []
+    }
+  ]
+}

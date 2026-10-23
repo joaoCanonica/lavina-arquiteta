@@ -1,0 +1,38 @@
+{
+  "navegador": "webkit",
+  "versao": "27.2",
+  "rotas": 30,
+  "transicao": {
+    "suporta": {
+      "pagereveal": true,
+      "startViewTransition": true,
+      "regraCss": true
+    },
+    "chegadaPorTransicao": true,
+    "clipAbertura": "none",
+    "erros": []
+  },
+  "navegacao": {
+    "indice→projeto": {
+      "sob": "a.item__link",
+      "commit": true,
+      "load": true
+    },
+    "projeto→proximo": {
+      "sob": "a.proximo__link",
+      "commit": true,
+      "load": true
+    },
+    "reduzido": {
+      "sob": "a.item__link",
+      "commit": true,
+      "load": true
+    }
+  },
+  "cspCompletaEmHttp": {
+    "commit": false,
+    "url": "http://localhost:4381/projetos/",
+    "pedidoHttps": true
+  },
+  "fonte": "GitHub Actions, workflow navegadores, execução 39883178508 (commit 7bf838c), 23/10/2026; 5/5 testes; copiado do log do CI"
+}

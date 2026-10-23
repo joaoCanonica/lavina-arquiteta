@@ -1,0 +1,37 @@
+{
+  "slug": "projeto-tb",
+  "titulo": "Projeto T|B",
+  "codigo": "T|B",
+  "tipo": "residencial",
+  "cidade": "Campo Belo do Sul",
+  "cidadeFonte": "docs/dados/midia-legendas.json (Campo Belo do Sul/SC) e investigação §6",
+  "ano": null,
+  "natureza": "render",
+  "destaque": 2,
+  "autoriaProjeto": "Renata Nürnberg para Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    }
+  ],
+  "creditosExecucao": [],
+  "legendaLiteral": [
+    {
+      "post": "DcOmO3WFqjk",
+      "texto": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq"
+    }
+  ],
+  "textoSite": "Um quarto que vai além do descanso: um refúgio particular. A proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço, e as camisas assinadas ganham uma área própria, com iluminação integrada.\n\n**O pedido.** Um quarto masculino, acolhedor e voltado ao lazer, com lugar para as camisas assinadas do cliente.\n\n**A resposta do projeto.** Painel paramétrico em madeira como elemento de destaque, área de exposição das camisas com luz integrada e tons sóbrios, madeira e tecidos para uma atmosfera intimista. Cada escolha foi pensada para que o ambiente carregasse a identidade e as paixões de quem vai vivê-lo. A obra já foi executada; as fotos dela ainda não estão no site.",
+  "midia": [
+    "projeto-tb-render-01",
+    "projeto-tb-render-02",
+    "projeto-tb-render-03",
+    "projeto-tb-render-04",
+    "projeto-tb-render-05"
+  ],
+  "pares": [],
+  "videos": [],
+  "instagram": ["https://www.instagram.com/p/DcOmO3WFqjk/"],
+  "proximosProjetos": ["suite-fl", "cozinha-jc"]
+}

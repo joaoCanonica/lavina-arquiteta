@@ -1,0 +1,365 @@
+---
+// /processo: presença em cada etapa. As 5 etapas acendendo pela fresta, o vídeo do dia no
+// escritório com capítulos, o acompanhamento de obra em quadros reais do vídeo e o fecho
+// "projeto fiel à execução" com o comparador do Consultório. Textos: COPY_DECK §3, §4.1, §6, §8.
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import DivisorFresta from '../components/fresta/DivisorFresta.astro';
+import ComparadorFresta from '../components/home/ComparadorFresta.astro';
+import DiaNoEscritorio from '../components/processo/DiaNoEscritorio.astro';
+import Etapas from '../components/processo/Etapas.astro';
+import Botao from '../components/ui/Botao.astro';
+import Imagem from '../components/ui/Imagem.astro';
+import Rotulo from '../components/ui/Rotulo.astro';
+import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
+import { paragrafoProcesso } from '../components/seo/geo.ts';
+import Base from '../layouts/Base.astro';
+
+// Quadros reais do vídeo (obra em galpão), sem rosto de terceiros: docs/dados/stills.json.
+const OBRA = [
+  {
+    id: 'quadro-obra-galpao-01',
+    alt: 'Amanda chega ao galpão da obra, de costas, pelo portão aberto',
+    legenda: 'A chegada à obra.',
+  },
+  {
+    id: 'quadro-obra-galpao-02',
+    alt: 'Galpão em obra visto por dentro, com a estrutura metálica do telhado e Amanda ao fundo',
+    legenda: 'O galpão, ainda vazio, visto por dentro.',
+  },
+  {
+    id: 'quadro-obra-galpao-03',
+    alt: 'Amanda conversa com a equipe na obra; o operário aparece só pelo braço',
+    legenda: 'A conversa com a equipe, na obra.',
+  },
+];
+const whatsapp = linkOrcamento();
+---
+
+<Base titulo="Processo">
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <section class="abertura" data-theme="dark" data-tone="escuro" aria-labelledby="processo-h1">
+      <p class="t-rotulo t-secundario">Processo</p>
+      <h1 id="processo-h1" class="abertura__titulo">Presença em cada etapa.</h1>
+      <p class="abertura__texto" data-fonte-post="DNqdWgzOxED">
+        Arquitetura é feita de detalhes e processos bem definidos. No nosso escritório, cada projeto
+        passa por cinco etapas.
+      </p>
+      <!-- GEO: resumo citável (40–60 palavras) com autoria. -->
+      <p class="abertura__resumo" data-geo>{paragrafoProcesso()}</p>
+    </section>
+
+    <section class="etapas-secao" data-theme="light" data-tone="claro" aria-labelledby="etapas-h2">
+      <h2 id="etapas-h2" class="so-leitor">As cinco etapas</h2>
+      <Etapas />
+      <p class="ia" data-fonte-post="DNqdWgzOxED">
+        A inteligência artificial também entra, de forma sutil, na organização do processo.
+      </p>
+    </section>
+
+    <section class="dia-secao" data-theme="dark" data-tone="escuro" aria-labelledby="dia-h2">
+      <header class="secao__topo">
+        <p class="t-rotulo t-secundario">Vídeo</p>
+        <h2 id="dia-h2" class="secao__titulo">Um dia no escritório.</h2>
+      </header>
+      <DiaNoEscritorio />
+    </section>
+
+    <section class="obra" data-theme="light" data-tone="claro" aria-labelledby="obra-h2">
+      <header class="obra__topo">
+        <p class="t-rotulo t-secundario">Etapa 05</p>
+        <h2 id="obra-h2" class="secao__titulo">Acompanhamento de obra.</h2>
+        <p class="secao__texto">
+          Acompanhamento próximo da execução, para que tudo saia como planejado. Quadros do vídeo
+          “Um dia no escritório”, na visita a uma obra.
+        </p>
+      </header>
+      <ul class="obra__quadros">
+        {
+          OBRA.map((q, i) => (
+            <li class:list={['obra__item', `obra__item--${i + 1}`]}>
+              <figure class="obra__fig" data-midia>
+                <Imagem
+                  id={q.id}
+                  alt={q.alt}
+                  natureza="video"
+                  sizes="(min-width: 64rem) 28vw, 80vw"
+                />
+                <figcaption class="obra__legenda">
+                  <Rotulo natureza="video" />
+                  <span>
+                    {q.legenda} Quadro do vídeo{' '}
+                    <a
+                      href="https://www.instagram.com/p/DOd4IshDqUc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      DOd4IshDqUc
+                      <span class="so-leitor"> no Instagram (abre em nova aba)</span>
+                    </a>
+                    .
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="obra__vozes">
+        <blockquote class="voz">
+          <p>
+            “Fez o projeto, providenciou materiais, mão de obra e acompanhou a execução. Muito
+            cuidadosa com orçamentos, opções de materiais e sempre disponível.”
+          </p>
+          <footer>— Jane W., no Google</footer>
+        </blockquote>
+        <blockquote class="voz">
+          <p>“Acompanha a obra de perto e é extremamente exigente com o resultado final.”</p>
+          <footer>— Roberta S., no Google</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="fiel" data-theme="dark" data-tone="escuro" aria-labelledby="fiel-h2">
+      <div class="fiel__texto">
+        <p class="t-rotulo t-secundario">Consultório Jonny Arruda</p>
+        <h2 id="fiel-h2" class="secao__titulo">Projeto fiel à execução.</h2>
+        <p class="secao__texto">
+          Aqui o projeto pode ser visto duas vezes: na imagem 3D, antes da obra, e na obra
+          executada, no mesmo ângulo. Arraste a luz, ou use as setas do teclado.
+        </p>
+        <blockquote class="fiel__citacao" data-fonte-post="DTqJY19jgis">
+          <p class="t-citacao">“Eu amei esse resultado final, 100% fiel ao projeto!”</p>
+          <footer>— Renata Nürnberg, comentário no post DTqJY19jgis</footer>
+        </blockquote>
+        <a class="fiel__link" href="/projetos/consultorio-jonny-arruda/">Ver o projeto completo</a>
+      </div>
+      <ComparadorFresta
+        par="consultorio-projeto-executado-mesa"
+        tipo="projeto-executado"
+        proporcao="4:5"
+        altA="Imagem 3D do projeto do Consultório Jonny Arruda: armário curvo, pia, estantes iluminadas e mesa oval"
+        altB="Consultório Jonny Arruda executado no mesmo ângulo"
+        tamanhos="(min-width: 64rem) 40vw, 100vw"
+        class="fiel__cmp"
+      />
+    </section>
+
+    <section class="cta" data-theme="light" data-tone="claro" aria-labelledby="cta-h2">
+      <DivisorFresta largura="curta" />
+      <h2 id="cta-h2" class="cta__titulo" data-fonte-post="DNVwPbWxkqZ">
+        Vamos começar pelo que é mais importante: você.
+      </h2>
+      <div class="cta__acoes">
+        <Botao href={whatsapp} externo>
+          Solicitar orçamento pelo WhatsApp<span class="so-leitor"> (abre em nova aba)</span>
+        </Botao>
+        <Botao href="/contato/" variante="secundario">Endereço e horários</Botao>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .abertura {
+    display: grid;
+    gap: var(--e-5);
+    padding: calc(var(--e-10) + var(--e-6)) var(--margem) var(--e-9);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .abertura__titulo {
+    font-size: clamp(3rem, 1.2rem + 8vw, 9.5rem);
+    font-weight: var(--peso-display);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    max-width: 11ch;
+  }
+  .abertura__resumo {
+    max-width: 40rem;
+    padding-left: var(--e-4);
+    border-left: var(--linha-fresta) solid var(--cor-fresta);
+    font-size: var(--t-pequeno);
+    line-height: 1.65;
+    color: var(--cor-texto-2);
+  }
+  .abertura__texto {
+    max-width: 32rem;
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    color: var(--cor-texto-2);
+  }
+  .etapas-secao,
+  .obra,
+  .cta {
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .ia {
+    margin-top: var(--e-6);
+    max-width: 30rem;
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .dia-secao,
+  .fiel {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .secao__topo,
+  .obra__topo {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .secao__titulo {
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+    letter-spacing: -0.02em;
+    max-width: 16ch;
+  }
+  .secao__texto {
+    max-width: 34rem;
+    color: var(--cor-texto-2);
+  }
+
+  /* Obra: três quadros verticais em alturas diferentes. */
+  .obra__quadros {
+    list-style: none;
+    margin: var(--e-7) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-7);
+  }
+  .obra__item--2 {
+    width: 82%;
+    justify-self: end;
+  }
+  .obra__fig {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .obra__legenda {
+    display: grid;
+    gap: var(--e-1);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .obra__legenda a {
+    color: inherit;
+  }
+  .obra__vozes {
+    display: grid;
+    gap: var(--e-6);
+    margin-top: var(--e-8);
+  }
+  .voz {
+    display: grid;
+    gap: var(--e-3);
+    padding-top: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .voz p {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.55;
+    max-width: 36rem;
+  }
+  .voz footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+
+  .fiel__texto {
+    display: grid;
+    gap: var(--e-5);
+    align-content: start;
+  }
+  .fiel__citacao {
+    display: grid;
+    gap: var(--e-3);
+    margin-top: var(--e-4);
+  }
+  .fiel__citacao p {
+    font-size: clamp(1.6rem, 1rem + 2.2vw, 2.8rem);
+  }
+  .fiel__citacao footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .fiel__link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+
+  .cta {
+    display: grid;
+    gap: var(--e-6);
+    justify-items: start;
+    padding-bottom: var(--e-10);
+  }
+  .cta :global(.divisor) {
+    padding: 0 0 var(--e-4);
+    justify-content: flex-start;
+  }
+  .cta__titulo {
+    font-size: clamp(2.2rem, 1.1rem + 4.6vw, 6rem);
+    font-weight: var(--peso-display);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+  }
+  .cta__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-4) var(--e-7);
+    align-items: center;
+  }
+
+  @media (min-width: 64rem) {
+    .etapas-secao,
+    .obra,
+    .cta {
+      padding-block: var(--e-10);
+    }
+    .dia-secao,
+    .fiel {
+      padding-block: var(--e-10);
+    }
+    .obra__quadros {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: start;
+    }
+    .obra__item--1 {
+      grid-column: 1 / span 4;
+      margin-top: var(--e-9);
+    }
+    .obra__item--2 {
+      grid-column: 5 / span 4;
+      width: auto;
+    }
+    .obra__item--3 {
+      grid-column: 9 / span 4;
+      margin-top: var(--e-10);
+    }
+    .obra__vozes {
+      grid-template-columns: 1fr 1fr;
+      column-gap: var(--e-8);
+    }
+    .fiel {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: var(--e-9);
+      align-items: center;
+    }
+  }
+</style>

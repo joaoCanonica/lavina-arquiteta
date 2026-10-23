@@ -1,0 +1,2912 @@
+{
+  "$schema": "./docs/dados/media.manifest.schema.json",
+  "versao": 1,
+  "gerado": "2026-10-23",
+  "rotulos": {
+    "render": "Imagem 3D do projeto",
+    "executado": "Obra executada",
+    "antes": "Antes",
+    "depois": "Depois",
+    "video": "Vídeo",
+    "retrato": "Retrato",
+    "marca": "Marca",
+    "documentacao": "Documentação interna",
+    "nao-usar": "Não usar"
+  },
+  "registros": [
+    {
+      "id": "consultorio-jonny-arruda-render-01",
+      "arquivo": "SaveClip.App_588442716_17869031958483108_6881159161144977863_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DSGdwDDj4Kv",
+        "data": "10/12/2025",
+        "url": "https://www.instagram.com/p/DSGdwDDj4Kv/"
+      },
+      "legenda": "Consultório Jonny Arruda | Clínica de obstetrícia\n\nAmbiente pensado para transformar consultas em momentos de cuidado. Um consultório que transmite tranquilidade, segurança e delicadeza desde o primeiro olhar.\n\nProjeto elaborado para - @lavina.co.arq\nImagem foto realista - @arq_renatanurnberg",
+      "descricao": "mesa oval de pedra + estantes iluminadas (vista da esquerda)",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 167872,
+      "sha256": "5727bd304e7b5712c1c651843403ec3b09d6e4e6cc417c596f65cf3caecddd52",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1152
+      },
+      "pares": ["consultorio-projeto-executado-mesa"]
+    },
+    {
+      "id": "consultorio-jonny-arruda-render-02",
+      "arquivo": "SaveClip.App_598761174_17869031967483108_7242716098048022537_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DSGdwDDj4Kv",
+        "data": "10/12/2025",
+        "url": "https://www.instagram.com/p/DSGdwDDj4Kv/"
+      },
+      "legenda": "Consultório Jonny Arruda | Clínica de obstetrícia\n\nAmbiente pensado para transformar consultas em momentos de cuidado. Um consultório que transmite tranquilidade, segurança e delicadeza desde o primeiro olhar.\n\nProjeto elaborado para - @lavina.co.arq\nImagem foto realista - @arq_renatanurnberg",
+      "descricao": "vista frontal (estantes, janela, mesa)",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 91180,
+      "sha256": "751ff2fc24348f3c4abb780d67a788533d56cf41f0a78c0f9b2b44d47319fab1",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1006
+      },
+      "pares": ["consultorio-projeto-executado-estantes"]
+    },
+    {
+      "id": "consultorio-jonny-arruda-antes-01",
+      "arquivo": "SaveClip.App_625109164_18422648287184910_6715564860894840792_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "sala de exame antiga",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 246336,
+      "sha256": "bf90e979890a3a85b9de66f2b0cdfd40049a05e9c1ae152b9792cf4021283555",
+      "dimensoes": {
+        "largura": 1200,
+        "altura": 1555
+      }
+    },
+    {
+      "id": "consultorio-jonny-arruda-antes-02",
+      "arquivo": "SaveClip.App_625638741_18422648269184910_684003999544053593_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "escritório antigo",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 320274,
+      "sha256": "f43124de86f0b946a8f6b0d90d6f39a6d392420fb862e2a09a8194084dce67a2",
+      "dimensoes": {
+        "largura": 1200,
+        "altura": 1555
+      }
+    },
+    {
+      "id": "consultorio-jonny-arruda-antes-03",
+      "arquivo": "SaveClip.App_625969940_18422648227184910_369266383071226197_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "divisória antiga",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 190770,
+      "sha256": "63e715ae8f30897d7563fcd2bf19b9408ac0cb082b76a0d96c98c78ecc04cf2e",
+      "dimensoes": {
+        "largura": 922,
+        "altura": 1195
+      }
+    },
+    {
+      "id": "consultorio-jonny-arruda-antes-04",
+      "arquivo": "SaveClip.App_626043387_18422648251184910_5022196412577062581_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "bancada antiga",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 169375,
+      "sha256": "f69501f3e975b154bb1c8f9240a6dcf9e309f144914d3b70be06ac32bf90e68d",
+      "dimensoes": {
+        "largura": 1200,
+        "altura": 1555
+      },
+      "pares": ["consultorio-antes-depois-pia"]
+    },
+    {
+      "id": "consultorio-jonny-arruda-depois-01",
+      "arquivo": "SaveClip.App_625681099_18422648260184910_5384839820734369773_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "marcenaria + mesa oval de pedra",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.98, 1, 1.029],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        },
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [0.385, -1.743],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 480020,
+      "sha256": "05931d6ba128525fd0029bab38e3b3f3009a9c58a5e1cb541ceb144d50798d26",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1865
+      },
+      "pares": ["consultorio-projeto-executado-mesa", "consultorio-antes-depois-pia"]
+    },
+    {
+      "id": "consultorio-jonny-arruda-depois-02",
+      "arquivo": "SaveClip.App_627064897_18422648278184910_7611075586982428627_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "mesa + estante iluminada",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.98, 1, 1.029],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 429510,
+      "sha256": "5e1637d2942ff27054ff0bbcf7cbb6a602bf365f62af6fbcd03dd05f4f901a8f",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1866
+      },
+      "pares": ["consultorio-projeto-executado-estantes"]
+    },
+    {
+      "id": "consultorio-jonny-arruda-depois-03",
+      "arquivo": "SaveClip.App_627098371_18422648296184910_4837732730857879917_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "sala de exame com painel de madeira",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.98, 1, 1.029],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 179102,
+      "sha256": "47182757cbdf23e58916fa2026472a36be350d7663f2f971659329c96278cec8",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1866
+      }
+    },
+    {
+      "id": "consultorio-jonny-arruda-depois-04",
+      "arquivo": "SaveClip.App_627136937_18422648218184910_6628359806501098098_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "não usar sem recorte",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": ["selo \"ANTES & DEPOIS\" queimado sobre a foto: publicar só recortado"],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.98, 1, 1.029],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        },
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.3,
+          "unidade": "fração",
+          "motivo": "remoção por recorte do selo \"ANTES & DEPOIS\" queimado (selo em x 27–72%, y 31–62%); sobra a faixa do forro com o perfil de LED"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 336817,
+      "sha256": "cb9799c1c4e26d4b1f3ae6d1e9ba0fc6a3942233752df583a42234f0cddfe001",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1866
+      }
+    },
+    {
+      "id": "consultorio-jonny-arruda-depois-05",
+      "arquivo": "SaveClip.App_627664561_18422648239184910_8996621189775818521_n.jpg",
+      "tipo": "imagem",
+      "projeto": "consultorio-jonny-arruda",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagem 3D: Renata Nürnberg. Marcenaria: Lazzari Móveis. Pedras: Álamo Marmoraria. Cortinas: Maitê Decorações. Iluminação: AF Eletricidade. Decoração: Espaço Decora by Rita Assunção.",
+      "post": {
+        "codigo": "DUUHxO4DhqK",
+        "data": "03/02/2026",
+        "url": "https://www.instagram.com/p/DUUHxO4DhqK/"
+      },
+      "legenda": "👉🏽 Arrasta para o lado e acompanhe esse super ANTES E DEPOIS de consultório ginecológico obstétrico.",
+      "descricao": "sala de exame com cortina",
+      "uso": "Antes & Depois (comparador). Se o João baixar o render do post DSGdwDDj4Kv, vira também o par Projeto × Executado.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.98, 1, 1.029],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        },
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [0.289, 3.478],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 258335,
+      "sha256": "94aa8a652331f62d058f763f734ba00b1f8edbec5b7e86fa158dab6d69ac0f91",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1866
+      }
+    },
+    {
+      "id": "banheiro-tons-claros-executado-01",
+      "arquivo": "SaveClip.App_641226479_18427318189184910_4606637893773975536_n.jpg",
+      "tipo": "imagem",
+      "projeto": "banheiro-tons-claros",
+      "natureza": "executado",
+      "rotulo": "Obra executada",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Marcados no post: Portobello Shop Lages, Álamo Marmoraria, AF Eletricidade, Espaço Decora Enxovais.",
+      "post": {
+        "codigo": "DVcLRsXDpYJ",
+        "data": "03/03/2026",
+        "url": "https://www.instagram.com/p/DVcLRsXDpYJ/"
+      },
+      "legenda": "Neste banheiro, os tons claros não foram uma escolha estética apenas. Eles foram estratégicos.\n\nA paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena.\nUm espaço compacto pode e deve parecer grandioso. ✨\n\nSe você deseja um projeto que una elegância, técnica e presença entre em contato 🤍",
+      "descricao": "vista geral com banheira",
+      "uso": "Projeto de banheiro na galeria; prova da linha de luz no espelho.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.991, 1, 1.023],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 245165,
+      "sha256": "b54c86cd7ddeafa438aa694352eb6901da9696babdbb66576f0ba99081e753d5",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "banheiro-tons-claros-executado-02",
+      "arquivo": "SaveClip.App_641725899_18427318219184910_7425574799355836518_n.jpg",
+      "tipo": "imagem",
+      "projeto": "banheiro-tons-claros",
+      "natureza": "executado",
+      "rotulo": "Obra executada",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Marcados no post: Portobello Shop Lages, Álamo Marmoraria, AF Eletricidade, Espaço Decora Enxovais.",
+      "post": {
+        "codigo": "DVcLRsXDpYJ",
+        "data": "03/03/2026",
+        "url": "https://www.instagram.com/p/DVcLRsXDpYJ/"
+      },
+      "legenda": "Neste banheiro, os tons claros não foram uma escolha estética apenas. Eles foram estratégicos.\n\nA paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena.\nUm espaço compacto pode e deve parecer grandioso. ✨\n\nSe você deseja um projeto que una elegância, técnica e presença entre em contato 🤍",
+      "descricao": "marcenaria com puxadores dourados",
+      "uso": "Projeto de banheiro na galeria; prova da linha de luz no espelho.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.991, 1, 1.023],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 298166,
+      "sha256": "67bba3503517bc91f27a05db942fc1a245e1d9a51a50de3e530718ca4c50ed90",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "banheiro-tons-claros-executado-03",
+      "arquivo": "SaveClip.App_641767635_18427318180184910_551588636863708839_n.jpg",
+      "tipo": "imagem",
+      "projeto": "banheiro-tons-claros",
+      "natureza": "executado",
+      "rotulo": "Obra executada",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Marcados no post: Portobello Shop Lages, Álamo Marmoraria, AF Eletricidade, Espaço Decora Enxovais.",
+      "post": {
+        "codigo": "DVcLRsXDpYJ",
+        "data": "03/03/2026",
+        "url": "https://www.instagram.com/p/DVcLRsXDpYJ/"
+      },
+      "legenda": "Neste banheiro, os tons claros não foram uma escolha estética apenas. Eles foram estratégicos.\n\nA paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena.\nUm espaço compacto pode e deve parecer grandioso. ✨\n\nSe você deseja um projeto que una elegância, técnica e presença entre em contato 🤍",
+      "descricao": "bancada + espelho com luz (melhor para capa do projeto)",
+      "uso": "Projeto de banheiro na galeria; prova da linha de luz no espelho.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.991, 1, 1.023],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 365737,
+      "sha256": "1fff26e124cb79a138c0ad6c1c545d2a6ec2fd2c3b5f521c9f39fc7b603412f5",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "banheiro-tons-claros-executado-04",
+      "arquivo": "SaveClip.App_641772539_18427318210184910_6799003405250038675_n.jpg",
+      "tipo": "imagem",
+      "projeto": "banheiro-tons-claros",
+      "natureza": "executado",
+      "rotulo": "Obra executada",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Marcados no post: Portobello Shop Lages, Álamo Marmoraria, AF Eletricidade, Espaço Decora Enxovais.",
+      "post": {
+        "codigo": "DVcLRsXDpYJ",
+        "data": "03/03/2026",
+        "url": "https://www.instagram.com/p/DVcLRsXDpYJ/"
+      },
+      "legenda": "Neste banheiro, os tons claros não foram uma escolha estética apenas. Eles foram estratégicos.\n\nA paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena.\nUm espaço compacto pode e deve parecer grandioso. ✨\n\nSe você deseja um projeto que una elegância, técnica e presença entre em contato 🤍",
+      "descricao": "cuba esculpida",
+      "uso": "Projeto de banheiro na galeria; prova da linha de luz no espelho.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.991, 1, 1.023],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 305474,
+      "sha256": "60df9f01619eec14e5e0dcf0dbdbbdc300a1f29a8e7f236d739e736c3716ff48",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "banheiro-tons-claros-executado-05",
+      "arquivo": "SaveClip.App_642770845_18427318201184910_5224515133183613144_n.jpg",
+      "tipo": "imagem",
+      "projeto": "banheiro-tons-claros",
+      "natureza": "executado",
+      "rotulo": "Obra executada",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Marcados no post: Portobello Shop Lages, Álamo Marmoraria, AF Eletricidade, Espaço Decora Enxovais.",
+      "post": {
+        "codigo": "DVcLRsXDpYJ",
+        "data": "03/03/2026",
+        "url": "https://www.instagram.com/p/DVcLRsXDpYJ/"
+      },
+      "legenda": "Neste banheiro, os tons claros não foram uma escolha estética apenas. Eles foram estratégicos.\n\nA paleta neutra e o porcelanato suave refletem luz, ampliam a percepção do espaço e criam uma atmosfera de sofisticação serena.\nUm espaço compacto pode e deve parecer grandioso. ✨\n\nSe você deseja um projeto que una elegância, técnica e presença entre em contato 🤍",
+      "descricao": "vista com porta",
+      "uso": "Projeto de banheiro na galeria; prova da linha de luz no espelho.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.991, 1, 1.023],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 367371,
+      "sha256": "dfca8865a53dd60b64af9d73a54b1df6c969b34d8cc5b06234db636046609b51",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1919
+      }
+    },
+    {
+      "id": "suite-fl-render-01",
+      "arquivo": "SaveClip.App_727275882_17894294478483108_5560063274758232779_n.jpg",
+      "tipo": "imagem",
+      "projeto": "suite-fl",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DaLTDbClllI",
+        "data": "29/06/2026",
+        "url": "https://www.instagram.com/p/DaLTDbClllI/"
+      },
+      "legenda": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "cama e arandelas",
+      "uso": "Projeto na galeria, rotulado \"imagem 3D do projeto\". Dois arquivos estão muito comprimidos: usar só em tamanho pequeno ou pedir o original.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 113824,
+      "sha256": "c53617a711bf8661e8035f0eebe813dc2986d612576ceced7a86f11cf7c2b112",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 967
+      }
+    },
+    {
+      "id": "suite-fl-render-02",
+      "arquivo": "SaveClip.App_728169235_17894294487483108_4746540684325445807_n.jpg",
+      "tipo": "imagem",
+      "projeto": "suite-fl",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DaLTDbClllI",
+        "data": "29/06/2026",
+        "url": "https://www.instagram.com/p/DaLTDbClllI/"
+      },
+      "legenda": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "vista geral (capa)",
+      "uso": "Projeto na galeria, rotulado \"imagem 3D do projeto\". Dois arquivos estão muito comprimidos: usar só em tamanho pequeno ou pedir o original.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 159196,
+      "sha256": "594f237b9dca8e909dd8dd0108eeafd0d436f44f46ee0c1bf6073252e0ca6438",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1356
+      }
+    },
+    {
+      "id": "suite-fl-render-03",
+      "arquivo": "SaveClip.App_728991882_17894294505483108_142121386832026489_n.jpg",
+      "tipo": "imagem",
+      "projeto": "suite-fl",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DaLTDbClllI",
+        "data": "29/06/2026",
+        "url": "https://www.instagram.com/p/DaLTDbClllI/"
+      },
+      "legenda": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "roupeiro (arquivo de 31 KB: baixa qualidade)",
+      "uso": "Projeto na galeria, rotulado \"imagem 3D do projeto\". Dois arquivos estão muito comprimidos: usar só em tamanho pequeno ou pedir o original.",
+      "problemas": [
+        "arquivo muito comprimido (32 KB, 1440×819): exibir no máximo a 480 px de largura; pedir o original à Renata"
+      ],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 32384,
+      "sha256": "34a452718f484e24aa284d0b7b7778006e9502b66a6e487898cda37a4f57ecbd",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 819
+      },
+      "exibicaoMaxima": 480
+    },
+    {
+      "id": "suite-fl-render-04",
+      "arquivo": "SaveClip.App_729654054_17894294496483108_2711431086525348208_n.jpg",
+      "tipo": "imagem",
+      "projeto": "suite-fl",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DaLTDbClllI",
+        "data": "29/06/2026",
+        "url": "https://www.instagram.com/p/DaLTDbClllI/"
+      },
+      "legenda": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "painel de TV (33 KB: baixa qualidade)",
+      "uso": "Projeto na galeria, rotulado \"imagem 3D do projeto\". Dois arquivos estão muito comprimidos: usar só em tamanho pequeno ou pedir o original.",
+      "problemas": [
+        "arquivo muito comprimido (36 KB, 1440×831): exibir no máximo a 480 px de largura; pedir o original à Renata"
+      ],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 34120,
+      "sha256": "fd46b861a9bcbbd3bc3d747d063ec89befa41ee228c54d81fc144f27c4c97fb4",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 831
+      },
+      "exibicaoMaxima": 480
+    },
+    {
+      "id": "suite-fl-render-05",
+      "arquivo": "SaveClip.App_730477183_17894294469483108_2926579173485123689_n.jpg",
+      "tipo": "imagem",
+      "projeto": "suite-fl",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DaLTDbClllI",
+        "data": "29/06/2026",
+        "url": "https://www.instagram.com/p/DaLTDbClllI/"
+      },
+      "legenda": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "vista frontal",
+      "uso": "Projeto na galeria, rotulado \"imagem 3D do projeto\". Dois arquivos estão muito comprimidos: usar só em tamanho pequeno ou pedir o original.",
+      "problemas": ["arquivo comprimido (56 KB, 1440×771): exibir no máximo a 1200 px"],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 55540,
+      "sha256": "a087dddcefc1a1a58357d9ed9b9dd3f0ec206ffdad7c23f0f413a495a9ae0d72",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 771
+      },
+      "exibicaoMaxima": 1200
+    },
+    {
+      "id": "cozinha-jc-render-01",
+      "arquivo": "SaveClip.App_710959395_17890720767483108_2756011782472961855_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZIFaXyFq8k",
+        "data": "03/06/2026",
+        "url": "https://www.instagram.com/p/DZIFaXyFq8k/"
+      },
+      "legenda": "Cozinha - J|C 🤍\n\nEssa cozinha traz leveza na composição, riqueza nos detalhes.\nUm ambiente que traduz conforto e sofisticação de forma sutil e atemporal.\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq",
+      "descricao": "cristaleira + mesa e pendentes",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 114228,
+      "sha256": "23b2c733541a2068e0037bd288dde8596869761cacb50c5070bb1872bfd186c9",
+      "dimensoes": {
+        "largura": 1437,
+        "altura": 901
+      }
+    },
+    {
+      "id": "cozinha-jc-render-02",
+      "arquivo": "SaveClip.App_713283758_17890720743483108_4251243534598581787_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZIFaXyFq8k",
+        "data": "03/06/2026",
+        "url": "https://www.instagram.com/p/DZIFaXyFq8k/"
+      },
+      "legenda": "Cozinha - J|C 🤍\n\nEssa cozinha traz leveza na composição, riqueza nos detalhes.\nUm ambiente que traduz conforto e sofisticação de forma sutil e atemporal.\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq",
+      "descricao": "vista frontal: janela, cooktop, torre de fornos, refrigerador",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [
+        "arquivo muito comprimido (40 KB, 1397×901): exibir no máximo a 800 px de largura; pedir o original à Renata"
+      ],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 37234,
+      "sha256": "16d4aa6fcb164a7aceff25784540bb45e774d4aa087e6a59a8eb14d7a35027e3",
+      "dimensoes": {
+        "largura": 1397,
+        "altura": 901
+      },
+      "exibicaoMaxima": 800,
+      "pares": ["cozinha-projeto-executado-fornos"]
+    },
+    {
+      "id": "cozinha-jc-render-03",
+      "arquivo": "SaveClip.App_713843664_17890720755483108_2170458033472249592_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZIFaXyFq8k",
+        "data": "03/06/2026",
+        "url": "https://www.instagram.com/p/DZIFaXyFq8k/"
+      },
+      "legenda": "Cozinha - J|C 🤍\n\nEssa cozinha traz leveza na composição, riqueza nos detalhes.\nUm ambiente que traduz conforto e sofisticação de forma sutil e atemporal.\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq",
+      "descricao": "painel ripado com TV, ilha com banquetas, fornos",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": ["arquivo comprimido (60 KB, 1437×901): exibir no máximo a 1200 px"],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 58526,
+      "sha256": "2ebb6b91b9731503a8212887e05025cc21dc5b3afab1238a04b6eb3114e08a4b",
+      "dimensoes": {
+        "largura": 1437,
+        "altura": 901
+      },
+      "exibicaoMaxima": 1200
+    },
+    {
+      "id": "cozinha-jc-render-04",
+      "arquivo": "SaveClip.App_719918476_17892033012483108_4323779363077244549_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZh0O6uFqkV",
+        "data": "13/06/2026",
+        "url": "https://www.instagram.com/p/DZh0O6uFqkV/"
+      },
+      "legenda": "Cozinha J|C\n\nNesse projeto a beleza está na textura da pedra, na suavidade da iluminação e no equilíbrio entre cada elemento. ✨\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq",
+      "descricao": "TV, mesa posta, cozinha ao fundo",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 124392,
+      "sha256": "edd4bcc79886c62e2e1475439d4b1f4ddc41d9effa0338137e8f13163cd92570",
+      "dimensoes": {
+        "largura": 1438,
+        "altura": 809
+      }
+    },
+    {
+      "id": "cozinha-jc-render-05",
+      "arquivo": "SaveClip.App_723099267_17892033003483108_4387115283769733568_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZh0O6uFqkV",
+        "data": "13/06/2026",
+        "url": "https://www.instagram.com/p/DZh0O6uFqkV/"
+      },
+      "legenda": "Cozinha J|C\n\nNesse projeto a beleza está na textura da pedra, na suavidade da iluminação e no equilíbrio entre cada elemento. ✨\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq",
+      "descricao": "detalhe da bancada, cooktop e frontão curvo",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": ["arquivo comprimido (60 KB, 1438×809): exibir no máximo a 1200 px"],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "sessão 1 (arquivo novo, fora do JSON de legendas)",
+      "bytes": 61342,
+      "sha256": "fd958947c3eefedab7f884f7a17997557de0fa3ccba4a0961309b8b623815c4e",
+      "dimensoes": {
+        "largura": 1438,
+        "altura": 809
+      },
+      "exibicaoMaxima": 1200
+    },
+    {
+      "id": "cozinha-jc-antes-01",
+      "arquivo": "SaveClip.App_729476203_18446845678184910_8624376681187986160_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "copa antiga",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 698547,
+      "sha256": "0fc5e2dc989f3b33ef153a877d10f590ca7322d0fd26a5adb7f7daceb51ecc70",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      }
+    },
+    {
+      "id": "cozinha-jc-antes-02",
+      "arquivo": "SaveClip.App_729583033_18446845660184910_4765653789104943796_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "cozinha antiga",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 544779,
+      "sha256": "157e1c83c5c955e2df35ddaff01bb9e6720c6fa93e4cae6d72f1389d900fa42e",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      },
+      "pares": ["cozinha-antes-depois-alternativo"]
+    },
+    {
+      "id": "cozinha-jc-antes-03",
+      "arquivo": "SaveClip.App_729583045_18446845720184910_5628110622871932187_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "vista antiga",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 565439,
+      "sha256": "a03845f1c226f68b438f9ce89d8e7ef877efe1ba889f29e720ae0a97fda32cbe",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      }
+    },
+    {
+      "id": "cozinha-jc-antes-04",
+      "arquivo": "SaveClip.App_729593853_18446845699184910_9092309895271360697_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "corredor antigo",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 603998,
+      "sha256": "6ccbcbf6efe82204bafa826c5b29ad13f35318202bb599c68c998ee5b8061f6f",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      }
+    },
+    {
+      "id": "cozinha-jc-antes-05",
+      "arquivo": "SaveClip.App_730561497_18446845741184910_6407906575932356680_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "antes",
+      "rotulo": "Antes",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "cozinha antiga (mesmo ângulo do depois 730173676)",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 658391,
+      "sha256": "8865b55e925723f249a2e945163ce830a37c96ce7dbec962047cd4f7bc5661ef",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      },
+      "pares": ["cozinha-antes-depois"]
+    },
+    {
+      "id": "cozinha-jc-depois-01",
+      "arquivo": "SaveClip.App_728943785_18446845687184910_3225641406141153559_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "corredor com linha de luz (capa forte)",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.959, 1, 1.054],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        },
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [0.406, 2.759],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 542949,
+      "sha256": "363fd0df859f1f190a5ed9bfd53df92ae344c2594aebf185442fa079dae064bf",
+      "dimensoes": {
+        "largura": 3073,
+        "altura": 4096
+      }
+    },
+    {
+      "id": "cozinha-jc-depois-02",
+      "arquivo": "SaveClip.App_729424348_18446845732184910_2511579519256427614_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "bancada e torre de fornos",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.959, 1, 1.054],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 509401,
+      "sha256": "d2063165b5e7ecb2a29dc7a348498b4fc04a3594273751e18ccd1be9f4071593",
+      "dimensoes": {
+        "largura": 3024,
+        "altura": 4030
+      },
+      "pares": [
+        "cozinha-projeto-executado-fornos",
+        "cozinha-antes-depois",
+        "cozinha-antes-depois-alternativo"
+      ]
+    },
+    {
+      "id": "cozinha-jc-depois-03",
+      "arquivo": "SaveClip.App_729995913_18446845669184910_952207032007088995_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "ilha + cristaleira iluminada (1,7 MB, 3073×4096)",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.959, 1, 1.054],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 1810792,
+      "sha256": "576e30e5b66873dbfa9c1c2c7c91b8e56783b45957557910f1628c6a0859e3b5",
+      "dimensoes": {
+        "largura": 3073,
+        "altura": 4096
+      }
+    },
+    {
+      "id": "cozinha-jc-depois-04",
+      "arquivo": "SaveClip.App_730173676_18446845651184910_5682069677088484045_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "não usar sem recorte",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": ["selo \"ANTES & DEPOIS\" queimado sobre a foto: publicar só recortado"],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.959, 1, 1.054],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        },
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.3,
+          "unidade": "fração",
+          "motivo": "remoção por recorte do selo \"ANTES & DEPOIS\" queimado (selo em x 27–68%, y 31–65%); sobra a faixa da janela, do perfil de LED e dos armários. O par antes × depois usa 729424348 no lugar"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 221123,
+      "sha256": "676ba3ebed165fe57fbd19271c08ddaa56869e9c566045af19634ddd4728c712",
+      "dimensoes": {
+        "largura": 1129,
+        "altura": 1504
+      }
+    },
+    {
+      "id": "cozinha-jc-depois-05",
+      "arquivo": "SaveClip.App_730513804_18446845711184910_8914622510774806495_n.jpg",
+      "tipo": "imagem",
+      "projeto": "cozinha-jc",
+      "natureza": "depois",
+      "rotulo": "Depois",
+      "autoriaImagem": "Fotografia: acervo Lavina | Coletivo de Arquitetura (publicada por @lavina.co.arq)",
+      "creditoProjeto": "Projeto: Lavina | Coletivo de Arquitetura. Imagens 3D: Renata Nürnberg. Marcados no Antes & Depois: Maitê Decorações, Álamo Marmoraria, Alpen Planejados, AF Eletricidade.",
+      "post": {
+        "codigo": "DZ5PcHNDj3R",
+        "data": "22/06/2026",
+        "url": "https://www.instagram.com/p/DZ5PcHNDj3R/"
+      },
+      "legenda": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽",
+      "descricao": "mesa e pendentes",
+      "uso": "O caso mais forte do site: Antes & Depois (par 730561497 → 730173676 no mesmo ângulo), vídeo do executado e, se o João baixar os renders, Projeto × Executado completo.",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "cor",
+          "multiplicadoresRGB": [0.959, 1, 1.054],
+          "ganhoExposicao": 1,
+          "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho.",
+          "escopo": "derivado"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 662613,
+      "sha256": "f819932108b89b6fafdfa84e9f68cd9da4102a03aefad89f5646cd013e303d19",
+      "dimensoes": {
+        "largura": 3073,
+        "altura": 4096
+      }
+    },
+    {
+      "id": "projeto-tb-render-01",
+      "arquivo": "SaveClip.App_777150392_17901650097483108_7024159788764746439_n.jpg",
+      "tipo": "imagem",
+      "projeto": "projeto-tb",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DcOmO3WFqjk",
+        "data": "19/08/2026",
+        "url": "https://www.instagram.com/p/DcOmO3WFqjk/"
+      },
+      "legenda": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "painel de TV paramétrico",
+      "uso": "Projeto na galeria (render). Atenção: camisas de clubes e da seleção são marcas de terceiros; como objeto do cliente no ambiente, tudo bem, mas não usar como capa do site.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 115900,
+      "sha256": "f2b1fbb55775808b73d627c2eebfb3a0ae42f4f440a8f601bb34cfaaf3971363",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "projeto-tb-render-02",
+      "arquivo": "SaveClip.App_778074203_17901650145483108_2124074380274569763_n.jpg",
+      "tipo": "imagem",
+      "projeto": "projeto-tb",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DcOmO3WFqjk",
+        "data": "19/08/2026",
+        "url": "https://www.instagram.com/p/DcOmO3WFqjk/"
+      },
+      "legenda": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "detalhe do criado-mudo",
+      "uso": "Projeto na galeria (render). Atenção: camisas de clubes e da seleção são marcas de terceiros; como objeto do cliente no ambiente, tudo bem, mas não usar como capa do site.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 118770,
+      "sha256": "83ffbb5028207df78000216f2d7d79f04e8205a54426a2f3d90853f54c0d07ff",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1210
+      }
+    },
+    {
+      "id": "projeto-tb-render-03",
+      "arquivo": "SaveClip.App_778274263_17901650106483108_2248238512198414946_n.jpg",
+      "tipo": "imagem",
+      "projeto": "projeto-tb",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DcOmO3WFqjk",
+        "data": "19/08/2026",
+        "url": "https://www.instagram.com/p/DcOmO3WFqjk/"
+      },
+      "legenda": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "cama",
+      "uso": "Projeto na galeria (render). Atenção: camisas de clubes e da seleção são marcas de terceiros; como objeto do cliente no ambiente, tudo bem, mas não usar como capa do site.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 100410,
+      "sha256": "6ceb735531443d6db5e875e55d086a5052d546c65ae9df5ebc3b6bfacf686c04",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "projeto-tb-render-04",
+      "arquivo": "SaveClip.App_778274402_17901650118483108_4943406061701364625_n.jpg",
+      "tipo": "imagem",
+      "projeto": "projeto-tb",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DcOmO3WFqjk",
+        "data": "19/08/2026",
+        "url": "https://www.instagram.com/p/DcOmO3WFqjk/"
+      },
+      "legenda": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "vista geral com camisas (capa)",
+      "uso": "Projeto na galeria (render). Atenção: camisas de clubes e da seleção são marcas de terceiros; como objeto do cliente no ambiente, tudo bem, mas não usar como capa do site.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 83666,
+      "sha256": "89efcb25fa791a9b257464b9920d5cfac5f5fd31b330011a688d2739951391db",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 977
+      }
+    },
+    {
+      "id": "projeto-tb-render-05",
+      "arquivo": "SaveClip.App_779527795_17901650127483108_6370005437263363987_n.jpg",
+      "tipo": "imagem",
+      "projeto": "projeto-tb",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DcOmO3WFqjk",
+        "data": "19/08/2026",
+        "url": "https://www.instagram.com/p/DcOmO3WFqjk/"
+      },
+      "legenda": "Projeto T|B 🩶\n\nUm quarto que vai além do descanso: um verdadeiro refúgio particular.\n\nA proposta nasceu do desejo por um ambiente masculino, acolhedor e voltado ao lazer. O painel paramétrico em madeira percorre o espaço como elemento de destaque, trazendo textura, movimento e personalidade ao projeto.\n\nAs camisas assinadas ganham uma área exclusiva de exposição, com iluminação integrada, enquanto tons sóbrios, madeira e tecidos criam uma atmosfera intimista e sofisticada.\n\nCada escolha foi pensada para que o ambiente carregasse, além de estética, a identidade e as paixões de quem vai vivê-lo.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "camisas iluminadas",
+      "uso": "Projeto na galeria (render). Atenção: camisas de clubes e da seleção são marcas de terceiros; como objeto do cliente no ambiente, tudo bem, mas não usar como capa do site.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 92314,
+      "sha256": "f7d1bc211e7422fe62a1cc3120d2466e6052e7b5104d89eaddbd275684d2cc42",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "clinica-cordis-render-01",
+      "arquivo": "SaveClip.App_814126790_17905387188483108_1642846121625212765_n.jpg",
+      "tipo": "imagem",
+      "projeto": "clinica-cordis",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DdY8lWNlqx7",
+        "data": "17/09/2026",
+        "url": "https://www.instagram.com/p/DdY8lWNlqx7/"
+      },
+      "legenda": "Clínica Cordis 🫀\n\nConsultório de cardiologia desenvolvido a partir da integração entre funcionalidade, conforto e identidade visual.\n\nA marcenaria organiza o armazenamento e o apoio ao atendimento, enquanto a bancada de trabalho favorece uma rotina mais prática e fluida. O elemento do coração integrado ao painel reforça a especialidade de forma sutil e autoral.\n\nUm projeto em que cada elemento foi pensado para contribuir tanto para a estética quanto para o uso cotidiano do espaço.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "bancada de pedra escura e marcenaria",
+      "uso": "Projeto comercial na galeria (render). O coração iluminado é o melhor detalhe de \"luz como assinatura\".",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 66440,
+      "sha256": "ac872537e0dfb210820a63ff9e84c4df8096fbe6d047d44d439da7b64c34c017",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "clinica-cordis-render-02",
+      "arquivo": "SaveClip.App_814768821_17905387179483108_1153894318454629804_n.jpg",
+      "tipo": "imagem",
+      "projeto": "clinica-cordis",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DdY8lWNlqx7",
+        "data": "17/09/2026",
+        "url": "https://www.instagram.com/p/DdY8lWNlqx7/"
+      },
+      "legenda": "Clínica Cordis 🫀\n\nConsultório de cardiologia desenvolvido a partir da integração entre funcionalidade, conforto e identidade visual.\n\nA marcenaria organiza o armazenamento e o apoio ao atendimento, enquanto a bancada de trabalho favorece uma rotina mais prática e fluida. O elemento do coração integrado ao painel reforça a especialidade de forma sutil e autoral.\n\nUm projeto em que cada elemento foi pensado para contribuir tanto para a estética quanto para o uso cotidiano do espaço.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "mesa e painel com o coração iluminado (capa)",
+      "uso": "Projeto comercial na galeria (render). O coração iluminado é o melhor detalhe de \"luz como assinatura\".",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 81648,
+      "sha256": "09329aebf6fcaba0b389ac4fbc661126e0ecd9bcde28f8043efc61998c07334f",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "clinica-cordis-render-03",
+      "arquivo": "SaveClip.App_814952708_17905387176483108_1622722883792592760_n.jpg",
+      "tipo": "imagem",
+      "projeto": "clinica-cordis",
+      "natureza": "render",
+      "rotulo": "Imagem 3D do projeto",
+      "autoriaImagem": "Imagem 3D: Renata Nürnberg",
+      "creditoProjeto": "Projeto e imagens 3D: Renata Nürnberg para Lavina | Coletivo de Arquitetura.",
+      "post": {
+        "codigo": "DdY8lWNlqx7",
+        "data": "17/09/2026",
+        "url": "https://www.instagram.com/p/DdY8lWNlqx7/"
+      },
+      "legenda": "Clínica Cordis 🫀\n\nConsultório de cardiologia desenvolvido a partir da integração entre funcionalidade, conforto e identidade visual.\n\nA marcenaria organiza o armazenamento e o apoio ao atendimento, enquanto a bancada de trabalho favorece uma rotina mais prática e fluida. O elemento do coração integrado ao painel reforça a especialidade de forma sutil e autoral.\n\nUm projeto em que cada elemento foi pensado para contribuir tanto para a estética quanto para o uso cotidiano do espaço.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq",
+      "descricao": "vista frontal",
+      "uso": "Projeto comercial na galeria (render). O coração iluminado é o melhor detalhe de \"luz como assinatura\".",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 85162,
+      "sha256": "515954cfbe95386824eab47392ee385cda3c11db00a0f7509f3825d96c4965ab",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 810
+      }
+    },
+    {
+      "id": "retrato-amanda-01",
+      "arquivo": "SaveClip.App_580827631_18544936525018331_8547383983760961003_n.jpg",
+      "tipo": "imagem",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Retrato",
+      "pessoa": "Amanda Lavina",
+      "autoriaImagem": "fotógrafa marcada no post: @sabrinarodriguesfoto",
+      "creditoProjeto": null,
+      "post": {
+        "codigo": "DQ-S7BtjVgp",
+        "data": "12/11/2025, perfil @lavinamanda",
+        "url": "https://www.instagram.com/p/DQ-S7BtjVgp/"
+      },
+      "legenda": null,
+      "legendaObs": "não usar (legenda pessoal de aniversário)",
+      "descricao": "retrato de estúdio P&B, corpo inteiro na poltrona",
+      "uso": "retrato da equipe",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 180451,
+      "sha256": "22145c87c7613755ca7f02334a33cce4ab302e6f897ebb3d05bf62d462184cce",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "retrato-amanda-02",
+      "arquivo": "SaveClip.App_581351139_18544936519018331_5152934719825081667_n.jpg",
+      "tipo": "imagem",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Retrato",
+      "pessoa": "Amanda Lavina",
+      "autoriaImagem": "@sabrinarodriguesfoto",
+      "creditoProjeto": null,
+      "post": {
+        "codigo": "DQ-S7BtjVgp",
+        "data": null,
+        "url": "https://www.instagram.com/p/DQ-S7BtjVgp/"
+      },
+      "legenda": null,
+      "legendaObs": "não usar",
+      "descricao": "retrato de estúdio P&B, meio corpo (melhor para hero/sobre)",
+      "uso": "retrato da equipe",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 291481,
+      "sha256": "0f0e22ee02d437f087e42b376db69b862cd3aade4f5eeccab62b57fc86d6345c",
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1920
+      }
+    },
+    {
+      "id": "retrato-renata-01",
+      "arquivo": "outra-arquiteta.jpg",
+      "tipo": "imagem",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Retrato",
+      "pessoa": "Renata Nürnberg",
+      "autoriaImagem": "acervo Lavina | Coletivo de Arquitetura",
+      "creditoProjeto": null,
+      "post": {
+        "codigo": "DSTUiTJjoQk",
+        "data": "15/12/2025",
+        "url": "https://www.instagram.com/p/DSTUiTJjoQk/"
+      },
+      "legenda": null,
+      "legendaObs": "ver bloco equipe",
+      "descricao": "retrato com o nome e palavras-chave queimados na imagem (\"Calma que resolve\", \"Escutar vem antes de projetar\", \"Projeta para pessoas reais\", \"Detalhe é prioridade\", \"Diálogo claro com os clientes\", \"Apaixonada por criar imagens realistas\")",
+      "uso": "retrato da equipe",
+      "problemas": ["nome e palavras-chave queimados na imagem"],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 171364,
+      "sha256": "a43afc9f5087b05658c4eb48554e719fb1bf56493ff0008e4730544045ea9eef",
+      "dimensoes": {
+        "largura": 1066,
+        "altura": 1421
+      }
+    },
+    {
+      "id": "retrato-lara-01",
+      "arquivo": "outra-arquiteta1.jpg",
+      "tipo": "imagem",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Retrato",
+      "pessoa": "Lara Honofre",
+      "autoriaImagem": "acervo Lavina | Coletivo de Arquitetura",
+      "creditoProjeto": null,
+      "post": {
+        "codigo": "DSTUiTJjoQk",
+        "data": null,
+        "url": "https://www.instagram.com/p/DSTUiTJjoQk/"
+      },
+      "legenda": null,
+      "legendaObs": "ver bloco equipe",
+      "descricao": "retrato com o nome e palavras-chave queimados (\"Sensibilidade e acolhimento\", \"Apoio no processo\", \"Evolução diária\", \"Construindo repertório\", \"Dedicação constante\")",
+      "uso": "retrato da equipe",
+      "problemas": ["nome e palavras-chave queimados na imagem"],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 283147,
+      "sha256": "9c19d1b5ad96318387136a63b8fee5d3979a76bac817053c861c7ea8f9a995d6",
+      "dimensoes": {
+        "largura": 1094,
+        "altura": 1458
+      }
+    },
+    {
+      "id": "retrato-amanda-03",
+      "arquivo": "foto-amanda.jpg",
+      "tipo": "imagem",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Retrato",
+      "pessoa": "Amanda Lavina",
+      "autoriaImagem": "a confirmar",
+      "creditoProjeto": null,
+      "post": null,
+      "legenda": null,
+      "legendaObs": "só referência; não usar no site (resolução)",
+      "descricao": "avatar do Instagram, 150×150",
+      "uso": "não usar: só referência",
+      "problemas": ["150×150 px: resolução insuficiente para o site"],
+      "edicoes": [],
+      "publicavel": false,
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 4425,
+      "sha256": "b05cc3655ea631977bb72c2b7839ddada05cc009f1d77a3d07cd2cb5c59b81a3",
+      "dimensoes": {
+        "largura": 150,
+        "altura": 150
+      }
+    },
+    {
+      "id": "video-apresentacao-principal",
+      "arquivo": "apresentacao-principal.mp4",
+      "tipo": "video",
+      "projeto": "living-jantar-painel",
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": "Acreditamos que o bom arquiteto é aquele que escuta. Que respeita o estilo, os desejos e a história de quem vai viver ali.\n\nSe você sonha com um projeto que reflita quem você é, e não apenas uma assinatura estética… você está no lugar certo.🤍",
+      "descricao": "Amanda apresentando o projeto (sala de jantar e living com painel paramétrico, cristaleira, buffet). Mesmo apartamento do reel DKuagnAMU8P (10/06/2025): \"Não precisa ser só um simples painel de tv! Neste projeto trouxemos um design inovador, que se tornou uma obra de arte ✨ Marcenaria por @mobmoveis17\". O cliente comentou: \"Nosso ambiente mais aconchegante! Da idéia a realização!\"",
+      "uso": "Vídeo principal da home (seção de apresentação; clique para tocar), e projeto \"Living e jantar com painel paramétrico\" na galeria.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "1:58 · 21 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 21975454,
+      "sha256": "df2677f4ef507b03b74ff994e08b25beb5077568bf35d39c9867cbe3dd685894",
+      "dimensoes": null
+    },
+    {
+      "id": "video-falando-sobre-primeiro-contato",
+      "arquivo": "falando-sobre-primeiro-contato.mp4",
+      "tipo": "video",
+      "projeto": null,
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": "Antes de falar de plantas, medidas e orçamentos…a gente fala sobre você.\n\nNa reunião de briefing, cada detalhe importa: seu lifestyle, o que te encanta, o que você não gosta, suas memórias e sonhos.\n\nPorque um projeto só é realmente seu quando começa pelo que é mais importante: você no centro de tudo. 🤍",
+      "descricao": "Amanda no escritório falando da primeira reunião. O logo LAVINA aparece na parede ao fundo.",
+      "uso": "Etapa 1 da trilha \"Do projeto à obra\" (escuta / briefing) e bloco antes do CTA de orçamento.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "0:25 · 3,3 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 3295172,
+      "sha256": "522ff51ca7ec8760130b1c6d1b90b83380a7b39e06bd11c3e7cc7e5d82e4a60e",
+      "dimensoes": null
+    },
+    {
+      "id": "video-mostrando-quarto",
+      "arquivo": "mostrando-quarto.mp4",
+      "tipo": "video",
+      "projeto": "quarto-closet",
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": "Esse ambiente passou por uma super transformação, redesenhamos cada centímetro para trazer mais amplitude, leveza e sofisticação 🤍\n\nÀs vezes o que você precisa não é de uma casa nova…\nMas sim, de um novo olhar para a sua casa.\nSe você sente que seu quarto não representa mais quem você é, talvez esteja na hora de transformar também.",
+      "descricao": "arquiteta apresentando quarto, closet e penteadeira reformados. Quem aparece no vídeo: confirmar (não é a Amanda dos outros vídeos).",
+      "uso": "Projeto \"Quarto e closet reformados\" na galeria; frase-chave para a seção de reforma.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "0:42 · 5 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 4951758,
+      "sha256": "46a45e53f1fefefc851539a96d3ecfaefbd90080271363ecd90c8c16f67aed4c",
+      "dimensoes": null
+    },
+    {
+      "id": "video-mudanca-cozinha",
+      "arquivo": "mudanca-cozinha.mp4",
+      "tipo": "video",
+      "projeto": "cozinha-jc",
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": "(ver Cozinha J|C)",
+      "descricao": "arquiteta apresentando a Cozinha J|C executada. Mesma cozinha do Antes & Depois do repositório.",
+      "uso": "Vídeo do projeto Cozinha J|C, ao lado do comparador.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "1:14 · 11 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 10856345,
+      "sha256": "9a0019b2ebd490745682c3d3f366844d20b4b9623972e6bf179e07515aca8809",
+      "dimensoes": null
+    },
+    {
+      "id": "video-novo-modelo",
+      "arquivo": "novo-modelo.mp4",
+      "tipo": "video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": "Aqui, a cliente não precisou se adaptar ao estilo do escritório. O projeto foi construído a partir da identidade dela.\n\nNada de minimalismo, mas sim, sofisticação e personalidade que caminham juntas 🤍.",
+      "descricao": "arquiteta apresentando cozinha farmhouse (marcenaria azul, cristaleiras em arco, mesa redonda). A cliente comentou: \"O projeto ficou exatamente do jeitinho que eu sonhava e imaginava.\"",
+      "uso": "Prova do pilar \"o projeto parte da identidade do cliente\" (não é um estilo único do escritório). Projeto \"Cozinha farmhouse\" na galeria.",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "0:38 · 5,2 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 5208717,
+      "sha256": "9f6aec238a3e59000d22154e10267647d4c6979cfaf2a9979312f984c008800a",
+      "dimensoes": null
+    },
+    {
+      "id": "video-um-dia-no-escritorio",
+      "arquivo": "um-dia-no-escritorio.mp4",
+      "tipo": "video",
+      "projeto": null,
+      "natureza": "video",
+      "rotulo": "Vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": "A rotina é cheia de reuniões, obras e detalhes. Mas por trás de tudo isso, existem corações que amam ver projetos virando lares, sonhos ganhando forma e famílias construindo memórias 🎯✨",
+      "descricao": "Amanda e equipe: escritório, alinhamento, apresentação de projeto, acompanhamento de obra, ambientação e entrega; termina com o logo LAVINA. Tem os rótulos \"8 AM Escritório\", \"9 AM Alinhamento de Equipe\", \"10 AM Apresentação de Projeto\", \"2 PM Acompanhamento de Obra\", \"Ambientação e entrega de projeto\". É o roteiro pronto da seção \"presença em cada etapa\".",
+      "uso": "Seção \"Do projeto à obra\" / \"Presença em cada etapa\" (o vídeo mais estratégico do site).",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "duracao": "1:04 · 11 MB",
+      "origemDado": "docs/dados/midia-legendas.json",
+      "bytes": 10958945,
+      "sha256": "760d18db8b246983a5ce084bbff351047cb546d52d9b4ae0ce4edc2caf9b2b5b",
+      "dimensoes": null
+    },
+    {
+      "projeto": null,
+      "rotulo": "Marca",
+      "autoriaImagem": "Lavina | Coletivo de Arquitetura",
+      "creditoProjeto": null,
+      "post": null,
+      "legenda": null,
+      "problemas": [],
+      "edicoes": [],
+      "origemDado": "sessão 1",
+      "id": "marca-logo",
+      "arquivo": "lavina-logo.svg",
+      "tipo": "vetor",
+      "natureza": "marca",
+      "descricao": "logo Lavina reconstruído em vetor",
+      "uso": "marca do site (cabeçalho, entrada, favicon)",
+      "publicavel": true,
+      "bytes": 38480,
+      "sha256": "8e022a6c57951860cd19599c08155460cf15eba63f187d97eaa9432bd96b1f2b",
+      "dimensoes": {
+        "largura": 296,
+        "altura": 252
+      }
+    },
+    {
+      "projeto": null,
+      "rotulo": "Documentação interna",
+      "autoriaImagem": "—",
+      "creditoProjeto": null,
+      "post": null,
+      "legenda": null,
+      "problemas": [],
+      "edicoes": [],
+      "origemDado": "sessão 1",
+      "id": "doc-logo-comparacao",
+      "arquivo": "lavina-logo-comparacao.jpg",
+      "tipo": "imagem",
+      "natureza": "documentacao",
+      "descricao": "comparação do logo original com a reconstrução vetorial",
+      "uso": "só documentação; não vai ao site",
+      "publicavel": false,
+      "bytes": 92831,
+      "sha256": "4ca6d424ce78f2d4b8f6e51d9a53a07fb9c1bd8e0fb417a2fd0f95f0d990c98d",
+      "dimensoes": {
+        "largura": 2020,
+        "altura": 620
+      }
+    },
+    {
+      "projeto": null,
+      "rotulo": "Não usar",
+      "autoriaImagem": "—",
+      "creditoProjeto": null,
+      "post": null,
+      "legenda": null,
+      "problemas": ["logo antigo: não publicar"],
+      "edicoes": [],
+      "origemDado": "sessão 1",
+      "id": "nao-usar-logo-antigo",
+      "arquivo": "Captura de tela de 2026-10-21 11-58-49.png",
+      "tipo": "imagem",
+      "natureza": "nao-usar",
+      "descricao": "captura de tela com o logo ANTIGO",
+      "uso": "não usar",
+      "publicavel": false,
+      "bytes": 232251,
+      "sha256": "dace00a19301353c3e2db4f68f9257b7f83341e6630aa5ff99549031f0ab75f5",
+      "dimensoes": {
+        "largura": 517,
+        "altura": 754
+      }
+    },
+    {
+      "id": "quadro-apresentacao-principal-01",
+      "arquivo": "apresentacao-principal.mp4#t=20",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "mesa redonda de jantar e pendente",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 20
+    },
+    {
+      "id": "quadro-apresentacao-principal-02",
+      "arquivo": "apresentacao-principal.mp4#t=37",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "cristaleira iluminada",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 37
+    },
+    {
+      "id": "quadro-apresentacao-principal-03",
+      "arquivo": "apresentacao-principal.mp4#t=49.25",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "bancada de café",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 49.25
+    },
+    {
+      "id": "quadro-apresentacao-principal-04",
+      "arquivo": "apresentacao-principal.mp4#t=57.25",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "mesa e pendente, forro de madeira com sanca iluminada",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 57.25
+    },
+    {
+      "id": "quadro-apresentacao-principal-05",
+      "arquivo": "apresentacao-principal.mp4#t=72.75",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "bancada e cuba",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 72.75
+    },
+    {
+      "id": "quadro-apresentacao-principal-06",
+      "arquivo": "apresentacao-principal.mp4#t=96.75",
+      "tipo": "quadro-de-video",
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DLGhb8zMT8m",
+        "data": "19/06/2025",
+        "url": "https://www.instagram.com/p/DLGhb8zMT8m/"
+      },
+      "legenda": null,
+      "descricao": "painel paramétrico com TV",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.6,
+          "motivo": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-apresentacao-principal",
+      "tempo": 96.75
+    },
+    {
+      "id": "quadro-mostrando-quarto-01",
+      "arquivo": "mostrando-quarto.mp4#t=9",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "cabeceira e arandela",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 9
+    },
+    {
+      "id": "quadro-mostrando-quarto-02",
+      "arquivo": "mostrando-quarto.mp4#t=11",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "cama",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 11
+    },
+    {
+      "id": "quadro-mostrando-quarto-03",
+      "arquivo": "mostrando-quarto.mp4#t=15",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "quarto com janela",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 15
+    },
+    {
+      "id": "quadro-mostrando-quarto-04",
+      "arquivo": "mostrando-quarto.mp4#t=25",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "penteadeira e nichos",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 25
+    },
+    {
+      "id": "quadro-mostrando-quarto-05",
+      "arquivo": "mostrando-quarto.mp4#t=29",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "closet e penteadeira",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 29
+    },
+    {
+      "id": "quadro-mostrando-quarto-06",
+      "arquivo": "mostrando-quarto.mp4#t=33",
+      "tipo": "quadro-de-video",
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DVPU7xpDhVQ",
+        "data": "26/02/2026",
+        "url": "https://www.instagram.com/p/DVPU7xpDhVQ/"
+      },
+      "legenda": null,
+      "descricao": "cama e penteadeira",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mostrando-quarto",
+      "tempo": 33
+    },
+    {
+      "id": "quadro-novo-modelo-01",
+      "arquivo": "novo-modelo.mp4#t=10",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "mesa redonda e cristaleiras em arco",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 10
+    },
+    {
+      "id": "quadro-novo-modelo-02",
+      "arquivo": "novo-modelo.mp4#t=17.25",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "marcenaria azul com fita de LED no rodapé",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 17.25
+    },
+    {
+      "id": "quadro-novo-modelo-03",
+      "arquivo": "novo-modelo.mp4#t=19.5",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "cozinha e bancada",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 19.5
+    },
+    {
+      "id": "quadro-novo-modelo-04",
+      "arquivo": "novo-modelo.mp4#t=22",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "estar com TV",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 22
+    },
+    {
+      "id": "quadro-novo-modelo-05",
+      "arquivo": "novo-modelo.mp4#t=24.25",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "bar em arco",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 24.25
+    },
+    {
+      "id": "quadro-novo-modelo-06",
+      "arquivo": "novo-modelo.mp4#t=26",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DeHe75fOqIA",
+        "data": "05/10/2026",
+        "url": "https://www.instagram.com/p/DeHe75fOqIA/"
+      },
+      "legenda": null,
+      "descricao": "bar e janela",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.8,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-novo-modelo",
+      "tempo": 26
+    },
+    {
+      "id": "quadro-mudanca-cozinha-01",
+      "arquivo": "mudanca-cozinha.mp4#t=3.25",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 3.25
+    },
+    {
+      "id": "quadro-mudanca-cozinha-02",
+      "arquivo": "mudanca-cozinha.mp4#t=20",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 20
+    },
+    {
+      "id": "quadro-mudanca-cozinha-03",
+      "arquivo": "mudanca-cozinha.mp4#t=30",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 30
+    },
+    {
+      "id": "quadro-mudanca-cozinha-04",
+      "arquivo": "mudanca-cozinha.mp4#t=42.25",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 42.25
+    },
+    {
+      "id": "quadro-mudanca-cozinha-05",
+      "arquivo": "mudanca-cozinha.mp4#t=47",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 47
+    },
+    {
+      "id": "quadro-mudanca-cozinha-06",
+      "arquivo": "mudanca-cozinha.mp4#t=64.25",
+      "tipo": "quadro-de-video",
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "rotulo": "Obra executada (quadro de vídeo)",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DZn_e-qOnLN",
+        "data": "15/06/2026",
+        "url": "https://www.instagram.com/p/DZn_e-qOnLN/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.82,
+          "motivo": "exclui a marca d'água (monograma) no rodapé"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-mudanca-cozinha",
+      "tempo": 64.25
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-01",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=3.75",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 3.75
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-02",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=5.36",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 5.36
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-03",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=10.47",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 10.47
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-04",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=11.07",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 11.07
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-05",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=14.43",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 14.43
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-06",
+      "arquivo": "falando-sobre-primeiro-contato.mp4#t=19.29",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DNVwPbWxkqZ",
+        "data": "14/08/2025",
+        "url": "https://www.instagram.com/p/DNVwPbWxkqZ/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-falando-sobre-primeiro-contato",
+      "tempo": 19.29
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-01",
+      "arquivo": "um-dia-no-escritorio.mp4#t=9",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 9
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-02",
+      "arquivo": "um-dia-no-escritorio.mp4#t=16.29",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 16.29
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-03",
+      "arquivo": "um-dia-no-escritorio.mp4#t=27.83",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 27.83
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-04",
+      "arquivo": "um-dia-no-escritorio.mp4#t=36.37",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 36.37
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-05",
+      "arquivo": "um-dia-no-escritorio.mp4#t=41.16",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 41.16
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-06",
+      "arquivo": "um-dia-no-escritorio.mp4#t=50.2",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "quadro automático",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 50.2
+    },
+    {
+      "id": "quadro-obra-galpao-01",
+      "arquivo": "um-dia-no-escritorio.mp4#t=38",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "chegada ao galpão da obra",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.66,
+          "motivo": "exclui o carro estacionado (placa) na parte de baixo"
+        }
+      ],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 38
+    },
+    {
+      "id": "quadro-obra-galpao-02",
+      "arquivo": "um-dia-no-escritorio.mp4#t=38.65",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "o galpão em obra, visto por dentro",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 38.65
+    },
+    {
+      "id": "quadro-obra-galpao-03",
+      "arquivo": "um-dia-no-escritorio.mp4#t=48.25",
+      "tipo": "quadro-de-video",
+      "projeto": null,
+      "natureza": "retrato",
+      "rotulo": "Quadro de vídeo",
+      "autoriaImagem": "Vídeo: acervo Lavina | Coletivo de Arquitetura (publicado por @lavina.co.arq)",
+      "creditoProjeto": "Lavina | Coletivo de Arquitetura",
+      "post": {
+        "codigo": "DOd4IshDqUc",
+        "data": "11/09/2025",
+        "url": "https://www.instagram.com/p/DOd4IshDqUc/"
+      },
+      "legenda": null,
+      "descricao": "conversa com a equipe na obra (operário sem rosto no quadro)",
+      "uso": "tamanho médio (720 px de largura nativa; sem upscale)",
+      "problemas": [],
+      "edicoes": [],
+      "publicavel": true,
+      "origemDado": "docs/dados/stills.json",
+      "video": "video-um-dia-no-escritorio",
+      "tempo": 48.25
+    }
+  ]
+}

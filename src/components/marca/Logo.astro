@@ -1,0 +1,151 @@
+---
+// Logo Lavina inline (currentColor), a partir do SVG otimizado (scripts/marca.mjs).
+// Variantes: completa | monograma | lavina. Modo "desenhar": cada traço (pathLength=1)
+// se desenha em sequência — marca → LAVINA → subtítulo (fade). Pronto = idêntico ao SVG.
+import svgBruto from './lavina-logo.svg?raw';
+
+interface Props {
+  variante?: 'completa' | 'monograma' | 'lavina';
+  desenhar?: boolean;
+  /** atraso inicial do desenho, em ms */
+  atraso?: number;
+  /** fator de velocidade do desenho (1 = padrão; 1,4 = 40% mais rápido) */
+  velocidade?: number;
+  titulo?: string;
+  decorativo?: boolean;
+  class?: string;
+}
+
+const {
+  variante = 'completa',
+  desenhar = false,
+  atraso = 0,
+  velocidade = 1,
+  titulo = 'Lavina — coletivo de arquitetura',
+  decorativo = false,
+  class: classe,
+} = Astro.props;
+
+const grupo = (id: string): string => {
+  const m = svgBruto.match(new RegExp(`<g id="${id}"[\\s\\S]*?</g>`));
+  if (!m) throw new Error(`grupo #${id} ausente no logo`);
+  return m[0];
+};
+const subtitulo = svgBruto.match(/<path id="subtitulo"[^>]*\/>/)?.[0] ?? '';
+
+const VIEWBOX = {
+  completa: '12 14 296 252',
+  monograma: '110 15 105 137',
+  lavina: '20 159 285 65',
+} as const;
+
+// Tempos do desenho (ms). Marca: 2 traços longos; LAVINA: 8 traços curtos em cascata.
+let n = 0;
+const tempos = (bloco: string, ini: number, dur: number, passo: number) =>
+  bloco.replace(/pathLength="1"/g, () => {
+    const t = (ini + passo * n++) / velocidade;
+    return `pathLength="1" style="--atraso:${Math.round(atraso + t)}ms;--dur:${Math.round(dur / velocidade)}ms"`;
+  });
+
+let corpo = '';
+if (variante === 'completa' || variante === 'monograma') {
+  n = 0;
+  corpo += desenhar ? tempos(grupo('marca'), 0, 900, 650) : grupo('marca');
+}
+if (variante === 'completa' || variante === 'lavina') {
+  n = 0;
+  const inicio = variante === 'completa' ? 1150 : 0;
+  corpo += desenhar ? tempos(grupo('lavina'), inicio, 520, 95) : grupo('lavina');
+}
+if (variante === 'completa') {
+  corpo += desenhar
+    ? subtitulo.replace(
+        '<path',
+        `<path style="--atraso:${Math.round(atraso + 2050 / velocidade)}ms;--dur:${Math.round(700 / velocidade)}ms"`,
+      )
+    : subtitulo;
+}
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={VIEWBOX[variante]}
+  class:list={['logo', `logo--${variante}`, { 'logo--desenhar': desenhar }, classe]}
+  role={decorativo ? undefined : 'img'}
+  aria-label={decorativo ? undefined : titulo}
+  aria-hidden={decorativo ? 'true' : undefined}
+  data-logo
+  data-variante={variante}
+  set:html={(decorativo ? '' : `<title>${titulo}</title>`) + corpo}
+/>
+
+<style>
+  .logo {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    color: currentColor;
+  }
+
+  /* Desenho: só com movimento permitido. Sem ele, o logo aparece pronto. */
+  @media (prefers-reduced-motion: no-preference) {
+    .logo--desenhar :global(path[pathLength]) {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      stroke-opacity: 0;
+      animation: logo-traco var(--dur) var(--ease-saida) var(--atraso) forwards;
+    }
+    .logo--desenhar :global(#subtitulo) {
+      opacity: 0;
+      animation: logo-subtitulo var(--dur) var(--ease-suave) var(--atraso) forwards;
+    }
+    /* No escuro, o traço nasce como luz e assenta na cor do logo. */
+    :global([data-theme='dark']) .logo--desenhar :global(path[pathLength]) {
+      animation-name: logo-traco-luz;
+    }
+  }
+
+  @keyframes logo-traco {
+    0% {
+      stroke-dashoffset: 1;
+      stroke-opacity: 1;
+    }
+    99.9% {
+      stroke-dashoffset: 0;
+      stroke-opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      stroke-opacity: 1;
+      stroke-dasharray: none;
+    }
+  }
+
+  @keyframes logo-traco-luz {
+    0% {
+      stroke: var(--luz);
+      stroke-dashoffset: 1;
+      stroke-opacity: 1;
+    }
+    70% {
+      stroke: var(--luz);
+    }
+    99.9% {
+      stroke: currentColor;
+      stroke-dashoffset: 0;
+      stroke-opacity: 1;
+    }
+    100% {
+      stroke: currentColor;
+      stroke-dashoffset: 0;
+      stroke-opacity: 1;
+      stroke-dasharray: none;
+    }
+  }
+
+  @keyframes logo-subtitulo {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

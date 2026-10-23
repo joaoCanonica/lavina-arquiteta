@@ -1,0 +1,18 @@
+---
+// Páginas internas (noindex). O roteador do Astro ignora arquivos com "_", por isso
+// /_pendencias (só no preview) e /_sistema saem desta rota dinâmica.
+import PaginaPendencias from '../components/internas/PaginaPendencias.astro';
+import PaginaSistema from '../components/internas/PaginaSistema.astro';
+import { ehPreview } from '../config/modo.ts';
+
+export function getStaticPaths() {
+  return [
+    ...(ehPreview ? [{ params: { interna: '_pendencias' } }] : []),
+    { params: { interna: '_sistema' } },
+  ];
+}
+
+const { interna } = Astro.params;
+---
+
+{interna === '_pendencias' ? <PaginaPendencias /> : <PaginaSistema />}

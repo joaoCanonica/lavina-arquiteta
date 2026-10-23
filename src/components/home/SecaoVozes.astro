@@ -1,0 +1,129 @@
+---
+// 7. Vozes (osso). Gesto: a nota em display enorme e as falas em linhas editoriais
+// (texto corrido, nome à direita), sem caixas. Textos: COPY_DECK §6; nota: config.
+import { config } from '../../config/index.ts';
+
+const g = config.avaliacoes.google;
+const nota = g.nota.valor.toFixed(1).replace('.', ',');
+const data = g.conferidoEm.split('-').reverse().join('/');
+const falas = [
+  {
+    texto:
+      '“Fez a reforma da nossa casa, em Lages/SC — e nós morando em outro estado (MS). Fez o projeto, providenciou materiais, mão de obra e acompanhou a execução. Muito cuidadosa com orçamentos, opções de materiais e sempre disponível.”',
+    autor: 'Jane W.',
+  },
+  {
+    texto:
+      '“[…] atende em Lages/SC, mas que também faz projetos e acompanhamento de obra em outras cidades.”',
+    autor: 'Isabel S.',
+  },
+  {
+    texto:
+      '“Projetos de muita elegância e bom gosto. Acompanha a obra de perto e é extremamente exigente com o resultado final.”',
+    autor: 'Roberta S.',
+  },
+];
+---
+
+<section class="vozes" data-theme="light" data-tone="claro" aria-labelledby="vozes-titulo">
+  <div class="vozes__nota">
+    <p class="t-rotulo t-secundario">Vozes</p>
+    <h2 id="vozes-titulo" class="vozes__numero">
+      {nota}<span class="so-leitor"> de 5 no Google</span>
+    </h2>
+    <p class="vozes__total">
+      {g.total.valor} avaliações no Google (conferido em {data})
+    </p>
+    <a class="vozes__link" href={g.url} target="_blank" rel="noopener noreferrer">
+      Ver a ficha no Google<span class="so-leitor"> (abre em nova aba)</span>
+    </a>
+  </div>
+  <ol class="vozes__falas">
+    {
+      falas.map((f) => (
+        <li class="fala">
+          <blockquote>
+            <p>{f.texto}</p>
+          </blockquote>
+          <p class="fala__autor">— {f.autor}, no Google</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .vozes {
+    display: grid;
+    gap: var(--e-8);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .vozes__nota {
+    display: grid;
+    gap: var(--e-3);
+    align-content: start;
+  }
+  .vozes__numero {
+    font-size: clamp(6rem, 3rem + 14vw, 15rem);
+    font-weight: var(--peso-display);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    font-variant-numeric: lining-nums;
+  }
+  .vozes__total {
+    color: var(--cor-texto-2);
+  }
+  .vozes__link {
+    justify-self: start;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+  .vozes__falas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .fala {
+    display: grid;
+    gap: var(--e-3);
+    padding-block: var(--e-6);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .fala blockquote p {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.55;
+    max-width: 38rem;
+  }
+  .fala__autor {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  @media (min-width: 64rem) {
+    .vozes {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      column-gap: var(--e-9);
+      align-items: start;
+    }
+    .vozes__nota {
+      position: sticky;
+      top: 6rem;
+    }
+    .fala {
+      grid-template-columns: minmax(0, 1fr) 9rem;
+      column-gap: var(--e-6);
+    }
+    .fala__autor {
+      text-align: right;
+      padding-top: 0.3em;
+    }
+  }
+</style>

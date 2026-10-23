@@ -1,0 +1,85 @@
+---
+// Botão: linha + texto (sem pílula, sem preenchimento). Primário tem a linha longa
+// que se estende no hover; secundário só sublinha.
+interface Props {
+  href?: string;
+  variante?: 'primario' | 'secundario';
+  tipo?: 'button' | 'submit';
+  externo?: boolean;
+  class?: string;
+}
+const {
+  href,
+  variante = 'primario',
+  tipo = 'button',
+  externo = false,
+  class: classe,
+} = Astro.props;
+const classes = ['botao', `botao--${variante}`, classe];
+const ext = externo ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes} {...ext}>
+      <span class="botao__texto">
+        <slot />
+      </span>
+      <span class="botao__linha" aria-hidden="true" />
+      {externo && <span class="so-leitor"> (abre em nova aba)</span>}
+    </a>
+  ) : (
+    <button type={tipo} class:list={classes}>
+      <span class="botao__texto">
+        <slot />
+      </span>
+      <span class="botao__linha" aria-hidden="true" />
+    </button>
+  )
+}
+
+<style>
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    min-height: 44px;
+    padding: var(--e-2) 0;
+    border: 0;
+    background: none;
+    color: var(--cor-texto);
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .botao__linha {
+    display: block;
+    width: 3.5rem;
+    height: var(--linha);
+    background: currentColor;
+    transform-origin: 0 50%;
+    transition: transform var(--dur-media) var(--ease-saida);
+  }
+  .botao--primario:hover .botao__linha,
+  .botao--primario:focus-visible .botao__linha {
+    transform: scaleX(1.6);
+  }
+  .botao--secundario {
+    color: var(--cor-texto-2);
+  }
+  .botao--secundario .botao__linha {
+    display: none;
+  }
+  .botao--secundario .botao__texto {
+    text-decoration: underline;
+    text-decoration-thickness: var(--linha);
+    text-underline-offset: 0.5em;
+  }
+  .botao--secundario:hover {
+    color: var(--cor-texto);
+  }
+</style>

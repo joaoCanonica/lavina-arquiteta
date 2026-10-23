@@ -1,0 +1,215 @@
+---
+// 6. O coletivo (grafite). Gesto: três retratos de mesma altura numa faixa; Amanda em
+// destaque (coluna mais larga, nome em display); palavras-chave como texto vivo.
+// Textos: COPY_DECK §5. Formação e CAU: pendentes (não aparecem).
+import Imagem from '../ui/Imagem.astro';
+
+const pessoas = [
+  {
+    id: 'amanda',
+    nome: 'Amanda Lavina',
+    papel: 'Arquiteta líder',
+    retrato: 'retrato-amanda-02',
+    credito: 'Fotografia: @sabrinarodriguesfoto',
+    alt: 'Retrato de Amanda Lavina em estúdio, em preto e branco',
+    palavras: [] as string[],
+    citacao: {
+      texto: '“Hoje eu não projeto mais pra impressionar, eu projeto pra viver.”',
+      post: 'DXzMwBRFUox',
+    },
+  },
+  {
+    id: 'renata',
+    nome: 'Renata Nürnberg',
+    papel: 'Arquiteta e urbanista · interiores e imagens realistas',
+    retrato: 'retrato-renata-01',
+    credito: null,
+    alt: 'Retrato de Renata Nürnberg',
+    palavras: [
+      'Calma que resolve',
+      'Escutar vem antes de projetar',
+      'Projeta para pessoas reais',
+      'Detalhe é prioridade',
+      'Diálogo claro com os clientes',
+      'Apaixonada por criar imagens realistas',
+    ],
+    citacao: null,
+  },
+  {
+    id: 'lara',
+    nome: 'Lara Honofre',
+    papel: 'Arquitetura e urbanismo',
+    retrato: 'retrato-lara-01',
+    credito: null,
+    alt: 'Retrato de Lara Honofre',
+    palavras: [
+      'Sensibilidade e acolhimento',
+      'Apoio no processo',
+      'Evolução diária',
+      'Construindo repertório',
+      'Dedicação constante',
+    ],
+    citacao: null,
+  },
+];
+---
+
+<section class="coletivo" data-theme="dark" data-tone="escuro" aria-labelledby="coletivo-titulo">
+  <header class="coletivo__topo">
+    <p class="t-rotulo t-secundario">O coletivo</p>
+    <h2 id="coletivo-titulo" class="coletivo__titulo" data-fonte-post="DSTUiTJjoQk">
+      Cada uma com sua essência, todas com o mesmo propósito: criar espaços que respeitam quem
+      habita.
+    </h2>
+  </header>
+
+  <ul class="coletivo__faixa">
+    {
+      pessoas.map((p) => (
+        <li class:list={['pessoa', `pessoa--${p.id}`]} data-midia>
+          <figure class="pessoa__retrato">
+            <Imagem
+              id={p.retrato}
+              alt={p.alt}
+              natureza="retrato"
+              sizes="(min-width: 64rem) 30vw, 80vw"
+            />
+            <figcaption class="pessoa__legenda">
+              <span data-rotulo-natureza data-natureza="retrato">
+                Retrato
+              </span>
+              {p.credito && <span> · {p.credito}</span>}
+            </figcaption>
+          </figure>
+          <div class="pessoa__texto">
+            <h3 class="pessoa__nome">{p.nome}</h3>
+            <p class="pessoa__papel">{p.papel}</p>
+            {p.citacao && (
+              <blockquote class="pessoa__citacao" data-fonte-post={p.citacao.post}>
+                <p>{p.citacao.texto}</p>
+              </blockquote>
+            )}
+            {p.palavras.length > 0 && (
+              <p class="pessoa__palavras" data-fonte-post="DSTUiTJjoQk">
+                {p.palavras.map((w, i) => (
+                  <>
+                    <span>{w}</span>
+                    {i < p.palavras.length - 1 && <span aria-hidden="true"> · </span>}
+                  </>
+                ))}
+              </p>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <a class="coletivo__link" href="/coletivo/">Conheça o coletivo</a>
+</section>
+
+<style>
+  .coletivo {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .coletivo__titulo {
+    font-size: var(--t-subtitulo);
+    font-weight: 300;
+    line-height: 1.25;
+    max-width: 26ch;
+  }
+  .coletivo__faixa {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-8);
+  }
+  .pessoa {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .pessoa__retrato {
+    display: grid;
+    gap: var(--e-2);
+  }
+  /* Mesma altura para as três: o recorte é do retrato (object-fit), nunca da pessoa. */
+  .pessoa__retrato :global(picture),
+  .pessoa__retrato :global(img) {
+    width: 100%;
+    height: clamp(22rem, 60vw, 34rem);
+  }
+  .pessoa__retrato :global(img) {
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+  .pessoa__legenda {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.08em;
+    color: var(--cor-texto-2);
+  }
+  .pessoa__nome {
+    font-size: var(--t-subtitulo);
+    font-weight: 300;
+  }
+  .pessoa--amanda .pessoa__nome {
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+  }
+  .pessoa__papel {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .pessoa__citacao p {
+    font-family: var(--fonte-citacao);
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--t-corpo-grande);
+    max-width: 24ch;
+  }
+  .pessoa__palavras {
+    font-size: var(--t-corpo);
+    line-height: 1.7;
+    color: var(--cor-texto);
+  }
+  .pessoa__palavras span[aria-hidden] {
+    color: var(--cor-acento);
+  }
+  .coletivo__link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .coletivo__link::after {
+    content: '';
+    width: 3.5rem;
+    height: var(--linha);
+    background: currentColor;
+  }
+
+  @media (min-width: 64rem) {
+    .coletivo__faixa {
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: var(--e-6);
+      align-items: start;
+    }
+    .pessoa__retrato :global(picture),
+    .pessoa__retrato :global(img) {
+      height: 34rem;
+    }
+  }
+</style>

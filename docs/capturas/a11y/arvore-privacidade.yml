@@ -1,0 +1,227 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- banner:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - navigation "Principal":
+    - list:
+      - listitem:
+        - link "Projetos":
+          - /url: /projetos/
+      - listitem:
+        - link "Processo":
+          - /url: /processo/
+      - listitem:
+        - link "Coletivo":
+          - /url: /coletivo/
+      - listitem:
+        - link "Contato":
+          - /url: /contato/
+  - link "WhatsApp (abre em nova aba)":
+    - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+- main:
+  - paragraph: Privacidade
+  - heading "Política de privacidade e de cookies" [level=1]
+  - paragraph:
+    - text: Atualizada em
+    - time: 22 de outubro de 2026
+    - text: .
+  - paragraph: "Em resumo: este site não tem formulário e não pede seus dados. O orçamento é conversado pelo WhatsApp, quando você decide abrir a conversa. Mapa do Google e estatística de visitas só funcionam se você aceitar, e você pode mudar essa escolha a qualquer momento."
+  - navigation "Nesta página":
+    - list:
+      - listitem:
+        - link "Quem cuida dos dados":
+          - /url: "#controlador"
+      - listitem:
+        - link "Que dados são tratados":
+          - /url: "#dados"
+      - listitem:
+        - link "Finalidades e bases legais":
+          - /url: "#bases"
+      - listitem:
+        - link "Serviços de terceiros":
+          - /url: "#terceiros"
+      - listitem:
+        - link "Cookies e armazenamento local":
+          - /url: "#cookies"
+      - listitem:
+        - link "Por quanto tempo":
+          - /url: "#retencao"
+      - listitem:
+        - link "Seus direitos":
+          - /url: "#direitos"
+      - listitem:
+        - link "Como falar conosco":
+          - /url: "#contato"
+  - region "1. Quem cuida dos dados":
+    - heading "1. Quem cuida dos dados" [level=2]
+    - paragraph:
+      - text: A controladora dos dados tratados por este site é a
+      - strong: Amanda Lavina Arquitetura Ltda
+      - text: ", CNPJ 52.116.202/0001-05, que atua com o nome Lavina — coletivo de arquitetura. Endereço: Av. Pres. Vargas, 505, Sagrado Coração de Jesus, Lages/SC, CEP 88508-110."
+  - region "2. Que dados são tratados":
+    - heading "2. Que dados são tratados" [level=2]
+    - list:
+      - listitem:
+        - strong: "Ao navegar:"
+        - text: a hospedagem do site (Vercel) recebe dados técnicos de cada acesso, como endereço IP, data e hora, página pedida e tipo de navegador. Isso acontece em qualquer site e serve para entregar as páginas com segurança.
+      - listitem:
+        - strong: Sua escolha de privacidade
+        - text: e, se você permitir, o tema escolhido, guardados no seu próprio navegador (veja a seção 5).
+      - listitem:
+        - strong: "Se você aceitar “Estatística”:"
+        - text: contagem de visitas por página e de cliques no WhatsApp, de forma agregada.
+      - listitem:
+        - strong: "Se você aceitar “Mapas”:"
+        - text: ao carregar o mapa, o Google recebe seu endereço IP e dados do navegador.
+      - listitem:
+        - strong: "Se você chamar no WhatsApp:"
+        - text: o que você escrever na conversa, seu nome e seu número de telefone. A mensagem pronta do site só leva o tipo de projeto e a cidade que você escolher, e pode ser editada antes de enviar.
+    - paragraph: O site não pede dados sensíveis, não tem cadastro, não faz perfil de comportamento e não é dirigido a crianças.
+  - region "3. Finalidades e bases legais":
+    - heading "3. Finalidades e bases legais" [level=2]
+    - region "3. Finalidades e bases legais":
+      - table:
+        - rowgroup:
+          - row "Finalidade Base legal (LGPD, art. 7º)":
+            - columnheader "Finalidade"
+            - columnheader "Base legal (LGPD, art. 7º)"
+        - rowgroup:
+          - row "Entregar o site com segurança (dados técnicos de acesso; escolha de privacidade) Legítimo interesse (inciso IX) e cumprimento de obrigação legal (inciso II)":
+            - cell "Entregar o site com segurança (dados técnicos de acesso; escolha de privacidade)"
+            - cell "Legítimo interesse (inciso IX) e cumprimento de obrigação legal (inciso II)"
+          - row "Guardar o tema escolhido Consentimento (inciso I)":
+            - cell "Guardar o tema escolhido"
+            - cell "Consentimento (inciso I)"
+          - row "Mostrar o mapa do escritório Consentimento (inciso I)":
+            - cell "Mostrar o mapa do escritório"
+            - cell "Consentimento (inciso I)"
+          - row "Medir visitas e cliques no WhatsApp Consentimento (inciso I)":
+            - cell "Medir visitas e cliques no WhatsApp"
+            - cell "Consentimento (inciso I)"
+          - row "Responder ao seu contato e preparar o orçamento Procedimentos preliminares de um contrato, a seu pedido (inciso V)":
+            - cell "Responder ao seu contato e preparar o orçamento"
+            - cell "Procedimentos preliminares de um contrato, a seu pedido (inciso V)"
+  - region "4. Serviços de terceiros":
+    - heading "4. Serviços de terceiros" [level=2]
+    - list:
+      - listitem:
+        - strong: "WhatsApp (Meta):"
+        - text: a conversa de orçamento acontece no WhatsApp, que tem a própria política de privacidade. O site só abre o link; nenhum script da Meta é carregado aqui.
+      - listitem:
+        - strong: "Instagram (Meta):"
+        - text: o site tem apenas links para os perfis. Nenhuma publicação é incorporada e nenhum script da Meta é carregado.
+      - listitem:
+        - strong: "Google Maps:"
+        - text: só carrega na página de contato, depois do seu consentimento para “Mapas”. Antes disso, há apenas um link que abre o mapa em outra aba.
+      - listitem:
+        - strong: "Vercel:"
+        - text: hospeda o site e, com o seu consentimento para “Estatística”, faz a contagem de visitas e cliques.
+    - paragraph: Esses serviços podem tratar dados fora do Brasil. Nesses casos, a transferência segue as regras da LGPD para transferência internacional (arts. 33 a 36).
+  - region "5. Cookies e armazenamento local":
+    - heading "5. Cookies e armazenamento local" [level=2]
+    - paragraph: "Nada além do essencial é usado antes da sua escolha. Você pode aceitar, recusar ou escolher por categoria, e mudar isso quando quiser:"
+    - paragraph:
+      - button "Rever minhas escolhas"
+    - region "5. Cookies e armazenamento local":
+      - table:
+        - rowgroup:
+          - row "Nome Onde Categoria Para quê Prazo":
+            - columnheader "Nome"
+            - columnheader "Onde"
+            - columnheader "Categoria"
+            - columnheader "Para quê"
+            - columnheader "Prazo"
+        - rowgroup:
+          - row "lavina-consentimento armazenamento local do navegador Essencial Guardar a sua escolha sobre cookies e categorias. 12 meses (depois, o site pergunta de novo)":
+            - cell "lavina-consentimento"
+            - cell "armazenamento local do navegador"
+            - cell "Essencial"
+            - cell "Guardar a sua escolha sobre cookies e categorias."
+            - cell "12 meses (depois, o site pergunta de novo)"
+          - row "lavina-entrada armazenamento da sessão Essencial Lembrar, nesta aba, que a animação de entrada já foi vista. Até fechar a aba":
+            - cell "lavina-entrada"
+            - cell "armazenamento da sessão"
+            - cell "Essencial"
+            - cell "Lembrar, nesta aba, que a animação de entrada já foi vista."
+            - cell "Até fechar a aba"
+          - row "lavina-tema armazenamento local do navegador Preferências Guardar o tema claro ou escuro escolhido. Até você apagar ou retirar o consentimento":
+            - cell "lavina-tema"
+            - cell "armazenamento local do navegador"
+            - cell "Preferências"
+            - cell "Guardar o tema claro ou escuro escolhido."
+            - cell "Até você apagar ou retirar o consentimento"
+          - row "Cookies do Google mapa incorporado (Google Maps) Mapas Exibir o mapa do escritório na página de contato. Definido pelo Google":
+            - cell "Cookies do Google"
+            - cell "mapa incorporado (Google Maps)"
+            - cell "Mapas"
+            - cell "Exibir o mapa do escritório na página de contato."
+            - cell "Definido pelo Google"
+          - row "Vercel Web Analytics script servido pelo próprio site Estatística Contar visitas e cliques no WhatsApp, de forma agregada. Definido pela Vercel":
+            - cell "Vercel Web Analytics"
+            - cell "script servido pelo próprio site"
+            - cell "Estatística"
+            - cell "Contar visitas e cliques no WhatsApp, de forma agregada."
+            - cell "Definido pela Vercel"
+  - region "6. Por quanto tempo":
+    - heading "6. Por quanto tempo" [level=2]
+    - list:
+      - listitem:
+        - strong: "Escolha de privacidade:"
+        - text: 12 meses no seu navegador.
+      - listitem:
+        - strong: "Dados técnicos de acesso:"
+        - text: pelo prazo da hospedagem e, quando a lei exigir, pelo prazo do Marco Civil da Internet (Lei 12.965/2014, art. 15).
+      - listitem:
+        - strong: "Conversas de orçamento:"
+        - text: pelo tempo necessário para o atendimento e, se houver contrato, pelos prazos legais que se aplicam a ele.
+  - region "7. Seus direitos":
+    - heading "7. Seus direitos" [level=2]
+    - paragraph: "Pela LGPD (art. 18), você pode pedir, a qualquer momento:"
+    - list:
+      - listitem: confirmação de que tratamos seus dados
+      - listitem: acesso aos dados
+      - listitem: correção de dados incompletos ou desatualizados
+      - listitem: anonimização, bloqueio ou eliminação de dados desnecessários
+      - listitem: portabilidade
+      - listitem: eliminação dos dados tratados com consentimento
+      - listitem: informação sobre com quem compartilhamos
+      - listitem: informação sobre não consentir e o que isso implica
+      - listitem: revogação do consentimento
+    - paragraph: Se a sua questão não for resolvida conosco, você pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).
+  - region "8. Como falar conosco":
+    - heading "8. Como falar conosco" [level=2]
+    - paragraph: "Para exercer seus direitos ou tirar dúvidas sobre esta política:"
+    - list:
+      - listitem:
+        - text: "WhatsApp:"
+        - link "(49) 99190-0821 (abre em nova aba)":
+          - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+      - listitem: "E-mail: E-mail de contato Provisório"
+      - listitem: "Correspondência: Amanda Lavina Arquitetura Ltda, Av. Pres. Vargas, 505, Sagrado Coração de Jesus, Lages/SC, CEP 88508-110."
+    - paragraph: Esta política pode mudar quando o site mudar. A data no topo indica a última atualização.
+- contentinfo:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - paragraph: Amanda Lavina Arquitetura Ltda · CNPJ 52.116.202/0001-05
+  - heading "Escritório" [level=2]
+  - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110
+  - paragraph: Segunda a sexta, 09h às 19h
+  - heading "Instagram" [level=2]
+  - list:
+    - listitem:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+    - listitem:
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+  - heading "Site" [level=2]
+  - list:
+    - listitem:
+      - link "Política de privacidade":
+        - /url: /privacidade/
+    - listitem:
+      - link "Preferências de cookies":
+        - /url: /privacidade/#cookies
+  - paragraph: "Site: WAXLO"

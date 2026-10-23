@@ -1,0 +1,290 @@
+---
+// 3. Projetos selecionados (osso). Gesto: lista editorial numerada, nomes grandes e finos.
+// Ponteiro fino: a imagem flutua junto ao cursor e abre pela fresta. Sem ponteiro fino:
+// miniatura fixa em cada linha. Dados: coleção "projetos" (6 com maior destaque).
+import { getCollection } from 'astro:content';
+import Imagem from '../ui/Imagem.astro';
+import Rotulo from '../ui/Rotulo.astro';
+import { naturezaExibida } from './midia.ts';
+
+// Capa de cada projeto (id do manifesto + natureza da imagem).
+const CAPAS: Record<string, { id: string; natureza: string; alt: string }> = {
+  'cozinha-jc': {
+    id: 'cozinha-jc-depois-03',
+    natureza: 'depois',
+    alt: 'Cozinha J|C: ilha de pedra e cristaleira iluminada',
+  },
+  'consultorio-jonny-arruda': {
+    id: 'consultorio-jonny-arruda-depois-02',
+    natureza: 'depois',
+    alt: 'Consultório Jonny Arruda: mesa oval de pedra e estantes iluminadas',
+  },
+  'living-jantar-painel': {
+    id: 'quadro-apresentacao-principal-06',
+    natureza: 'executado',
+    alt: 'Living com painel paramétrico de madeira e TV (quadro do vídeo)',
+  },
+  'clinica-cordis': {
+    id: 'clinica-cordis-render-02',
+    natureza: 'render',
+    alt: 'Clínica Cordis: mesa e painel com o coração iluminado',
+  },
+  'cozinha-farmhouse': {
+    id: 'quadro-novo-modelo-01',
+    natureza: 'executado',
+    alt: 'Cozinha farmhouse: mesa redonda e cristaleiras em arco (quadro do vídeo)',
+  },
+  'banheiro-tons-claros': {
+    id: 'banheiro-tons-claros-executado-03',
+    natureza: 'executado',
+    alt: 'Banheiro em tons claros: bancada e espelho com luz embutida',
+  },
+};
+const TIPO = { residencial: 'Residencial', 'saude-comercial': 'Saúde e comercial' } as const;
+
+const projetos = (await getCollection('projetos'))
+  .map((e) => e.data)
+  .sort((a, b) => b.destaque - a.destaque)
+  .slice(0, 6);
+const total = projetos.length;
+---
+
+<section class="projetos" data-theme="light" data-tone="claro" aria-labelledby="projetos-titulo">
+  <header class="projetos__topo">
+    <p class="t-rotulo t-secundario">Projetos selecionados</p>
+    <h2 id="projetos-titulo" class="so-leitor">Projetos selecionados</h2>
+  </header>
+  <ol class="projetos__lista" data-projetos-lista>
+    {
+      projetos.map((p, i) => {
+        const capa = CAPAS[p.slug];
+        const nat = capa ? naturezaExibida(capa.natureza) : null;
+        return (
+          <li class="projeto" data-midia data-projeto-linha>
+            <a href={`/projetos/${p.slug}/`} class="projeto__link">
+              <span class="projeto__n" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+              </span>
+              <span class="projeto__nome">{p.titulo}</span>
+              <span class="projeto__meta">
+                <span>{TIPO[p.tipo]}</span>
+                {p.cidade && <span>{p.cidade}</span>}
+              </span>
+            </a>
+            {capa && nat && (
+              <figure class="projeto__mini" aria-hidden="true">
+                <Imagem
+                  id={capa.id}
+                  alt={capa.alt}
+                  natureza={nat}
+                  sizes="(min-width: 64rem) 22rem, 30vw"
+                />
+              </figure>
+            )}
+            {nat && <Rotulo natureza={nat} class="projeto__rotulo" />}
+          </li>
+        );
+      })
+    }
+  </ol>
+  <a class="projetos__todos" href="/projetos/">Todos os projetos</a>
+</section>
+
+<script>
+  // Imagem que segue o cursor (só com ponteiro fino e movimento permitido).
+  const lista = document.querySelector<HTMLElement>('[data-projetos-lista]');
+  const fino = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (lista && fino && !calmo) {
+    lista.classList.add('segue-cursor');
+    let quadro = 0;
+    lista.addEventListener('pointermove', (e) => {
+      const linha = (e.target as HTMLElement).closest<HTMLElement>('[data-projeto-linha]');
+      if (!linha) return;
+      cancelAnimationFrame(quadro);
+      quadro = requestAnimationFrame(() => {
+        const r = linha.getBoundingClientRect();
+        linha.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        linha.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+  }
+</script>
+
+<style>
+  .projetos {
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .projetos__topo {
+    margin-bottom: var(--e-6);
+  }
+  .projetos__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+
+  /* ---------- Celular / sem ponteiro fino: miniatura fixa em cada linha ---------- */
+  .projeto {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 6.5rem;
+    grid-template-areas:
+      'link mini'
+      'rotulo mini';
+    column-gap: var(--e-4);
+    align-items: center;
+    padding-block: var(--e-5);
+    border-bottom: var(--linha) solid var(--cor-linha);
+  }
+  .projeto__link {
+    grid-area: link;
+    display: grid;
+    gap: var(--e-2);
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Linha de luz que corre na base no hover/foco. */
+  .projeto::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      var(--cor-fresta),
+      var(--cor-fresta-nucleo) 85%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-media) var(--ease-saida);
+    pointer-events: none;
+  }
+  .projeto:hover::after,
+  .projeto:focus-within::after {
+    transform: scaleX(1);
+  }
+  .projeto__n {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--cor-texto-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .projeto__nome {
+    font-size: clamp(1.75rem, 1rem + 3.4vw, 4.5rem);
+    font-weight: var(--peso-display);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .projeto__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-1) var(--e-4);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .projeto :global(.projeto__rotulo) {
+    grid-area: rotulo;
+    margin-top: var(--e-2);
+  }
+  .projeto__mini {
+    grid-area: mini;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .projeto__mini :global(picture),
+  .projeto__mini :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .projeto__mini :global(img) {
+    object-fit: cover;
+  }
+
+  .projetos__todos {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    min-height: 44px;
+    margin-top: var(--e-7);
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .projetos__todos::after {
+    content: '';
+    width: 3.5rem;
+    height: var(--linha);
+    background: currentColor;
+  }
+
+  /* ---------- Desktop ---------- */
+  @media (min-width: 64rem) {
+    .projeto {
+      grid-template-columns: 6rem minmax(0, 1fr) 16rem;
+      grid-template-areas: 'n link rotulo';
+      padding-block: var(--e-6);
+    }
+    .projeto__link {
+      grid-column: 1 / 3;
+      grid-template-columns: 6rem minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: 0;
+    }
+    .projeto__n {
+      grid-row: 1 / 3;
+      align-self: center;
+    }
+    .projeto :global(.projeto__rotulo) {
+      grid-area: rotulo;
+      justify-self: end;
+      margin: 0;
+    }
+    /* Sem o cursor seguindo: miniatura à direita, no hover/foco. */
+    .projeto__mini {
+      position: absolute;
+      right: 18rem;
+      top: 50%;
+      width: 14rem;
+      transform: translateY(-50%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .projeto:hover .projeto__mini,
+    .projeto:focus-within .projeto__mini {
+      opacity: 1;
+    }
+  }
+
+  /* Ponteiro fino + JS: a imagem flutua junto ao cursor e abre pela fresta. */
+  @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+    .segue-cursor .projeto__mini {
+      right: auto;
+      top: 0;
+      left: 0;
+      width: 18rem;
+      transform: translate(calc(var(--mx, 70%) + 2rem), calc(var(--my, 50%) - 50%));
+      clip-path: inset(50% 0 50% 0);
+      opacity: 1;
+      transition: clip-path 560ms var(--ease-saida);
+    }
+    .segue-cursor .projeto:hover .projeto__mini,
+    .segue-cursor .projeto:focus-within .projeto__mini {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+</style>

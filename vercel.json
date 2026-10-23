@@ -1,0 +1,38 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'sha256-2Okwa3me9DsFZmtG0r2c0T3MJIlx7tCMDbrPAIDLSnE=' 'sha256-DsT1cE4SOAEC1RvMQtugUmyc2XDWAyGoORbkuCqHIIw=' 'sha256-KpdV3RxZ7Nwe8Lw0gGg5uqmP3UJdxxjfCpD9uhqEJNI=' 'sha256-PWmNhrgGNq9U7YhhrNdkJ4q2J3C4Y6zSlM3l0932gCU=' 'sha256-PfdpLIIDtzEq+MtSAVCmRh8M1/vAPGijJl0gilAY/jE=' 'sha256-fSIEFXOBNPVkWJBgvfhSzzZOso7tWfRQaNKI0HC/SmE=' 'sha256-feWAF5jlpNOIoi9LM06o2OYR7NYIYfDqKI3DMfRUEoE=' 'sha256-gGCVJh2SM86vXaVCixawRL3tvXy0K75U8wKgit8oMD8=' 'sha256-iN7dSKTQmd/dciKr3z5NmuCj0rN5NjV2XQv1F9jrMas=' 'sha256-jE7CADvmwXjagR/pcbO6qucbbug366pf7V82gxunzJQ=' 'sha256-mskAD9OiRE4sJ9NjTnYHjby4VEDqIf3pTDGVG5a39Ck=' 'sha256-nvByii7y0SDUSAXmzy8t+XMcYo2Y3q+Y4YyYtwDqjBg=' 'sha256-r/PvQdVNxFW9lM4IvmP/zJsAoSt1Qj4E6QqQkCGvEeI=' 'sha256-s2LPir9/12utL1Yu+scKUIgGoVaHjkZO80Sgo/R+I/o=' 'sha256-tYm0bxONSsVQow9rqlpROXw7WyAh02N/Awi8yFTyQ6s=' 'sha256-tk4JA0exa8PWqgmodYLLiD5oPegOy+ilOido7z/+r6w='; style-src-elem 'self' 'sha256-FJvLHa3D6KcdUIu6+uxtuW8skvotG4M72YYRwex308w=' 'sha256-JSQBDBbQ0AIJ+W+H+seYgoqGixgpAauzBRo7yVTODns=' 'sha256-WOZAc0jPRUxuCKUjsR6Qebx85jB3DuaLkMnaVZYxT8E=' 'sha256-Zugdqv1MOXpCiP5xedTXF8p8rV+qGwS4/ECLMgB2/wM=' 'sha256-aunKYJ91wdpMKm9tzlrgptzOLBjZ7mS1oXIFNrfDhok=' 'sha256-ijx2reDaTU2jLFE75eTqU63WS/Q59DIKi19Yxfjncmk=' 'sha256-lQ+6vzPQ4GaLsAIgXOSQX/qgJMvJsAS/aEwh+n+Czlg=' 'sha256-oDCZMDACCetWPnwRSA1+ok7bKMQo8hi6L7z/QUr2YBw=' 'sha256-ttipdRlcTZmX7Y7VrXUe/rOQ0FF5ZY90mCKGjdM8T9o='; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-src https://www.google.com; manifest-src 'self'; worker-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me https://api.whatsapp.com; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), autoplay=(self), browsing-topics=(), camera=(), display-capture=(), fullscreen=(self \"https://www.google.com\"), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        }
+      ]
+    }
+  ]
+}

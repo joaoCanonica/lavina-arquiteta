@@ -1,0 +1,280 @@
+---
+// Banner de consentimento (LGPD). Aceitar, Recusar e Personalizar com o MESMO peso visual
+// (mesma classe, mesmo tamanho, mesma cor). Categorias: essenciais (sempre), preferências
+// (tema), mapas (Google Maps no /contato) e estatística (clique no WhatsApp).
+// Nenhum terceiro carrega antes da escolha. Reabre por qualquer [data-consentimento-abrir]
+// (link fixo no rodapé). Sem JS: o banner não aparece e nada de terceiro carrega.
+const CATEGORIAS = [
+  {
+    id: 'essenciais',
+    nome: 'Essenciais',
+    texto:
+      'Guardam esta escolha e lembram, nesta aba, que a animação de entrada já foi vista. Sempre ligados.',
+    fixo: true,
+  },
+  {
+    id: 'preferencias',
+    nome: 'Preferências',
+    texto: 'Guardam o tema claro ou escuro que você escolher, neste navegador.',
+    fixo: false,
+  },
+  {
+    id: 'mapas',
+    nome: 'Mapas',
+    texto:
+      'Mostram o mapa do Google na página de contato. O Google recebe seu endereço IP e dados do navegador.',
+    fixo: false,
+  },
+  {
+    id: 'estatistica',
+    nome: 'Estatística',
+    texto: 'Contam visitas e cliques no WhatsApp, de forma agregada (Vercel Web Analytics).',
+    fixo: false,
+  },
+];
+---
+
+<section
+  class="consentimento"
+  data-consentimento
+  data-theme="dark"
+  aria-labelledby="consentimento-titulo"
+  hidden
+>
+  <div class="consentimento__texto">
+    <h2 id="consentimento-titulo" class="consentimento__titulo">Sua privacidade</h2>
+    <p>
+      O essencial faz o site funcionar. Mapa do Google e estatística de visitas só entram se você
+      aceitar. Você muda isso quando quiser, no rodapé.{' '}
+      <a href="/privacidade/">Política de privacidade</a>
+    </p>
+  </div>
+
+  <fieldset
+    class="consentimento__painel"
+    id="consentimento-painel"
+    data-consentimento-painel
+    hidden
+  >
+    <legend class="so-leitor">Escolha as categorias</legend>
+    {
+      CATEGORIAS.map((c) => (
+        <label class="categoria">
+          <input
+            type="checkbox"
+            name={c.id}
+            checked={c.fixo}
+            disabled={c.fixo}
+            data-categoria={c.fixo ? undefined : c.id}
+          />
+          <span class="categoria__nome">{c.nome}</span>
+          <span class="categoria__texto">{c.texto}</span>
+        </label>
+      ))
+    }
+  </fieldset>
+
+  <div class="consentimento__acoes">
+    <button type="button" class="consentimento__botao" data-consentimento-acao="aceitar">
+      Aceitar
+    </button>
+    <button type="button" class="consentimento__botao" data-consentimento-acao="recusar">
+      Recusar
+    </button>
+    <button
+      type="button"
+      class="consentimento__botao"
+      data-consentimento-acao="personalizar"
+      aria-expanded="false"
+      aria-controls="consentimento-painel"
+    >
+      Personalizar
+    </button>
+  </div>
+</section>
+
+<script>
+  import { CATEGORIAS, lerEscolha, salvarEscolha, type Categoria } from './estado.ts';
+  import { iniciarMedicao } from './medicao.ts';
+
+  const banner = document.querySelector<HTMLElement>('[data-consentimento]');
+  const painel = banner?.querySelector<HTMLElement>('[data-consentimento-painel]');
+  const botaoPersonalizar = banner?.querySelector<HTMLButtonElement>(
+    '[data-consentimento-acao="personalizar"]',
+  );
+  const caixas = [...(banner?.querySelectorAll<HTMLInputElement>('[data-categoria]') ?? [])];
+  const raiz = document.documentElement;
+
+  const mostrar = (personalizar: boolean, focar: boolean) => {
+    if (!banner || !painel || !botaoPersonalizar) return;
+    const atual = lerEscolha();
+    caixas.forEach((c) => (c.checked = atual?.[c.dataset['categoria'] as Categoria] === true));
+    painel.hidden = !personalizar;
+    botaoPersonalizar.setAttribute('aria-expanded', String(personalizar));
+    botaoPersonalizar.textContent = personalizar ? 'Salvar escolhas' : 'Personalizar';
+    banner.hidden = false;
+    raiz.dataset['consentimentoAberto'] = '';
+    if (focar) banner.querySelector<HTMLElement>('input:not([disabled]), button')?.focus();
+  };
+  const fechar = () => {
+    if (!banner) return;
+    banner.hidden = true;
+    delete raiz.dataset['consentimentoAberto'];
+  };
+  const todas = (v: boolean) =>
+    Object.fromEntries(CATEGORIAS.map((c) => [c, v])) as Record<Categoria, boolean>;
+
+  banner?.addEventListener('click', (e) => {
+    const acao = (e.target as Element).closest<HTMLElement>('[data-consentimento-acao]')?.dataset[
+      'consentimentoAcao'
+    ];
+    if (!acao) return;
+    if (acao === 'aceitar') salvarEscolha(todas(true));
+    else if (acao === 'recusar') salvarEscolha(todas(false));
+    else if (painel?.hidden) return mostrar(true, true);
+    else
+      salvarEscolha(
+        Object.fromEntries(caixas.map((c) => [c.dataset['categoria'], c.checked])) as Record<
+          Categoria,
+          boolean
+        >,
+      );
+    fechar();
+  });
+  // Revogação/alteração: o link do rodapé reabre já no modo Personalizar.
+  document.addEventListener('click', (e) => {
+    const abrir = (e.target as Element).closest('[data-consentimento-abrir]');
+    if (!abrir) return;
+    e.preventDefault();
+    mostrar(true, true);
+  });
+  banner?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lerEscolha()) fechar();
+  });
+
+  if (!lerEscolha()) mostrar(false, false);
+  iniciarMedicao();
+</script>
+
+<style>
+  .consentimento {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--faixa-preview, 0px);
+    z-index: 900;
+    display: grid;
+    gap: var(--e-4);
+    max-height: calc(100dvh - 4rem);
+    overflow: auto;
+    padding: var(--e-5) var(--margem);
+    background: var(--grafite);
+    color: var(--osso);
+    border-top: var(--linha) solid var(--greige-profundo);
+    box-shadow: 0 -12px 32px rgb(0 0 0 / 0.25);
+  }
+  .consentimento[hidden] {
+    display: none;
+  }
+  .consentimento__texto {
+    display: grid;
+    gap: var(--e-2);
+    max-width: 44rem;
+    font-size: var(--t-pequeno);
+    color: var(--greige);
+  }
+  .consentimento__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--osso);
+  }
+  .consentimento__texto a {
+    color: var(--osso);
+  }
+  .consentimento__painel {
+    display: grid;
+    gap: var(--e-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .consentimento__painel[hidden] {
+    display: none;
+  }
+  .categoria {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0 var(--e-3);
+    align-items: baseline;
+    padding-block: var(--e-2);
+    border-top: var(--linha) solid rgb(167 156 143 / 0.3);
+    font-size: var(--t-pequeno);
+    cursor: pointer;
+  }
+  .categoria input {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: var(--luz);
+  }
+  .categoria__nome {
+    color: var(--osso);
+  }
+  .categoria__texto {
+    grid-column: 2;
+    color: var(--greige);
+  }
+  /* Os três botões: mesma classe, mesmo peso. Nenhum é destacado. */
+  .consentimento__acoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--e-3);
+  }
+  .consentimento__botao {
+    min-height: 44px;
+    padding: var(--e-2);
+    border: var(--linha) solid var(--osso);
+    background: transparent;
+    color: var(--osso);
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    cursor: pointer;
+    transition:
+      background var(--dur-curta) linear,
+      color var(--dur-curta) linear;
+  }
+  .consentimento__botao:hover,
+  .consentimento__botao:focus-visible {
+    background: var(--osso);
+    color: var(--grafite);
+  }
+  .consentimento__botao:focus-visible {
+    outline-color: var(--luz);
+  }
+
+  @media (min-width: 64rem) {
+    .consentimento {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      column-gap: var(--e-8);
+    }
+    .consentimento__painel {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: var(--e-6);
+    }
+    .consentimento__acoes {
+      grid-template-columns: repeat(3, 10rem);
+    }
+    .consentimento__botao {
+      letter-spacing: var(--espaco-rotulo);
+    }
+  }
+</style>

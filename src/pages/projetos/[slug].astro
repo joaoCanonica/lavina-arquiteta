@@ -1,0 +1,850 @@
+---
+// /projetos/[slug]: abertura com a imagem de destaque revelada pela fresta (ou o vídeo em
+// destaque, nos projetos só em vídeo), linha citável, o pedido e a resposta, citação,
+// comparadores, vídeo, galeria com lightbox, ficha técnica, Instagram e próximo projeto.
+import Cabecalho from '../../components/abertura/Cabecalho.astro';
+import DivisorFresta from '../../components/fresta/DivisorFresta.astro';
+import ComparadorFresta from '../../components/home/ComparadorFresta.astro';
+import VideoJanela from '../../components/home/VideoJanela.astro';
+import FichaTecnica from '../../components/projetos/FichaTecnica.astro';
+import Galeria from '../../components/projetos/Galeria.astro';
+import Transicoes from '../../components/projetos/Transicoes.astro';
+import {
+  TIPO,
+  nomeAutoria,
+  nomeTransicao,
+  partesTexto,
+  projetosOrdenados,
+  srcsetAvif,
+  type NaturezaExibida,
+  type ProjetoPagina,
+} from '../../components/projetos/dados.ts';
+import { paragrafoProjeto } from '../../components/seo/geo.ts';
+import Botao from '../../components/ui/Botao.astro';
+import Imagem from '../../components/ui/Imagem.astro';
+import Rotulo from '../../components/ui/Rotulo.astro';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const projetos = await projetosOrdenados();
+  return projetos.map((p) => ({
+    params: { slug: p.slug },
+    props: { projeto: p, proximo: projetos.find((x) => x.slug === p.proximo)! },
+  }));
+}
+
+interface Props {
+  projeto: ProjetoPagina;
+  proximo: ProjetoPagina;
+}
+const { projeto: p, proximo } = Astro.props;
+const total = (await projetosOrdenados()).length;
+const dois = (n: number) => String(n).padStart(2, '0');
+
+const { abertura, pedido, resposta } = partesTexto(p.textoSite);
+// Autoria e créditos perto do topo (a ficha técnica completa fica no fim da página).
+const renderista = p.autoriaImagens.find((a) => a.tipo === 'render' && a.autor)?.autor ?? null;
+// Linha citável: a primeira frase da abertura; o resto vem logo abaixo, em corpo.
+const m = abertura.match(/^(.+?[.!?])\s+([\s\S]*)$/);
+const linha = m?.[1] ?? abertura;
+const restoAbertura = m?.[2] ?? '';
+
+const NATUREZA: Record<NaturezaExibida, string> = {
+  render: 'Imagem 3D do projeto',
+  antes: 'Antes',
+  executado: 'Obra executada',
+  video: 'Vídeo',
+};
+const comVideoNoTopo = p.soVideo && p.video !== null;
+const preload = comVideoNoTopo ? null : srcsetAvif(p.capa.id);
+const vt = `view-transition-name:${nomeTransicao(p.slug)};view-transition-class:projeto-imagem`;
+const temEscuro = p.citacao || p.comparadores.length > 0 || (p.video && !comVideoNoTopo);
+---
+
+<Base titulo={p.titulo}>
+  <Fragment slot="head">
+    <Transicoes />
+    {
+      preload && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={preload}
+          imagesizes="100vw"
+          fetchpriority="high"
+        />
+      )
+    }
+  </Fragment>
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <!-- 1. Abertura -->
+    <section
+      class:list={['heroi', comVideoNoTopo ? 'heroi--video' : 'heroi--foto']}
+      data-theme="dark"
+      data-tone="escuro"
+      aria-labelledby="projeto-h1"
+    >
+      {
+        comVideoNoTopo && p.video ? (
+          <div class="heroi__video" style={vt}>
+            <VideoJanela id={p.video.id} titulo={`${p.titulo}, apresentação em vídeo`}>
+              <span>{p.legendaVideo}</span>
+            </VideoJanela>
+          </div>
+        ) : (
+          <figure class="heroi__fig" data-midia>
+            <div class="heroi__quadro">
+              <div class="heroi__midia" style={`${vt};--posicao:${p.capa.posicao ?? '50% 50%'}`}>
+                <Imagem
+                  id={p.capa.id}
+                  alt={p.capa.alt}
+                  natureza={p.capa.natureza}
+                  sizes="100vw"
+                  prioridade
+                />
+              </div>
+              <span class="heroi__fresta" aria-hidden="true" />
+            </div>
+            <figcaption class="heroi__rotulo">
+              <Rotulo natureza={p.capa.natureza} />
+            </figcaption>
+          </figure>
+        )
+      }
+      <div class="heroi__texto">
+        <p class="heroi__n">
+          <a href="/projetos/">Projetos</a>
+          <span aria-hidden="true"> · </span>
+          <span>{dois(p.ordem + 1)} / {dois(total)}</span>
+        </p>
+        <h1 id="projeto-h1" class="heroi__titulo">{p.titulo}</h1>
+        <dl class="heroi__meta">
+          {
+            p.codigo && (
+              <div>
+                <dt>Código</dt>
+                <dd>{p.codigo}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Tipo</dt>
+            <dd>{TIPO[p.tipo]}</dd>
+          </div>
+          {
+            p.cidade && (
+              <div>
+                <dt>Cidade</dt>
+                <dd>{p.cidade}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Natureza</dt>
+            <dd>{p.naturezas.map((n) => NATUREZA[n]).join(' · ')}</dd>
+          </div>
+          <div data-autoria>
+            <dt>Projeto</dt>
+            <dd>{nomeAutoria(p.autoriaProjeto)}</dd>
+          </div>
+          {
+            renderista && !p.autoriaProjeto.startsWith(renderista) && (
+              <div>
+                <dt>Imagens 3D</dt>
+                <dd>{renderista}</dd>
+              </div>
+            )
+          }
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2. Texto: linha citável, o pedido, a resposta -->
+    <section class="texto" data-theme="light" data-tone="claro" aria-label="Sobre o projeto">
+      <!-- GEO: resumo citável (40–60 palavras) com autoria e créditos, no topo do texto. -->
+      <p class="resumo" data-geo>{paragrafoProjeto(p)}</p>
+      {
+        p.soRender && (
+          <p class="aviso" data-aviso-render>
+            <Rotulo natureza="render" />
+            <span>
+              Todas as imagens desta página são imagens 3D do projeto. Nenhuma delas é foto de obra.
+            </span>
+          </p>
+        )
+      }
+      <p class="texto__linha">{linha}</p>
+      {restoAbertura && <p class="texto__resto">{restoAbertura}</p>}
+      <div class="texto__colunas">
+        {
+          pedido && (
+            <div class="texto__bloco">
+              <h2 class="texto__rotulo">
+                <span aria-hidden="true">01</span> O pedido
+              </h2>
+              <p>{pedido}</p>
+            </div>
+          )
+        }
+        {
+          resposta && (
+            <div class="texto__bloco">
+              <h2 class="texto__rotulo">
+                <span aria-hidden="true">02</span> A resposta do projeto
+              </h2>
+              <p>{resposta}</p>
+            </div>
+          )
+        }
+      </div>
+      {
+        p.detalhes.length > 0 && (
+          <div class="detalhes">
+            <h2 class="texto__rotulo">Detalhes</h2>
+            <ul>
+              {p.detalhes.map((d) => (
+                <li>{d}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </section>
+
+    <!-- 3. Citação, comparadores e vídeo (grafite) -->
+    {
+      temEscuro && (
+        <section
+          class="escuro"
+          data-theme="dark"
+          data-tone="escuro"
+          aria-label="O projeto e a obra"
+        >
+          {p.citacao && (
+            <blockquote class="citacao" data-fonte-post={p.citacao.post}>
+              <p class="t-citacao">“{p.citacao.texto}”</p>
+              <footer>
+                — {p.citacao.autor}
+                {p.citacao.nota && <span>, {p.citacao.nota}</span>} ·{' '}
+                <a
+                  href={`https://www.instagram.com/p/${p.citacao.post}/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  post {p.citacao.post}
+                  <span class="so-leitor"> (abre em nova aba)</span>
+                </a>
+              </footer>
+            </blockquote>
+          )}
+          {p.comparadores.length > 0 && (
+            <div class="comparadores">
+              <h2 class="escuro__titulo">No mesmo ângulo</h2>
+              <p class="escuro__texto">Arraste a luz, ou use as setas do teclado.</p>
+              <div class="comparadores__lista">
+                {p.comparadores.map((c) => (
+                  <div class:list={['comparador', `comparador--${c.proporcao.replace(':', '-')}`]}>
+                    <p class="comparador__titulo">{c.titulo}</p>
+                    <ComparadorFresta
+                      par={c.par}
+                      tipo={c.tipo}
+                      altA={c.altA}
+                      altB={c.altB}
+                      proporcao={c.proporcao}
+                      tamanhos={
+                        c.proporcao === '3:2'
+                          ? '(min-width: 64rem) 70vw, 100vw'
+                          : '(min-width: 64rem) 42vw, 100vw'
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {p.video && !comVideoNoTopo && (
+            <div class="video">
+              <div class="video__texto">
+                <h2 class="escuro__titulo">O vídeo da entrega</h2>
+                {p.legendaVideo && <p class="escuro__texto">{p.legendaVideo}</p>}
+              </div>
+              <VideoJanela
+                id={p.video.id}
+                titulo={`${p.titulo}, apresentação em vídeo`}
+                class="video__janela"
+              >
+                {p.video.post && (
+                  <a href={p.video.post} target="_blank" rel="noopener noreferrer">
+                    Post de origem<span class="so-leitor"> (abre em nova aba)</span>
+                  </a>
+                )}
+              </VideoJanela>
+            </div>
+          )}
+        </section>
+      )
+    }
+
+    <!-- 4. Galeria -->
+    {
+      p.galeria.length > 0 && (
+        <section
+          class="galeria-secao"
+          data-theme="light"
+          data-tone="claro"
+          aria-labelledby="galeria-titulo"
+        >
+          <h2 id="galeria-titulo" class="secao__titulo">
+            {p.soVideo ? 'Quadros do vídeo' : 'Imagens'}
+          </h2>
+          <Galeria grupos={p.galeria} titulo={p.titulo} />
+        </section>
+      )
+    }
+
+    <!-- 5. Ficha técnica -->
+    <section
+      class="ficha-secao"
+      data-theme="light"
+      data-tone="claro"
+      aria-labelledby="ficha-titulo"
+    >
+      <DivisorFresta largura="cheia" class="ficha-secao__divisor" />
+      <div class="ficha-secao__grade">
+        <div>
+          <h2 id="ficha-titulo" class="secao__titulo">Ficha técnica</h2>
+          <Botao href={p.posts[0]!.url} externo class="ficha-secao__instagram">
+            Ver no Instagram<span class="so-leitor"> (abre em nova aba)</span>
+          </Botao>
+        </div>
+        <FichaTecnica projeto={p} />
+      </div>
+    </section>
+
+    <!-- 6. Próximo projeto -->
+    <section class="proximo" data-theme="dark" data-tone="escuro" aria-labelledby="proximo-titulo">
+      <figure class="proximo__fig" data-midia>
+        <div
+          class="proximo__midia"
+          style={`view-transition-name:${nomeTransicao(proximo.slug)};view-transition-class:projeto-imagem`}
+        >
+          <Imagem
+            id={proximo.capa.id}
+            alt={proximo.capa.alt}
+            natureza={proximo.capa.natureza}
+            sizes="(min-width: 64rem) 50vw, 100vw"
+          />
+        </div>
+        <figcaption>
+          <Rotulo natureza={proximo.capa.natureza} />
+        </figcaption>
+      </figure>
+      <div class="proximo__texto">
+        <p class="t-rotulo t-secundario">Próximo projeto</p>
+        <h2 id="proximo-titulo" class="proximo__nome">
+          <a class="proximo__link" href={`/projetos/${proximo.slug}/`}>
+            <span class="proximo__sublinha">{proximo.titulo}</span>
+          </a>
+        </h2>
+        <p class="proximo__meta">
+          {TIPO[proximo.tipo]}
+          {proximo.cidade && <span> · {proximo.cidade}</span>}
+        </p>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  /* ---------- 1. Abertura ---------- */
+  .heroi {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .heroi__fig {
+    display: grid;
+  }
+  .heroi__quadro {
+    position: relative;
+    height: 74svh;
+    min-height: 22rem;
+    overflow: hidden;
+  }
+  .heroi__midia {
+    height: 100%;
+  }
+  .heroi__midia :global(picture),
+  .heroi__midia :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .heroi__midia :global(img) {
+    object-fit: cover;
+    object-position: var(--posicao, 50% 50%);
+  }
+  .heroi__fresta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: var(--linha-fresta);
+    margin-top: calc(var(--linha-fresta) / -2);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--cor-fresta) 12%,
+      var(--cor-fresta-nucleo) 50%,
+      var(--cor-fresta) 88%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    display: none;
+    pointer-events: none;
+  }
+  .heroi__rotulo {
+    padding: var(--e-3) var(--margem) 0;
+  }
+  .heroi__texto {
+    display: grid;
+    gap: var(--e-5);
+    padding: var(--e-6) var(--margem) var(--e-8);
+  }
+  .heroi__n {
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--cor-texto-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .heroi__n a {
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: var(--espaco-rotulo);
+    font-weight: var(--peso-rotulo);
+    text-decoration: none;
+    display: inline-block;
+    padding-block: 0.7rem;
+  }
+  .heroi__n a:hover {
+    color: var(--cor-texto);
+  }
+  .heroi__titulo {
+    font-size: clamp(3rem, 1.4rem + 7.4vw, 9.5rem);
+    font-weight: var(--peso-display);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+  }
+  .heroi__meta {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-4) var(--e-7);
+  }
+  .heroi__meta dt {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .heroi__meta dd {
+    margin: var(--e-1) 0 0;
+  }
+
+  /* Vídeo em destaque (projetos só em vídeo). */
+  .heroi--video {
+    display: grid;
+    gap: var(--e-6);
+    padding: calc(var(--e-10) + var(--e-4)) var(--margem) var(--e-8);
+  }
+  .heroi--video .heroi__texto {
+    padding: 0;
+    align-content: end;
+  }
+  .heroi__video {
+    width: min(100%, 26rem);
+    justify-self: center;
+  }
+
+  /* A fresta acende e a foto abre a partir dela (uma vez, na carga).
+     Chegando por View Transition, a imagem já vem aberta. */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(:root.js:not(.vt-chegada)) .heroi__midia {
+      animation: heroi-abre 1150ms var(--ease-suave) 420ms both;
+    }
+    :global(:root.js:not(.vt-chegada)) .heroi__fresta {
+      display: block;
+      animation: heroi-fresta 1700ms var(--ease-saida) both;
+    }
+  }
+  @keyframes heroi-abre {
+    from {
+      clip-path: inset(49.6% 0 49.6% 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes heroi-fresta {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    35% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+  }
+
+  /* ---------- 2. Texto ---------- */
+  .texto {
+    display: grid;
+    gap: var(--e-6);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .resumo {
+    max-width: 44rem;
+    padding-left: var(--e-4);
+    border-left: var(--linha-fresta) solid var(--cor-fresta);
+    font-size: var(--t-pequeno);
+    line-height: 1.65;
+    color: var(--cor-texto-2);
+  }
+  .aviso {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--e-2) var(--e-4);
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+    max-width: 40rem;
+  }
+  .texto__linha {
+    font-size: clamp(1.6rem, 1rem + 2.6vw, 3.4rem);
+    font-weight: var(--peso-display);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    max-width: 22em;
+  }
+  .texto__resto {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 38rem;
+    color: var(--cor-texto-2);
+  }
+  .texto__colunas {
+    display: grid;
+    gap: var(--e-6);
+    margin-top: var(--e-6);
+  }
+  .texto__bloco {
+    display: grid;
+    gap: var(--e-3);
+    padding-top: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .texto__bloco p {
+    max-width: 36rem;
+    line-height: 1.65;
+  }
+  .texto__rotulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .texto__rotulo span {
+    margin-right: var(--e-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .detalhes ul {
+    list-style: none;
+    margin: var(--e-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-2) var(--e-6);
+  }
+  .detalhes li::before {
+    content: '';
+    display: inline-block;
+    width: 0.9rem;
+    height: var(--linha);
+    margin-right: 0.6rem;
+    vertical-align: middle;
+    background: var(--cor-texto-2);
+  }
+
+  /* ---------- 3. Grafite ---------- */
+  .escuro {
+    display: grid;
+    gap: var(--e-9);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .citacao {
+    display: grid;
+    gap: var(--e-4);
+    max-width: 52rem;
+  }
+  .citacao p {
+    font-size: clamp(1.7rem, 1.1rem + 2.6vw, 3.6rem);
+  }
+  .citacao footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .citacao footer a {
+    color: inherit;
+  }
+  .escuro__titulo,
+  .secao__titulo {
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+    letter-spacing: -0.02em;
+  }
+  .escuro__texto {
+    color: var(--cor-texto-2);
+    margin-top: var(--e-2);
+  }
+  .comparadores__lista {
+    display: grid;
+    gap: var(--e-8) var(--e-6);
+    margin-top: var(--e-6);
+  }
+  .comparador {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .comparador__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .video {
+    display: grid;
+    gap: var(--e-6);
+  }
+  .video :global(.video__janela) {
+    width: min(100%, 24rem);
+  }
+  .video :global(.janela__legenda a) {
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* ---------- 4. Galeria ---------- */
+  .galeria-secao {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+
+  /* ---------- 5. Ficha ---------- */
+  .ficha-secao {
+    padding: 0 var(--margem) var(--e-9);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .ficha-secao :global(.ficha-secao__divisor) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+  .ficha-secao__grade {
+    display: grid;
+    gap: var(--e-6);
+  }
+  .ficha-secao :global(.ficha-secao__instagram) {
+    margin-top: var(--e-5);
+  }
+
+  /* ---------- 6. Próximo ---------- */
+  .proximo {
+    position: relative;
+    display: grid;
+    gap: var(--e-5);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .proximo__fig {
+    display: grid;
+    gap: var(--e-3);
+  }
+  .proximo__midia {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+  .proximo__midia :global(picture),
+  .proximo__midia :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .proximo__midia :global(img) {
+    object-fit: cover;
+    transition: transform 1100ms var(--ease-saida);
+  }
+  .proximo:hover .proximo__midia :global(img) {
+    transform: scale(1.02);
+  }
+  .proximo__texto {
+    display: grid;
+    gap: var(--e-3);
+    align-content: end;
+  }
+  .proximo__nome {
+    font-size: clamp(2.4rem, 1.2rem + 5vw, 6.5rem);
+    font-weight: var(--peso-display);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .proximo__link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .proximo__sublinha {
+    position: relative;
+  }
+  .proximo__sublinha::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.15em;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      var(--cor-fresta),
+      var(--cor-fresta-nucleo) 85%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-media) var(--ease-saida);
+  }
+  .proximo:hover .proximo__sublinha::after,
+  .proximo__link:focus-visible .proximo__sublinha::after {
+    transform: scaleX(1);
+  }
+  /* O link cobre a seção (imagem incluída). */
+  .proximo__link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .proximo__meta {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+
+  @media (min-width: 64rem) {
+    .heroi__quadro {
+      height: 86svh;
+    }
+    .heroi__texto {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      align-items: end;
+      column-gap: var(--e-8);
+    }
+    .heroi__n {
+      grid-column: 1 / -1;
+    }
+    .heroi__meta {
+      display: grid;
+      gap: var(--e-4);
+      padding-bottom: 0.6rem;
+    }
+    .heroi--video {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      column-gap: var(--e-9);
+      align-items: end;
+      min-height: 100svh;
+    }
+    .heroi--video .heroi__texto {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: 1fr;
+    }
+    .heroi__video {
+      grid-column: 2;
+      grid-row: 1;
+      width: min(100%, 25rem);
+      justify-self: end;
+    }
+    .texto {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--e-6);
+      padding-block: var(--e-10);
+    }
+    .texto > * {
+      grid-column: 2 / span 10;
+    }
+    .texto__resto {
+      grid-column: 6 / span 6;
+    }
+    .texto__colunas {
+      grid-column: 2 / span 10;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--e-8);
+    }
+    .detalhes {
+      grid-column: 2 / span 10;
+    }
+    .escuro {
+      padding-block: var(--e-10);
+    }
+    .citacao {
+      margin-left: 8.33%;
+    }
+    .comparadores__lista {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+    .comparador--3-2 {
+      grid-column: 1 / -1;
+      width: 72%;
+    }
+    .video {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      column-gap: var(--e-9);
+    }
+    .ficha-secao__grade {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      column-gap: var(--e-9);
+    }
+    .proximo {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      column-gap: var(--e-8);
+      align-items: end;
+      padding-block: var(--e-10);
+    }
+  }
+</style>

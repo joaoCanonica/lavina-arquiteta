@@ -1,0 +1,99 @@
+{
+  "slug": "cozinha-jc",
+  "titulo": "Cozinha J|C",
+  "codigo": "J|C",
+  "tipo": "residencial",
+  "cidade": "Balneário Camboriú",
+  "cidadeFonte": "marcação dos posts DZIFaXyFq8k e DZ5PcHNDj3R",
+  "ano": null,
+  "natureza": "misto",
+  "destaque": 9,
+  "autoriaProjeto": "Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    },
+    {
+      "tipo": "foto",
+      "autor": "Acervo Lavina | Coletivo de Arquitetura"
+    },
+    {
+      "tipo": "video",
+      "autor": "Acervo Lavina | Coletivo de Arquitetura"
+    }
+  ],
+  "creditosExecucao": [
+    {
+      "funcao": "marcado no post",
+      "nome": "Maitê Decorações"
+    },
+    {
+      "funcao": "marcado no post",
+      "nome": "Álamo Marmoraria"
+    },
+    {
+      "funcao": "marcado no post",
+      "nome": "Alpen Planejados"
+    },
+    {
+      "funcao": "marcado no post",
+      "nome": "AF Eletricidade"
+    }
+  ],
+  "legendaLiteral": [
+    {
+      "post": "DZ5PcHNDj3R",
+      "texto": "Mais um ANTES & DEPOIS de arrancar suspiros 😮‍💨\n\nArrasta para o lado para acompanhar detalhes dessa grande transformação 👉🏽"
+    },
+    {
+      "post": "DZn_e-qOnLN",
+      "texto": "Se você acompanhou os nossos últimos posts, já pode perceber o quanto o projeto ficou fiel a execução!\n\nNão existe acaso em um projeto bem executado.\nCada escolha tem um motivo.\nCada detalhe tem uma função.\nE quando tudo se conecta, o resultado é esse: uma cozinha que impressiona hoje e continuará bonita daqui a muitos anos.\n\nAgora conta pra gente, qual detalhe chamou sua atenção? ✨"
+    },
+    {
+      "post": "DZIFaXyFq8k",
+      "texto": "Cozinha - J|C 🤍\n\nEssa cozinha traz leveza na composição, riqueza nos detalhes.\nUm ambiente que traduz conforto e sofisticação de forma sutil e atemporal.\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq"
+    },
+    {
+      "post": "DZh0O6uFqkV",
+      "texto": "Cozinha J|C\n\nNesse projeto a beleza está na textura da pedra, na suavidade da iluminação e no equilíbrio entre cada elemento. ✨\n\nPROJETO E IMAGEM ELABORADOS PARA @lavina.co.arq"
+    }
+  ],
+  "textoSite": "A cozinha existente foi inteira repensada, e o caminho pode ser visto de ponta a ponta: a imagem 3D do projeto, o antes, a obra executada e o vídeo da entrega. Leveza na composição, riqueza nos detalhes: a textura da pedra, a suavidade da iluminação e o equilíbrio entre cada elemento.\n\n**O pedido.** Transformar a cozinha antiga (armários e bancada de granito, piso cerâmico) num ambiente de conforto e sofisticação sutil e atemporal.\n\n**A resposta do projeto.** Marcenaria clara do piso ao teto, torre de fornos, ilha de pedra com banquetas, cristaleira iluminada e uma linha de luz embutida no forro. A obra seguiu o projeto: \"Se você acompanhou os nossos últimos posts, já pode perceber o quanto o projeto ficou fiel a execução!\"",
+  "midia": [
+    "cozinha-jc-render-01",
+    "cozinha-jc-render-02",
+    "cozinha-jc-render-03",
+    "cozinha-jc-render-04",
+    "cozinha-jc-render-05",
+    "cozinha-jc-antes-01",
+    "cozinha-jc-antes-02",
+    "cozinha-jc-antes-03",
+    "cozinha-jc-antes-04",
+    "cozinha-jc-antes-05",
+    "cozinha-jc-depois-01",
+    "cozinha-jc-depois-02",
+    "cozinha-jc-depois-03",
+    "cozinha-jc-depois-04",
+    "cozinha-jc-depois-05",
+    "quadro-mudanca-cozinha-01",
+    "quadro-mudanca-cozinha-02",
+    "quadro-mudanca-cozinha-03",
+    "quadro-mudanca-cozinha-04",
+    "quadro-mudanca-cozinha-05",
+    "quadro-mudanca-cozinha-06"
+  ],
+  "pares": [
+    "cozinha-projeto-executado-fornos",
+    "cozinha-antes-depois",
+    "cozinha-antes-depois-alternativo"
+  ],
+  "videos": ["video-mudanca-cozinha"],
+  "instagram": [
+    "https://www.instagram.com/p/DZ5PcHNDj3R/",
+    "https://www.instagram.com/p/DZn_e-qOnLN/",
+    "https://www.instagram.com/p/DZIFaXyFq8k/",
+    "https://www.instagram.com/p/DZh0O6uFqkV/"
+  ],
+  "proximosProjetos": ["consultorio-jonny-arruda", "living-jantar-painel"]
+}

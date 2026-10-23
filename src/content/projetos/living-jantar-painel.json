@@ -1,0 +1,50 @@
+{
+  "slug": "living-jantar-painel",
+  "titulo": "Living e jantar com painel paramétrico",
+  "codigo": null,
+  "tipo": "residencial",
+  "cidade": null,
+  "cidadeFonte": null,
+  "ano": null,
+  "natureza": "executado",
+  "destaque": 7,
+  "autoriaProjeto": "Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "video",
+      "autor": "Acervo Lavina | Coletivo de Arquitetura"
+    }
+  ],
+  "creditosExecucao": [
+    {
+      "funcao": "Marcenaria",
+      "nome": "@mobmoveis17"
+    }
+  ],
+  "legendaLiteral": [
+    {
+      "post": "DLGhb8zMT8m",
+      "texto": "Acreditamos que o bom arquiteto é aquele que escuta. Que respeita o estilo, os desejos e a história de quem vai viver ali.\n\nSe você sonha com um projeto que reflita quem você é, e não apenas uma assinatura estética… você está no lugar certo.🤍"
+    },
+    {
+      "post": "DKuagnAMU8P",
+      "texto": "Não precisa ser só um simples painel de tv! Neste projeto trouxemos um design inovador, que se tornou uma obra de arte ✨ Marcenaria por @mobmoveis17"
+    }
+  ],
+  "textoSite": "Um living com jantar em que o painel da TV deixou de ser só um painel: a marcenaria paramétrica em madeira percorre a parede e conversa com o forro de madeira, a sanca iluminada, a mesa redonda e a cristaleira com luz. A Amanda apresenta o ambiente em vídeo.\n\n**O pedido.** Um projeto que reflita quem vai viver ali, e não apenas uma assinatura estética.\n\n**A resposta do projeto.** \"Não precisa ser só um simples painel de tv! Neste projeto trouxemos um design inovador, que se tornou uma obra de arte.\" Em volta dele: mesa redonda de madeira, cristaleira iluminada, bancada de café e forro de madeira com luz indireta (quadros do vídeo).",
+  "midia": [
+    "quadro-apresentacao-principal-01",
+    "quadro-apresentacao-principal-02",
+    "quadro-apresentacao-principal-03",
+    "quadro-apresentacao-principal-04",
+    "quadro-apresentacao-principal-05",
+    "quadro-apresentacao-principal-06"
+  ],
+  "pares": [],
+  "videos": ["video-apresentacao-principal"],
+  "instagram": [
+    "https://www.instagram.com/p/DLGhb8zMT8m/",
+    "https://www.instagram.com/p/DKuagnAMU8P/"
+  ],
+  "proximosProjetos": ["clinica-cordis", "cozinha-farmhouse"]
+}

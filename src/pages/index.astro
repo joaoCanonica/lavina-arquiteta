@@ -1,0 +1,62 @@
+---
+// Home: entrada + abertura (sessão 4) e as 10 seções (sessão 6A).
+import Abertura, { FOTO_ABERTURA, TAMANHOS_ABERTURA } from '../components/abertura/Abertura.astro';
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import EntradaHead from '../components/entrada/EntradaHead.astro';
+import SecaoAntesDepois from '../components/home/SecaoAntesDepois.astro';
+import SecaoAtuacao from '../components/home/SecaoAtuacao.astro';
+import SecaoColetivo from '../components/home/SecaoColetivo.astro';
+import SecaoEtapas from '../components/home/SecaoEtapas.astro';
+import SecaoInstagram from '../components/home/SecaoInstagram.astro';
+import SecaoManifesto from '../components/home/SecaoManifesto.astro';
+import SecaoOrcamento from '../components/home/SecaoOrcamento.astro';
+import SecaoProjetos from '../components/home/SecaoProjetos.astro';
+import SecaoProva from '../components/home/SecaoProva.astro';
+import SecaoVozes from '../components/home/SecaoVozes.astro';
+import Base from '../layouts/Base.astro';
+import { readFileSync } from 'node:fs';
+
+// Preload do LCP (a foto da abertura) com o mesmo srcset/sizes da <picture>.
+const indice = JSON.parse(readFileSync('public/media/midia.json', 'utf8')) as {
+  imagens: Record<string, { fontes: { largura: number; avif: string }[] }>;
+};
+const foto = indice.imagens[FOTO_ABERTURA];
+const srcsetAvif = foto?.fontes.map((f) => `${f.avif} ${f.largura}w`).join(', ');
+---
+
+<Base temaPadrao="dark">
+  <Fragment slot="head">
+    <EntradaHead />
+    {
+      srcsetAvif && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcsetAvif}
+          imagesizes={TAMANHOS_ABERTURA}
+          fetchpriority="high"
+        />
+      )
+    }
+  </Fragment>
+  <Entrada />
+  <Cabecalho tom="escuro" />
+  <main id="conteudo">
+    <Abertura />
+    <SecaoManifesto />
+    <SecaoProva />
+    <SecaoProjetos />
+    <SecaoEtapas />
+    <SecaoAntesDepois />
+    <SecaoColetivo />
+    <SecaoVozes />
+    <SecaoAtuacao />
+    <SecaoInstagram />
+    <SecaoOrcamento />
+  </main>
+  <script>
+    import '../scripts/entrada.ts';
+  </script>
+</Base>

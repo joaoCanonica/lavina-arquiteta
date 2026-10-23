@@ -1,0 +1,31 @@
+{
+  "rota": "/projetos/living-jantar-painel/",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 54,
+  "fcpMs": 903,
+  "lcpMs": 1578,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 903,
+  "bytesTotaisKB": 93,
+  "lcpElemento": "figure.janela > div.janela__quadro > button.janela__tocar > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 902.8643999999999,
+      "lcp": 1577.8644,
+      "tbt": 0,
+      "cls": 0,
+      "si": 902.8643999999999,
+      "bytesTotais": 94733,
+      "falhasA11y": []
+    }
+  ]
+}

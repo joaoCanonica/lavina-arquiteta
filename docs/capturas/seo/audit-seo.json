@@ -1,0 +1,318 @@
+{
+  "SITE_URL": "https://coletivoarquiteturalavina.com.br",
+  "indexavel": false,
+  "paginas": [
+    {
+      "rota": "/",
+      "titulo": 57,
+      "descricao": 149,
+      "tipos": [
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": null
+    },
+    {
+      "rota": "/projetos/",
+      "titulo": 42,
+      "descricao": 143,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": null
+    },
+    {
+      "rota": "/projetos/cozinha-jc/",
+      "titulo": 51,
+      "descricao": 147,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 56
+    },
+    {
+      "rota": "/projetos/consultorio-jonny-arruda/",
+      "titulo": 56,
+      "descricao": 147,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 54
+    },
+    {
+      "rota": "/projetos/living-jantar-painel/",
+      "titulo": 47,
+      "descricao": 137,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 56
+    },
+    {
+      "rota": "/projetos/cozinha-farmhouse/",
+      "titulo": 42,
+      "descricao": 146,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 50
+    },
+    {
+      "rota": "/projetos/banheiro-tons-claros/",
+      "titulo": 48,
+      "descricao": 146,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 45
+    },
+    {
+      "rota": "/projetos/quarto-closet/",
+      "titulo": 43,
+      "descricao": 144,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 48
+    },
+    {
+      "rota": "/projetos/clinica-cordis/",
+      "titulo": 53,
+      "descricao": 148,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 57
+    },
+    {
+      "rota": "/projetos/projeto-tb/",
+      "titulo": 51,
+      "descricao": 133,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 59
+    },
+    {
+      "rota": "/projetos/suite-fl/",
+      "titulo": 48,
+      "descricao": 136,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "CreativeWork",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 49
+    },
+    {
+      "rota": "/processo/",
+      "titulo": 41,
+      "descricao": 142,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": 54
+    },
+    {
+      "rota": "/coletivo/",
+      "titulo": 47,
+      "descricao": 146,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": null
+    },
+    {
+      "rota": "/contato/",
+      "titulo": 58,
+      "descricao": 146,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": null
+    },
+    {
+      "rota": "/privacidade/",
+      "titulo": 45,
+      "descricao": 145,
+      "tipos": [
+        "BreadcrumbList",
+        "City",
+        "GeoCoordinates",
+        "ImageObject",
+        "ListItem",
+        "LocalBusiness",
+        "OpeningHoursSpecification",
+        "Person",
+        "PostalAddress",
+        "State",
+        "WebPage",
+        "WebSite"
+      ],
+      "geo": null
+    }
+  ],
+  "sitemap": 15,
+  "erros": [],
+  "avisos": [
+    "noindex ativo (modo preview; domínio: aviso). robots.txt bloqueia tudo."
+  ]
+}

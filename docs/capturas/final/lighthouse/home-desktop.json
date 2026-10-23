@@ -1,0 +1,32 @@
+{
+  "rota": "/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 307,
+  "lcpMs": 410,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 331,
+  "bytesTotaisKB": 135,
+  "lcpElemento": "figure.abertura__foto > div.abertura__quadro > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 306.829,
+      "lcp": 409.82899999999995,
+      "tbt": 0,
+      "cls": 0,
+      "si": 330.9858464162701,
+      "bytesTotais": 137922,
+      "falhasA11y": []
+    }
+  ]
+}

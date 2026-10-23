@@ -1,0 +1,32 @@
+{
+  "rota": "/processo/",
+  "perfil": "mobile",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 1172,
+  "lcpMs": 1451,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 1172,
+  "bytesTotaisKB": 72,
+  "lcpElemento": "body > main#conteudo > section.abertura > p.abertura__resumo",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 1172.495625,
+      "lcp": 1450.995625,
+      "tbt": 0,
+      "cls": 0,
+      "si": 1172.495625,
+      "bytesTotais": 73725,
+      "falhasA11y": []
+    }
+  ]
+}

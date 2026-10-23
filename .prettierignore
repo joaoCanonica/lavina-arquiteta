@@ -1,0 +1,10 @@
+dist/
+.csp/
+.astro/
+node_modules/
+public/media/
+pnpm-lock.yaml
+CLAUDE.md
+docs/
+media-originais/
+assets/

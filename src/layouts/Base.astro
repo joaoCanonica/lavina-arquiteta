@@ -1,0 +1,122 @@
+---
+// Layout base: tokens e fontes, tema sem flash, noindex no preview (e enquanto não
+// houver domínio), faixa "em revisão", script da Fresta.
+import PreviewBanner from '../components/PreviewBanner.astro';
+import Consentimento from '../components/consentimento/Consentimento.astro';
+import Rodape from '../components/consentimento/Rodape.astro';
+import WhatsappFixo from '../components/consentimento/WhatsappFixo.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import Seo from '../components/seo/Seo.astro';
+import { config } from '../config/index.ts';
+import { ehPreview } from '../config/modo.ts';
+import '../styles/base.css';
+
+interface Props {
+  titulo?: string;
+  pendencias?: number;
+  /** "dark" = padrão de impacto (home); "light" = padrão de leitura (segue o sistema). */
+  temaPadrao?: 'dark' | 'light';
+  grao?: boolean;
+  /** força noindex (páginas internas e 404) */
+  interna?: boolean;
+  /** rodapé e botão fixo do WhatsApp (padrão: só nas páginas públicas) */
+  rodape?: boolean;
+}
+const {
+  titulo,
+  pendencias,
+  temaPadrao = 'light',
+  grao = false,
+  interna = false,
+  rodape = !interna,
+} = Astro.props;
+const semIndice = interna || ehPreview || config.seo.dominio.estado !== 'confirmado';
+---
+
+<html lang={config.seo.idioma} data-tema-padrao={temaPadrao} data-grao={grao ? '' : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo semIndice={semIndice} {...titulo ? { titulo } : {}} />
+    <!-- Tema sem flash: escolha salva > padrão da página ("dark" na home) > sistema. -->
+    <script is:inline>
+      (() => {
+        const d = document.documentElement;
+        let s = null;
+        try {
+          s = localStorage.getItem('lavina-tema');
+        } catch {
+          /* armazenamento bloqueado: segue o padrão */
+        }
+        const t =
+          s === 'dark' || s === 'light'
+            ? s
+            : d.getAttribute('data-tema-padrao') === 'dark' ||
+                matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        d.setAttribute('data-theme', t);
+        d.classList.add('js');
+        // Segurança: se o script da Fresta não rodar, nada fica escondido.
+        addEventListener('load', () =>
+          setTimeout(() => {
+            if (!window.__frestaOk) d.classList.remove('js');
+          }, 1500),
+        );
+      })();
+    </script>
+    <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1C1A18" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="preload"
+      href="/fonts/urbanist-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <PreviewBanner {...pendencias !== undefined ? { pendencias } : {}} />
+    <slot />
+    {rodape && <Rodape />}
+    {rodape && <WhatsappFixo />}
+    <Consentimento />
+    <JsonLd />
+    <script>
+      import '../scripts/fresta.ts';
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Atalho para quem navega por teclado: invisível até receber foco. */
+  .pular {
+    position: fixed;
+    left: var(--margem);
+    top: var(--e-3);
+    z-index: 2147483001;
+    padding: var(--e-2) var(--e-4);
+    background: var(--grafite);
+    color: var(--osso);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+  .pular:focus-visible {
+    transform: none;
+    outline-color: var(--luz);
+  }
+  /* Durante a entrada, o primeiro Tab é o "Pular" da própria entrada. */
+  :global(html.entrada-ativa) .pular {
+    display: none;
+  }
+</style>

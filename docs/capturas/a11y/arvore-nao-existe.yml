@@ -1,0 +1,10 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- main:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - heading "Esta página não existe." [level=1]
+  - paragraph: O endereço pode ter mudado. Os projetos continuam aqui.
+  - link "Voltar aos projetos":
+    - /url: /projetos/

@@ -1,0 +1,242 @@
+{
+  "navegador": "chromium",
+  "versao": "141.0.7390.37",
+  "rotas": {
+    "/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/cozinha-jc/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/consultorio-jonny-arruda/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/living-jantar-painel/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/cozinha-farmhouse/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/banheiro-tons-claros/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/quarto-closet/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/clinica-cordis/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/projeto-tb/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/projetos/suite-fl/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/processo/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/coletivo/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/contato/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/privacidade/ @1440": {
+      "h1": 1,
+      "largura": 1440,
+      "viewport": 1440,
+      "erros": []
+    },
+    "/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/cozinha-jc/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/consultorio-jonny-arruda/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/living-jantar-painel/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/cozinha-farmhouse/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/banheiro-tons-claros/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/quarto-closet/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/clinica-cordis/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/projeto-tb/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/projetos/suite-fl/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/processo/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/coletivo/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/contato/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    },
+    "/privacidade/ @390": {
+      "h1": 1,
+      "largura": 390,
+      "viewport": 390,
+      "erros": []
+    }
+  },
+  "transicao": {
+    "suporta": {
+      "pagereveal": true,
+      "startViewTransition": true,
+      "regraCss": true
+    },
+    "chegadaPorTransicao": true,
+    "clipAbertura": "none",
+    "erros": []
+  },
+  "navegacao": {
+    "indice→projeto": {
+      "seletor": "a[href=\"/projetos/consultorio-jonny-arruda/\"]",
+      "caixa": {
+        "x": 51.1875,
+        "y": 373.828125,
+        "width": 378.828125,
+        "height": 152.4375
+      },
+      "sob": "a.item__link",
+      "urlAntes": "http://localhost:4380/projetos/",
+      "commit": true,
+      "load": true
+    },
+    "projeto→proximo": {
+      "seletor": ".proximo__link",
+      "caixa": {
+        "x": 828.796875,
+        "y": 308.140625,
+        "width": 502.453125,
+        "height": 283.28125
+      },
+      "sob": "a.proximo__link",
+      "urlAntes": "http://localhost:4380/projetos/consultorio-jonny-arruda/",
+      "commit": true,
+      "load": true
+    },
+    "reduzido": {
+      "seletor": "a[href=\"/projetos/suite-fl/\"]",
+      "caixa": {
+        "x": 850.125,
+        "y": 408.734375,
+        "width": 233.453125,
+        "height": 83
+      },
+      "sob": "a.item__link",
+      "urlAntes": "http://localhost:4380/projetos/",
+      "commit": true,
+      "load": true
+    }
+  },
+  "cspCompletaEmHttp": {
+    "commit": true,
+    "url": "http://localhost:4381/projetos/suite-fl/",
+    "pedidoHttps": false
+  }
+}

@@ -1,0 +1,182 @@
+---
+// O vídeo "um dia no escritório" com capítulos: cada rótulo queimado no vídeo vira um
+// botão que leva a janela ao tempo dele (VideoJanela da home, reaproveitada sem alteração).
+// Tempos: src/config/processo.ts (medidos quadro a quadro). Sem JS: lista de horários.
+import { config } from '../../config/index.ts';
+import VideoJanela from '../home/VideoJanela.astro';
+
+const dia = config.processo.diaNoEscritorio;
+const capitulos = dia.rotulos.valor;
+const dois = (n: number) => `0:${String(n).padStart(2, '0')}`;
+---
+
+<div class="dia" data-dia>
+  <div class="dia__video">
+    <VideoJanela id={dia.video} titulo="Um dia no escritório Lavina">
+      <span data-fonte-post="DOd4IshDqUc">
+        A rotina é cheia de reuniões, obras e detalhes. Por trás de tudo isso, existe gente que
+        gosta de ver projetos virando lares.
+      </span>
+    </VideoJanela>
+  </div>
+  <div class="dia__capitulos">
+    <h3 class="dia__titulo">Capítulos do vídeo</h3>
+    <ol class="dia__lista">
+      {
+        capitulos.map((c) => (
+          <li class="capitulo" data-capitulo data-tempo={c.inicio}>
+            <span class="capitulo__tempo">{dois(c.inicio)}</span>
+            <span class="capitulo__hora">{c.hora ?? '—'}</span>
+            <span class="capitulo__rotulo">{c.rotulo ?? ''}</span>
+            <button type="button" class="capitulo__ir" data-capitulo-ir hidden>
+              <span class="so-leitor">
+                Ver no vídeo a partir de {dois(c.inicio)}:{' '}
+                {[c.hora, c.rotulo].filter(Boolean).join(', ')}
+              </span>
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</div>
+
+<script>
+  const dia = document.querySelector<HTMLElement>('[data-dia]');
+  const conexao = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+  if (dia && !conexao?.saveData) {
+    const janela = dia.querySelector<HTMLElement>('[data-janela]');
+    const caps = [...dia.querySelectorAll<HTMLElement>('[data-capitulo]')];
+    dia.classList.add('com-video');
+    const marcar = (ativo: HTMLElement | undefined) =>
+      caps.forEach((c) => {
+        c.classList.toggle('capitulo--ativo', c === ativo);
+        c.querySelector('[data-capitulo-ir]')?.setAttribute(
+          'aria-current',
+          c === ativo ? 'step' : 'false',
+        );
+      });
+    caps.forEach((c) => {
+      const b = c.querySelector<HTMLButtonElement>('[data-capitulo-ir]');
+      if (!b) return;
+      b.hidden = false;
+      b.addEventListener('click', () => {
+        marcar(c);
+        janela?.dispatchEvent(
+          new CustomEvent('video-janela:ir', { detail: { tempo: Number(c.dataset['tempo']) } }),
+        );
+      });
+    });
+    janela?.addEventListener('video-janela:pronto', (e) => {
+      const v = (e as CustomEvent<HTMLVideoElement>).detail;
+      if (v.dataset['capitulos']) return;
+      v.dataset['capitulos'] = '1';
+      v.addEventListener('timeupdate', () => {
+        const atual = [...caps]
+          .reverse()
+          .find((c) => v.currentTime + 0.5 >= Number(c.dataset['tempo']));
+        if (atual && !atual.classList.contains('capitulo--ativo')) marcar(atual);
+      });
+    });
+  }
+</script>
+
+<style>
+  .dia {
+    display: grid;
+    gap: var(--e-7);
+  }
+  .dia__video {
+    width: min(100%, 22rem);
+  }
+  .dia__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+    margin-bottom: var(--e-4);
+  }
+  .dia__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .capitulo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.5rem 4.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--e-3);
+    min-height: 3.25rem;
+    padding-block: var(--e-3);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .capitulo__tempo {
+    font-size: var(--t-pequeno);
+    font-variant-numeric: tabular-nums;
+    color: var(--cor-texto-2);
+  }
+  .capitulo__hora {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-acento);
+  }
+  .capitulo__rotulo {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+  }
+  .capitulo__ir {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .capitulo__ir:focus-visible {
+    outline-offset: -2px;
+  }
+  /* O capítulo atual acende pela fresta. */
+  .capitulo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: var(--linha-fresta);
+    background: linear-gradient(
+      90deg,
+      var(--cor-fresta),
+      var(--cor-fresta-nucleo) 70%,
+      transparent
+    );
+    box-shadow: var(--sombra-fresta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-fresta) var(--ease-saida);
+  }
+  .capitulo--ativo::before,
+  .com-video .capitulo:hover::before {
+    transform: scaleX(1);
+  }
+  .capitulo--ativo .capitulo__hora {
+    color: var(--luz);
+  }
+
+  @media (min-width: 64rem) {
+    .dia {
+      grid-template-columns: 24rem minmax(0, 1fr);
+      column-gap: var(--e-9);
+      align-items: start;
+    }
+    .dia__video {
+      width: 100%;
+      position: sticky;
+      top: 6rem;
+    }
+  }
+</style>

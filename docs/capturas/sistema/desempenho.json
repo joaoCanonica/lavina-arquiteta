@@ -1,0 +1,62 @@
+[
+  {
+    "nome": "entrada da home (0–3,5 s, desde a navegação)",
+    "quadros": 206,
+    "fpsMedio": 59.7,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 1,
+    "layouts": 14,
+    "layoutMs": 3.99,
+    "paintMs": 8.69
+  },
+  {
+    "nome": "logo desenhando (redesenhar)",
+    "quadros": 195,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 12,
+    "layoutMs": 0.81,
+    "paintMs": 63.26
+  },
+  {
+    "nome": "fresta acendendo (divisor)",
+    "quadros": 74,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.8,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 9,
+    "layoutMs": 0.51,
+    "paintMs": 38
+  },
+  {
+    "nome": "revelação da foto",
+    "quadros": 130,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.8,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 10,
+    "layoutMs": 0.56,
+    "paintMs": 50.67
+  },
+  {
+    "nome": "rolagem completa sem grão",
+    "quadros": 207,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 10,
+    "layoutMs": 1.09,
+    "paintMs": 41.48
+  },
+  {
+    "nome": "rolagem completa com grão",
+    "quadros": 207,
+    "fpsMedio": 60,
+    "quadroP95ms": 16.7,
+    "quadrosAcimaDe20ms": 0,
+    "layouts": 10,
+    "layoutMs": 1.18,
+    "paintMs": 41.02
+  }
+]

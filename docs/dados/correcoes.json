@@ -1,0 +1,154 @@
+{
+  "versao": 1,
+  "nota": "Correções aplicadas SÓ nos derivados (public/media/). Originais intocados. Sem IA generativa, sem retoque em pessoas. Medições em docs/MIDIA_CATALOGO.md.",
+  "corPorProjeto": {
+    "consultorio-jonny-arruda": {
+      "multiplicadoresRGB": [
+        0.98,
+        1,
+        1.029
+      ],
+      "ganhoExposicao": 1,
+      "motivo": "balanço de branco: média dos tons neutros das fotos de obra R 163,8 · G 157,2 · B 148,7 (dominante quente); remove 50% do desvio em relação ao verde. Exposição: L* médio 59, sem ganho."
+    },
+    "banheiro-tons-claros": {
+      "multiplicadoresRGB": [
+        0.991,
+        1,
+        1.023
+      ],
+      "ganhoExposicao": 1,
+      "motivo": "balanço de branco: neutros R 173,6 · G 170,3 · B 162,8; remove 50% do desvio. Exposição: L* médio 69, sem ganho."
+    },
+    "cozinha-jc": {
+      "multiplicadoresRGB": [
+        0.959,
+        1,
+        1.054
+      ],
+      "ganhoExposicao": 1,
+      "motivo": "balanço de branco: neutros R 169,5 · G 155,7 · B 140,6 (dominante amarela forte); remove 50% do desvio. Exposição: L* médio 59, sem ganho."
+    }
+  },
+  "edicoes": [
+    {
+      "numero": "627136937",
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.3,
+          "unidade": "fração",
+          "motivo": "remoção por recorte do selo \"ANTES & DEPOIS\" queimado (selo em x 27–72%, y 31–62%); sobra a faixa do forro com o perfil de LED"
+        }
+      ]
+    },
+    {
+      "numero": "730173676",
+      "edicoes": [
+        {
+          "tipo": "recorte",
+          "x": 0,
+          "y": 0,
+          "largura": 1,
+          "altura": 0.3,
+          "unidade": "fração",
+          "motivo": "remoção por recorte do selo \"ANTES & DEPOIS\" queimado (selo em x 27–68%, y 31–65%); sobra a faixa da janela, do perfil de LED e dos armários. O par antes × depois usa 729424348 no lugar"
+        }
+      ]
+    },
+    {
+      "numero": "625681099",
+      "edicoes": [
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [
+            0.385,
+            -1.743
+          ],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ]
+    },
+    {
+      "numero": "627664561",
+      "edicoes": [
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [
+            0.289,
+            3.478
+          ],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ]
+    },
+    {
+      "numero": "728943785",
+      "edicoes": [
+        {
+          "tipo": "verticais",
+          "pontoDeFuga": [
+            0.406,
+            2.759
+          ],
+          "intensidade": 0.35,
+          "motivo": "alinhamento parcial das verticais (35%) a partir do ponto de fuga estimado por detecção de linhas; mantém ≥ 85% da foto"
+        }
+      ]
+    },
+    {
+      "numero": "728991882",
+      "edicoes": [],
+      "exibicaoMaxima": 480
+    },
+    {
+      "numero": "729654054",
+      "edicoes": [],
+      "exibicaoMaxima": 480
+    },
+    {
+      "numero": "713283758",
+      "edicoes": [],
+      "exibicaoMaxima": 800
+    },
+    {
+      "numero": "713843664",
+      "edicoes": [],
+      "exibicaoMaxima": 1200
+    },
+    {
+      "numero": "723099267",
+      "edicoes": [],
+      "exibicaoMaxima": 1200
+    },
+    {
+      "numero": "730477183",
+      "edicoes": [],
+      "exibicaoMaxima": 1200
+    }
+  ],
+  "qualidade": {
+    "728991882": "arquivo muito comprimido (32 KB, 1440×819): exibir no máximo a 480 px de largura; pedir o original à Renata",
+    "729654054": "arquivo muito comprimido (36 KB, 1440×831): exibir no máximo a 480 px de largura; pedir o original à Renata",
+    "713283758": "arquivo muito comprimido (40 KB, 1397×901): exibir no máximo a 800 px de largura; pedir o original à Renata",
+    "713843664": "arquivo comprimido (60 KB, 1437×901): exibir no máximo a 1200 px",
+    "723099267": "arquivo comprimido (60 KB, 1438×809): exibir no máximo a 1200 px",
+    "730477183": "arquivo comprimido (56 KB, 1440×771): exibir no máximo a 1200 px"
+  },
+  "verticaisNaoCorrigidas": {
+    "numeros": [
+      "627064897",
+      "627098371",
+      "641767635",
+      "729424348",
+      "730513804",
+      "641226479"
+    ],
+    "motivo": "a estimativa automática do ponto de fuga pedia cortar 20–50% da foto (ou gerava cisalhamento no 641226479). Sem correção até marcar as linhas à mão."
+  }
+}

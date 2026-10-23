@@ -1,0 +1,490 @@
+{
+  "versao": 1,
+  "metodo": "Quadro mais nítido (variância do laplaciano, passo de 0,25 s) dentro de cada janela escolhida olhando o vídeo. Resolução nativa 720×1280, sem upscale.",
+  "quadros": [
+    {
+      "id": "quadro-apresentacao-principal-01",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 20,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "mesa redonda de jantar e pendente",
+      "nitidez": 178,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-apresentacao-principal-02",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 37,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "cristaleira iluminada",
+      "nitidez": 269,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-apresentacao-principal-03",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 49.25,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "bancada de café",
+      "nitidez": 200,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-apresentacao-principal-04",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 57.25,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "mesa e pendente, forro de madeira com sanca iluminada",
+      "nitidez": 145,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-apresentacao-principal-05",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 72.75,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "bancada e cuba",
+      "nitidez": 265,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-apresentacao-principal-06",
+      "video": "apresentacao-principal.mp4",
+      "tempo": 96.75,
+      "projeto": "living-jantar-painel",
+      "natureza": "executado",
+      "descricao": "painel paramétrico com TV",
+      "nitidez": 522,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.6
+      },
+      "motivoRecorte": "exclui a faixa de legenda queimada (y ≈ 62–67%)"
+    },
+    {
+      "id": "quadro-mostrando-quarto-01",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 9,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "cabeceira e arandela",
+      "nitidez": 117
+    },
+    {
+      "id": "quadro-mostrando-quarto-02",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 11,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "cama",
+      "nitidez": 184
+    },
+    {
+      "id": "quadro-mostrando-quarto-03",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 15,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "quarto com janela",
+      "nitidez": 80
+    },
+    {
+      "id": "quadro-mostrando-quarto-04",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 25,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "penteadeira e nichos",
+      "nitidez": 173
+    },
+    {
+      "id": "quadro-mostrando-quarto-05",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 29,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "closet e penteadeira",
+      "nitidez": 235
+    },
+    {
+      "id": "quadro-mostrando-quarto-06",
+      "video": "mostrando-quarto.mp4",
+      "tempo": 33,
+      "projeto": "quarto-closet",
+      "natureza": "executado",
+      "descricao": "cama e penteadeira",
+      "nitidez": 110
+    },
+    {
+      "id": "quadro-novo-modelo-01",
+      "video": "novo-modelo.mp4",
+      "tempo": 10,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "mesa redonda e cristaleiras em arco",
+      "nitidez": 358,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-novo-modelo-02",
+      "video": "novo-modelo.mp4",
+      "tempo": 17.25,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "marcenaria azul com fita de LED no rodapé",
+      "nitidez": 339,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-novo-modelo-03",
+      "video": "novo-modelo.mp4",
+      "tempo": 19.5,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "cozinha e bancada",
+      "nitidez": 249,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-novo-modelo-04",
+      "video": "novo-modelo.mp4",
+      "tempo": 22,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "estar com TV",
+      "nitidez": 176,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-novo-modelo-05",
+      "video": "novo-modelo.mp4",
+      "tempo": 24.25,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "bar em arco",
+      "nitidez": 320,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-novo-modelo-06",
+      "video": "novo-modelo.mp4",
+      "tempo": 26,
+      "projeto": "cozinha-farmhouse",
+      "natureza": "executado",
+      "descricao": "bar e janela",
+      "nitidez": 310,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.8
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-01",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 3.25,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 286,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-02",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 20,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 286,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-03",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 30,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 271,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-04",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 42.25,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 296,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-05",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 47,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 277,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-mudanca-cozinha-06",
+      "video": "mudanca-cozinha.mp4",
+      "tempo": 64.25,
+      "projeto": "cozinha-jc",
+      "natureza": "executado",
+      "descricao": "quadro automático",
+      "nitidez": 187,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.82
+      },
+      "motivoRecorte": "exclui a marca d'água (monograma) no rodapé"
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-01",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 3.75,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 162
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-02",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 5.36,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 191
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-03",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 10.47,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 223
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-04",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 11.07,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 223
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-05",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 14.43,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 165
+    },
+    {
+      "id": "quadro-falando-sobre-primeiro-contato-06",
+      "video": "falando-sobre-primeiro-contato.mp4",
+      "tempo": 19.29,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 163
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-01",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 9,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 227
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-02",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 16.29,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 558
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-03",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 27.83,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 355
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-04",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 36.37,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 1074
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-05",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 41.16,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 536
+    },
+    {
+      "id": "quadro-um-dia-no-escritorio-06",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 50.2,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "quadro automático",
+      "nitidez": 191
+    },
+    {
+      "id": "quadro-obra-galpao-01",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 38,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "chegada ao galpão da obra",
+      "nitidez": 271,
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "largura": 1,
+        "altura": 0.66
+      },
+      "motivoRecorte": "exclui o carro estacionado (placa) na parte de baixo"
+    },
+    {
+      "id": "quadro-obra-galpao-02",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 38.65,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "o galpão em obra, visto por dentro",
+      "nitidez": 723
+    },
+    {
+      "id": "quadro-obra-galpao-03",
+      "video": "um-dia-no-escritorio.mp4",
+      "tempo": 48.25,
+      "projeto": null,
+      "natureza": "retrato",
+      "descricao": "conversa com a equipe na obra (operário sem rosto no quadro)",
+      "nitidez": 207
+    }
+  ]
+}

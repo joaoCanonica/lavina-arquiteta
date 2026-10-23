@@ -1,0 +1,113 @@
+---
+// Comparador (estrutura e acessibilidade). O comportamento (arrastar, sincronizar --pos
+// com o range) entra na sessão 6B. Aqui: input range nativo (setas do teclado funcionam
+// nativamente), rótulos visíveis de cada lado, mídias alinhadas pelo media:prepare.
+import Imagem from './Imagem.astro';
+import Rotulo from './Rotulo.astro';
+
+interface Props {
+  par: string; // id em docs/dados/pares.json
+  tipo: 'antes-depois' | 'projeto-executado';
+  altA: string;
+  altB: string;
+  posicao?: number;
+  class?: string;
+}
+const { par, tipo, altA, altB, posicao = 50, class: classe } = Astro.props;
+const [natA, natB] =
+  tipo === 'antes-depois' ? (['antes', 'depois'] as const) : (['render', 'executado'] as const);
+const nomes =
+  tipo === 'antes-depois' ? (['Antes', 'Depois'] as const) : (['Projeto', 'Executado'] as const);
+const idRange = `comparador-${par}`;
+---
+
+<figure
+  class:list={['comparador', classe]}
+  data-comparador
+  data-tipo={tipo}
+  style={`--pos:${posicao}%`}
+  data-midia
+>
+  <div class="comparador__palco">
+    <div class="comparador__b">
+      <Imagem
+        id={`par:${par}:b`}
+        alt={altB}
+        natureza={natB}
+        sizes="(min-width: 64rem) 60vw, 100vw"
+      />
+    </div>
+    <div class="comparador__a" aria-hidden="false">
+      <Imagem
+        id={`par:${par}:a`}
+        alt={altA}
+        natureza={natA}
+        sizes="(min-width: 64rem) 60vw, 100vw"
+      />
+    </div>
+    <span class="comparador__divisa" aria-hidden="true"></span>
+  </div>
+  <label class="so-leitor" for={idRange}
+    >Comparar {nomes[0].toLowerCase()} e {nomes[1].toLowerCase()}</label
+  >
+  <input
+    id={idRange}
+    class="comparador__range"
+    type="range"
+    min="0"
+    max="100"
+    step="1"
+    value={posicao}
+    aria-valuetext={`${posicao}% ${nomes[0].toLowerCase()}`}
+  />
+  <figcaption class="comparador__rotulos">
+    <Rotulo natureza={natA} />
+    <Rotulo natureza={natB} />
+  </figcaption>
+</figure>
+
+<style>
+  .comparador {
+    position: relative;
+  }
+  .comparador__palco {
+    position: relative;
+    overflow: hidden;
+  }
+  .comparador__a {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  }
+  .comparador__divisa {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    width: var(--linha-fresta);
+    margin-left: calc(var(--linha-fresta) / -2);
+    background: var(--cor-fresta);
+    box-shadow: var(--sombra-fresta);
+  }
+  /* O range cobre o palco (alvo de toque grande) e fica visível só no foco. */
+  .comparador__range {
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    height: calc(100% - 2.5rem);
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+  .comparador__range:focus-visible {
+    opacity: 1;
+    outline: 2px solid var(--cor-foco);
+    background: transparent;
+  }
+  .comparador__rotulos {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--e-4);
+    padding-top: var(--e-3);
+  }
+</style>

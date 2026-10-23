@@ -1,0 +1,164 @@
+---
+// Rodapé (grafite): marca, razão social e CNPJ (se exibirCnpj), endereço, horário, Instagram,
+// privacidade, link fixo para rever os cookies e o crédito do site. Dados: config.
+import { config } from '../../config/index.ts';
+import Logo from '../marca/Logo.astro';
+
+const m = config.marca;
+const c = config.contato;
+const e = c.endereco.valor;
+const DIAS = {
+  seg: 'Segunda',
+  ter: 'terça',
+  qua: 'quarta',
+  qui: 'quinta',
+  sex: 'sexta',
+  sab: 'sábado',
+  dom: 'domingo',
+} as const;
+const aberto = c.horarios.valor.find((h) => 'abre' in h);
+const horario =
+  aberto && 'abre' in aberto
+    ? `${DIAS[aberto.dias[0] ?? 'seg']} a ${DIAS[aberto.dias.at(-1) ?? 'sex']}, ${aberto.abre.replace(':00', 'h')} às ${aberto.fecha.replace(':00', 'h')}`
+    : null;
+---
+
+<footer class="rodape" data-rodape data-theme="dark" data-tone="escuro">
+  <div class="rodape__marca">
+    <a href="/" class="rodape__logo" aria-label={`${m.nome.valor}, início`}>
+      <span class="rodape__monograma"><Logo variante="monograma" decorativo /></span>
+      <span class="rodape__nome" aria-hidden="true">{m.nome.valor}</span>
+    </a>
+    <p class="rodape__empresa">
+      {m.razaoSocial.valor}
+      {m.exibirCnpj && <span> · CNPJ {m.cnpj.valor}</span>}
+    </p>
+  </div>
+
+  <div class="rodape__bloco">
+    <h2 class="rodape__titulo">Escritório</h2>
+    <address>
+      {e.logradouro}<br />
+      {e.bairro} · {e.cidade}/{e.uf}<br />
+      CEP {e.cep}
+    </address>
+    {horario && <p>{horario}</p>}
+  </div>
+
+  <div class="rodape__bloco">
+    <h2 class="rodape__titulo">Instagram</h2>
+    <ul class="rodape__lista">
+      {
+        c.instagram.valor.map((i) => (
+          <li>
+            <a href={i.url} target="_blank" rel="noopener noreferrer">
+              {i.usuario}
+              <span class="so-leitor"> (abre em nova aba)</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="rodape__bloco">
+    <h2 class="rodape__titulo">Site</h2>
+    <ul class="rodape__lista">
+      <li><a href="/privacidade/">Política de privacidade</a></li>
+      <li>
+        <a href="/privacidade/#cookies" data-consentimento-abrir>Preferências de cookies</a>
+      </li>
+    </ul>
+  </div>
+
+  <p class="rodape__credito">Site: WAXLO</p>
+</footer>
+
+<style>
+  .rodape {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem) var(--e-7);
+    background: var(--grafite);
+    color: var(--osso);
+    border-top: var(--linha) solid rgb(167 156 143 / 0.25);
+    font-size: var(--t-pequeno);
+  }
+  .rodape__marca {
+    display: grid;
+    gap: var(--e-4);
+    align-content: start;
+  }
+  .rodape__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    color: inherit;
+    text-decoration: none;
+  }
+  .rodape__monograma {
+    width: 2.25rem;
+  }
+  .rodape__monograma :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+  .rodape__nome {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+  .rodape__empresa,
+  .rodape__bloco p,
+  .rodape address {
+    color: var(--greige);
+    font-style: normal;
+    line-height: 1.7;
+  }
+  .rodape__bloco {
+    display: grid;
+    gap: var(--e-2);
+    align-content: start;
+  }
+  .rodape__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--osso);
+  }
+  .rodape__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rodape__lista a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--greige);
+    text-decoration-color: rgb(167 156 143 / 0.5);
+  }
+  .rodape__lista a:hover,
+  .rodape__lista a:focus-visible {
+    color: var(--osso);
+  }
+  .rodape__credito {
+    color: var(--greige);
+    font-size: var(--t-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+  @media (min-width: 64rem) {
+    .rodape {
+      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+      column-gap: var(--e-7);
+    }
+    .rodape__credito {
+      grid-column: 1 / -1;
+      padding-top: var(--e-5);
+      border-top: var(--linha) solid rgb(167 156 143 / 0.2);
+    }
+  }
+</style>

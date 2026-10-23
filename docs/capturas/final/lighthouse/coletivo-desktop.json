@@ -1,0 +1,32 @@
+{
+  "rota": "/coletivo/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 272,
+  "lcpMs": 347,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 272,
+  "bytesTotaisKB": 75,
+  "lcpElemento": "body > main#conteudo > section.abertura > h1#coletivo-h1",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 271.979875,
+      "lcp": 346.979875,
+      "tbt": 0,
+      "cls": 0,
+      "si": 271.979875,
+      "bytesTotais": 76578,
+      "falhasA11y": []
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "rota": "/projetos/quarto-closet/",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 54,
+  "fcpMs": 691,
+  "lcpMs": 1129,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 691,
+  "bytesTotaisKB": 66,
+  "lcpElemento": "figure.janela > div.janela__quadro > button.janela__tocar > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 54,
+      "fcp": 691.22145,
+      "lcp": 1129.4429,
+      "tbt": 0,
+      "cls": 0,
+      "si": 691.22145,
+      "bytesTotais": 67366,
+      "falhasA11y": []
+    }
+  ]
+}

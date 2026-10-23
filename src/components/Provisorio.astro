@@ -1,0 +1,53 @@
+---
+// Selo PROVISÓRIO em campos pendentes (só no preview).
+// Uso: <Provisorio campo={config.contato.email} /> ou <Provisorio ativo motivo="...">conteúdo</Provisorio>
+import { ehPreview } from '../config/modo.ts';
+import { provisorio, type Campo } from '../config/tipos.ts';
+
+interface Props {
+  campo?: Campo<unknown>;
+  ativo?: boolean;
+  motivo?: string;
+}
+const { campo, ativo = false, motivo } = Astro.props;
+const pendente = ativo || (campo ? provisorio(campo) : false);
+const texto =
+  campo && campo.valor !== null && typeof campo.valor !== 'object' ? String(campo.valor) : null;
+const rotulo = campo && 'rotulo' in campo ? campo.rotulo : null;
+const dica = motivo ?? (campo && 'motivo' in campo ? campo.motivo : undefined);
+const temSlot = Astro.slots.has('default');
+---
+
+{
+  pendente && ehPreview ? (
+    <span class="provisorio" data-provisorio title={dica}>
+      {temSlot ? <slot /> : (texto ?? rotulo)}
+      <span class="provisorio__selo">Provisório</span>
+    </span>
+  ) : temSlot ? (
+    <slot />
+  ) : (
+    texto
+  )
+}
+
+<style>
+  .provisorio {
+    display: inline;
+    outline: 1px dashed #8a6a4f;
+    outline-offset: 2px;
+  }
+  .provisorio__selo {
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 0.05em 0.4em;
+    font:
+      600 0.625rem/1.4 system-ui,
+      sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1c1a18;
+    background: #f7d9a8;
+    vertical-align: middle;
+  }
+</style>

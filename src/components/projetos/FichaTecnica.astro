@@ -1,0 +1,133 @@
+---
+// Ficha técnica do projeto (como em revista): autoria, imagens, execução e fornecedores,
+// cidade, natureza e posts de origem. Crédito ausente aparece "a confirmar" (selo no preview);
+// nada é preenchido por suposição.
+import Provisorio from '../Provisorio.astro';
+import { TIPO, nomeAutoria, type ProjetoPagina } from './dados.ts';
+
+interface Props {
+  projeto: ProjetoPagina;
+}
+const { projeto: p } = Astro.props;
+
+const FUNCAO_IMAGEM = { render: 'Imagens 3D', foto: 'Fotografia', video: 'Vídeo' } as const;
+const NATUREZA = {
+  render: 'Imagem 3D do projeto',
+  antes: 'Antes',
+  executado: 'Obra executada',
+  video: 'Vídeo',
+} as const;
+const marcados = p.creditosExecucao.filter((c) => c.funcao === 'marcado no post');
+const comFuncao = p.creditosExecucao.filter((c) => c.funcao !== 'marcado no post');
+---
+
+<dl class="ficha">
+  <div class="ficha__item">
+    <dt>Projeto</dt>
+    <dd>{nomeAutoria(p.autoriaProjeto)}</dd>
+  </div>
+  {
+    p.autoriaImagens.map((a) => (
+      <div class="ficha__item">
+        <dt>{FUNCAO_IMAGEM[a.tipo]}</dt>
+        <dd>
+          {a.autor ?? (
+            <Provisorio ativo motivo="autoria da imagem não informada nas fontes">
+              A confirmar
+            </Provisorio>
+          )}
+        </dd>
+      </div>
+    ))
+  }
+  {
+    comFuncao.map((c) => (
+      <div class="ficha__item">
+        <dt>{c.funcao}</dt>
+        <dd>{c.nome}</dd>
+      </div>
+    ))
+  }
+  {
+    marcados.length > 0 && (
+      <div class="ficha__item">
+        <dt>Execução e fornecedores</dt>
+        <dd>
+          {marcados.map((c) => c.nome).join(' · ')}
+          <span class="ficha__nota">Marcados no post; a função de cada um não está escrita.</span>
+        </dd>
+      </div>
+    )
+  }
+  <div class="ficha__item">
+    <dt>Tipo</dt>
+    <dd>{TIPO[p.tipo]}</dd>
+  </div>
+  {
+    p.cidade && (
+      <div class="ficha__item">
+        <dt>Cidade</dt>
+        <dd>{p.cidade}</dd>
+      </div>
+    )
+  }
+  <div class="ficha__item">
+    <dt>Natureza das imagens</dt>
+    <dd>{p.naturezas.map((n) => NATUREZA[n]).join(' · ')}</dd>
+  </div>
+  <div class="ficha__item">
+    <dt>{p.posts.length > 1 ? 'Posts de origem' : 'Post de origem'}</dt>
+    <dd class="ficha__posts">
+      {
+        p.posts.map((post) => (
+          <a href={post.url} target="_blank" rel="noopener noreferrer">
+            {post.codigo}
+            <span class="so-leitor"> no Instagram (abre em nova aba)</span>
+          </a>
+        ))
+      }
+    </dd>
+  </div>
+</dl>
+
+<style>
+  .ficha {
+    margin: 0;
+    font-size: var(--t-pequeno);
+  }
+  .ficha__item {
+    display: grid;
+    grid-template-columns: minmax(8.5rem, 34%) 1fr;
+    gap: var(--e-4);
+    padding-block: var(--e-3);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  dt {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+    line-height: 1.7;
+  }
+  dd {
+    margin: 0;
+  }
+  .ficha__nota {
+    display: block;
+    margin-top: var(--e-1);
+    color: var(--cor-texto-2);
+  }
+  .ficha__posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--e-4);
+  }
+  .ficha__posts a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-block: -0.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

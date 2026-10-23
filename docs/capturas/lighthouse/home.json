@@ -1,0 +1,57 @@
+{
+  "rota": "/",
+  "vezes": 3,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 1106,
+  "lcpMs": 1653,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 1106,
+  "bytesTotaisKB": 270,
+  "lcpElemento": "figure.abertura__foto > div.abertura__quadro > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 98,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 1218.296875,
+      "lcp": 2283.9562499999997,
+      "tbt": 0,
+      "cls": 0,
+      "si": 1218.296875,
+      "bytesTotais": 276834,
+      "falhasA11y": []
+    },
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 1106.4966,
+      "lcp": 1653.4966,
+      "tbt": 35.25170000000003,
+      "cls": 0,
+      "si": 1106.4966,
+      "bytesTotais": 276834,
+      "falhasA11y": []
+    },
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 975.9791,
+      "lcp": 1505.9582,
+      "tbt": 0,
+      "cls": 0,
+      "si": 975.9791,
+      "bytesTotais": 276834,
+      "falhasA11y": []
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+---
+// 5. Antes & Depois (osso). Gesto: o comparador vertical (4:5) à esquerda e a ficha
+// técnica alta à direita, como página de revista. Par: cozinha-antes-depois (semelhança
+// alta; o único antes × depois de semelhança alta e ainda não usado na home).
+import Credito from '../ui/Credito.astro';
+import ComparadorFresta from './ComparadorFresta.astro';
+---
+
+<section class="ad" data-theme="light" data-tone="claro" aria-labelledby="ad-titulo">
+  <div class="ad__comparador">
+    <ComparadorFresta
+      par="cozinha-antes-depois"
+      tipo="antes-depois"
+      proporcao="4:5"
+      tamanhos="(min-width: 64rem) 46vw, 100vw"
+      altA="Cozinha J|C antes da reforma: armários antigos, bancada e ilha de granito, piso cerâmico"
+      altB="Cozinha J|C depois, no mesmo ângulo: marcenaria clara, torre de fornos, refrigerador e ilha de pedra"
+    />
+  </div>
+  <div class="ad__ficha">
+    <p class="t-rotulo t-secundario">Antes &amp; Depois</p>
+    <h2 id="ad-titulo" class="ad__titulo">Cozinha J|C</h2>
+    <p class="ad__texto" data-fonte-post="DZIFaXyFq8k">
+      A cozinha existente foi inteira repensada. Leveza na composição, riqueza nos detalhes: a
+      textura da pedra, a suavidade da iluminação e o equilíbrio entre cada elemento.
+    </p>
+    <Credito
+      itens={[
+        { funcao: 'Projeto', nome: 'Lavina — coletivo de arquitetura' },
+        { funcao: 'Imagem 3D', nome: 'Renata Nürnberg' },
+        {
+          funcao: 'Marcados no post',
+          nome: 'Maitê Decorações · Álamo Marmoraria · Alpen Planejados · AF Eletricidade',
+        },
+        { funcao: 'Cidade', nome: 'Balneário Camboriú' },
+      ]}
+    />
+    <a class="ad__link" href="/projetos/cozinha-jc/">Ver o projeto</a>
+  </div>
+</section>
+
+<style>
+  .ad {
+    display: grid;
+    gap: var(--e-7);
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .ad__ficha {
+    display: grid;
+    gap: var(--e-5);
+    align-content: start;
+  }
+  .ad__titulo {
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+  }
+  .ad__texto {
+    max-width: 28rem;
+    color: var(--cor-texto-2);
+  }
+  .ad__link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-4);
+    min-height: 44px;
+    color: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .ad__link::after {
+    content: '';
+    width: 3.5rem;
+    height: var(--linha);
+    background: currentColor;
+  }
+  @media (min-width: 64rem) {
+    .ad {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      column-gap: var(--e-9);
+      align-items: end;
+    }
+    .ad__ficha {
+      padding-bottom: var(--e-8);
+    }
+  }
+</style>

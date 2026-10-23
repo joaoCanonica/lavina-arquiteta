@@ -1,0 +1,37 @@
+{
+  "slug": "suite-fl",
+  "titulo": "Suíte F|L",
+  "codigo": "F|L",
+  "tipo": "residencial",
+  "cidade": "Lages",
+  "cidadeFonte": "docs/dados/midia-legendas.json (Lages/SC) e investigação §6",
+  "ano": null,
+  "natureza": "render",
+  "destaque": 1,
+  "autoriaProjeto": "Renata Nürnberg para Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "render",
+      "autor": "Renata Nürnberg"
+    }
+  ],
+  "creditosExecucao": [],
+  "legendaLiteral": [
+    {
+      "post": "DaLTDbClllI",
+      "texto": "Suíte F|L\n\nNeste projeto, o principal pedido dos clientes era tons escuros. Nossa missão foi fazer com que essa escolha conversasse com a luz, com as texturas e com cada detalhe do ambiente, para que o resultado dessa suíte transmitisse conforto e aconchego.\n\nPROJETO E IMAGENS ELABORADOS PARA @lavina.co.arq"
+    }
+  ],
+  "textoSite": "Neste projeto, o principal pedido dos clientes era tons escuros. A missão foi fazer essa escolha conversar com a luz, com as texturas e com cada detalhe do ambiente, para que a suíte transmitisse conforto e aconchego. As imagens 3D mostram a cama com arandelas, o roupeiro e o painel de TV.\n\n**O pedido.** Uma suíte em tons escuros.\n\n**A resposta do projeto.** Fazer o escuro conversar com a luz, com as texturas e com cada detalhe: arandelas na cabeceira, roupeiro e painel de TV no mesmo tom.",
+  "midia": [
+    "suite-fl-render-01",
+    "suite-fl-render-02",
+    "suite-fl-render-03",
+    "suite-fl-render-04",
+    "suite-fl-render-05"
+  ],
+  "pares": [],
+  "videos": [],
+  "instagram": ["https://www.instagram.com/p/DaLTDbClllI/"],
+  "proximosProjetos": ["cozinha-jc", "consultorio-jonny-arruda"]
+}

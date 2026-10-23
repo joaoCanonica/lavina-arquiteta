@@ -1,0 +1,32 @@
+{
+  "rota": "/projetos/cozinha-jc/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 69,
+  "fcpMs": 305,
+  "lcpMs": 544,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 523,
+  "bytesTotaisKB": 199,
+  "lcpElemento": "div.heroi__quadro > div.heroi__midia > picture.imagem > img",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 69,
+      "fcp": 304.72625000000005,
+      "lcp": 543.7810000000001,
+      "tbt": 0,
+      "cls": 0,
+      "si": 522.5617088331849,
+      "bytesTotais": 203886,
+      "falhasA11y": []
+    }
+  ]
+}

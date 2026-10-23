@@ -1,0 +1,245 @@
+---
+// /contato: onde a Lavina atende (com as avaliações como prova), o mesmo seletor de
+// orçamento da home (WhatsApp com mensagem montada; nenhum dado pessoal coletado) e os
+// canais. Mapa: link "Ver no mapa"; o iframe do Google só entra com o consentimento "mapas"
+// (components/consentimento/Mapa.astro). Textos: COPY_DECK §6–§8. Dados: config/contato.ts e config/avaliacoes.ts.
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import SecaoOrcamento from '../components/home/SecaoOrcamento.astro';
+import { config } from '../config/index.ts';
+import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
+import Mapa from '../components/consentimento/Mapa.astro';
+import Base from '../layouts/Base.astro';
+
+const c = config.contato;
+const trecho = (n: number) => {
+  const t = config.avaliacoes.trechos.find((x) => x.n === n);
+  return t ? { autor: t.autor, texto: String(t.texto.valor).replace('SC- ', 'SC — ') } : null;
+};
+const PROVAS = [
+  { titulo: 'Em Lages', trecho: trecho(7), recorte: true },
+  { titulo: 'À distância', trecho: trecho(5), recorte: false },
+  { titulo: 'De outro estado', trecho: trecho(4), recorte: false },
+].filter((p) => p.trecho !== null);
+const litoral = config.atuacao.cidades.find((x) => x.id === 'balneario-camboriu');
+
+// (49) 99190-0821 a partir do número do WhatsApp (55 + DDD + número).
+const n = c.whatsapp.valor.replace(/^55/, '');
+const telefone = `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`;
+---
+
+<Base titulo="Contato">
+  <Cabecalho tom="claro" />
+  <main id="conteudo">
+    <section class="abertura" data-theme="light" data-tone="claro" aria-labelledby="contato-h1">
+      <p class="t-rotulo t-secundario">Contato</p>
+      <h1 id="contato-h1" class="abertura__titulo">Projetos em Lages, no Litoral e à distância.</h1>
+      <ul class="provas">
+        {
+          PROVAS.map((p) => (
+            <li class="prova">
+              <p class="prova__titulo">{p.titulo}</p>
+              <blockquote>
+                <p>
+                  “{p.recorte ? '[…] ' : ''}
+                  {p.trecho!.texto}”
+                </p>
+                <footer>— {p.trecho!.autor}, no Google</footer>
+              </blockquote>
+            </li>
+          ))
+        }
+        {
+          litoral && (
+            <li class="prova">
+              <p class="prova__titulo">No Litoral</p>
+              <p class="prova__fato">
+                {litoral.nome.valor}:{' '}
+                <a href="/projetos/cozinha-jc/">Cozinha J|C, obra executada</a>.
+              </p>
+            </li>
+          )
+        }
+      </ul>
+    </section>
+
+    <SecaoOrcamento />
+
+    <section class="canais" data-theme="light" data-tone="claro" aria-labelledby="canais-h2">
+      <h2 id="canais-h2" class="canais__titulo">Canais</h2>
+      <dl class="canais__lista">
+        <div class="canal">
+          <dt>Telefone e WhatsApp</dt>
+          <dd>
+            <a href={linkOrcamento()} target="_blank" rel="noopener noreferrer">
+              {telefone}<span class="so-leitor"> no WhatsApp (abre em nova aba)</span>
+            </a>
+          </dd>
+        </div>
+        <div class="canal">
+          <dt>Instagram</dt>
+          <dd class="canal__varios">
+            {
+              c.instagram.valor.map((i) => (
+                <a href={i.url} target="_blank" rel="noopener noreferrer">
+                  {i.usuario}
+                  <span class="so-leitor"> (abre em nova aba)</span>
+                </a>
+              ))
+            }
+          </dd>
+        </div>
+        <div class="canal">
+          <dt>Escritório</dt>
+          <dd>
+            {c.endereco.valor.logradouro} · {c.endereco.valor.bairro} · {c.endereco.valor.cidade}/{
+              c.endereco.valor.uf
+            }
+            <a href={c.mapsUrl.valor} target="_blank" rel="noopener noreferrer" class="canal__mapa">
+              Ver no mapa<span class="so-leitor"> (Google Maps, abre em nova aba)</span>
+            </a>
+          </dd>
+        </div>
+        <div class="canal">
+          <dt>Acessibilidade</dt>
+          <dd>{c.acessibilidade.valor}</dd>
+        </div>
+      </dl>
+      <div class="canais__mapa">
+        <Mapa />
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .abertura,
+  .canais {
+    padding: var(--e-9) var(--margem);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .abertura {
+    display: grid;
+    gap: var(--e-6);
+    padding-top: calc(var(--e-10) + var(--e-6));
+  }
+  .abertura__titulo {
+    font-size: clamp(2.6rem, 1.1rem + 6.4vw, 8rem);
+    font-weight: var(--peso-display);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    max-width: 14ch;
+  }
+  .provas {
+    list-style: none;
+    margin: var(--e-6) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--e-6);
+  }
+  .prova {
+    display: grid;
+    gap: var(--e-3);
+    padding-top: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .prova__titulo {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .prova blockquote {
+    display: grid;
+    gap: var(--e-2);
+  }
+  .prova blockquote p,
+  .prova__fato {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .prova footer {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .prova__fato a {
+    color: inherit;
+  }
+
+  .canais {
+    display: grid;
+    gap: var(--e-6);
+    padding-bottom: var(--e-10);
+  }
+  .canais__titulo {
+    font-size: var(--t-titulo);
+    font-weight: var(--peso-display);
+    letter-spacing: -0.02em;
+  }
+  .canais__lista {
+    margin: 0;
+  }
+  .canal {
+    display: grid;
+    gap: var(--e-2);
+    padding-block: var(--e-4);
+    border-top: var(--linha) solid var(--cor-linha);
+  }
+  .canal dt {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .canal dd {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--e-5);
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+  }
+  .canal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+  }
+  .canal__mapa {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 64rem) {
+    .abertura,
+    .canais {
+      padding-block: var(--e-10);
+    }
+    .abertura {
+      padding-top: calc(var(--e-10) + var(--e-8));
+    }
+    .provas {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: var(--e-6);
+    }
+    .canais {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      column-gap: var(--e-9);
+      align-items: start;
+    }
+    .canais__mapa {
+      grid-column: 2;
+    }
+    .canal {
+      grid-template-columns: 14rem minmax(0, 1fr);
+      column-gap: var(--e-6);
+      align-items: baseline;
+    }
+  }
+</style>

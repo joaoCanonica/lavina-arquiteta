@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "media.manifest.schema.json",
+  "title": "Manifesto de mídia — Lavina",
+  "type": "object",
+  "required": ["versao", "registros", "rotulos"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "versao": { "const": 1 },
+    "gerado": { "type": "string" },
+    "rotulos": { "type": "object", "additionalProperties": { "type": "string" } },
+    "registros": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/registro" } }
+  },
+  "definitions": {
+    "post": {
+      "type": ["object", "null"],
+      "required": ["codigo", "url"],
+      "properties": {
+        "codigo": { "type": "string", "minLength": 8 },
+        "data": { "type": ["string", "null"] },
+        "url": { "type": "string", "pattern": "^https://www\\.instagram\\.com/p/" }
+      }
+    },
+    "edicao": {
+      "type": "object",
+      "required": ["tipo"],
+      "properties": {
+        "tipo": { "enum": ["cor", "verticais", "recorte"] },
+        "multiplicadoresRGB": { "type": "array", "items": { "type": "number", "minimum": 0.8, "maximum": 1.2 }, "minItems": 3, "maxItems": 3 },
+        "ganhoExposicao": { "type": "number", "minimum": 0.8, "maximum": 1.2 },
+        "pontoDeFuga": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+        "intensidade": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "x": { "type": "number" }, "y": { "type": "number" },
+        "largura": { "type": "number" }, "altura": { "type": "number" },
+        "motivo": { "type": "string" }
+      },
+      "allOf": [
+        { "if": { "properties": { "tipo": { "const": "cor" } } }, "then": { "required": ["multiplicadoresRGB", "motivo"] } },
+        { "if": { "properties": { "tipo": { "const": "verticais" } } }, "then": { "required": ["pontoDeFuga", "intensidade"] } },
+        { "if": { "properties": { "tipo": { "const": "recorte" } } }, "then": { "required": ["x", "y", "largura", "altura", "motivo"] } }
+      ]
+    },
+    "registro": {
+      "type": "object",
+      "required": ["id", "arquivo", "tipo", "natureza", "rotulo", "autoriaImagem", "problemas", "edicoes", "publicavel", "uso"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "arquivo": { "type": "string" },
+        "tipo": { "enum": ["imagem", "video", "vetor", "quadro-de-video"] },
+        "projeto": { "type": ["string", "null"] },
+        "natureza": { "enum": ["render", "executado", "antes", "depois", "video", "retrato", "marca", "documentacao", "nao-usar"] },
+        "rotulo": { "type": "string", "minLength": 3 },
+        "autoriaImagem": { "type": "string", "minLength": 1 },
+        "creditoProjeto": { "type": ["string", "null"] },
+        "post": { "$ref": "#/definitions/post" },
+        "legenda": { "type": ["string", "null"] },
+        "descricao": { "type": "string" },
+        "uso": { "type": "string" },
+        "problemas": { "type": "array", "items": { "type": "string" } },
+        "edicoes": { "type": "array", "items": { "$ref": "#/definitions/edicao" } },
+        "publicavel": { "type": "boolean" },
+        "exibicaoMaxima": { "type": "integer", "minimum": 240 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "pares": { "type": "array", "items": { "type": "string" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "natureza": { "const": "nao-usar" } } }, "then": { "properties": { "publicavel": { "const": false } } } },
+        { "if": { "properties": { "natureza": { "const": "documentacao" } } }, "then": { "properties": { "publicavel": { "const": false } } } },
+        {
+          "if": { "properties": { "natureza": { "enum": ["render", "executado", "antes", "depois"] }, "publicavel": { "const": true } } },
+          "then": { "required": ["projeto", "creditoProjeto"], "properties": { "projeto": { "type": "string" }, "creditoProjeto": { "type": "string", "minLength": 3 } } }
+        },
+        { "if": { "properties": { "tipo": { "enum": ["imagem", "video", "vetor"] } } }, "then": { "required": ["bytes", "sha256"] } }
+      ]
+    }
+  }
+}

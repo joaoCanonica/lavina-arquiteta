@@ -1,0 +1,126 @@
+/* Tokens do design system "A Fresta". Fonte das cores: src/config/tema.ts (CLAUDE.md §4).
+   Contraste validado por scripts/audit-contraste.mjs (lê ESTE arquivo). */
+
+:root {
+  /* Paleta crua (não usar direto em componentes; usar os papéis abaixo) */
+  --grafite: #1c1a18;
+  --grafite-2: #24211e;
+  --osso: #f4f1ec;
+  --travertino: #e6ded2;
+  --greige: #a79c8f;
+  --greige-profundo: #675e55; /* greige escurecido para texto sobre osso (AA) */
+  --freijo: #8a6a4f;
+  --freijo-claro: #b8916e; /* freijó para texto sobre grafite (AA) */
+  --luz: #f7d9a8; /* SÓ como luz: fresta, foco, brilho. Nunca bloco de cor. */
+  --luz-brilho: rgb(247 217 168 / 0.55);
+  --luz-halo: rgb(247 217 168 / 0.22);
+
+  /* Tipografia */
+  --fonte-texto: 'Urbanist', 'Urbanist Fallback', ui-sans-serif, system-ui, sans-serif;
+  --fonte-citacao: 'Spectral', 'Spectral Fallback', ui-serif, Georgia, serif;
+
+  --t-display: clamp(3.25rem, 1.4rem + 8vw, 10rem);
+  --t-titulo: clamp(2.25rem, 1.3rem + 4vw, 5rem);
+  --t-subtitulo: clamp(1.5rem, 1.15rem + 1.5vw, 2.375rem);
+  --t-citacao: clamp(1.5rem, 1.05rem + 1.9vw, 2.875rem);
+  --t-corpo-grande: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --t-corpo: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --t-pequeno: 0.875rem;
+  --t-rotulo: 0.75rem;
+
+  --peso-display: 200;
+  --peso-titulo: 250;
+  --peso-texto: 400;
+  --peso-rotulo: 500;
+  --peso-forte: 600;
+
+  --entrelinha-display: 0.95;
+  --entrelinha-titulo: 1.05;
+  --entrelinha-texto: 1.6;
+  --espaco-rotulo: 0.32em; /* versalete espaçado, como o LAVINA do logo */
+  --espaco-display: -0.02em;
+
+  /* Espaço (generoso; escala de 4 px no pequeno, fluida no grande) */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: clamp(2.5rem, 2rem + 2vw, 4rem);
+  --e-8: clamp(4rem, 3rem + 4vw, 7rem);
+  --e-9: clamp(6rem, 4rem + 8vw, 11rem);
+  --e-10: clamp(8rem, 5rem + 12vw, 16rem);
+  --margem: clamp(1rem, 0.5rem + 3vw, 4rem); /* gutter lateral (16 px no celular) */
+  --largura-texto: 36rem;
+  --largura-max: 90rem;
+
+  /* Forma: arquitetura de cantos retos; o raio vem só das fotos */
+  --raio: 0;
+  --linha: 1px;
+  --linha-fresta: 1.5px;
+
+  /* Movimento: ease-out longas, sem bounce */
+  --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-entrada-saida: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-curta: 180ms;
+  --dur-media: 420ms;
+  --dur-fresta: 600ms;
+  --dur-revela: 1200ms;
+  --dur-logo: 2600ms;
+}
+
+/* ---------- Tema claro: padrão de leitura ---------- */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --cor-fundo: var(--osso);
+  --cor-superficie: var(--travertino);
+  --cor-texto: var(--grafite);
+  --cor-texto-2: var(--greige-profundo);
+  --cor-acento: var(--greige-profundo);
+  --cor-madeira: var(--freijo); /* UI/elementos grandes; não para texto corrido */
+  --cor-linha: rgb(28 26 24 / 0.16); /* decorativa */
+  --cor-linha-forte: var(--greige-profundo); /* bordas de controles (UI ≥ 3:1) */
+  --cor-foco: var(--grafite); /* luz sobre osso não tem contraste: anel grafite + halo de luz */
+  --cor-fresta: var(--luz);
+  --cor-fresta-nucleo: #e9c48a; /* núcleo da fresta um pouco mais denso no claro */
+  --sombra-fresta: 0 0 6px 0.5px var(--luz-brilho), 0 0 18px 2px var(--luz-halo);
+}
+
+/* ---------- Tema escuro: padrão de impacto (home) ---------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --cor-fundo: var(--grafite);
+  --cor-superficie: var(--grafite-2);
+  --cor-texto: var(--osso);
+  --cor-texto-2: var(--greige);
+  --cor-acento: var(--freijo-claro);
+  --cor-madeira: var(--freijo);
+  --cor-linha: rgb(244 241 236 / 0.14);
+  --cor-linha-forte: var(--greige);
+  --cor-foco: var(--luz);
+  --cor-fresta: var(--luz);
+  --cor-fresta-nucleo: #fff1d9;
+  --sombra-fresta: 0 0 6px 1px var(--luz-brilho), 0 0 22px 3px var(--luz-halo);
+}
+
+/* Sem JS: segue o sistema. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --cor-fundo: var(--grafite);
+    --cor-superficie: var(--grafite-2);
+    --cor-texto: var(--osso);
+    --cor-texto-2: var(--greige);
+    --cor-acento: var(--freijo-claro);
+    --cor-madeira: var(--freijo);
+    --cor-linha: rgb(244 241 236 / 0.14);
+    --cor-linha-forte: var(--greige);
+    --cor-foco: var(--luz);
+    --cor-fresta: var(--luz);
+    --cor-fresta-nucleo: #fff1d9;
+    --sombra-fresta: 0 0 6px 1px var(--luz-brilho), 0 0 22px 3px var(--luz-halo);
+  }
+}

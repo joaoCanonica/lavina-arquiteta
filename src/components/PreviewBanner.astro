@@ -1,0 +1,55 @@
+---
+// Faixa "em revisão": só no preview. Some em produção.
+import { ehPreview } from '../config/modo.ts';
+
+interface Props {
+  pendencias?: number;
+}
+const { pendencias } = Astro.props;
+---
+
+{
+  ehPreview && (
+    <div class="faixa-revisao" role="status" data-preview-banner>
+      <span>Em revisão</span>
+      <span class="faixa-revisao__nota">
+        Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+        {pendencias !== undefined && ` ${pendencias} pendências.`}
+      </span>
+    </div>
+  )
+}
+
+<style>
+  /* No rodapé da tela: não cobre o cabeçalho fixo. */
+  .faixa-revisao {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
+    background: #1c1a18;
+    color: #f4f1ec;
+    font:
+      500 0.75rem/1.4 system-ui,
+      sans-serif;
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    border-top: 1px solid #f7d9a8;
+  }
+  .faixa-revisao > span:first-child {
+    text-transform: uppercase;
+  }
+  :global(body:has(.faixa-revisao)) {
+    --faixa-preview: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .faixa-revisao__nota {
+    letter-spacing: 0;
+    opacity: 0.8;
+  }
+</style>

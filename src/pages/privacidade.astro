@@ -1,0 +1,409 @@
+---
+// /privacidade: política de privacidade e de cookies (LGPD, Lei 13.709/2018).
+// Dados do controlador: config (marca, contato). Texto sujeito a revisão jurídica
+// ([DECISÃO HUMANA] em docs/COMPLIANCE.md). Atualizar a data a cada mudança.
+import Cabecalho from '../components/abertura/Cabecalho.astro';
+import Provisorio from '../components/Provisorio.astro';
+import { linkOrcamento } from '../components/consentimento/whatsapp.ts';
+import { config, ehPreview, type Campo } from '../config/index.ts';
+import Base from '../layouts/Base.astro';
+
+const ATUALIZADA = { iso: '2026-10-22', texto: '22 de outubro de 2026' };
+const m = config.marca;
+const c = config.contato;
+const e = c.endereco.valor;
+// E-mail só aparece quando confirmado (no preview, o selo PROVISÓRIO marca a falta).
+const campoEmail = c.email as Campo<string>;
+const email = campoEmail.estado === 'confirmado' ? campoEmail.valor : null;
+const n = c.whatsapp.valor.replace(/^55/, '');
+const telefone = `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`;
+
+const ARMAZENAMENTO = [
+  {
+    nome: 'lavina-consentimento',
+    onde: 'armazenamento local do navegador',
+    categoria: 'Essencial',
+    para: 'Guardar a sua escolha sobre cookies e categorias.',
+    prazo: '12 meses (depois, o site pergunta de novo)',
+  },
+  {
+    nome: 'lavina-entrada',
+    onde: 'armazenamento da sessão',
+    categoria: 'Essencial',
+    para: 'Lembrar, nesta aba, que a animação de entrada já foi vista.',
+    prazo: 'Até fechar a aba',
+  },
+  {
+    nome: 'lavina-tema',
+    onde: 'armazenamento local do navegador',
+    categoria: 'Preferências',
+    para: 'Guardar o tema claro ou escuro escolhido.',
+    prazo: 'Até você apagar ou retirar o consentimento',
+  },
+  {
+    nome: 'Cookies do Google',
+    onde: 'mapa incorporado (Google Maps)',
+    categoria: 'Mapas',
+    para: 'Exibir o mapa do escritório na página de contato.',
+    prazo: 'Definido pelo Google',
+  },
+  {
+    nome: 'Vercel Web Analytics',
+    onde: 'script servido pelo próprio site',
+    categoria: 'Estatística',
+    para: 'Contar visitas e cliques no WhatsApp, de forma agregada.',
+    prazo: 'Definido pela Vercel',
+  },
+];
+---
+
+<Base titulo="Política de privacidade">
+  <Cabecalho tom="claro" />
+  <main id="conteudo" class="politica" data-theme="light" data-tone="claro">
+    <header class="politica__topo">
+      <p class="t-rotulo t-secundario">Privacidade</p>
+      <h1 class="politica__titulo">Política de privacidade e de cookies</h1>
+      <p class="politica__data">
+        Atualizada em <time datetime={ATUALIZADA.iso}>{ATUALIZADA.texto}</time>.
+      </p>
+      <p class="politica__resumo">
+        Em resumo: este site não tem formulário e não pede seus dados. O orçamento é conversado pelo
+        WhatsApp, quando você decide abrir a conversa. Mapa do Google e estatística de visitas só
+        funcionam se você aceitar, e você pode mudar essa escolha a qualquer momento.
+      </p>
+    </header>
+
+    <nav class="politica__indice" aria-label="Nesta página">
+      <ol>
+        <li><a href="#controlador">Quem cuida dos dados</a></li>
+        <li><a href="#dados">Que dados são tratados</a></li>
+        <li><a href="#bases">Finalidades e bases legais</a></li>
+        <li><a href="#terceiros">Serviços de terceiros</a></li>
+        <li><a href="#cookies">Cookies e armazenamento local</a></li>
+        <li><a href="#retencao">Por quanto tempo</a></li>
+        <li><a href="#direitos">Seus direitos</a></li>
+        <li><a href="#contato">Como falar conosco</a></li>
+      </ol>
+    </nav>
+
+    <section id="controlador" class="bloco" aria-labelledby="h-controlador">
+      <h2 id="h-controlador">1. Quem cuida dos dados</h2>
+      <p>
+        A controladora dos dados tratados por este site é a <strong>{m.razaoSocial.valor}</strong>,
+        CNPJ {m.cnpj.valor}, que atua com o nome {m.nome.valor}. Endereço: {e.logradouro}, {
+          e.bairro
+        }, {e.cidade}/{e.uf}, CEP {e.cep}.
+      </p>
+    </section>
+
+    <section id="dados" class="bloco" aria-labelledby="h-dados">
+      <h2 id="h-dados">2. Que dados são tratados</h2>
+      <ul>
+        <li>
+          <strong>Ao navegar:</strong> a hospedagem do site (Vercel) recebe dados técnicos de cada acesso,
+          como endereço IP, data e hora, página pedida e tipo de navegador. Isso acontece em qualquer
+          site e serve para entregar as páginas com segurança.
+        </li>
+        <li>
+          <strong>Sua escolha de privacidade</strong> e, se você permitir, o tema escolhido, guardados
+          no seu próprio navegador (veja a seção 5).
+        </li>
+        <li>
+          <strong>Se você aceitar “Estatística”:</strong> contagem de visitas por página e de cliques
+          no WhatsApp, de forma agregada.
+        </li>
+        <li>
+          <strong>Se você aceitar “Mapas”:</strong> ao carregar o mapa, o Google recebe seu endereço IP
+          e dados do navegador.
+        </li>
+        <li>
+          <strong>Se você chamar no WhatsApp:</strong> o que você escrever na conversa, seu nome e seu
+          número de telefone. A mensagem pronta do site só leva o tipo de projeto e a cidade que você
+          escolher, e pode ser editada antes de enviar.
+        </li>
+      </ul>
+      <p>
+        O site não pede dados sensíveis, não tem cadastro, não faz perfil de comportamento e não é
+        dirigido a crianças.
+      </p>
+    </section>
+
+    <section id="bases" class="bloco" aria-labelledby="h-bases">
+      <h2 id="h-bases">3. Finalidades e bases legais</h2>
+      <div class="tabela" role="region" aria-labelledby="h-bases" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Finalidade</th>
+              <th scope="col">Base legal (LGPD, art. 7º)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                >Entregar o site com segurança (dados técnicos de acesso; escolha de privacidade)</td
+              >
+              <td>Legítimo interesse (inciso IX) e cumprimento de obrigação legal (inciso II)</td>
+            </tr>
+            <tr>
+              <td>Guardar o tema escolhido</td>
+              <td>Consentimento (inciso I)</td>
+            </tr>
+            <tr>
+              <td>Mostrar o mapa do escritório</td>
+              <td>Consentimento (inciso I)</td>
+            </tr>
+            <tr>
+              <td>Medir visitas e cliques no WhatsApp</td>
+              <td>Consentimento (inciso I)</td>
+            </tr>
+            <tr>
+              <td>Responder ao seu contato e preparar o orçamento</td>
+              <td>Procedimentos preliminares de um contrato, a seu pedido (inciso V)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="terceiros" class="bloco" aria-labelledby="h-terceiros">
+      <h2 id="h-terceiros">4. Serviços de terceiros</h2>
+      <ul>
+        <li>
+          <strong>WhatsApp (Meta):</strong> a conversa de orçamento acontece no WhatsApp, que tem a própria
+          política de privacidade. O site só abre o link; nenhum script da Meta é carregado aqui.
+        </li>
+        <li>
+          <strong>Instagram (Meta):</strong> o site tem apenas links para os perfis. Nenhuma publicação
+          é incorporada e nenhum script da Meta é carregado.
+        </li>
+        <li>
+          <strong>Google Maps:</strong> só carrega na página de contato, depois do seu consentimento para
+          “Mapas”. Antes disso, há apenas um link que abre o mapa em outra aba.
+        </li>
+        <li>
+          <strong>Vercel:</strong> hospeda o site e, com o seu consentimento para “Estatística”, faz a
+          contagem de visitas e cliques.
+        </li>
+      </ul>
+      <p>
+        Esses serviços podem tratar dados fora do Brasil. Nesses casos, a transferência segue as
+        regras da LGPD para transferência internacional (arts. 33 a 36).
+      </p>
+    </section>
+
+    <section id="cookies" class="bloco" aria-labelledby="h-cookies">
+      <h2 id="h-cookies">5. Cookies e armazenamento local</h2>
+      <p>
+        Nada além do essencial é usado antes da sua escolha. Você pode aceitar, recusar ou escolher
+        por categoria, e mudar isso quando quiser:
+      </p>
+      <p>
+        <button type="button" class="politica__botao" data-consentimento-abrir>
+          Rever minhas escolhas
+        </button>
+      </p>
+      <div class="tabela" role="region" aria-labelledby="h-cookies" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Onde</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Para quê</th>
+              <th scope="col">Prazo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ARMAZENAMENTO.map((a) => (
+                <tr>
+                  <td>{a.nome}</td>
+                  <td>{a.onde}</td>
+                  <td>{a.categoria}</td>
+                  <td>{a.para}</td>
+                  <td>{a.prazo}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="retencao" class="bloco" aria-labelledby="h-retencao">
+      <h2 id="h-retencao">6. Por quanto tempo</h2>
+      <ul>
+        <li>
+          <strong>Escolha de privacidade:</strong> 12 meses no seu navegador.
+        </li>
+        <li>
+          <strong>Dados técnicos de acesso:</strong> pelo prazo da hospedagem e, quando a lei exigir,
+          pelo prazo do Marco Civil da Internet (Lei 12.965/2014, art. 15).
+        </li>
+        <li>
+          <strong>Conversas de orçamento:</strong> pelo tempo necessário para o atendimento e, se houver
+          contrato, pelos prazos legais que se aplicam a ele.
+        </li>
+      </ul>
+    </section>
+
+    <section id="direitos" class="bloco" aria-labelledby="h-direitos">
+      <h2 id="h-direitos">7. Seus direitos</h2>
+      <p>Pela LGPD (art. 18), você pode pedir, a qualquer momento:</p>
+      <ul class="colunas">
+        <li>confirmação de que tratamos seus dados</li>
+        <li>acesso aos dados</li>
+        <li>correção de dados incompletos ou desatualizados</li>
+        <li>anonimização, bloqueio ou eliminação de dados desnecessários</li>
+        <li>portabilidade</li>
+        <li>eliminação dos dados tratados com consentimento</li>
+        <li>informação sobre com quem compartilhamos</li>
+        <li>informação sobre não consentir e o que isso implica</li>
+        <li>revogação do consentimento</li>
+      </ul>
+      <p>
+        Se a sua questão não for resolvida conosco, você pode reclamar à Autoridade Nacional de
+        Proteção de Dados (ANPD).
+      </p>
+    </section>
+
+    <section id="contato" class="bloco" aria-labelledby="h-contato">
+      <h2 id="h-contato">8. Como falar conosco</h2>
+      <p>Para exercer seus direitos ou tirar dúvidas sobre esta política:</p>
+      <ul>
+        <li>
+          WhatsApp:{' '}
+          <a href={linkOrcamento()} target="_blank" rel="noopener noreferrer">
+            {telefone}<span class="so-leitor"> (abre em nova aba)</span>
+          </a>
+        </li>
+        {
+          email ? (
+            <li>
+              E-mail: <a href={`mailto:${email}`}>{email}</a>
+            </li>
+          ) : (
+            ehPreview && (
+              <li>
+                E-mail:{' '}
+                <Provisorio campo={c.email} motivo="e-mail de contato ainda não informado" />
+              </li>
+            )
+          )
+        }
+        <li>
+          Correspondência: {m.razaoSocial.valor}, {e.logradouro}, {e.bairro}, {e.cidade}/{e.uf}, CEP {
+            e.cep
+          }.
+        </li>
+      </ul>
+      <p>
+        Esta política pode mudar quando o site mudar. A data no topo indica a última atualização.
+      </p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  /* Fundo claro de ponta a ponta (o cabeçalho de tom claro fica sempre sobre ele);
+     só a coluna de texto tem largura máxima. */
+  .politica {
+    display: grid;
+    gap: var(--e-8);
+    padding: calc(var(--e-10) + var(--e-6))
+      max(var(--margem), calc((100% - var(--largura-texto, 42rem)) / 2)) var(--e-10);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  .politica__topo {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .politica__titulo {
+    font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem);
+    font-weight: var(--peso-display);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .politica__data {
+    font-size: var(--t-pequeno);
+    color: var(--cor-texto-2);
+  }
+  .politica__resumo {
+    font-size: var(--t-corpo-grande);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .politica__indice ol {
+    margin: 0;
+    padding: 0 0 0 1.2em;
+    columns: 2 14rem;
+    font-size: var(--t-pequeno);
+  }
+  .politica__indice a {
+    display: inline-block;
+    padding-block: 0.6rem;
+    color: inherit;
+  }
+  .bloco {
+    display: grid;
+    gap: var(--e-4);
+    padding-top: var(--e-5);
+    border-top: var(--linha) solid var(--cor-linha);
+    scroll-margin-top: 6rem;
+  }
+  .bloco h2 {
+    font-size: var(--t-subtitulo);
+    font-weight: 300;
+  }
+  .bloco p,
+  .bloco li {
+    line-height: 1.65;
+  }
+  .bloco ul {
+    margin: 0;
+    padding-left: 1.2em;
+    display: grid;
+    gap: var(--e-2);
+  }
+  .colunas {
+    columns: 2 16rem;
+    display: block !important;
+  }
+  .tabela {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--t-pequeno);
+  }
+  th,
+  td {
+    padding: var(--e-2) var(--e-3) var(--e-2) 0;
+    border-bottom: var(--linha) solid var(--cor-linha);
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    color: var(--cor-texto-2);
+  }
+  .politica__botao {
+    min-height: 44px;
+    padding: 0 var(--e-4);
+    border: var(--linha) solid currentColor;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+</style>

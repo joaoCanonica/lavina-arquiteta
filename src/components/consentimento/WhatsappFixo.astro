@@ -1,0 +1,84 @@
+---
+// Botão fixo do WhatsApp no celular: discreto (linha + texto, sem bolha verde), some perto do
+// rodapé e enquanto o banner de consentimento está aberto. No desktop, o cabeçalho já tem o link.
+import { linkOrcamento } from './whatsapp.ts';
+---
+
+<a
+  class="whats-fixo"
+  href={linkOrcamento()}
+  target="_blank"
+  rel="noopener noreferrer"
+  data-whats-fixo
+  data-origem="botao-fixo"
+>
+  <span class="whats-fixo__luz" aria-hidden="true"></span>
+  WhatsApp<span class="so-leitor"> (orçamento, abre em nova aba)</span>
+</a>
+
+<script>
+  // Some quando o rodapé (ou o seletor de orçamento) entra na tela.
+  const botao = document.querySelector<HTMLElement>('[data-whats-fixo]');
+  const alvos = document.querySelectorAll('[data-rodape], [data-orcamento]');
+  if (botao && alvos.length && 'IntersectionObserver' in window) {
+    const visiveis = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((e) =>
+          e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target),
+        );
+        botao.classList.toggle('whats-fixo--oculto', visiveis.size > 0);
+      },
+      { rootMargin: '0px 0px 120px 0px' },
+    );
+    alvos.forEach((a) => io.observe(a));
+  }
+</script>
+
+<style>
+  .whats-fixo {
+    position: fixed;
+    right: var(--margem);
+    bottom: calc(var(--faixa-preview, 0px) + var(--e-4));
+    z-index: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-3);
+    min-height: 44px;
+    padding: 0 var(--e-4);
+    background: var(--grafite);
+    color: var(--osso);
+    border: var(--linha) solid rgb(244 241 236 / 0.35);
+    font-size: var(--t-rotulo);
+    font-weight: var(--peso-rotulo);
+    letter-spacing: var(--espaco-rotulo);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      opacity var(--dur-media) var(--ease-saida),
+      transform var(--dur-media) var(--ease-saida),
+      visibility 0s linear;
+  }
+  .whats-fixo__luz {
+    width: 1.25rem;
+    height: var(--linha-fresta);
+    background: var(--cor-fresta-nucleo);
+    box-shadow: var(--sombra-fresta);
+  }
+  .whats-fixo--oculto,
+  :global(:root[data-consentimento-aberto]) .whats-fixo {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity var(--dur-media) var(--ease-saida),
+      transform var(--dur-media) var(--ease-saida),
+      visibility 0s linear var(--dur-media);
+  }
+  @media (min-width: 64rem) {
+    .whats-fixo {
+      display: none;
+    }
+  }
+</style>

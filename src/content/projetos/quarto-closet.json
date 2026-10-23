@@ -1,0 +1,37 @@
+{
+  "slug": "quarto-closet",
+  "titulo": "Quarto e closet",
+  "codigo": null,
+  "tipo": "residencial",
+  "cidade": null,
+  "cidadeFonte": null,
+  "ano": null,
+  "natureza": "executado",
+  "destaque": 3,
+  "autoriaProjeto": "Lavina | Coletivo de Arquitetura",
+  "autoriaImagens": [
+    {
+      "tipo": "video",
+      "autor": "Acervo Lavina | Coletivo de Arquitetura"
+    }
+  ],
+  "creditosExecucao": [],
+  "legendaLiteral": [
+    {
+      "post": "DVPU7xpDhVQ",
+      "texto": "Esse ambiente passou por uma super transformação, redesenhamos cada centímetro para trazer mais amplitude, leveza e sofisticação 🤍\n\nÀs vezes o que você precisa não é de uma casa nova…\nMas sim, de um novo olhar para a sua casa.\nSe você sente que seu quarto não representa mais quem você é, talvez esteja na hora de transformar também."
+    }
+  ],
+  "textoSite": "Às vezes o que você precisa não é de uma casa nova, mas de um novo olhar para a sua casa. Este quarto passou por uma transformação: cada centímetro foi redesenhado para trazer amplitude, leveza e sofisticação, com closet e penteadeira integrados.\n\n**O pedido.** Um quarto que voltasse a representar quem vive nele.\n\n**A resposta do projeto.** Cada centímetro redesenhado: cabeceira estofada com arandelas, penteadeira com espelho iluminado, nichos e um closet de portas claras.",
+  "midia": [
+    "quadro-mostrando-quarto-01",
+    "quadro-mostrando-quarto-03",
+    "quadro-mostrando-quarto-04",
+    "quadro-mostrando-quarto-05",
+    "quadro-mostrando-quarto-06"
+  ],
+  "pares": [],
+  "videos": ["video-mostrando-quarto"],
+  "instagram": ["https://www.instagram.com/p/DVPU7xpDhVQ/"],
+  "proximosProjetos": ["projeto-tb", "suite-fl"]
+}

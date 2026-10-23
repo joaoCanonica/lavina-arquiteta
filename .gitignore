@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+public/media/
+docs/capturas/**/*.png
+.env*
+docs/capturas/lighthouse/.tmp-*
+.csp
+.cache

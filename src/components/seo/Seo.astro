@@ -1,0 +1,58 @@
+---
+// Metadados da página a partir da rota: título, descrição, canonical (SITE_URL), robots,
+// Open Graph, Twitter e JSON-LD. Fonte: src/config/seo.ts. Rotas fora do mapa (404, internas)
+// levam só título, descrição padrão e noindex. O JSON-LD fica no fim do <body> (JsonLd.astro),
+// para não atrasar a descoberta da imagem do LCP no <head>.
+import { config } from '../../config/index.ts';
+import { SITE_URL, paginas } from '../../config/seo.ts';
+import { rotaNormal } from './jsonld.ts';
+import { ogNome } from './og.ts';
+
+interface Props {
+  /** título de reserva (rotas fora do mapa) */
+  titulo?: string;
+  semIndice: boolean;
+}
+const { titulo, semIndice } = Astro.props;
+
+const caminho = rotaNormal(Astro.url.pathname);
+const meta = paginas[caminho];
+const marca = config.marca.nome.valor;
+const tituloFinal = meta?.titulo ?? (titulo ? `${titulo} · Lavina` : marca);
+const descricao = meta?.descricao ?? config.seo.descricaoPadrao.valor;
+const url = `${SITE_URL}${caminho}`;
+const og = meta ? `${SITE_URL}/og/${ogNome(caminho)}.jpg` : null;
+const ogAlt = meta ? `${meta.trilha} · ${marca}` : marca;
+---
+
+<title>{tituloFinal}</title>
+<meta name="description" content={descricao} />
+{semIndice && <meta name="robots" content="noindex, nofollow" />}
+{meta && <link rel="canonical" href={url} />}
+{
+  meta && og && (
+    <>
+      <meta
+        property="og:type"
+        content={
+          caminho.startsWith('/projetos/') && caminho !== '/projetos/' ? 'article' : 'website'
+        }
+      />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:site_name" content={marca} />
+      <meta property="og:title" content={tituloFinal} />
+      <meta property="og:description" content={descricao} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={og} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={ogAlt} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={tituloFinal} />
+      <meta name="twitter:description" content={descricao} />
+      <meta name="twitter:image" content={og} />
+      <meta name="twitter:image:alt" content={ogAlt} />
+    </>
+  )
+}

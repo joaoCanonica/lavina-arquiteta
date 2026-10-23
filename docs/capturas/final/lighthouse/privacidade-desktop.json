@@ -1,0 +1,32 @@
+{
+  "rota": "/privacidade/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 66,
+  "fcpMs": 226,
+  "lcpMs": 327,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 226,
+  "bytesTotaisKB": 44,
+  "lcpElemento": "body > main#conteudo > header.politica__topo > h1.politica__titulo",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 66,
+      "fcp": 226.163375,
+      "lcp": 327.39605,
+      "tbt": 0,
+      "cls": 0,
+      "si": 226.163375,
+      "bytesTotais": 44756,
+      "falhasA11y": []
+    }
+  ]
+}

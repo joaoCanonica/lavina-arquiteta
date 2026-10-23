@@ -1,0 +1,32 @@
+{
+  "rota": "/contato/",
+  "perfil": "desktop",
+  "vezes": 1,
+  "performance": 100,
+  "acessibilidade": 100,
+  "boasPraticas": 100,
+  "seo": 66,
+  "fcpMs": 256,
+  "lcpMs": 336,
+  "tbtMs": 0,
+  "cls": 0,
+  "siMs": 256,
+  "bytesTotaisKB": 45,
+  "lcpElemento": "body > main#conteudo > section.abertura > h1#contato-h1",
+  "falhasA11y": [],
+  "execucoes": [
+    {
+      "performance": 100,
+      "acessibilidade": 100,
+      "boasPraticas": 100,
+      "seo": 66,
+      "fcp": 255.55712499999998,
+      "lcp": 336.46855,
+      "tbt": 0,
+      "cls": 0,
+      "si": 255.55712499999998,
+      "bytesTotais": 45630,
+      "falhasA11y": []
+    }
+  ]
+}

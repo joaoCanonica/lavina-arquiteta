@@ -1,0 +1,33 @@
+---
+// Divisor de seção: uma fresta que acende ao entrar na tela.
+import Fresta from './Fresta.astro';
+
+interface Props {
+  /** largura relativa da linha (a fresta não precisa cruzar a página toda) */
+  largura?: 'cheia' | 'media' | 'curta';
+  class?: string;
+}
+const { largura = 'media', class: classe } = Astro.props;
+---
+
+<div class:list={['divisor', `divisor--${largura}`, classe]} role="separator" data-fresta-gatilho>
+  <Fresta />
+</div>
+
+<style>
+  .divisor {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--e-8);
+    padding-inline: var(--margem);
+  }
+  .divisor > :global(.fresta) {
+    max-width: var(--largura-max);
+  }
+  .divisor--media > :global(.fresta) {
+    width: min(100%, 48rem);
+  }
+  .divisor--curta > :global(.fresta) {
+    width: min(100%, 12rem);
+  }
+</style>

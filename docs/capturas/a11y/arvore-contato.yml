@@ -1,0 +1,126 @@
+- link "Pular para o conteúdo":
+  - /url: "#conteudo"
+- status: Em revisão Prévia sem indexação. Campos marcados como PROVISÓRIO dependem de confirmação.
+- banner:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - navigation "Principal":
+    - list:
+      - listitem:
+        - link "Projetos":
+          - /url: /projetos/
+      - listitem:
+        - link "Processo":
+          - /url: /processo/
+      - listitem:
+        - link "Coletivo":
+          - /url: /coletivo/
+      - listitem:
+        - link "Contato":
+          - /url: /contato/
+  - link "WhatsApp (abre em nova aba)":
+    - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+- main:
+  - region "Projetos em Lages, no Litoral e à distância.":
+    - paragraph: Contato
+    - heading "Projetos em Lages, no Litoral e à distância." [level=1]
+    - list:
+      - listitem:
+        - paragraph: Em Lages
+        - blockquote:
+          - paragraph: “[…] atende em Lages/SC, mas que também faz projetos e acompanhamento de obra em outras cidades.”
+          - text: — Isabel S., no Google
+      - listitem:
+        - paragraph: À distância
+        - blockquote:
+          - paragraph: “Eu me mudei de apartamento e ela prestou consultoria à distância, me auxiliando em todas as etapas de renovação e decoração. Sempre disponível, respondendo com agilidade”
+          - text: — Luísa W., no Google
+      - listitem:
+        - paragraph: De outro estado
+        - blockquote:
+          - paragraph: “Fez a reforma da nossa casa, em Lages/SC — e nós morando em outro estado (MS). Fez o projeto, providenciou materiais, mão de obra e acompanhou a execução. Muito cuidadosa com orçamentos, opções de materiais e sempre disponível.”
+          - text: — Jane W., no Google
+      - listitem:
+        - paragraph: No Litoral
+        - paragraph:
+          - text: "Balneário Camboriú:"
+          - link "Cozinha J|C, obra executada":
+            - /url: /projetos/cozinha-jc/
+          - text: .
+  - 'region "Vamos começar pelo que é mais importante: você."':
+    - paragraph: Orçamento
+    - 'heading "Vamos começar pelo que é mais importante: você." [level=2]'
+    - paragraph: "Conte que tipo de projeto você tem em mente e em que cidade. A primeira conversa é sobre você: sua rotina, o que te encanta, o que você não gosta. Plantas, medidas e orçamento vêm depois."
+    - group "Tipo de projeto":
+      - text: Tipo de projeto
+      - radio "Residencial"
+      - text: Residencial
+      - radio "Comercial e saúde"
+      - text: Comercial e saúde
+      - radio "Reforma"
+      - text: Reforma
+      - radio "Só interiores"
+      - text: Só interiores
+    - group "Cidade":
+      - text: Cidade
+      - radio "Lages"
+      - text: Lages
+      - radio "Litoral"
+      - text: Litoral
+      - radio "Outra"
+      - text: Outra
+    - button "Solicitar orçamento pelo WhatsApp (abre em nova aba)"
+    - paragraph: "Olá! Gostaria de conversar sobre um projeto. Tipo de projeto: ___ Cidade: ___ Vim pelo site."
+    - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110 Segunda a sexta, 09h às 19h
+    - link "Ver no mapa (Google Maps, abre em nova aba)":
+      - /url: https://www.google.com/maps/place/Amanda+Lavina+Arquitetura/@-27.8109211,-50.3161973,17z
+  - region "Canais":
+    - heading "Canais" [level=2]
+    - term: Telefone e WhatsApp
+    - definition:
+      - link "(49) 99190-0821 no WhatsApp (abre em nova aba)":
+        - /url: https://wa.me/5549991900821?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.%0ATipo%20de%20projeto%3A%20___%0ACidade%3A%20___%0AVim%20pelo%20site.
+    - term: Instagram
+    - definition:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+    - term: Escritório
+    - definition:
+      - text: Av. Pres. Vargas, 505 · Sagrado Coração de Jesus · Lages/SC
+      - link "Ver no mapa (Google Maps, abre em nova aba)":
+        - /url: https://www.google.com/maps/place/Amanda+Lavina+Arquitetura/@-27.8109211,-50.3161973,17z
+    - term: Acessibilidade
+    - definition: Estacionamento acessível para cadeira de rodas
+    - figure "Av. Pres. Vargas, 505 · Sagrado Coração de Jesus · Lages/SC":
+      - paragraph: Mapa do Google
+      - paragraph: "O mapa só carrega com a sua permissão: ao abrir, o Google recebe seu endereço IP e dados do navegador. Sem isso, o link abre o mapa em outra aba."
+      - button "Mostrar o mapa aqui"
+      - link "Ver no mapa (Google Maps, abre em nova aba)":
+        - /url: https://www.google.com/maps/place/Amanda+Lavina+Arquitetura/@-27.8109211,-50.3161973,17z
+      - text: Av. Pres. Vargas, 505 · Sagrado Coração de Jesus · Lages/SC
+- contentinfo:
+  - link "Lavina — coletivo de arquitetura, início":
+    - /url: /
+  - paragraph: Amanda Lavina Arquitetura Ltda · CNPJ 52.116.202/0001-05
+  - heading "Escritório" [level=2]
+  - text: Av. Pres. Vargas, 505 Sagrado Coração de Jesus · Lages/SC CEP 88508-110
+  - paragraph: Segunda a sexta, 09h às 19h
+  - heading "Instagram" [level=2]
+  - list:
+    - listitem:
+      - link "@lavina.co.arq (abre em nova aba)":
+        - /url: https://www.instagram.com/lavina.co.arq/
+    - listitem:
+      - link "@lavinamanda (abre em nova aba)":
+        - /url: https://www.instagram.com/lavinamanda/
+  - heading "Site" [level=2]
+  - list:
+    - listitem:
+      - link "Política de privacidade":
+        - /url: /privacidade/
+    - listitem:
+      - link "Preferências de cookies":
+        - /url: /privacidade/#cookies
+  - paragraph: "Site: WAXLO"
