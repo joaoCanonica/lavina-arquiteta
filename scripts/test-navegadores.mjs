@@ -36,7 +36,7 @@ const ROTAS = [
   '/contato/',
   '/privacidade/',
 ];
-const relatorio = { navegador: NOME, versao: null, rotas: {}, transicao: {} };
+const relatorio = { navegador: NOME, versao: null, rotas: {}, transicao: {}, navegacao: {} };
 let servidor;
 let navegador;
 
@@ -82,6 +82,42 @@ const pagina = async (rota, opcoes = {}) => {
   return { ctx, p, erros };
 };
 
+// Clica e navega. Separa as falhas: o clique não inicia a navegação (commit) ou a página
+// nova não termina de carregar (load). Em falha, grava o diagnóstico no relatório.
+const navegarPorClique = async (p, seletor, padrao, chave) => {
+  const alvo = p.locator(seletor).first();
+  await alvo.scrollIntoViewIfNeeded();
+  const caixa = await alvo.boundingBox();
+  const sob = caixa
+    ? await p.evaluate(
+        ([x, y]) => {
+          const e = document.elementFromPoint(x, y);
+          return e ? `${e.tagName.toLowerCase()}.${String(e.className).split(' ')[0]}` : null;
+        },
+        [caixa.x + caixa.width / 2, caixa.y + caixa.height / 2],
+      )
+    : null;
+  const d = { seletor, caixa, sob, urlAntes: p.url() };
+  relatorio.navegacao[chave] = d;
+  await alvo.click();
+  try {
+    await p.waitForURL(padrao, { waitUntil: 'commit', timeout: 10000 });
+    d.commit = true;
+  } catch {
+    d.commit = false;
+    d.urlDepois = p.url();
+    throw new Error(`${chave}: o clique não iniciou a navegação (${JSON.stringify(d)})`);
+  }
+  try {
+    await p.waitForLoadState('load', { timeout: 15000 });
+    d.load = true;
+  } catch {
+    d.load = false;
+    d.estado = await p.evaluate(() => document.readyState).catch(() => 'sem acesso');
+    throw new Error(`${chave}: a página nova não terminou de carregar (${JSON.stringify(d)})`);
+  }
+};
+
 test(`${NOME}: todas as rotas carregam sem erro de script, com h1 e sem rolagem lateral`, async () => {
   for (const largura of [1440, 390]) {
     for (const rota of ROTAS) {
@@ -107,8 +143,12 @@ test(`${NOME}: índice → projeto → próximo; a foto de abertura termina aber
     startViewTransition: 'startViewTransition' in document,
     regraCss: CSS.supports('view-transition-name: a'),
   }));
-  await p.locator('a[href="/projetos/consultorio-jonny-arruda/"]').click();
-  await p.waitForURL('**/consultorio-jonny-arruda/');
+  await navegarPorClique(
+    p,
+    'a[href="/projetos/consultorio-jonny-arruda/"]',
+    '**/consultorio-jonny-arruda/',
+    'indice→projeto',
+  );
   await p.waitForTimeout(2000);
   relatorio.transicao.chegadaPorTransicao = await p.evaluate(() =>
     document.documentElement.classList.contains('vt-chegada'),
@@ -116,8 +156,7 @@ test(`${NOME}: índice → projeto → próximo; a foto de abertura termina aber
   const clip = await p.locator('.heroi__midia').evaluate((e) => getComputedStyle(e).clipPath);
   relatorio.transicao.clipAbertura = clip;
   assert.match(clip, ABERTO, `clip ${clip}`);
-  await p.locator('.proximo__link').click();
-  await p.waitForURL('**/living-jantar-painel/');
+  await navegarPorClique(p, '.proximo__link', '**/living-jantar-painel/', 'projeto→proximo');
   await p.waitForTimeout(2000);
   // Projeto em vídeo: a abertura é a janela vertical, sem foto para abrir.
   assert.ok(await p.locator('h1').isVisible());
@@ -128,8 +167,7 @@ test(`${NOME}: índice → projeto → próximo; a foto de abertura termina aber
 
 test(`${NOME}: movimento reduzido abre a foto direto, sem transição`, async () => {
   const { ctx, p } = await pagina('/projetos/', { reducedMotion: 'reduce' });
-  await p.locator('a[href="/projetos/suite-fl/"]').click();
-  await p.waitForURL('**/suite-fl/');
+  await navegarPorClique(p, 'a[href="/projetos/suite-fl/"]', '**/suite-fl/', 'reduzido');
   assert.equal(
     await p.evaluate(() => document.documentElement.classList.contains('vt-chegada')),
     false,

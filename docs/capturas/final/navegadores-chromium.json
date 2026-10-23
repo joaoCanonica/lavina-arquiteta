@@ -192,5 +192,46 @@
     "chegadaPorTransicao": true,
     "clipAbertura": "none",
     "erros": []
+  },
+  "navegacao": {
+    "indice→projeto": {
+      "seletor": "a[href=\"/projetos/consultorio-jonny-arruda/\"]",
+      "caixa": {
+        "x": 51.1875,
+        "y": 373.828125,
+        "width": 378.828125,
+        "height": 152.4375
+      },
+      "sob": "a.item__link",
+      "urlAntes": "http://localhost:4380/projetos/",
+      "commit": true,
+      "load": true
+    },
+    "projeto→proximo": {
+      "seletor": ".proximo__link",
+      "caixa": {
+        "x": 828.796875,
+        "y": 308.140625,
+        "width": 502.453125,
+        "height": 283.28125
+      },
+      "sob": "a.proximo__link",
+      "urlAntes": "http://localhost:4380/projetos/consultorio-jonny-arruda/",
+      "commit": true,
+      "load": true
+    },
+    "reduzido": {
+      "seletor": "a[href=\"/projetos/suite-fl/\"]",
+      "caixa": {
+        "x": 850.125,
+        "y": 408.734375,
+        "width": 233.453125,
+        "height": 83
+      },
+      "sob": "a.item__link",
+      "urlAntes": "http://localhost:4380/projetos/",
+      "commit": true,
+      "load": true
+    }
   }
 }
