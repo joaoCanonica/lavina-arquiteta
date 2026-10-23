@@ -26,7 +26,7 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Projetos que só existem em vídeo** (living/jantar paramétrico, quarto e closet, cozinha farmhouse) ganharam ids provisórios no manifesto (`living-jantar-painel`, `quarto-closet`, `cozinha-farmhouse`) e não têm créditos de projeto próprios além de "Lavina | Coletivo de Arquitetura"; confirmar cidade/ano/créditos (sessão 2).
 - **Lista completa do que pedir ao João:** `docs/MIDIA_CATALOGO.md`, seção final.
 - **Verticais não corrigidas** em 627064897, 627098371, 641767635, 729424348, 730513804 e 641226479: a estimativa automática pedia cortar 20–50% da foto. Corrigidas (35%) só 625681099, 627664561 e 728943785. Para as demais, marcar linhas verticais à mão numa sessão L, se o João quiser.
-- **Quadros quase repetidos:** `quadro-mostrando-quarto-01/02` e `quadro-novo-modelo-03/04` são muito parecidos; escolher um de cada na sessão 6.
+- ~~**Quadros quase repetidos:** `quadro-mostrando-quarto-01/02` e `quadro-novo-modelo-03/04` são muito parecidos; escolher um de cada na sessão 6.~~ Resolvido em 23/10: no Quarto e closet ficou o quadro 01 (arandela acesa e criado-mudo) e o 02 saiu da galeria; na Farmhouse, o 03 e o 04 mostram paredes diferentes (o 04 tem a TV e o LED do rodapé) e ficam os dois.
 
 ## Sessão 2 — Config e travas
 
@@ -38,15 +38,15 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 ## Sessão 3 — Marca e design system
 
 - **Logo reconstruído**: validar com a Amanda (traços e subtítulo em Comfortaa Light); trocar pelo arquivo original se existir. Ver `docs/MARCA.md`.
-- **Grão** disponível e desligado por padrão; decidir na home (sessão 6A).
-- **Comparador**: estrutura e acessibilidade prontas; comportamento (arrastar, sincronizar com o range) na sessão 6B.
+- ~~**Grão** disponível e desligado por padrão; decidir na home (sessão 6A).~~ Resolvido na sessão 6A: fica desligado (nenhuma página liga `<Base grao>`).
+- ~~**Comparador**: estrutura e acessibilidade prontas; comportamento (arrastar, sincronizar com o range) na sessão 6B.~~ Resolvido nas sessões 6A/6B: arraste, teclado e range sincronizados (`test:home`).
 
 ## Sessão 4 — Entrada e abertura
 
 - **Copy provisória da abertura**: tese literal da bio ("Arquitetura com presença em cada etapa."); subtítulo "Interiores, iluminação e acompanhamento de obra. Lages e Litoral Catarinense." (cidades da config). Revisar na sessão 5.
-- **Mensagem do WhatsApp** neutra ("Tipo de projeto: ___ · Cidade: ___"), sem dado sensível; revisar na sessão 7 (LGPD).
-- **Links do menu** (/projetos/, /processo/, /coletivo/, /contato/) apontam para páginas das sessões 6B e 6C.
-- **SEO 54 no Lighthouse** por noindex (preview) e falta de meta description: resolve nas sessões 5/8 e com o domínio.
+- ~~**Mensagem do WhatsApp** neutra ("Tipo de projeto: ___ · Cidade: ___"), sem dado sensível; revisar na sessão 7 (LGPD).~~ Resolvido na sessão 7: sem dado sensível, conferido em `test:consentimento`.
+- ~~**Links do menu** (/projetos/, /processo/, /coletivo/, /contato/) apontam para páginas das sessões 6B e 6C.~~ Resolvido nas sessões 6B/6C: as quatro páginas existem (`verificar-links`: 0 quebrados).
+- ~~**SEO 54 no Lighthouse** por noindex (preview) e falta de meta description: resolve nas sessões 5/8 e com o domínio.~~ Resolvido na sessão 8: meta description em todas as páginas; o SEO 69 restante é só o noindex do preview.
 
 ## Sessão 5 — Textos
 
@@ -62,12 +62,12 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Autoria de fotos e vídeos de obra**: aparece "A confirmar" na ficha técnica (selo PROVISÓRIO no preview) em todos os projetos com foto ou vídeo.
 - **Cordis e T|B**: a página diz que a obra foi executada e que as fotos ainda não estão no site (decisão 5 do copy deck). A citação "Executado ficou tão lindo quanto." da Cordis só entra com a foto da obra.
 - **Quem apresenta o vídeo do quarto e closet**: a legenda do vídeo não nomeia ninguém até confirmar.
-- **Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9. → Feito na sessão 9 (CI): Firefox usa o fallback de verdade; WebKit faz a transição.
-- **Páginas do menu** /processo/, /coletivo/ e /contato/: construídas na sessão 6C.
+- ~~**Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9. → Feito na sessão 9 (CI): Firefox usa o fallback de verdade; WebKit faz a transição.~~ Resolvido na sessão 9 (CI).
+- ~~**Páginas do menu** /processo/, /coletivo/ e /contato/: construídas na sessão 6C.~~ Resolvido na sessão 6C.
 
 ## Sessão 6C — Processo, coletivo, contato e 404
 
-- **Mapa incorporado em /contato**: feito na sessão 7 (iframe só depois do consentimento "mapas").
+- ~~**Mapa incorporado em /contato**: feito na sessão 7 (iframe só depois do consentimento "mapas").~~ Resolvido na sessão 7.
 - **Stills de obra em /processo**: três quadros novos do vídeo `um-dia-no-escritorio` (galpão), escolhidos sem rosto de terceiros. O primeiro foi recortado para tirar o carro e a placa (registrado em `docs/dados/stills.json` e no manifesto). A obra do vídeo não é identificada como projeto; os quadros levam o rótulo "Vídeo".
 - **CAU e formação** de Amanda, Renata e Lara: não aparecem em /coletivo enquanto pendentes. Quando confirmados em `src/config/pessoas.ts`, entram sozinhos (Formação e CAU sob o texto de cada uma).
 - **Linha sobre IA no processo** (decisão 10 do copy deck): aparece em /processo, discreta, como na home.
