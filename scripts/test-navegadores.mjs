@@ -75,6 +75,10 @@ after(async () => {
   await navegador?.close();
   servidor?.kill();
   servidorCspCompleta?.kill();
+  // Também no log (o CI guarda o arquivo como artefato).
+  console.log(
+    'RELATORIO ' + JSON.stringify({ ...relatorio, rotas: Object.keys(relatorio.rotas).length }),
+  );
   await mkdir('docs/capturas/final', { recursive: true });
   await writeFile(
     `docs/capturas/final/navegadores-${NOME}.json`,
