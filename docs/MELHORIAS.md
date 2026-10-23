@@ -23,7 +23,7 @@ Sessão 9 · 22/10/2026. O que deixaria o site melhor depois do lançamento, em 
 | Pôster `eager` nos projetos só em vídeo | O pôster da janela de vídeo é `lazy` e vira o LCP (1,6–1,7 s). Com `eager` e preload, cai. | Pequeno, no componente da home `VideoJanela` |
 | LQIP só acima da dobra | O HTML da home tem cerca de 150 KB; os LQIPs em base64 de imagens abaixo da dobra pesam no primeiro byte. | Médio |
 | Derivados de mídia fora do build | A Vercel gera toda a mídia do zero a cada build, em modo rápido (AVIF esforço 1, VP9 em tempo real), com arquivos maiores que os locais. Guardar os derivados num armazenamento de objetos (ou no cache de build) daria a compressão máxima também no ar. | Médio |
-| Testes no Firefox e no WebKit | Neste ambiente só havia Chromium. O fallback das View Transitions foi emulado, não testado nos navegadores reais. | Rodar `pnpm test:projetos` com os navegadores do Playwright instalados (CI) |
+| Safari real (iPhone/Mac) | O WebKit do Playwright já passou no CI (`docs/AUDITORIA.md` §5), mas não é o Safari do aparelho, com o mesmo motor e outra integração. | Abrir o preview num iPhone e num Mac uma vez antes da produção |
 | Validação externa | Rich Results Test, validator.schema.org e Search Console, na URL publicada. | Com o domínio |
 
 ## 3. Bibliotecas adicionadas (medição e justificativa)

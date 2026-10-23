@@ -21,7 +21,7 @@ Build de preview (`pnpm build`), servido localmente com os cabeçalhos do `verce
 | Config (`validate-config`) | 9 projetos válidos, 31 pendências, **0 travas** (preview e produção) | `docs/PENDENCIAS.md` |
 | Testes | config, entrada (9/9), home (6/6), projetos (8/8), páginas (7/7), consentimento (13/13): todos verdes | — |
 | Código | `astro check` 0 erros · ESLint 0 · Prettier ok | — |
-| Firefox e Safari/WebKit | **NÃO VERIFICADO.** Só há Chromium neste ambiente, e `playwright install` não é permitido. O fallback sem View Transitions foi emulado no Chromium (`test:projetos`). | `docs/MELHORIAS.md` §2 |
+| Firefox e Safari/WebKit | **VERIFICADO no CI** (GitHub Actions, `.github/workflows/navegadores.yml`): Firefox 157 e WebKit 27.2, 5/5 testes cada. Rotas sem erro de script, com h1 e sem rolagem lateral (390 e 1440); índice → projeto → próximo; movimento reduzido; sem JS. Detalhe no §5 | `docs/capturas/final/navegadores-*.json` |
 | Leitor de tela real (NVDA, VoiceOver) | **NÃO VERIFICADO** com o leitor. A estrutura foi conferida pela árvore de acessibilidade do Chromium. | — |
 
 ## 2. Notas por rota
@@ -65,6 +65,19 @@ P/A/BP/SEO = Performance, Acessibilidade, Boas práticas, SEO do Lighthouse (mob
 3. **Sem atalho "Pular para o conteúdo".** Foi criado (primeiro elemento do `<body>`, visível no foco) e o `<main>` de todas as páginas tem `id="conteudo"`. Durante a entrada, o atalho fica oculto, e o primeiro Tab continua sendo o "Pular" da entrada.
 4. **Build na Vercel sem ffmpeg.** Entrou o `ffmpeg-static` e o modo rápido de mídia (ver `docs/MELHORIAS.md` §3 e `docs/DEPLOY.md`).
 
-## 5. Bloqueios de produção
+## 5. Firefox e Safari (WebKit)
+
+Neste ambiente só há Chromium, e `playwright install` não é permitido. Por isso os dois navegadores rodam no CI: `scripts/test-navegadores.mjs`, no workflow `navegadores`, em cada push. Execução de referência: 39883178508, commit `7bf838c`, 23/10/2026.
+
+| | Firefox 157 | WebKit 27.2 (motor do Safari) |
+| --- | --- | --- |
+| 15 rotas × 390/1440 sem erro, h1 único, sem rolagem lateral | ✔ | ✔ |
+| Transição entre documentos | não suporta (`pagereveal` ausente) → **fallback real**: navegação comum, a foto abre pela fresta (`inset(0% 0px)`) | suporta: chegada por View Transition, foto já aberta |
+| Movimento reduzido | ✔ sem transição, foto aberta | ✔ |
+| Sem JavaScript | ✔ | ✔ |
+
+**Achado no caminho, que não é defeito do site:** na primeira execução, o clique nos projetos não navegava no WebKit. A causa é a diretiva `upgrade-insecure-requests` da CSP somada ao servidor de teste em **http**://localhost: o WebKit leva a navegação para https://localhost, que não existe. Chromium e Firefox tratam localhost como seguro e não sofrem isso. O teste de controle confirmou: com a CSP completa em http, o WebKit pediu https e não navegou. No ar tudo é https, então nada muda no site. O servidor local ganhou `--sem-upgrade` só para os testes em http.
+
+## 6. Bloqueios de produção
 
 Ver `docs/COMPLIANCE.md` → "Bloqueios de produção (nenhum escondido)". Travas automáticas: 0. O que impede a produção hoje é o domínio, mais as decisões humanas listadas na tabela de normas.

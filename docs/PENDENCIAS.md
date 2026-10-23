@@ -62,7 +62,7 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
 - **Autoria de fotos e vídeos de obra**: aparece "A confirmar" na ficha técnica (selo PROVISÓRIO no preview) em todos os projetos com foto ou vídeo.
 - **Cordis e T|B**: a página diz que a obra foi executada e que as fotos ainda não estão no site (decisão 5 do copy deck). A citação "Executado ficou tão lindo quanto." da Cordis só entra com a foto da obra.
 - **Quem apresenta o vídeo do quarto e closet**: a legenda do vídeo não nomeia ninguém até confirmar.
-- **Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9.
+- **Fallback das View Transitions**: testado só no Chromium, emulando um navegador sem `@view-transition`. Conferir em Firefox e Safari reais na sessão 9. → Feito na sessão 9 (CI): Firefox usa o fallback de verdade; WebKit faz a transição.
 - **Páginas do menu** /processo/, /coletivo/ e /contato/: construídas na sessão 6C.
 
 ## Sessão 6C — Processo, coletivo, contato e 404
@@ -102,7 +102,7 @@ Itens que não travam o trabalho, mas precisam de decisão ou dado. Cada sessão
   - linha sobre IA (João).
 - **Domínio:** `coletivoarquiteturalavina.com.br` não registrado. Bloqueia a produção (`docs/DEPLOY.md` §2 e §3).
 - **Proteção da Vercel:** o preview pede login da Vercel (Deployment Protection ligada no projeto). Para mostrar à Amanda: link de compartilhamento ou desligar a proteção de previews (decisão do João).
-- **Firefox e Safari:** não testados neste ambiente (`docs/AUDITORIA.md` §1).
+- **Firefox e Safari:** testados no CI (Firefox 157 e WebKit 27.2, 5/5 cada; `docs/AUDITORIA.md` §5). Falta só uma olhada num iPhone ou Mac de verdade.
 
 <!-- pendencias:auto:inicio -->
 
